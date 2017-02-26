@@ -38,7 +38,3 @@ nosetests.xml
 .mr.developer.cfg
 .project
 .pydevproject
-
-#PyPi
-setup.cfg
-.pypirc

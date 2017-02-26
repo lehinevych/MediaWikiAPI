@@ -21,7 +21,7 @@ setuptools.setup(
   version = __version__,
   author = "Taras Lehinevych",
   author_email = "mediawikiapi@taraslehinevych.me",
-  description = "Wikipedia API on Python",
+  description = "Wikipedia API on Python"
   license = "MIT",
   keywords = "python wikipedia API mediawiki",
   url = "https://github.com/lehinevych/MediaWikiAPI",
