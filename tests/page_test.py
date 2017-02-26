@@ -1,15 +1,14 @@
 # -*- coding: utf-8 -*-
 from decimal import Decimal
 import unittest
+
 import mediawikiapi
-from mediawikiapi import MediaWikiAPI
 from request_mock_data import mock_data
 
-api = MediaWikiAPI()
 # mock out _wiki_request
 def _wiki_request(params):
   return mock_data["_wiki_request calls"][tuple(sorted(params.items()))]
-# api.wiki_request.request = _wiki_request
+mediawikiapi._wiki_request = _wiki_request
 
 
 class TestPageSetUp(unittest.TestCase):
@@ -17,38 +16,38 @@ class TestPageSetUp(unittest.TestCase):
   def test_missing(self):
     """Test that page raises a PageError for a nonexistant page."""
     # Callicarpa?
-    purpleberry = lambda: api.page("purpleberrynotexist", auto_suggest=False)
+    purpleberry = lambda: mediawikiapi.page("purpleberrynotexist", auto_suggest=False)
     self.assertRaises(mediawikiapi.PageError, purpleberry)
 
   def test_redirect_true(self):
     """Test that a page successfully redirects a query."""
     # no error should be raised if redirect is test_redirect_true
-    mp = api.page("Template:cn", auto_suggest=False)
+    mp = mediawikiapi.page("Template:cn", auto_suggest=False)
 
     self.assertEqual(mp.title, "Template:Citation needed")
     self.assertEqual(mp.url, "https://en.wikipedia.org/wiki/Template:Citation_needed")
 
   def test_redirect_false(self):
     """Test that page raises an error on a redirect when redirect == False."""
-    mp = lambda: api.page("Template:cn", auto_suggest=False, redirect=False)
+    mp = lambda: mediawikiapi.page("Template:cn", auto_suggest=False, redirect=False)
     self.assertRaises(mediawikiapi.RedirectError, mp)
 
   def test_redirect_no_normalization(self):
     """Test that a page with redirects but no normalization query loads correctly"""
-    the_party = api.page("Communist Party", auto_suggest=False)
+    the_party = mediawikiapi.page("Communist Party", auto_suggest=False)
     self.assertIsInstance(the_party, mediawikiapi.WikipediaPage)
     self.assertEqual(the_party.title, "Communist party")
 
   def test_redirect_with_normalization(self):
     """Test that a page redirect with a normalized query loads correctly"""
-    the_party = api.page("communist Party", auto_suggest=False)
+    the_party = mediawikiapi.page("communist Party", auto_suggest=False)
     self.assertIsInstance(the_party, mediawikiapi.WikipediaPage)
     self.assertEqual(the_party.title, "Communist party")
 
   def test_redirect_normalization(self):
     """Test that a page redirect loads correctly with or without a query normalization"""
-    capital_party = api.page("Communist Party", auto_suggest=False)
-    lower_party = api.page("communist Party", auto_suggest=False)
+    capital_party = mediawikiapi.page("Communist Party", auto_suggest=False)
+    lower_party = mediawikiapi.page("communist Party", auto_suggest=False)
 
     self.assertIsInstance(capital_party, mediawikiapi.WikipediaPage)
     self.assertIsInstance(lower_party, mediawikiapi.WikipediaPage)
@@ -58,7 +57,7 @@ class TestPageSetUp(unittest.TestCase):
   def test_disambiguate(self):
     """Test that page raises an error when a disambiguation page is reached."""
     try:
-      ram = api.page("Template", auto_suggest=False, redirect=False)
+      ram = mediawikiapi.page("Template", auto_suggest=False, redirect=False)
       error_raised = False
     except mediawikiapi.DisambiguationError as e:
       error_raised = True
@@ -73,7 +72,7 @@ class TestPageSetUp(unittest.TestCase):
   def test_auto_suggest(self):
     """Test that auto_suggest properly corrects a typo."""
     # yum, butter.
-    butterfly = api.page("butteryfly")
+    butterfly = mediawikiapi.page("butteryfly")
 
     self.assertEqual(butterfly.title, "Butterfly")
     self.assertEqual(butterfly.url, "https://en.wikipedia.org/wiki/Butterfly")
@@ -84,13 +83,13 @@ class TestPage(unittest.TestCase):
 
   def setUp(self):
     # shortest wikipedia articles with images and sections
-    self.celtuce = api.page("Celtuce")
-    self.cyclone = api.page("Tropical Depression Ten (2005)")
-    self.great_wall_of_china = api.page("Great Wall of China")
+    self.celtuce = mediawikiapi.page("Celtuce")
+    self.cyclone = mediawikiapi.page("Tropical Depression Ten (2005)")
+    self.great_wall_of_china = mediawikiapi.page("Great Wall of China")
 
   def test_from_page_id(self):
     """Test loading from a page id"""
-    self.assertEqual(self.celtuce, api.page(pageid=1868108))
+    self.assertEqual(self.celtuce, mediawikiapi.page(pageid=1868108))
 
   def test_title(self):
     """Test the title."""
@@ -119,21 +118,18 @@ class TestPage(unittest.TestCase):
 
   def test_images(self):
     """Test the list of image URLs."""
-    # the assertEqual with sorting is used instead assertCountEqual for python 2 compatibility
-    self.assertEqual(sorted(self.celtuce.images), sorted(mock_data['data']["celtuce.images"]))
-    self.assertEqual(sorted(self.cyclone.images), sorted(mock_data['data']["cyclone.images"]))
+    self.assertCountEqual(self.celtuce.images, mock_data['data']["celtuce.images"])
+    self.assertCountEqual(self.cyclone.images, mock_data['data']["cyclone.images"])
 
   def test_references(self):
     """Test the list of reference URLs."""
-    # the assertEqual with sorting is used instead assertCountEqual for python 2 compatibility
-    self.assertEqual(sorted(self.celtuce.references), sorted(mock_data['data']["celtuce.references"]))
-    self.assertEqual(sorted(self.cyclone.references), sorted(mock_data['data']["cyclone.references"]))
+    self.assertCountEqual(self.celtuce.references, mock_data['data']["celtuce.references"])
+    self.assertCountEqual(self.cyclone.references, mock_data['data']["cyclone.references"])
 
   def test_links(self):
     """Test the list of titles of links to Wikipedia pages."""
-    # the assertEqual with sorting is used instead assertCountEqual for python 2 compatibility
-    self.assertEqual(sorted(self.celtuce.links), sorted(mock_data['data']["celtuce.links"]))
-    self.assertEqual(sorted(self.cyclone.links), sorted(mock_data['data']["cyclone.links"]))
+    self.assertCountEqual(self.celtuce.links, mock_data['data']["celtuce.links"])
+    self.assertCountEqual(self.cyclone.links, mock_data['data']["cyclone.links"])
 
   def test_html(self):
     """Test the full HTML method."""
@@ -153,14 +149,15 @@ class TestPage(unittest.TestCase):
 
   def test_categories(self):
     """Test the list of categories of Wikipedia pages."""
-    # the assertEqual with sorting is used instead assertCountEqual for python 2 compatibility
-    self.assertEqual(sorted(self.celtuce.categories), sorted(mock_data['data']["celtuce.categories"]))
-    self.assertEqual(sorted(self.cyclone.categories), sorted(mock_data['data']["cyclone.categories"]))
+    self.assertCountEqual(self.celtuce.categories, mock_data['data']["celtuce.categories"])
+    self.assertCountEqual(self.cyclone.categories, mock_data['data']["cyclone.categories"])
 
   def test_sections(self):
     """Test the list of section titles."""
-    # the assertEqual with sorting is used instead assertCountEqual for python 2 compatibility
-    self.assertEqual(sorted(self.cyclone.sections), sorted(mock_data['data']["cyclone.sections"]))
+    print("cyclone.sections")
+    print(self.cyclone.sections)
+    print(self.cyclone.title)
+    self.assertCountEqual(sorted(self.cyclone.sections), mock_data['data']["cyclone.sections"])
 
   def test_section(self):
     """Test text content of a single section."""

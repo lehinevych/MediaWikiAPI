@@ -1,14 +1,9 @@
 MediaWikiAPI
 ===================
 
-.. image:: https://img.shields.io/pypi/v/requests.svg
-  :target: https://pypi.python.org/pypi/requests
-.. image:: https://img.shields.io/pypi/pyversions/requests.svg
-  :target: https://pypi.python.org/pypi/mediawikiapi
 .. image:: https://travis-ci.org/lehinevych/MediaWikiAPI.svg?branch=master
   :target: https://travis-ci.org/leginevych/MediaWikiAPI
-.. image:: https://img.shields.io/badge/license-MIT%20License-brightgreen.svg
-  :target: https://opensource.org/licenses/MIT
+
 
 
 **MediaWikiAPI** is a Python library that makes it easy to access and parse
@@ -21,8 +16,7 @@ Wikipedia data, not getting it.
 
 .. code:: python
 
-  >>> from mediawikiapi import MediaWikiAPI
-  >>> mediawikiapi = MediaWikiAPI()
+  >>> import mediawikiapi
   >>> print mediawikiapi.summary("Wikipedia")
   # Wikipedia (/ˌwɪkɨˈpiːdiə/ or /ˌwɪkiˈpiːdiə/ WIK-i-PEE-dee-ə) is a collaboratively edited, multilingual, free Internet encyclopedia supported by the non-profit Wikimedia Foundation...
 
@@ -39,7 +33,7 @@ Wikipedia data, not getting it.
   >>> ny.links[0]
   # u'1790 United States Census'
 
-  >>> mediawikiapi.conf.language = "fr"
+  >>> mediawikiapi.set_lang("fr")
   >>> mediawikiapi.summary("Facebook", sentences=1)
   # Facebook est un service de réseautage social en ligne sur Internet permettant d'y publier des informations (photographies, liens, textes, etc.) en contrôlant leur visibilité par différentes catégories de personnes.
 
@@ -53,7 +47,7 @@ To install MediaWikiAPI, simply run:
 
   $ pip install mediawikiapi
 
-MediaWikiAPI is compatible only with Python 3 and Python 2.7.
+MediaWikiAPI is compatible only with Python 3.3+. Support for Python 2.7 will be added soon.
 
 Documentation
 -------------
