@@ -44,10 +44,10 @@ class PageError(MediaWikiAPIException):
 
 class LanguageError(MediaWikiAPIException):
     """Exception raised when a language prefix is set which is not available"""
-    
+
     def __init__(self, language):
         self.language = language
-    
+
     def __unicode__(self):
         return u"\"{0}\" is not a language prefix available in Wikipedia. Run wikipedia.languages().keys() to get available prefixes.".format(self.language)
 
@@ -58,8 +58,6 @@ class DisambiguationError(MediaWikiAPIException):
 
   The `options` property contains a list of titles
   of Wikipedia pages that the query may refer to.
-
-  .. note:: `options` does not include titles that do not link to a valid Wikipedia page.
   """
 
   def __init__(self, title, may_refer_to, details=None):

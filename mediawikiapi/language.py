@@ -25,13 +25,13 @@ predefined_languages = __get_available_languages()
 
 class Language(object):
   '''
-  Wrapper over language used in mediawiki
-  If language is not defined, use English
-  The verification stage is available only in case we will set predefined_languages
-  Verify the language, if language doesn't exists get LanguageError exception
+  Wrapper over language used in mediawiki.
+  If language is not defined, use English.
+  The verification stage is available only in case we will set predefined_languages.
+  Verify the language, if language doesn't exists get LanguageError exception.
   '''
   DEFAULT_LANGUAGE='en'
-  
+
   def __init__(self, language=None):
     if language is None:
       self.language = self.DEFAULT_LANGUAGE
@@ -60,6 +60,3 @@ class Language(object):
       self._language = language
     else:
       raise LanguageError(language)
-
-
-

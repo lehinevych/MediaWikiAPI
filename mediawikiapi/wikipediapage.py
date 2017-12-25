@@ -64,7 +64,7 @@ class WikipediaPage(object):
       query_params['pageids'] = self.pageid
 
     request = self._wiki_request(query_params)
-   
+
     query = request['query']
     pageid = list(query['pages'].keys())[0]
     page = query['pages'][pageid]
@@ -115,7 +115,7 @@ class WikipediaPage(object):
       html = request['query']['pages'][pageid]['revisions'][0]['*']
 
       lis = BeautifulSoup(html, 'html.parser').find_all('li')
-      filtered_lis = [li for li in lis if not 'tocsection' in ''.join(li.get('class', []))] 
+      filtered_lis = [li for li in lis if not 'tocsection' in ''.join(li.get('class', []))]
       disambiguation = []
       host_name = page["fullurl"]
       for lis_item in filtered_lis:
