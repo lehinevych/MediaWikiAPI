@@ -53,7 +53,7 @@ MediaWikiAPI is compatible with Python 3 and Python 2.7.
 Documentation
 -------------
 
-Soon will be available on readthedocs.
+The documentation is available [here](http://mediawikiapi.readthedocs.io/en/latest/)
 
 To run tests, clone the `repository on GitHub <https://github.com/lehinevych/MediaWikiAPI>`__, then run:
 
