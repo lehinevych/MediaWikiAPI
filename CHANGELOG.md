@@ -7,6 +7,7 @@
 * Rename Configuration class to Config, add language field
 * Config().get_api_url now accept language parameter
 * Add timeout for requests, field in Config class called timeout (in seconds).
+* Makes the pagepropsof a wikipedia page accessible [PR #147](https://github.com/goldsmith/Wikipedia/pull/147) from @goldsmith repo.
 * Fix suggestion, issue [#108](https://github.com/goldsmith/Wikipedia/issues/108) by [PR #131](https://github.com/goldsmith/Wikipedia/pull/131) from @goldsmith repo.
 * Fixed problem with hidden files in the article [PR #132](https://github.com/goldsmith/Wikipedia/pull/132/files) @goldsmith repo.
 * DisambiguationError contains now information about title and url [PR #92](https://github.com/goldsmith/Wikipedia/pull/92) from @goldsmith repo.

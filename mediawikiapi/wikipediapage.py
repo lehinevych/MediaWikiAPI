@@ -55,7 +55,6 @@ class WikipediaPage(object):
     query_params = {
       'prop': 'info|pageprops',
       'inprop': 'url',
-      'ppprop': 'disambiguation',
       'redirects': '',
     }
     if not getattr(self, 'pageid', None):
@@ -100,7 +99,7 @@ class WikipediaPage(object):
     # since we only asked for disambiguation in ppprop,
     # if a pageprop is returned,
     # then the page must be a disambiguation page
-    elif 'pageprops' in page:
+    elif 'pageprops' in page and 'disambiguation' in page['pageprops']:
       query_params = {
         'prop': 'revisions',
         'rvprop': 'content',
@@ -132,9 +131,10 @@ class WikipediaPage(object):
 
     else:
       self.pageid = pageid
-      self.title = page['title']
-      self.url = page['fullurl']
-      self.language = page['pagelanguage']
+      self.title = page.get('title')
+      self.url = page.get('fullurl')
+      self.language = page.get('pagelanguage')
+      self.pageprops = page.get('pageprops', {})
 
   def __continued_query(self, query_params):
     '''
@@ -293,10 +293,10 @@ class WikipediaPage(object):
 
       request = self._wiki_request(query_params)
 
-      if 'query' in request:
+      try:
         coordinates = request['query']['pages'][self.pageid]['coordinates']
         self._coordinates = (Decimal(coordinates[0]['lat']), Decimal(coordinates[0]['lon']))
-      else:
+      except KeyError:
         self._coordinates = None
 
     return self._coordinates
