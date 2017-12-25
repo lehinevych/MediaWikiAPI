@@ -56,7 +56,7 @@ class Config():
         lang = Language(language)
         return self.API_URL.format(lang.language)
     return self.API_URL.format(self.__lang.language)
-    
+
   @property
   def rate_limit(self):
     return self.__rate_limit
@@ -89,7 +89,7 @@ class Config():
       self.__rate_limit = None
     elif isinstance(rate_limit, timedelta):
       self.__rate_limit = rate_limit
-    else: 
+    else:
       self.__rate_limit = timedelta(milliseconds=rate_limit)
-    
+
     self.__rate_limit_last_call = None

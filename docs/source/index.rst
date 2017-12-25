@@ -1,23 +1,101 @@
-.. _index:
+.. MediaWikiAPI documentation master file, created by
+   sphinx-quickstart on Sun Dec 17 17:54:47 2017.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
 
-MediaWikiAPI
+Welcome to MediaWikiAPI's documentation!
+========================================
+
+Release v\ |version|.
+
+.. image:: https://img.shields.io/pypi/v/mediawikiapi.svg
+    :target: https://pypi.python.org/pypi/mediawikiapi
+
+.. image:: https://travis-ci.org/lehinevych/MediaWikiAPI.svg?branch=master
+    :target: https://travis-ci.org/leginevych/MediaWikiAPI
+
+.. image:: https://img.shields.io/github/issues/lehinevych/MediaWikiAPI.svg
+    :target: https://github.com/lehinevych/MediaWikiAPI/issues
+
+.. image:: https://img.shields.io/badge/license-MIT%20License-brightgreen.svg
+    :target: https://opensource.org/licenses/MIT
+
+
+Installation
+=============
+Start using wikipedia for Python in less than 5 minutes!
+MediaWikiAPI is compatible with Python 3 and Python 2.7.
+If you are looking for the the full developer API, see :ref:`api`.
+
+Begin by installing wikipedia::
+
+	$ pip install wikipedia
+
+As alternative you can use the source code from `Github <https://github.com/lehinevych/MediaWikiAPI>`_.
+
+Quickstart
 ============
+Now let's use the MediaWikiAPI. First you need to import the package and create MediaWikiAPI class.
+In order to use search and suggestion call the corresponding methods ``search`` and ``suggest``::
 
-MediaWikiAPI
-************
+  >>> from mediawikiapi import MediaWikiAPI
+  >>> mediawikiapi = MediaWikiAPI()
+  >>> mediawikiapi.search("Barack")
+	[u'Barak (given name)', u'Barack Obama', u'Barack (brandy)', u'Presidency of Barack Obama', u'Family of Barack Obama', u'First inauguration of Barack Obama', u'Barack Obama presidential campaign, 2008', u'Barack Obama, Sr.', u'Barack Obama citizenship conspiracy theories', u'Presidential transition of Barack Obama']
 
-MediaWikiAPI is a Python library that makes it easy to access and parse data from Wikipedia.
+  >>> mediawikiapi.suggest("Barak Obama") # returns the suggested Wikipedia title for a query or None
+	u'Barack Obama'
 
-Search Wikipedia, get article summaries, get data like links and images from a page, and more. Wikipedia wraps the `MediaWiki API <https://www.mediawiki.org/wiki/API>`_ so you can focus on using Wikipedia data, not getting it.
+We can also get fewer or more results by using the ``results`` kwarg::
 
-::
+	>>> mediawikiapi.search("Ford", results=3)
+	[u'Ford Motor Company', u'Gerald Ford', u'Henry Ford']
 
-	>>> import mediawikiapi
+To get the summary of an article, use ``mediawikiapi.summary``::
 
-	>>> print mediawikiapi.summary("Wikipedia")
-	# Wikipedia (/ˌwɪkɨˈpiːdiə/ or /ˌwɪkiˈpiːdiə/ WIK-i-PEE-dee-ə) is a collaboratively edited, multilingual, free Internet encyclopedia supported by the non-profit Wikimedia Foundation...
+	>>> mediawikiapi.summary("GitHub")
+	2011, GitHub was the most popular open source code repository site.\nGitHub Inc. was founded in 2008 and is based in San Francisco, California.\nIn July 2012, the company received $100 million in Series A funding, primarily from Andreessen Horowitz.'
 
-Go to the :ref:`quickstart` to start using ``wikipedia`` now, or see the :ref:`api`.
+	>>> mediawikiapi.summary("Apple III", sentences=1)
+	u'The Apple III (often rendered as Apple ///) is a business-oriented personal computer produced and released by Apple Computer that was intended as the successor to the Apple II series, but largely considered a failure in the market. '
+
+``mediawikiapi.page`` enables you to load and access data from full Wikipedia pages. Initialize with a page title (keep in mind the errors listed above), and then access most properties using property methods::
+
+	>>> ny = mediawikiapi.page("New York")
+
+	>>> ny.title
+	u'New York'
+
+	>>> ny.url
+	u'http://en.wikipedia.org/wiki/NewYork'
+
+	>>> ny.content
+	u'New York is a state in the Northeastern region of the United States. New York is the 27th-most exten'...
+
+	>>> ny.images[0]
+	u'http://upload.wikimedia.org/wikipedia/commons/9/91/New_York_quarter%2C_reverse_side%2C_2001.jpg'
+
+	>>> ny.links[0]
+	u'1790 United States Census'
+
+To change the language of the Wikipedia you are accessing, use ``mediawikiapi.conf.language``.
+Remember to search for page titles in the language that you have set, not English!::
+
+	>>> mediawikiapi.conf.language = "fr"
+
+	>>> print mediawikiapi.summary("Francois Hollande")
+	François Hollande, né le 12 août 1954 à Rouen, en Seine-Maritime, est un homme d'État français. Il est président de la République française depuis le 15 mai 2012...
+
+To get a list of all possible language prefixes, try ``mediawikiapi.languages()``.
+
+For more details and configuration option check API section.
+
+API
+====
+
+.. toctree::
+
+   api
 
 Indices and tables
 ==================
