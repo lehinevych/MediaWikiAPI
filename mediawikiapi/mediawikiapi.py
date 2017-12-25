@@ -12,7 +12,7 @@ from .wikirequest import WikiRequest
 
 
 class MediaWikiAPI(object):
-  
+
   def __init__(self, config=None):
     if config is not None:
       configuration = config
@@ -206,7 +206,7 @@ class MediaWikiAPI(object):
       '''
       List all the currently supported language prefixes (usually ISO language code).
 
-      Can be inputted to `set_lang` to change the Mediawiki that `wikipedia` requests
+      Can be inputted to WikipediaPage.conf to change the Mediawiki that `wikipedia` requests
       results from.
 
       Returns: dict of <prefix>: <local_lang_name> pairs. To get just a list of prefixes,
