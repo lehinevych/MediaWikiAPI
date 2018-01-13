@@ -6,6 +6,7 @@ MediaWikiAPI
 [![Build Status](https://travis-ci.org/lehinevych/MediaWikiAPI.svg?branch=master)](https://travis-ci.org/leginevych/MediaWikiAPI)
 [![GitHub Issues](https://img.shields.io/github/issues/lehinevych/MediaWikiAPI.svg)](https://github.com/lehinevych/MediaWikiAPI/issues)
 [![License](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)](https://opensource.org/licenses/MIT)
+[![Docs](https://readthedocs.org/projects/mediawikiapi/badge/?version=latest)
 
 
 **MediaWikiAPI** is a Python library that makes it easy to access and parse
@@ -54,6 +55,8 @@ Documentation
 -------------
 
 The documentation is available [here](http://mediawikiapi.readthedocs.io/en/latest/)
+Changelog could be find in the documentation.
+
 
 To run tests, clone the `repository on GitHub <https://github.com/lehinevych/MediaWikiAPI>`__, then run:
 

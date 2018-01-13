@@ -90,6 +90,14 @@ To get a list of all possible language prefixes, try ``mediawikiapi.languages()`
 
 For more details and configuration option check API section.
 
+
+Changelog
+=========
+
+.. toctree::
+
+   changelog
+
 API
 ====
 
