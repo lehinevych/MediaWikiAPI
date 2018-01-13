@@ -30,8 +30,9 @@ class TestPageSetUp(unittest.TestCase):
 
   def test_redirect_false(self):
     """Test that page raises an error on a redirect when redirect == False."""
-    mp = lambda: api.page("Template:cn", auto_suggest=False, redirect=False)
-    self.assertRaises(mediawikiapi.RedirectError, mp)
+    mp = api.page("Template:cn", auto_suggest=False, redirect=False)
+    # self.assertRaises(mediawikiapi.RedirectError, mp)
+    self.assertIsInstance(mp, mediawikiapi.WikipediaPage)
 
   def test_redirect_no_normalization(self):
     """Test that a page with redirects but no normalization query loads correctly"""
