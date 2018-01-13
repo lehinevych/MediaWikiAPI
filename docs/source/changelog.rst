@@ -25,7 +25,7 @@ Version 1.1
 * Fix suggestion, issue `#108 <https://github.com/goldsmith/Wikipedia/issues/108>`_ by `PR #131 <https://github.com/goldsmith/Wikipedia/pull/131>`_ from @goldsmith repo.
 * Fixed problem with hidden files in the article `PR #132 <https://github.com/goldsmith/Wikipedia/pull/132/files>`_ @goldsmith repo.
 * DisambiguationError contains now information about title and url `PR #92 <https://github.com/goldsmith/Wikipedia/pull/92>`_ from @goldsmith repo.
-
+* Fix issue where pageid request => redirect raises error `PR #165 <https://github.com/goldsmith/Wikipedia/pull/165>`_
 
 Version 1.0
 ============

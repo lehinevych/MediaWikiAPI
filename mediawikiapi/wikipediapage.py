@@ -73,7 +73,7 @@ class WikipediaPage(object):
 
     # same thing for redirect, except it shows up in query instead of page for
     # whatever silly reason
-    elif 'redirects' in query:
+    elif 'redirects' in query and page['title'] != query['redirects'][0]['to']:
       if redirect:
         redirects = query['redirects'][0]
         if 'normalized' in query:
@@ -81,8 +81,10 @@ class WikipediaPage(object):
           assert normalized['from'] == self.title, ODD_ERROR_MESSAGE
           from_title = normalized['to']
 
-        else:
+        elif hasattr(self, 'title'):
           from_title = self.title
+        else:
+          from_title = redirects['from']
 
         assert redirects['from'] == from_title, ODD_ERROR_MESSAGE
 
