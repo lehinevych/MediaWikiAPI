@@ -23,7 +23,7 @@ Classes
   :members:
 
   .. automethod:: __init__
-
+  
 .. autoclass:: mediawikiapi.WikipediaPage
   :members:
 

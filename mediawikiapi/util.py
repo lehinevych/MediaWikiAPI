@@ -1,11 +1,9 @@
-from __future__ import print_function, unicode_literals
-
 import sys
 import collections
 import functools
 
 
-class memorized(object):
+class memoized_class(object):
   '''
   Decorator.
   Caches a function's return value each time it is called.
@@ -15,6 +13,7 @@ class memorized(object):
   def __init__(self, func):
     self.func = func
     self.cache = {}
+    functools.update_wrapper(self, func)
 
   def __call__(self, *args, **kwargs):
     if not isinstance(args, collections.Hashable):
@@ -36,3 +35,14 @@ class memorized(object):
   def __get__(self, obj, objtype):
     '''Support instance methods.'''
     return functools.partial(self.__call__, obj)
+
+
+# This decorator wrapper was added over class one for auto api document generation
+def memorized(f):
+    memoize = memoized_class(f)
+
+    @functools.wraps(f)
+    def helper(*args, **kws):
+        return memoize(*args, **kws)
+
+    return helper

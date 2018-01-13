@@ -118,8 +118,8 @@ html_theme_options = {
     'github_repo': 'MediaWikiAPI',
     'fixed_sidebar': True,
     'github_banner': True,
-    'sidebar_width': '300px',
-    'page_width': '1200px',
+    'sidebar_width': '250px',
+     # 'page_width': '1200px',
     'font_size': '17px', # default value
     'extra_nav_links': {},
 }
