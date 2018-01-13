@@ -3,7 +3,7 @@ from datetime import timedelta
 from .language import Language
 
 
-class Config():
+class Config(object):
   """
   Contains global configuration
   """
@@ -21,11 +21,10 @@ class Config():
     self.timeout = None
     self.user_agent = user_agent or self.DEFAULT_USER_AGENT
 
-
-  @property
-  def donate_url(self):
+  @classmethod
+  def donate_url(cls):
     '''Return media wiki donate url'''
-    return self.DONATE_URL
+    return cls.DONATE_URL
 
   @property
   def language(self):

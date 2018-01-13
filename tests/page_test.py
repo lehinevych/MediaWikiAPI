@@ -7,9 +7,9 @@ from request_mock_data import mock_data
 
 api = MediaWikiAPI()
 # mock out _wiki_request
-def _wiki_request(params):
+def _wiki_request(params, config):
   return mock_data["_wiki_request calls"][tuple(sorted(params.items()))]
-# api.wiki_request.request = _wiki_request
+# api.session.request = _wiki_request
 
 
 class TestPageSetUp(unittest.TestCase):
