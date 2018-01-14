@@ -118,11 +118,10 @@ html_theme_options = {
     'github_repo': 'MediaWikiAPI',
     'fixed_sidebar': True,
     'github_banner': True,
-    'analytics_id': 'UA-85113022-2',
-    'sidebar_width': '300px',
-    'page_width': '1200px',
+    'sidebar_width': '250px',
+     # 'page_width': '1200px',
     'font_size': '17px', # default value
-    'extra_nav_links': {'Changelog': 'https://github.com/lehinevych/MediaWikiAPI/blob/master/CHANGELOG.md'},
+    'extra_nav_links': {},
 }
 
 # extensions.append('releases')

@@ -7,9 +7,9 @@ from request_mock_data import mock_data
 
 api = MediaWikiAPI()
 # mock out _wiki_request
-def _wiki_request(params):
+def _wiki_request(params, config):
   return mock_data["_wiki_request calls"][tuple(sorted(params.items()))]
-# api.wiki_request.request = _wiki_request
+# api.session.request = _wiki_request
 
 
 class TestPageSetUp(unittest.TestCase):
@@ -30,8 +30,9 @@ class TestPageSetUp(unittest.TestCase):
 
   def test_redirect_false(self):
     """Test that page raises an error on a redirect when redirect == False."""
-    mp = lambda: api.page("Template:cn", auto_suggest=False, redirect=False)
-    self.assertRaises(mediawikiapi.RedirectError, mp)
+    mp = api.page("Template:cn", auto_suggest=False, redirect=False)
+    # self.assertRaises(mediawikiapi.RedirectError, mp)
+    self.assertIsInstance(mp, mediawikiapi.WikipediaPage)
 
   def test_redirect_no_normalization(self):
     """Test that a page with redirects but no normalization query loads correctly"""

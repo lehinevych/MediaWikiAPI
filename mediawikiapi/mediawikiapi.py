@@ -2,23 +2,23 @@ from __future__ import unicode_literals
 
 import time
 from bs4 import BeautifulSoup
+from functools import partial
 from .exceptions import (
   PageError, HTTPTimeoutError, MediaWikiAPIException
 )
 from .config import Config
 from .util import memorized
 from .wikipediapage import WikipediaPage
-from .wikirequest import WikiRequest
+from .requestsession import RequestSession
 
 
 class MediaWikiAPI(object):
-
   def __init__(self, config=None):
     if config is not None:
-      configuration = config
+      self.config = config
     else:
-      configuration = Config()
-    self.wiki_request = WikiRequest(config=configuration)
+      self.config = Config()
+    self.session = RequestSession()
 
   @memorized
   def search(self, query, results=10, suggestion=False):
@@ -40,7 +40,7 @@ class MediaWikiAPI(object):
     if suggestion:
       search_params['srinfo'] = 'suggestion'
 
-    raw_results = self.wiki_request.request(search_params)
+    raw_results = self.session.request(search_params, self.config)
 
     if 'error' in raw_results:
       if raw_results['error']['info'] in ('HTTP request timed out.', 'Pool queue is full'):
@@ -84,7 +84,7 @@ class MediaWikiAPI(object):
     if title:
       search_params['titles'] = title
 
-    raw_results = self.wiki_request.request(search_params)
+    raw_results = self.session.request(search_params, self.config)
 
     if 'error' in raw_results:
       if raw_results['error']['info'] in ('HTTP request timed out.', 'Pool queue is full'):
@@ -112,7 +112,7 @@ class MediaWikiAPI(object):
       'srprop': '',
     }
     search_params['srsearch'] = query
-    raw_result = self.wiki_request.request(search_params)
+    raw_result = self.session.request(search_params, self.config)
     if raw_result['query'].get('searchinfo'):
       return raw_result['query']['searchinfo']['suggestion']
     return None
@@ -133,7 +133,7 @@ class MediaWikiAPI(object):
       'rnnamespace': 0,
       'rnlimit': pages,
     }
-    request = self.wiki_request.request(query_params)
+    request = self.session.request(query_params, self.config)
     titles = [page['title'] for page in request['query']['random']]
     if len(titles) == 1:
       return titles[0]
@@ -167,7 +167,7 @@ class MediaWikiAPI(object):
     else:
       query_params['exintro'] = ''
 
-    request = self.wiki_request.request(query_params)
+    request = self.session.request(query_params, self.config)
     summary = request['query']['pages'][pageid]['extract']
     return summary
 
@@ -184,21 +184,21 @@ class MediaWikiAPI(object):
     * redirect - allow redirection without raising RedirectError
     * preload - load content, summary, images, references, and links during initialization
     '''
+    request_f = partial(self.session.request, config=self.config)
     if title is not None:
       if auto_suggest:
         results, suggestion = self.search(title, results=1, suggestion=True)
         if suggestion:
-          return self.page(
-            title=suggestion, pageid=pageid, auto_suggest=auto_suggest,
-            redirect=redirect, preload=preload)
+          return WikipediaPage(
+            title=suggestion, pageid=pageid, redirect=redirect, preload=preload, request=request_f)
         try:
           title = results[0]
         except IndexError:
           # if there are no suggestion or search results, the page doesn't exist
           raise PageError(title)
-      return WikipediaPage(title, redirect=redirect, preload=preload, request=self.wiki_request.request)
+      return WikipediaPage(title=title, redirect=redirect, preload=preload, request=request_f)
     elif pageid is not None:
-      return WikipediaPage(pageid=pageid, preload=preload, request=self.wiki_request.request)
+      return WikipediaPage(pageid=pageid, preload=preload, request=request_f)
     else:
       raise ValueError("Either a title or a pageid must be specified")
 
@@ -212,10 +212,10 @@ class MediaWikiAPI(object):
       Returns: dict of <prefix>: <local_lang_name> pairs. To get just a list of prefixes,
       use `wikipedia.languages().keys()`.
       '''
-      response = self.wiki_request.request({
+      response = self.session.request({
         'meta': 'siteinfo',
         'siprop': 'languages'
-      })
+      }, self.config)
       languages = response['query']['languages']
       return {
         lang['code']: lang['*']

@@ -23,7 +23,7 @@ Classes
   :members:
 
   .. automethod:: __init__
-
+  
 .. autoclass:: mediawikiapi.WikipediaPage
   :members:
 
@@ -34,7 +34,7 @@ Classes
 
   .. automethod:: __init__
 
-.. autoclass:: mediawikiapi.WikiRequest
+.. autoclass:: mediawikiapi.RequestSession
   :members:
 
   .. automethod:: __init__
