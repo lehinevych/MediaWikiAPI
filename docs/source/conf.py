@@ -57,7 +57,7 @@ author = u'Taras Lehinevych'
 # built documents.
 #
 # The short X.Y version.
-version = u'1.0'
+version = u'1.1'
 # The full version, including alpha/beta/rc tags.
 release = u'1.0'
 
