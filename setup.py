@@ -16,6 +16,12 @@ install_reqs = [
   if line.strip() != ''
 ]
 
+try:
+    import pypandoc
+    long_description = pypandoc.convert('README.md', 'rst')
+except(IOError, ImportError):
+    long_description = local_file('README.md').read()
+
 setuptools.setup(
   name = "mediawikiapi",
   version = __version__,
@@ -27,16 +33,16 @@ setuptools.setup(
   url = "https://github.com/lehinevych/MediaWikiAPI",
   install_requires = install_reqs,
   packages = ['mediawikiapi'],
-  long_description = local_file('README.md').read(),
+  long_description = long_description,
   classifiers = [
     'Development Status :: 4 - Beta',
     'Topic :: Software Development :: Libraries',
     'License :: OSI Approved :: MIT License',
-    'Programming Language :: Python :: 2.7'
-    'Programming Language :: Python :: 3'
-    'Programming Language :: Python :: 3.3'
-    'Programming Language :: Python :: 3.4'
-    'Programming Language :: Python :: 3.5'
-    'Programming Language :: Python :: 3.6'
+    'Programming Language :: Python :: 2.7',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3.3',
+    'Programming Language :: Python :: 3.4',
+    'Programming Language :: Python :: 3.5',
+    'Programming Language :: Python :: 3.6',
   ]
 )
