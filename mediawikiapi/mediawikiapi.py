@@ -152,7 +152,7 @@ class MediaWikiAPI(object):
     '''
     # use auto_suggest and redirect to get the correct article
     # also, use page's error checking to raise DisambiguationError if necessary
-    page_info = page(title, auto_suggest=auto_suggest, redirect=redirect)
+    page_info = self.page(title, auto_suggest=auto_suggest, redirect=redirect)
     title = page_info.title
     pageid = page_info.pageid
     query_params = {
