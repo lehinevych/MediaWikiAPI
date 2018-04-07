@@ -51,11 +51,15 @@ pip install mediawikiapi
 ```
 MediaWikiAPI is compatible with Python 3 and Python 2.7.
 
+
+Changelog
+-------------
+[Changelog] (http://mediawikiapi.readthedocs.io/en/latest/changelog.html) could be find in the documentation.
+
+
 Documentation
 -------------
-
 The documentation is available [here](http://mediawikiapi.readthedocs.io/en/latest/)
-Changelog could be find in the documentation.
 
 
 To run tests, clone the `repository on GitHub <https://github.com/lehinevych/MediaWikiAPI>`__, then run:

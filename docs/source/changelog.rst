@@ -13,8 +13,8 @@ Contents:
 
 Version 1.2
 ============
-* Fix missing self reference #11 <https://github.com/lehinevych/MediaWikiAPI/pull/11>` by @danielunderwood
-* Fix dependencies installable from setup.py #12 <https://github.com/lehinevych/MediaWikiAPI/pull/12>` by @danielunderwood
+* Fix missing self reference `PR #11 <https://github.com/lehinevych/MediaWikiAPI/pull/11>`_ by @danielunderwood
+* Fix dependencies installable from setup.py `PR #12 <https://github.com/lehinevych/MediaWikiAPI/pull/12>`_ by @danielunderwood
 
 
 Version 1.1
