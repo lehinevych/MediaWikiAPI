@@ -1,6 +1,6 @@
 import sys
 
-if not sys.argv[0] == 'pip' and not sys.argv[1] == 'setup.py':
+if not (sys.argv[0] == 'pip' or (len(sys.argv) > 1 and sys.argv[1] == 'setup.py')):
     from .config import *
     from .mediawikiapi import *
     from .exceptions import *
