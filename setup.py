@@ -3,12 +3,20 @@ import codecs
 import os
 import re
 import setuptools
-from mediawikiapi import __version__
+from distutils.util import convert_path
+
+
+main_ns = {}
+ver_path = convert_path('mediawikiapi/version.py')
+with open(ver_path) as ver_file:
+    exec(ver_file.read(), main_ns)
+
 
 def local_file(file):
   return codecs.open(
     os.path.join(os.path.dirname(__file__), file), 'r', 'utf-8'
   )
+
 
 install_reqs = [
   line.strip()
@@ -24,7 +32,7 @@ except(IOError, ImportError):
 
 setuptools.setup(
   name = "mediawikiapi",
-  version = __version__,
+  version = main_ns['__version__'],
   author = "Taras Lehinevych",
   author_email = "mediawikiapi@taraslehinevych.me",
   description = "Wikipedia API on Python",
