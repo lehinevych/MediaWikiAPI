@@ -116,13 +116,15 @@ class WikipediaPage(object):
       disambiguation = []
       host_name = page["fullurl"]
       for lis_item in filtered_lis:
-        item = lis_item.find_all("a")[0]
-        one_disambiguation = {}
-        one_disambiguation["title"] = item["title"]
-        one_disambiguation["host_name"] = host_name
-        one_disambiguation["href"] = item["href"]
-        one_disambiguation["description"] = lis_item.text
-        disambiguation.append(one_disambiguation)
+        items = lis_item.find_all("a")
+        if items:
+          item = items[0]
+          one_disambiguation = {}
+          one_disambiguation["title"] = item["title"]
+          one_disambiguation["host_name"] = host_name
+          one_disambiguation["href"] = item["href"]
+          one_disambiguation["description"] = lis_item.text
+          disambiguation.append(one_disambiguation)
       may_refer_to = [li.a.get_text() for li in filtered_lis if li.a]
       raise DisambiguationError(getattr(self, 'title', page['title']), may_refer_to, disambiguation)
 
