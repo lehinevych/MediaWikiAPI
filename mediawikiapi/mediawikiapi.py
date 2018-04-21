@@ -189,9 +189,9 @@ class MediaWikiAPI(object):
 
     For example:
 
-    `page(“The Squires (disambiguation)”, auto_suggest=True)` returns page with title `Squires (disambiguation)`
+    `page("The Squires (disambiguation)", auto_suggest=True)` returns page with title `Squires (disambiguation)`
 
-    `page(“The Squires (disambiguation)”, auto_suggest=False)` returns page with title `The Squires (disambiguation)`
+    `page("The Squires (disambiguation)", auto_suggest=False)` returns page with title `The Squires (disambiguation)`
     '''
     request_f = partial(self.session.request, config=self.config)
     if title is not None:
