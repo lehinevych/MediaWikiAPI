@@ -151,7 +151,6 @@ class MediaWikiAPI(object):
     * redirect - allow redirection without raising RedirectError
     '''
     # use auto_suggest and redirect to get the correct article
-    # also, use page's error checking to raise DisambiguationError if necessary
     page_info = self.page(title, auto_suggest=auto_suggest, redirect=redirect)
     title = page_info.title
     pageid = page_info.pageid
@@ -183,6 +182,16 @@ class MediaWikiAPI(object):
     * auto_suggest - let Wikipedia find a valid page title for the query
     * redirect - allow redirection without raising RedirectError
     * preload - load content, summary, images, references, and links during initialization
+
+    Attention!
+
+    The usage of auto_suggest may provide you with different page than you searched.
+
+    For example:
+
+    `page(“The Squires (disambiguation)”, auto_suggest=True)` returns page with title `Squires (disambiguation)`
+
+    `page(“The Squires (disambiguation)”, auto_suggest=False)` returns page with title `The Squires (disambiguation)`
     '''
     request_f = partial(self.session.request, config=self.config)
     if title is not None:

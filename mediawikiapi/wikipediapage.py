@@ -1,6 +1,4 @@
-from .exceptions import (
-  DisambiguationError, PageError, RedirectError, ODD_ERROR_MESSAGE
-)
+from .exceptions import PageError, RedirectError, ODD_ERROR_MESSAGE
 from decimal import Decimal
 from bs4 import BeautifulSoup
 from .language import Language
@@ -94,10 +92,17 @@ class WikipediaPage(object):
       else:
         raise RedirectError(getattr(self, 'title', page['title']))
 
+    self.pageid = pageid
+    self.title = page.get('title')
+    self.url = page.get('fullurl')
+    self.language = page.get('pagelanguage')
+    self.pageprops = page.get('pageprops', {})
+    self.disambiguate_pages = []
+
     # since we only asked for disambiguation in ppprop,
     # if a pageprop is returned,
     # then the page must be a disambiguation page
-    elif 'pageprops' in page and 'disambiguation' in page['pageprops']:
+    if 'pageprops' in page and 'disambiguation' in page['pageprops']:
       query_params = {
         'prop': 'revisions',
         'rvprop': 'content',
@@ -110,31 +115,12 @@ class WikipediaPage(object):
         query_params['titles'] = self.title
       request = self.request(query_params)
       html = request['query']['pages'][pageid]['revisions'][0]['*']
-
       lis = BeautifulSoup(html, 'html.parser').find_all('li')
       filtered_lis = [li for li in lis if not 'tocsection' in ''.join(li.get('class', []))]
-      disambiguation = []
-      host_name = page["fullurl"]
       for lis_item in filtered_lis:
         items = lis_item.find_all("a")
         if items:
-          item = items[0]
-          one_disambiguation = {}
-          one_disambiguation["title"] = item["title"]
-          one_disambiguation["host_name"] = host_name
-          one_disambiguation["href"] = item["href"]
-          one_disambiguation["description"] = lis_item.text
-          disambiguation.append(one_disambiguation)
-      may_refer_to = [li.a.get_text() for li in filtered_lis if li.a]
-      raise DisambiguationError(getattr(self, 'title', page['title']), may_refer_to, disambiguation)
-
-
-    else:
-      self.pageid = pageid
-      self.title = page.get('title')
-      self.url = page.get('fullurl')
-      self.language = page.get('pagelanguage')
-      self.pageprops = page.get('pageprops', {})
+          self.disambiguate_pages.append(items[0]["title"])
 
   def __continued_query(self, query_params):
     '''
