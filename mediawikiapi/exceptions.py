@@ -52,24 +52,6 @@ class LanguageError(MediaWikiAPIException):
         return u"\"{0}\" is not a language prefix available in Wikipedia. Run wikipedia.languages().keys() to get available prefixes.".format(self.language)
 
 
-class DisambiguationError(MediaWikiAPIException):
-  """
-  Exception raised when a page resolves to a Disambiguation page.
-
-  The `options` property contains a list of titles
-  of Wikipedia pages that the query may refer to.
-  """
-
-  def __init__(self, title, may_refer_to, details=None):
-    self.title = title
-    self.options = may_refer_to
-    # details field is a dict which contains title, host_name, href, description
-    self.details = details
-
-  def __unicode__(self):
-    return u"\"{0}\" may refer to: \n{1}".format(self.title, '\n'.join(self.options))
-
-
 class RedirectError(MediaWikiAPIException):
   """Exception raised when a page title unexpectedly resolves to a redirect."""
 
