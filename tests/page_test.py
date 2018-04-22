@@ -58,18 +58,12 @@ class TestPageSetUp(unittest.TestCase):
 
   def test_disambiguate(self):
     """Test that page raises an error when a disambiguation page is reached."""
-    try:
-      ram = api.page("Template", auto_suggest=False, redirect=False)
-      error_raised = False
-    except mediawikiapi.DisambiguationError as e:
-      error_raised = True
-      options = e.options
-    self.assertTrue(error_raised)
+    page = api.page("Template", auto_suggest=False, redirect=False)
     disambiguation_list = [u'Template (file format)', u'Template (C++)', u'Template metaprogramming',
                            u'Template method pattern', u'Template processor', u'Template (word processing)',
                            u'Web template', u'Template (racing)', u'Template (novel)']
     for disambiguation_opt in disambiguation_list:
-      self.assertTrue(disambiguation_opt in options)
+      self.assertTrue(disambiguation_opt in page.disambiguate_pages)
 
   def test_auto_suggest(self):
     """Test that auto_suggest properly corrects a typo."""
