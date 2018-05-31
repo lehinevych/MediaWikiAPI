@@ -133,7 +133,6 @@ class WikipediaPage(object):
       params = query_params.copy()
       params.update(last_continue)
       request = self.request(params)
-
       if 'query' not in request:
         break
 
@@ -141,7 +140,6 @@ class WikipediaPage(object):
          last_continue == request['continue'] and \
          last_len_pages == len(request['query']['pages']):
         break
-
       pages = request['query']['pages']
       if 'generator' in query_params:
         for datum in pages.values():  # in python 3.3+: "yield from pages.values()"
@@ -228,7 +226,6 @@ class WikipediaPage(object):
     if not getattr(self, '_parentid', False):
       # fetch the content (side effect is loading the revid)
       self.content
-
     return self._parent_id
 
   @property
@@ -328,6 +325,35 @@ class WikipediaPage(object):
       ]
 
     return self._links
+
+  @property
+  def backlinks(self):
+    '''
+    List of pages that link to a given page
+    '''
+    if not getattr(self, '_backlinks', False):
+      links =[ link for link in self.__continued_query({
+          "list": "backlinks",
+          "generator": "links",
+          "bltitle": self.__title_query_param,
+          "blfilterredir": "redirects",
+      })]
+      self._backlinks = [link['title'] for link in links]
+      self._backlinks_ids = [link['pageid'] for link in links if 'pageid' in link]
+    return self._backlinks
+
+  @property
+  def backlinks_ids(self):
+    '''
+    List of pages ids that link to a given page
+
+    .. note:: It is not garanted that backlinks_ids list contains all backlinks.
+        Sometimes the pageid is missing and only title is available, as a result
+        len(backlinks_ids) <= len(backlinks).
+    '''
+    if not getattr(self, '_backlinks_ids', False):
+      getattr(self, 'backlinks')
+    return self._backlinks_ids
 
   @property
   def categories(self):

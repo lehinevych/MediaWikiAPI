@@ -54,7 +54,7 @@ MediaWikiAPI is compatible with Python 3 and Python 2.7.
 
 Changelog
 -------------
-[Changelog] (http://mediawikiapi.readthedocs.io/en/latest/changelog.html) could be find in the documentation.
+[Changelog](http://mediawikiapi.readthedocs.io/en/latest/changelog.html) could be find in the documentation.
 
 
 Documentation
