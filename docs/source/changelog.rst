@@ -13,6 +13,7 @@ Contents:
 
 Version 1.1.2
 =============
+
 * Add backlinks to WikipediaPage `PR #22 <https://github.com/lehinevych/MediaWikiAPI/pull/22>`_
 * Fix missing self reference `PR #11 <https://github.com/lehinevych/MediaWikiAPI/pull/11>`_ by @danielunderwood
 * Fix dependencies installable from setup.py `PR #12 <https://github.com/lehinevych/MediaWikiAPI/pull/12>`_ by @danielunderwood
