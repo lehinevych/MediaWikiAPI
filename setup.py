@@ -24,11 +24,10 @@ install_reqs = [
   if line.strip() != ''
 ]
 
-try:
-    import pypandoc
-    long_description = pypandoc.convert('README.md', 'rst')
-except(IOError, ImportError):
-    long_description = local_file('README.md').read()
+
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+
 
 setuptools.setup(
   name = "mediawikiapi",
@@ -47,10 +46,6 @@ setuptools.setup(
     'Topic :: Software Development :: Libraries',
     'License :: OSI Approved :: MIT License',
     'Programming Language :: Python :: 2.7',
-    'Programming Language :: Python :: 3',
-    'Programming Language :: Python :: 3.3',
-    'Programming Language :: Python :: 3.4',
-    'Programming Language :: Python :: 3.5',
     'Programming Language :: Python :: 3.6',
   ]
 )
