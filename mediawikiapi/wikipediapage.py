@@ -23,7 +23,6 @@ class WikipediaPage(object):
 
     self.request = request
     self.__load(redirect=redirect, preload=preload)
-
     if preload:
       for prop in ('content', 'summary', 'images', 'references', 'links', 'sections'):
         getattr(self, prop)
@@ -144,14 +143,17 @@ class WikipediaPage(object):
 
     last_continue = {}
     prop = query_params.get('prop', None)
-
     while True:
       params = query_params.copy()
       params.update(last_continue)
-
       request = self.request(params)
 
       if 'query' not in request:
+        break
+
+      if 'continue' in request and \
+         last_continue == request['continue'] and \
+         last_len_pages == len(request['query']['pages']):
         break
 
       pages = request['query']['pages']
@@ -166,6 +168,7 @@ class WikipediaPage(object):
         break
 
       last_continue = request['continue']
+      last_len_pages = len(request['query']['pages'])
 
   @property
   def __title_query_param(self):
