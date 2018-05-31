@@ -58,18 +58,12 @@ class TestPageSetUp(unittest.TestCase):
 
   def test_disambiguate(self):
     """Test that page raises an error when a disambiguation page is reached."""
-    try:
-      ram = api.page("Template", auto_suggest=False, redirect=False)
-      error_raised = False
-    except mediawikiapi.DisambiguationError as e:
-      error_raised = True
-      options = e.options
-    self.assertTrue(error_raised)
+    page = api.page("Template", auto_suggest=False, redirect=False)
     disambiguation_list = [u'Template (file format)', u'Template (C++)', u'Template metaprogramming',
                            u'Template method pattern', u'Template processor', u'Template (word processing)',
                            u'Web template', u'Template (racing)', u'Template (novel)']
     for disambiguation_opt in disambiguation_list:
-      self.assertTrue(disambiguation_opt in options)
+      self.assertTrue(disambiguation_opt in page.disambiguate_pages)
 
   def test_auto_suggest(self):
     """Test that auto_suggest properly corrects a typo."""
@@ -114,14 +108,18 @@ class TestPage(unittest.TestCase):
     self.assertEqual(self.cyclone.revision_id, mock_data['data']["cyclone.revid"])
 
   def test_backlinks(self):
-    """Test the revision id."""
-    self.assertEqual(self.celtuce.backlinks, mock_data['data']["celtuce.backlinks"])
-    self.assertEqual(self.cyclone.backlinks, mock_data['data']["cyclone.backlinks"])
+    """Test the backlinks."""
+    self.assertEqual(sorted(self.celtuce.backlinks),
+                     sorted(mock_data['data']["celtuce.backlinks"]))
+    self.assertEqual(sorted(self.cyclone.backlinks),
+                     sorted(mock_data['data']["cyclone.backlinks"]))
 
   def test_backlinks_ids(self):
-    """Test the revision id."""
-    self.assertEqual(self.celtuce.backlinks_ids, mock_data['data']["celtuce.backlinks_ids"])
-    self.assertEqual(self.cyclone.backlinks_ids, mock_data['data']["cyclone.backlinks_ids"])
+    """Test the backlinks ids."""
+    self.assertEqual(sorted(self.celtuce.backlinks_ids),
+                     sorted(mock_data['data']["celtuce.backlinks_ids"]))
+    self.assertEqual(sorted(self.cyclone.backlinks_ids),
+                     sorted(mock_data['data']["cyclone.backlinks_ids"]))
 
   def test_parent_id(self):
     """Test the parent id."""
