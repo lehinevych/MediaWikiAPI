@@ -118,6 +118,10 @@ class TestPage(unittest.TestCase):
     self.assertEqual(sorted(self.celtuce.images), sorted(mock_data['data']["celtuce.images"]))
     self.assertEqual(sorted(self.cyclone.images), sorted(mock_data['data']["cyclone.images"]))
 
+  def test_hanging_page_image_query(self):
+      bill_foster_page = api.page('Bill Foster (politician)', preload=True)
+      self.assertEqual(sorted(bill_foster_page.images), sorted(mock_data['data']["bill_foster_page.images"]))
+
   def test_references(self):
     """Test the list of reference URLs."""
     # the assertEqual with sorting is used instead assertCountEqual for python 2 compatibility
