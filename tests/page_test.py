@@ -107,6 +107,20 @@ class TestPage(unittest.TestCase):
     self.assertEqual(self.celtuce.revision_id, mock_data['data']["celtuce.revid"])
     self.assertEqual(self.cyclone.revision_id, mock_data['data']["cyclone.revid"])
 
+  def test_backlinks(self):
+    """Test the backlinks."""
+    self.assertEqual(sorted(self.celtuce.backlinks),
+                     sorted(mock_data['data']["celtuce.backlinks"]))
+    self.assertEqual(sorted(self.cyclone.backlinks),
+                     sorted(mock_data['data']["cyclone.backlinks"]))
+
+  def test_backlinks_ids(self):
+    """Test the backlinks ids."""
+    self.assertEqual(sorted(self.celtuce.backlinks_ids),
+                     sorted(mock_data['data']["celtuce.backlinks_ids"]))
+    self.assertEqual(sorted(self.cyclone.backlinks_ids),
+                     sorted(mock_data['data']["cyclone.backlinks_ids"]))
+
   def test_parent_id(self):
     """Test the parent id."""
     self.assertEqual(self.celtuce.parent_id, mock_data['data']["celtuce.parentid"])

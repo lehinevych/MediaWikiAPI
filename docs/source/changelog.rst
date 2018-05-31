@@ -11,11 +11,13 @@ Contents:
 
    changelog
 
-Master
-============
+Version 1.1.2
+=============
+
+* Add backlinks to WikipediaPage `PR #22 <https://github.com/lehinevych/MediaWikiAPI/pull/22>`_
 * Fix missing self reference `PR #11 <https://github.com/lehinevych/MediaWikiAPI/pull/11>`_ by @danielunderwood
 * Fix dependencies installable from setup.py `PR #12 <https://github.com/lehinevych/MediaWikiAPI/pull/12>`_ by @danielunderwood
-* Instead throwing DisambiguationError, now we have disambiguate pages property for WikipediaPage class. `Issue #18 <https://github.com/lehinevych/MediaWikiAPI/issues/18>`_
+* Fix the hangs of the continuing queries `PR #21 <https://github.com/lehinevych/MediaWikiAPI/pull/21>`_
 
 Version 1.1
 ============
