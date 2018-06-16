@@ -26,13 +26,13 @@ Wikipedia data, not getting it.
 >>> mediawikiapi.search("Barack")
 # [u'Barak (given name)', u'Barack Obama', u'Barack (brandy)', u'Presidency of Barack Obama', u'Family of Barack Obama', u'First inauguration of Barack Obama', u'Barack Obama presidential campaign, 2008', u'Barack Obama, Sr.', u'Barack Obama citizenship conspiracy theories', u'Presidential transition of Barack Obama']
 
->>> ny = mediawikiapi.page("New York")
+>>> ny = mediawikiapi.page("New York (state)")
 >>> ny.title
-# u'New York'
+# u'New York (state)'
 >>> ny.url
-# u'http://en.wikipedia.org/wiki/New_York'
+# u'http://en.wikipedia.org/wiki/New_York_(state)'
 >>> ny.content
-# u'New York is a state in the Northeastern region of the United States. New York is the 27th-most exten'...
+# u'New York is a state in the northeastern United States. New York was one of the original thir'...
 >>> ny.links[0]
 # u'1790 United States Census'
 
