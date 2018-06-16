@@ -36,7 +36,7 @@ Wikipedia data, not getting it.
 >>> ny.links[0]
 # u'1790 United States Census'
 
->>> mediawikiapi.conf.language = "fr"
+>>> mediawikiapi.config.language = "fr"
 >>> mediawikiapi.summary("Facebook", sentences=1)
 # Facebook est un service de réseautage social en ligne sur Internet permettant d'y publier des informations (photographies, liens, textes, etc.) en contrôlant leur visibilité par différentes catégories de personnes.
 ```
