@@ -61,16 +61,16 @@ To get the summary of an article, use ``mediawikiapi.summary``::
 
 ``mediawikiapi.page`` enables you to load and access data from full Wikipedia pages. Initialize with a page title (keep in mind the errors listed above), and then access most properties using property methods::
 
-	>>> ny = mediawikiapi.page("New York")
+	>>> ny = mediawikiapi.page("New York (state)")
 
 	>>> ny.title
-	u'New York'
+	u'New York (state)'
 
 	>>> ny.url
-	u'http://en.wikipedia.org/wiki/NewYork'
+	u'http://en.wikipedia.org/wiki/New_York_(state)'
 
 	>>> ny.content
-	u'New York is a state in the Northeastern region of the United States. New York is the 27th-most exten'...
+	u'New York is a state in the northeastern United States. New York was one of the original thir'...
 
 	>>> ny.images[0]
 	u'http://upload.wikimedia.org/wikipedia/commons/9/91/New_York_quarter%2C_reverse_side%2C_2001.jpg'
@@ -81,7 +81,7 @@ To get the summary of an article, use ``mediawikiapi.summary``::
 To change the language of the Wikipedia you are accessing, use ``mediawikiapi.conf.language``.
 Remember to search for page titles in the language that you have set, not English!::
 
-	>>> mediawikiapi.conf.language = "fr"
+	>>> mediawikiapi.config.language = "fr"
 
 	>>> print mediawikiapi.summary("Francois Hollande")
 	François Hollande, né le 12 août 1954 à Rouen, en Seine-Maritime, est un homme d'État français. Il est président de la République française depuis le 15 mai 2012...
