@@ -212,24 +212,58 @@ class MediaWikiAPI(object):
       raise ValueError("Either a title or a pageid must be specified")
 
   def languages(self):
-      '''
-      List all the currently supported language prefixes (usually ISO language code).
+    '''
+    List all the currently supported language prefixes (usually ISO language code).
 
-      Can be inputted to WikipediaPage.conf to change the Mediawiki that `wikipedia` requests
-      results from.
+    Can be inputted to WikipediaPage.conf to change the Mediawiki that `wikipedia` requests
+    results from.
 
-      Returns: dict of <prefix>: <local_lang_name> pairs. To get just a list of prefixes,
-      use `wikipedia.languages().keys()`.
-      '''
-      response = self.session.request({
-        'meta': 'siteinfo',
-        'siprop': 'languages'
-      }, self.config)
-      languages = response['query']['languages']
-      return {
-        lang['code']: lang['*']
-        for lang in languages
+    Returns: dict of <prefix>: <local_lang_name> pairs. To get just a list of prefixes,
+    use `wikipedia.languages().keys()`.
+    '''
+    response = self.session.request({
+      'meta': 'siteinfo',
+      'siprop': 'languages'
+    }, self.config)
+    languages = response['query']['languages']
+    return {
+      lang['code']: lang['*']
+      for lang in languages
+    }
+
+  def category_members(self, title=None, pageid=None, cmlimit=10, cmtype='page'):
+    '''
+    Get list of page titles belonging to a category.
+    Keyword arguments:
+
+    * title - category title. Cannot be used together with "pageid"
+    * pageid - page id of category page. Cannot be used together with "title"
+    * cmlimit - the maximum number of titles to return
+    * cmtype - which type of page to include. ("page", "subcat", or "file")
+    '''
+    if title is not None and pageid is not None:
+      raise ValueError("Please specify only a category or only a pageid, only one param can be specified")
+    elif title is not None:
+      query_params = {
+        'list': 'categorymembers',
+        'cmtitle': 'Category:{}'.format(title),
+        'cmlimit': str(cmlimit),
+        'cmtype': cmtype
       }
+    elif pageid is not None:
+      query_params = {
+        'list': 'categorymembers',
+        'cmpageid': str(pageid),
+        'cmlimit': str(cmlimit),
+        'cmtype': cmtype
+      }
+    else:
+      raise ValueError("Either a category or a pageid must be specified")
+
+    response = self.session.request(query_params, self.config)
+    if 'error' in response:
+        raise ValueError(response['error'].get('info'))
+    return [member['title'] for member in response['query']['categorymembers']]
 
   def donate(self):
     '''
