@@ -11,6 +11,11 @@ Contents:
 
    changelog
 
+Master
+=======
+
+* Add `category member <https://www.mediawiki.org/wiki/API:Categorymembers>`_ query support by `PR #24 <https://github.com/lehinevych/MediaWikiAPI/pull/24>`_
+
 Version 1.1.2
 =============
 

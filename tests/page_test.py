@@ -31,7 +31,6 @@ class TestPageSetUp(unittest.TestCase):
   def test_redirect_false(self):
     """Test that page raises an error on a redirect when redirect == False."""
     mp = api.page("Template:cn", auto_suggest=False, redirect=False)
-    # self.assertRaises(mediawikiapi.RedirectError, mp)
     self.assertIsInstance(mp, mediawikiapi.WikipediaPage)
 
   def test_redirect_no_normalization(self):
@@ -189,3 +188,14 @@ class TestPage(unittest.TestCase):
     """Test pageprops of a page"""
     self.assertEqual(self.celtuce.pageprops, mock_data['data']["celtuce.pageprops"])
     self.assertEqual(self.cyclone.pageprops, mock_data['data']["cyclone.pageprops"])
+
+  def test_category_members(self):
+    """Test category members"""
+    self.assertEqual(api.category_members(title='Physics'), mock_data['data']["category_members_physics"])
+    self.assertEqual(api.category_members(pageid=692318), mock_data['data']["category_members_physics"])
+    with self.assertRaises(ValueError):
+      api.category_members(title='Wikipedia', pageid=6923181)
+    with self.assertRaises(ValueError):
+      api.category_members(pageid=6923181)
+    with self.assertRaises(ValueError):
+      api.category_members(title='')

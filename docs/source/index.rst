@@ -12,7 +12,7 @@ Release v\ |version|.
     :target: https://pypi.python.org/pypi/mediawikiapi
 
 .. image:: https://travis-ci.org/lehinevych/MediaWikiAPI.svg?branch=master
-    :target: https://travis-ci.org/leginevych/MediaWikiAPI
+    :target: https://travis-ci.org/lehinevych/MediaWikiAPI
 
 .. image:: https://img.shields.io/github/issues/lehinevych/MediaWikiAPI.svg
     :target: https://github.com/lehinevych/MediaWikiAPI/issues
