@@ -24,9 +24,12 @@ install_reqs = [
   if line.strip() != ''
 ]
 
-
-with open("README.md", "r") as fh:
-    long_description = fh.read()
+try:
+    import pypandoc
+    long_description = pypandoc.convert_file('README.md', 'rst')
+except(IOError, ImportError, OSError):
+    with open(os.path.join(os.path.abspath(os.path.dirname(__file__)), 'README.md')) as f:
+        long_description = f.read()
 
 
 setuptools.setup(
@@ -41,6 +44,7 @@ setuptools.setup(
   install_requires = install_reqs,
   packages = ['mediawikiapi'],
   long_description = long_description,
+  long_description_content_type='text/markdown',
   classifiers = [
     'Development Status :: 4 - Beta',
     'Topic :: Software Development :: Libraries',
