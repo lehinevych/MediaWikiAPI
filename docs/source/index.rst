@@ -29,7 +29,7 @@ If you are looking for the the full developer API, see :ref:`api`.
 
 Begin by installing wikipedia::
 
-	$ pip install wikipedia
+	$ pip install mediawikiapi
 
 As alternative you can use the source code from `Github <https://github.com/lehinevych/MediaWikiAPI>`_.
 
