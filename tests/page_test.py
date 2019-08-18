@@ -81,6 +81,7 @@ class TestPage(unittest.TestCase):
     self.celtuce = api.page("Celtuce")
     self.cyclone = api.page("Tropical Depression Ten (2005)")
     self.great_wall_of_china = api.page("Great Wall of China")
+    self.avatar = api.page(title="Avatar_(2009_film)")
 
   def test_from_page_id(self):
     """Test loading from a page id"""
@@ -188,6 +189,10 @@ class TestPage(unittest.TestCase):
     """Test pageprops of a page"""
     self.assertEqual(self.celtuce.pageprops, mock_data['data']["celtuce.pageprops"])
     self.assertEqual(self.cyclone.pageprops, mock_data['data']["cyclone.pageprops"])
+
+  def test_infobox(self):
+    """Test infobox of a page"""
+    self.assertEqual(self.avatar.infobox, mock_data['data']["infobox_avatar"])
 
   def test_category_members(self):
     """Test category members"""

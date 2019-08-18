@@ -304,5 +304,6 @@ Tropical Depression Ten advisory archive""",
     "bill_foster_page.images": ['https://upload.wikimedia.org/wikipedia/commons/b/bd/Bill_Foster%2C_Official_Portrait%2C_113th_Congress.jpg', 'https://upload.wikimedia.org/wikipedia/en/8/8a/OOjs_UI_icon_edit-ltr-progressive.svg'],
 
     "category_members_physics": ['Physics', 'Outline of physics', 'Portal:Physics', 'Action-angle coordinates', 'Bayesian model of computational anatomy', 'Group actions in computational anatomy', 'Camelback potential', 'Center of percussion', 'Computational anatomy', 'Conformon'],
+    "infobox_avatar": {'Directed by': 'James Cameron', 'Produced by': 'James Cameron Jon Landau', 'Written by': 'James Cameron', 'Starring': 'Sam Worthington Zoe Saldana Stephen Lang Michelle Rodriguez Sigourney Weaver', 'Music by': 'James Horner', 'Cinematography': 'Mauro Fiore', 'Edited by': 'Stephen Rivkin John Refoua James Cameron', 'Productioncompany': 'Lightstorm Entertainment Dune Entertainment Ingenious Film Partners', 'Distributed by': '20th Century Fox', 'Release date': 'December 10, 2009 (2009-12-10) (London) December 18, 2009 (2009-12-18) (United States)', 'Running time': '161 minutes', 'Country': 'United States', 'Language': 'English', 'Budget': '$237 million$9 million+ (re-release)', 'Box office': '$2.790 billion'},
   }
 }

@@ -54,6 +54,10 @@ def memorized(f):
 
 
 def clean_infobox(text):
-    text = re.sub(r"\[\d]\", "", text)
-    text = re.sub(r"\\n", " ", text)
-    return text
+    text = re.sub(r"\[\d\]", '', text)
+    text = re.sub(r"\n", ' ', text)
+    if sys.version_info[0] < 3:
+        text = text.replace(u'\xa0', u' ')
+    else:
+        text = text.replace('\xa0', ' ')
+    return text.strip()
