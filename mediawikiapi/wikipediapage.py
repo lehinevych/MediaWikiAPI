@@ -1,8 +1,9 @@
+import re
 from .exceptions import PageError, RedirectError, ODD_ERROR_MESSAGE
 from decimal import Decimal
 from bs4 import BeautifulSoup
 from .language import Language
-import re
+from .util import clean_infobox
 
 
 class WikipediaPage(object):
@@ -180,6 +181,27 @@ class WikipediaPage(object):
       self._html = request['query']['pages'][self.pageid]['revisions'][0]['*']
 
     return self._html
+
+  @property
+  def infobox(self):
+    if getattr(self, '_infobox', False):
+      return self._infobox
+    if not getattr(self, '_html', False):
+      self.html()
+
+    soup = BeautifulSoup(self._html, 'html.parser')
+    infobox = soup.find('table', {'class': 'infobox'})
+    results = {}
+
+    if infobox:
+      for row in infobox.findAll('tr'):
+        title = row.find('th')
+        text = row.find('td')
+        if title and text:
+          title = clean_infobox(title.text)
+          results[title] = clean_infobox(text.text)
+      self._infobox = results
+    return self._infobox
 
   @property
   def content(self):
