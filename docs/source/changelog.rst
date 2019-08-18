@@ -14,7 +14,9 @@ Contents:
 
 Version 1.1.4
 =============
-* Split and upgrade version in `requirements.txt` and add support for python 3.7
+* Split `requirements.txt` and upgrade dependencies versions.
+* Add support for python 3.7
+* Add `infobox` property to `wikipediapage` class
 
 
 Version 1.1.3

@@ -1,4 +1,5 @@
 import sys
+import re
 import collections
 import functools
 
@@ -50,3 +51,13 @@ def memorized(f):
         return memoize(*args, **kws)
 
     return helper
+
+
+def clean_infobox(text):
+    text = re.sub(r"\[\d\]", '', text)
+    text = re.sub(r"\n", ' ', text)
+    if sys.version_info[0] < 3:
+        text = text.replace(u'\xa0', u' ')
+    else:
+        text = text.replace('\xa0', ' ')
+    return text.strip()
