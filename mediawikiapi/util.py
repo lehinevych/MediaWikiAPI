@@ -16,7 +16,11 @@ class memoized_class(object):
     functools.update_wrapper(self, func)
 
   def __call__(self, *args, **kwargs):
-    if not isinstance(args, collections.abc.Hashable):
+    if sys.version_info[0] < 3:
+      hash_type = collections.Hashable
+    else:
+      hash_type = collections.abc.Hashable
+    if not isinstance(args, hash_type):
       # uncacheable. a list, for instance.
       # better to not cache than blow up.
       return self.func(*args, **kwargs)
