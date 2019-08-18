@@ -24,6 +24,12 @@ install_reqs = [
   if line.strip() != ''
 ]
 
+install_test_reqs = [
+  line.strip()
+  for line in local_file('requirements-test.txt').readlines()
+  if line.strip() != ''
+]
+
 try:
     import pypandoc
     long_description = pypandoc.convert_file('README.md', 'rst')
@@ -42,6 +48,7 @@ setuptools.setup(
   keywords = "python wikipedia API mediawiki",
   url = "https://github.com/lehinevych/MediaWikiAPI",
   install_requires = install_reqs,
+  tests_require = install_test_reqs,
   packages = ['mediawikiapi'],
   long_description = long_description,
   long_description_content_type='text/markdown',
@@ -51,5 +58,7 @@ setuptools.setup(
     'License :: OSI Approved :: MIT License',
     'Programming Language :: Python :: 2.7',
     'Programming Language :: Python :: 3.6',
+    'Programming Language :: Python :: 3.7',
+    'Programming Language :: Python :: 3.8',
   ]
 )

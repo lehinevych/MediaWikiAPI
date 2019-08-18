@@ -12,6 +12,11 @@ Contents:
    changelog
 
 
+Version 1.1.4
+=============
+* Split and upgrade version in `requirements.txt` and add support for python 3.7
+
+
 Version 1.1.3
 =============
 
