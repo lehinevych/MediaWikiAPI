@@ -13,20 +13,21 @@ with open(ver_path) as ver_file:
 
 
 def local_file(file):
-  return codecs.open(
-    os.path.join(os.path.dirname(__file__), file), 'r', 'utf-8'
-  )
+  if os.path.exists(file):
+    f = codecs.open(os.path.join(os.path.dirname(__file__), file), 'r', 'utf-8')
+    return f.readlines()
+  return []
 
 
 install_reqs = [
   line.strip()
-  for line in local_file('requirements.txt').readlines()
+  for line in local_file('requirements.txt')
   if line.strip() != ''
 ]
 
 install_test_reqs = [
   line.strip()
-  for line in local_file('requirements-test.txt').readlines()
+  for line in local_file('requirements-test.txt')
   if line.strip() != ''
 ]
 
@@ -49,6 +50,7 @@ setuptools.setup(
   url = "https://github.com/lehinevych/MediaWikiAPI",
   install_requires = install_reqs,
   tests_require = install_test_reqs,
+  test_suite="tests",
   packages = ['mediawikiapi'],
   long_description = long_description,
   long_description_content_type='text/markdown',
