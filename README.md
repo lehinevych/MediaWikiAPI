@@ -6,7 +6,7 @@ MediaWikiAPI
 [![Build Status](https://travis-ci.org/lehinevych/MediaWikiAPI.svg?branch=master)](https://travis-ci.org/lehinevych/MediaWikiAPI)
 [![GitHub Issues](https://img.shields.io/github/issues/lehinevych/MediaWikiAPI.svg)](https://github.com/lehinevych/MediaWikiAPI/issues)
 [![License](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)](https://opensource.org/licenses/MIT)
-[![Docs](https://readthedocs.org/projects/mediawikiapi/badge/?version=latest)
+[![Docs](https://readthedocs.org/projects/mediawikiapi/badge/?version=latest)](https://mediawikiapi.readthedocs.io/en/latest/)
 
 
 **MediaWikiAPI** is a Python library that makes it easy to access and parse
