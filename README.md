@@ -3,7 +3,6 @@ MediaWikiAPI
 
 [![PyPI version](https://img.shields.io/pypi/v/mediawikiapi.svg)](https://pypi.python.org/pypi/mediawikiapi)
 [![Version](https://img.shields.io/pypi/pyversions/mediawikiapi.svg)](https://pypi.python.org/pypi/mediawikiapi)
-[![Build Status](https://travis-ci.org/lehinevych/MediaWikiAPI.svg?branch=master)](https://travis-ci.org/lehinevych/MediaWikiAPI)
 [![GitHub Issues](https://img.shields.io/github/issues/lehinevych/MediaWikiAPI.svg)](https://github.com/lehinevych/MediaWikiAPI/issues)
 [![License](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)](https://opensource.org/licenses/MIT)
 [![Docs](https://readthedocs.org/projects/mediawikiapi/badge/?version=latest)](https://mediawikiapi.readthedocs.io/en/latest/)
@@ -14,7 +13,7 @@ data from Wikipedia.
 
 Search Wikipedia, get article summaries, get data like links and images
 from a page, and more. Wikipedia wraps the `MediaWiki
-API <https://www.mediawiki.org/wiki/API>`__ so you can focus on using
+API <https://www.mediawiki.org/wiki/API>` so you can focus on using
 Wikipedia data, not getting it.
 
 ``` python
@@ -62,7 +61,7 @@ Documentation
 The documentation is available [here](http://mediawikiapi.readthedocs.io/en/latest/)
 
 
-To run tests, clone the `repository on GitHub <https://github.com/lehinevych/MediaWikiAPI>`__, then run:
+To run tests, clone the `repository on GitHub <https://github.com/lehinevych/MediaWikiAPI>`, then run:
 
 ```bash
 pip install -r requirements.txt
@@ -83,7 +82,7 @@ License
 -------
 
 MIT licensed. See the `LICENSE
-file <https://github.com/lehinevych/MediaWikiAPI/blob/master/LICENSE>`__ for
+file <https://github.com/lehinevych/MediaWikiAPI/blob/master/LICENSE>` for
 full details.
 
 Credits

@@ -1,4 +1,3 @@
 #!/bin/sh
 
-python2 -m unittest discover tests/ '*test.py' &&
 python3 -m unittest discover tests/ '*test.py'
