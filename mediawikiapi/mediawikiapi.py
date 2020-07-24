@@ -1,5 +1,3 @@
-from __future__ import unicode_literals
-
 import time
 from bs4 import BeautifulSoup
 from functools import partial

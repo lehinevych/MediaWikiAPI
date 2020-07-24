@@ -4,7 +4,7 @@ import unittest
 from collections import defaultdict
 
 from mediawikiapi import MediaWikiAPI
-from request_mock_data import mock_data
+from tests.request_mock_data import mock_data
 
 
 # mock out _wiki_request
@@ -36,7 +36,7 @@ class TestSearch(unittest.TestCase):
     """Test getting a suggestion as well as search results."""
     search, suggestion = api.search("hallelulejah", suggestion=True)
     self.assertEqual(search, [])
-    self.assertEqual(suggestion, u'hallelujah')
+    self.assertEqual(suggestion, 'hallelujah')
 
   def test_suggestion_none(self):
     """Test getting a suggestion when there is no suggestion."""

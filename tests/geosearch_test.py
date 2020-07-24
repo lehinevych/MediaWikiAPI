@@ -5,7 +5,7 @@ from collections import defaultdict
 from decimal import Decimal
 
 from mediawikiapi import MediaWikiAPI
-from request_mock_data import mock_data
+from tests.request_mock_data import mock_data
 
 
 # mock out _wiki_request

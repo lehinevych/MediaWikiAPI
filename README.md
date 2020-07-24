@@ -14,7 +14,7 @@ data from Wikipedia.
 
 Search Wikipedia, get article summaries, get data like links and images
 from a page, and more. Wikipedia wraps the `MediaWiki
-API <https://www.mediawiki.org/wiki/API>`__ so you can focus on using
+API <https://www.mediawiki.org/wiki/API>` so you can focus on using
 Wikipedia data, not getting it.
 
 ``` python
@@ -62,7 +62,7 @@ Documentation
 The documentation is available [here](http://mediawikiapi.readthedocs.io/en/latest/)
 
 
-To run tests, clone the `repository on GitHub <https://github.com/lehinevych/MediaWikiAPI>`__, then run:
+To run tests, clone the `repository on GitHub <https://github.com/lehinevych/MediaWikiAPI>`, then run:
 
 ```bash
 pip install -r requirements.txt
@@ -83,7 +83,7 @@ License
 -------
 
 MIT licensed. See the `LICENSE
-file <https://github.com/lehinevych/MediaWikiAPI/blob/master/LICENSE>`__ for
+file <https://github.com/lehinevych/MediaWikiAPI/blob/master/LICENSE>` for
 full details.
 
 Credits
