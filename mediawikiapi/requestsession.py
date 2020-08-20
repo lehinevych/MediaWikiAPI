@@ -1,60 +1,63 @@
+import time
 import requests
+from datetime import datetime
 
 
 class RequestSession(object):
-  """ Request wrapper class for request"""
-  def __init__(self):
-    """Require configuration instance as argument"""
-    self.__session = None
+    """ Request wrapper class for request"""
 
-  def __del__(self):
-    if self.session is not None:
-      self.session.close()
+    def __init__(self):
+        """Require configuration instance as argument"""
+        self.__session = None
 
-  @property
-  def session(self):
-    if self.__session is None:
-      # initialize a session
-      self.__session = requests.Session()
-    return self.__session
+    def __del__(self):
+        if self.session is not None:
+            self.session.close()
 
-  def new_session(self):
-    self.__session = requests.Session()
+    @property
+    def session(self):
+        if self.__session is None:
+            # initialize a session
+            self.__session = requests.Session()
+        return self.__session
 
-  def request(self, params, config, language=None):
-      '''
-      Make a request to the Wikipedia API using the given search parameters,
-      language and configuration
+    def new_session(self):
+        self.__session = requests.Session()
 
-      Arguments:
+    def request(self, params, config, language=None):
+        '''
+        Make a request to the Wikipedia API using the given search parameters,
+        language and configuration
 
-      * params (dictionary)
-      * config - the configuration to be used for request
+        Arguments:
 
-      Keyword arguments:
+        * params (dictionary)
+        * config - the configuration to be used for request
 
-      * language - the wiki language
+        Keyword arguments:
 
-      '''
-      params['format'] = 'json'
-      if not 'action' in params:
-        params['action'] = 'query'
+        * language - the wiki language
 
-      headers = {
-        'User-Agent': config.user_agent
-      }
+        '''
+        params['format'] = 'json'
+        if 'action' not in params:
+            params['action'] = 'query'
 
-      rate_limit = config.rate_limit
-      rate_limit_last_call = config.rate_limit_last_call
+        headers = {
+            'User-Agent': config.user_agent
+        }
 
-      if rate_limit_last_call and rate_limit_last_call + rate_limit > datetime.now():
-        # it hasn't been long enough since the last API call
-        # so wait until we're in the clear to make the request
-        wait_time = (rate_limit_last_call + rate_limit) - datetime.now()
-        time.sleep(int(wait_time.total_seconds()))
-      r = self.session.get(config.get_api_url(language), params=params, headers=headers, timeout=config.timeout)
+        rate_limit = config.rate_limit
+        rate_limit_last_call = config.rate_limit_last_call
 
-      if rate_limit:
-        config.rate_limit_last_call = datetime.now()
+        if rate_limit_last_call and rate_limit_last_call + rate_limit > datetime.now():
+            # it hasn't been long enough since the last API call
+            # so wait until we're in the clear to make the request
+            wait_time = (rate_limit_last_call + rate_limit) - datetime.now()
+            time.sleep(int(wait_time.total_seconds()))
+        r = self.session.get(config.get_api_url(language), params=params, headers=headers, timeout=config.timeout)
 
-      return r.json()
+        if rate_limit:
+            config.rate_limit_last_call = datetime.now()
+
+        return r.json()
