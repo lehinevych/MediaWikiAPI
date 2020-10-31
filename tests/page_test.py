@@ -86,7 +86,7 @@ class TestPage(unittest.TestCase):
     def setUp(self):
         # shortest wikipedia articles with images and sections
         self.celtuce = api.page("Celtuce")
-        self.cyclone = api.page("2005 Atlantic hurricane season")
+        self.cyclone = api.page("2007 Atlantic hurricane season")
         self.great_wall_of_china = api.page("Great Wall of China")
         self.avatar = api.page(title="Avatar_(2009_film)")
 
@@ -97,12 +97,12 @@ class TestPage(unittest.TestCase):
     def test_title(self):
         """Test the title."""
         self.assertEqual(self.celtuce.title, "Celtuce")
-        self.assertEqual(self.cyclone.title, "2005 Atlantic hurricane season")
+        self.assertEqual(self.cyclone.title, "2007 Atlantic hurricane season")
 
     def test_url(self):
         """Test the url."""
         self.assertEqual(self.celtuce.url, "https://en.wikipedia.org/wiki/Celtuce")
-        self.assertEqual(self.cyclone.url, "https://en.wikipedia.org/wiki/2005_Atlantic_hurricane_season")
+        self.assertEqual(self.cyclone.url, "https://en.wikipedia.org/wiki/2007_Atlantic_hurricane_season")
 
     def test_content(self):
         """Test the plain text content."""
@@ -146,6 +146,7 @@ class TestPage(unittest.TestCase):
         self.assertCountEqual(self.celtuce.links, mock_data['data']["celtuce.links"])
         self.assertCountEqual(self.cyclone.links, mock_data['data']["cyclone.links"])
 
+
     def test_html(self):
         """Test the full HTML method."""
         self.assertTrue(bool(BeautifulSoup(self.celtuce.html(), "html.parser").find()))
@@ -159,8 +160,8 @@ class TestPage(unittest.TestCase):
     def test_summary(self):
         """Test the summary."""
         # Strip is used to nuke \n from the end
-        self.assertEqual(self.celtuce.summary.strip(), mock_data['data']["celtuce.summary"])
-        self.assertEqual(self.cyclone.summary.strip(), mock_data['data']["cyclone.summary"])
+        self.assertIn(mock_data['data']["celtuce.summary"], self.celtuce.summary)
+        self.assertIn(mock_data['data']["cyclone.summary"], self.cyclone.summary)
 
     def test_categories(self):
         """Test the list of categories of Wikipedia pages."""
@@ -173,7 +174,7 @@ class TestPage(unittest.TestCase):
 
     def test_section(self):
         """Test text content of a single section."""
-        self.assertEqual(self.cyclone.section("Impacts"), mock_data['data']["cyclone.section.impact"])
+        self.assertEqual(self.cyclone.section("Seasonal forecasts"), mock_data['data']["cyclone.section.seasonal_forecasts"])
         self.assertEqual(self.cyclone.section("History"), None)
 
     def test_lang_title(self):

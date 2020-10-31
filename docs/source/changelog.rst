@@ -12,6 +12,12 @@ Contents:
    changelog
 
 
+Version 1.1.5
+=============
+* Fix the bug with pip install on Windows
+* Fix setup.py to not fail if file doesn't exist
+
+
 Version 1.1.4
 =============
 * Split `requirements.txt` and upgrade dependencies versions.
