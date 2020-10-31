@@ -17,7 +17,7 @@ class RequestSession(object):
     @property
     def session(self):
         if self.__session is None:
-            # initialize a session
+            # initialize a session 
             self.__session = requests.Session()
         return self.__session
 

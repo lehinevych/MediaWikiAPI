@@ -19,7 +19,7 @@ Wikipedia data, not getting it.
 ``` python
 >>> from mediawikiapi import MediaWikiAPI
 >>> mediawikiapi = MediaWikiAPI()
->>> print mediawikiapi.summary("Wikipedia")
+>>> print(mediawikiapi.summary("Wikipedia"))
 # Wikipedia (/ˌwɪkɨˈpiːdiə/ or /ˌwɪkiˈpiːdiə/ WIK-i-PEE-dee-ə) is a collaboratively edited, multilingual, free Internet encyclopedia supported by the non-profit Wikimedia Foundation...
 
 >>> mediawikiapi.search("Barack")
