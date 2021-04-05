@@ -148,8 +148,11 @@ class WikipediaPage(object):
                 for datum in pages.values():  # in python 3.3+: "yield from pages.values()"
                     yield datum
             else:
-                for datum in pages[self.pageid][prop]:
-                    yield datum
+                if prop in pages[self.pageid]:
+                    for datum in pages[self.pageid][prop]:
+                        yield datum
+                else:
+                    print(f"Key '{prop}' not found in page")
 
             if 'continue' not in request:
                 break
