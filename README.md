@@ -65,7 +65,6 @@ To run tests, clone the [repository on GitHub](https://github.com/lehinevych/Med
 
 ```bash
 pip install -r requirements.txt
-bash runtests  # will run tests for python and python3
 python -m unittest discover tests/ '*test.py'  # manual style
 ```
 in the root project directory.
