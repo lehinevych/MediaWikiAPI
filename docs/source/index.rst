@@ -88,6 +88,16 @@ Remember to search for page titles in the language that you have set, not Englis
 
 To get a list of all possible language prefixes, try ``mediawikiapi.languages()``.
 
+Exception handling example::
+
+	>>> import mediawikiapi
+	>>> mediawiki = mediawikiapi.MediaWikiAPI()
+	>>> try:
+	>>>    print("Getting page")
+	>>>    page = mediawiki.page("!!!123123 page title")
+	>>> except mediawikiapi.exceptions.PageError:
+	>>>    print("Got page error, skipping")
+
 For more details and configuration option check API section.
 
 
