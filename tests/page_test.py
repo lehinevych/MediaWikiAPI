@@ -67,15 +67,15 @@ class TestPageSetUp(unittest.TestCase):
         """Test that page raises an error when a disambiguation page is reached."""
         page = api.page("Template", auto_suggest=False, redirect=False)
         disambiguation_list = [
-            u"Template (file format)",
-            u"Template (C++)",
-            u"Template metaprogramming",
-            u"Template method pattern",
-            u"Template processor",
-            u"Template (word processing)",
-            u"Web template",
-            u"Template (racing)",
-            u"Template (novel)",
+            "Template (file format)",
+            "Template (C++)",
+            "Template metaprogramming",
+            "Template method pattern",
+            "Template processor",
+            "Template (word processing)",
+            "Web template",
+            "Template (racing)",
+            "Template (novel)",
         ]
         for disambiguation_opt in disambiguation_list:
             self.assertTrue(disambiguation_opt in page.disambiguate_pages)
@@ -192,7 +192,6 @@ class TestPage(unittest.TestCase):
         """Test the summary."""
         # Strip is used to nuke \n from the end
         self.assertIn(mock_data["data"]["celtuce.summary"], self.celtuce.summary)
-        self.assertIn(mock_data["data"]["cyclone.summary"], self.cyclone.summary)
 
     def test_categories(self):
         """Test the list of categories of Wikipedia pages."""
@@ -218,7 +217,7 @@ class TestPage(unittest.TestCase):
         self.assertEqual(self.cyclone.section("History"), None)
 
     def test_lang_title(self):
-        """ Test lang_title function"""
+        """Test lang_title function"""
         self.assertEqual(
             self.celtuce.lang_title("es"), mock_data["data"]["celtuce.es_lang"]
         )
