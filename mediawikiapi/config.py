@@ -1,5 +1,5 @@
-from datetime import timedelta
-from typing import Union
+from datetime import timedelta, datetime
+from typing import Union, Optional
 from .language import Language
 
 
@@ -16,16 +16,15 @@ class Config(object):
 
     def __init__(
         self,
-        language: str = None,
-        user_agent: str = None,
-        rate_limit: Union[int, timedelta] = None,
-        mediawiki_url: str = None,
+        language: Optional[str] = None,
+        user_agent: Optional[str] = None,
+        rate_limit: Optional[Union[int, timedelta]] = None,
+        mediawiki_url: Optional[str] = None,
     ):
         if language is not None:
             self.__lang = Language(language)
         else:
             self.__lang = Language()
-        self.__rate_limit_last_call = None
         if isinstance(rate_limit, int):
             rate_limit = timedelta(milliseconds=rate_limit)
         self.__rate_limit = rate_limit
@@ -39,7 +38,7 @@ class Config(object):
         return cls.DONATE_URL
 
     @property
-    def language(self) -> None:
+    def language(self) -> str:
         """Return current global language"""
         return self.__lang.language
 
@@ -54,7 +53,7 @@ class Config(object):
         else:
             self.__lang.language = language
 
-    def get_api_url(self, language=None) -> str:
+    def get_api_url(self, language: Optional[Union[str, Language]] = None) -> str:
         """Return api for specified language
         Arguments:
         * language - (string or Language instance) specifying the language
@@ -69,19 +68,11 @@ class Config(object):
         return self.mediawiki_url.format(self.__lang.language)
 
     @property
-    def rate_limit(self) -> timedelta:
+    def rate_limit(self) -> Optional[timedelta]:
         return self.__rate_limit
 
-    @property
-    def rate_limit_last_call(self) -> timedelta:
-        return self.__rate_limit_last_call
-
-    @rate_limit_last_call.setter
-    def rate_limit_last_call(self, last_call: timedelta) -> None:
-        self.__rate_limit_last_call = last_call
-
     @rate_limit.setter
-    def rate_limit(self, rate_limit: Union[int, timedelta]) -> None:
+    def rate_limit(self, rate_limit: Optional[Union[int, timedelta]] = None) -> None:
         """
         Enable or disable rate limiting on requests to the Mediawiki servers.
         If rate limiting is not enabled, under some circumstances (depending on

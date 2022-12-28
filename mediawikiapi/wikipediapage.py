@@ -1,7 +1,10 @@
 import re
-from .exceptions import PageError, RedirectError, ODD_ERROR_MESSAGE
+import requests
+from typing import Dict, List, Any, Tuple, Optional, Generator, Callable, Union
 from decimal import Decimal
 from bs4 import BeautifulSoup
+from .config import Config
+from .exceptions import PageError, RedirectError, ODD_ERROR_MESSAGE
 from .language import Language
 from .util import clean_infobox
 
@@ -14,18 +17,21 @@ class WikipediaPage(object):
 
     def __init__(
         self,
-        title=None,
-        pageid=None,
-        redirect=True,
-        preload=False,
-        original_title="",
-        request=None,
-    ):
+        request: Callable[
+            [Dict[str, Any]],
+            Dict[str, Any],
+        ],
+        title: Optional[str] = None,
+        pageid: Optional[int] = None,
+        redirect: bool = True,
+        preload: bool = False,
+        original_title: str = "",
+    ) -> None:
         if title is not None:
-            self.title = title
-            self.original_title = original_title or title
+            self.title: str = title
+            self.original_title: str = original_title or title
         elif pageid is not None:
-            self.pageid = pageid
+            self.pageid: int = pageid
         else:
             raise ValueError("Either a title or a pageid must be specified")
 
@@ -39,13 +45,16 @@ class WikipediaPage(object):
                 "references",
                 "links",
                 "sections",
+                "infobox",
             ):
                 getattr(self, prop)
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return "<WikipediaPage {}>".format(self.title)
 
-    def __eq__(self, other):
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, WikipediaPage):
+            return NotImplemented
         try:
             return (
                 self.pageid == other.pageid
@@ -55,14 +64,14 @@ class WikipediaPage(object):
         except Exception:
             return False
 
-    def __load(self, redirect=True, preload=False):
+    def __load(self, redirect: bool = True, preload: bool = False) -> None:
         """
         Load basic information from Wikipedia.
         Confirm that page exists and is not a disambiguation/redirect.
 
         Does not need to be called manually, should be called automatically during __init__.
         """
-        query_params = {
+        query_params: Dict[str, str | int] = {
             "prop": "info|pageprops",
             "inprop": "url",
             "redirects": "",
@@ -81,7 +90,7 @@ class WikipediaPage(object):
         # missing is present if the page is missing
         if "missing" in page:
             if hasattr(self, "title"):
-                raise PageError(self.title)
+                raise PageError(title=self.title)
             else:
                 raise PageError(pageid=self.pageid)
 
@@ -103,7 +112,8 @@ class WikipediaPage(object):
                 assert redirects["from"] == from_title, ODD_ERROR_MESSAGE
 
                 # change the title and reload the whole object
-                self.__init__(
+                # TODO this should be refactored
+                self.__init__(  # type:ignore
                     redirects["to"],
                     redirect=redirect,
                     preload=preload,
@@ -115,10 +125,10 @@ class WikipediaPage(object):
 
         self.pageid = pageid
         self.title = page.get("title")
-        self.url = page.get("fullurl")
-        self.language = page.get("pagelanguage")
-        self.pageprops = page.get("pageprops", {})
-        self.disambiguate_pages = []
+        self.url: str = page.get("fullurl")
+        self.language: str = page.get("pagelanguage")
+        self.pageprops: Dict[str, Any] = page.get("pageprops", {})
+        self.disambiguate_pages: List[Any] = []
 
         # since we only asked for disambiguation in ppprop,
         # if a pageprop is returned,
@@ -145,14 +155,16 @@ class WikipediaPage(object):
                 if items:
                     self.disambiguate_pages.append(items[0]["title"])
 
-    def __continued_query(self, query_params):
+    def __continued_query(
+        self, query_params: Dict[str, Any]
+    ) -> Generator[Any, None, None]:
         """
         Based on https://www.mediawiki.org/wiki/API:Query#Continuing_queries
         """
         query_params.update(self.__title_query_param)
 
-        last_continue = {}
-        last_len_pages = 0
+        last_continue: Dict[str, Any] = {}
+        last_len_pages: int = 0
         prop = query_params.get("prop", None)
         while True:
             params = query_params.copy()
@@ -169,10 +181,7 @@ class WikipediaPage(object):
                 break
             pages = request["query"]["pages"]
             if "generator" in query_params:
-                for (
-                    datum
-                ) in pages.values():  # in python 3.3+: "yield from pages.values()"
-                    yield datum
+                yield from pages.values()
             else:
                 if prop in pages[self.pageid]:
                     for datum in pages[self.pageid][prop]:
@@ -185,13 +194,13 @@ class WikipediaPage(object):
             last_len_pages = len(request["query"]["pages"])
 
     @property
-    def __title_query_param(self):
+    def __title_query_param(self) -> Dict[str, str | int]:
         if getattr(self, "title", None) is not None:
             return {"titles": self.title}
         else:
             return {"pageids": self.pageid}
 
-    def html(self):
+    def html(self) -> Any:
         """
         Get full page HTML.
 
@@ -212,7 +221,7 @@ class WikipediaPage(object):
         return self._html
 
     @property
-    def infobox(self):
+    def infobox(self) -> Dict[str, Any]:
         if getattr(self, "_infobox", False):
             return self._infobox
         if not getattr(self, "_html", False):
@@ -220,43 +229,43 @@ class WikipediaPage(object):
 
         soup = BeautifulSoup(self._html, "html.parser")
         infobox = soup.find("table", {"class": "infobox"})
-        results = {}
+        results: Dict[str, Any] = {}
 
         if infobox:
-            for row in infobox.findAll("tr"):
+            for row in infobox.findAll("tr"):  # type: ignore
                 title = row.find("th")
                 text = row.find("td")
                 if title and text:
                     title = clean_infobox(title.text)
                     results[title] = clean_infobox(text.text)
-            self._infobox = results
+            self._infobox: Dict[str, Any] = results
         return self._infobox
 
     @property
-    def content(self):
+    def content(self) -> str:
         """
         Plain text content of the page, excluding images, tables, and other data.
         """
         if not getattr(self, "_content", False):
-            query_params = {
+            query_params: Dict[str, str | int] = {
                 "prop": "extracts|revisions",
                 "explaintext": "",
                 "rvprop": "ids",
             }
             query_params.update(self.__title_query_param)
             request = self.request(query_params)
-            self._content = request["query"]["pages"][self.pageid]["extract"]
-            self._revision_id = request["query"]["pages"][self.pageid]["revisions"][0][
-                "revid"
-            ]
-            self._parent_id = request["query"]["pages"][self.pageid]["revisions"][0][
-                "parentid"
-            ]
+            self._content: str = request["query"]["pages"][self.pageid]["extract"]
+            self._revision_id: int = request["query"]["pages"][self.pageid][
+                "revisions"
+            ][0]["revid"]
+            self._parent_id: int = request["query"]["pages"][self.pageid]["revisions"][
+                0
+            ]["parentid"]
 
         return self._content
 
     @property
-    def revision_id(self):
+    def revision_id(self) -> int:
         """
         Revision ID of the page.
 
@@ -273,7 +282,7 @@ class WikipediaPage(object):
         return self._revision_id
 
     @property
-    def parent_id(self):
+    def parent_id(self) -> int:
         """
         Revision ID of the parent version of the current revision of this
         page. See ``revision_id`` for more information.
@@ -284,12 +293,12 @@ class WikipediaPage(object):
         return self._parent_id
 
     @property
-    def summary(self):
+    def summary(self) -> str:
         """
         Plain text summary of the page.
         """
         if not getattr(self, "_summary", False):
-            query_params = {
+            query_params: Dict[str, str | int] = {
                 "prop": "extracts",
                 "explaintext": "",
                 "exintro": "",
@@ -297,12 +306,12 @@ class WikipediaPage(object):
             query_params.update(self.__title_query_param)
 
             request = self.request(query_params)
-            self._summary = request["query"]["pages"][self.pageid]["extract"]
+            self._summary: str = request["query"]["pages"][self.pageid]["extract"]
 
         return self._summary
 
     @property
-    def images(self):
+    def images(self) -> List[str]:
         """
         List of URLs of images on the page.
         """
@@ -323,7 +332,7 @@ class WikipediaPage(object):
         return self._images
 
     @property
-    def coordinates(self):
+    def coordinates(self) -> Optional[Tuple[Decimal, Decimal]]:
         """
         Tuple of Decimals in the form of (lat, lon) or None
         """
@@ -336,6 +345,7 @@ class WikipediaPage(object):
 
             request = self.request(query_params)
 
+            self._coordinates: Optional[Tuple[Decimal, Decimal]] = None
             try:
                 coordinates = request["query"]["pages"][self.pageid]["coordinates"]
                 self._coordinates = (
@@ -343,19 +353,19 @@ class WikipediaPage(object):
                     Decimal(coordinates[0]["lon"]),
                 )
             except KeyError:
-                self._coordinates = None
+                pass
 
         return self._coordinates
 
     @property
-    def references(self):
+    def references(self) -> List[str]:
         """
         List of URLs of external links on a page.
         May include external links within page that aren't technically cited anywhere.
         """
         if not getattr(self, "_references", False):
 
-            def add_protocol(url):
+            def add_protocol(url: str) -> str:
                 return url if url.startswith("http") else "http:" + url
 
             self._references = [
@@ -368,7 +378,7 @@ class WikipediaPage(object):
         return self._references
 
     @property
-    def links(self):
+    def links(self) -> List[str]:
         """
         List of titles of Wikipedia page links on a page.
 
@@ -385,7 +395,7 @@ class WikipediaPage(object):
         return self._links
 
     @property
-    def backlinks(self):
+    def backlinks(self) -> List[str]:
         """
         List of pages that link to a given page
         """
@@ -406,7 +416,7 @@ class WikipediaPage(object):
         return self._backlinks
 
     @property
-    def backlinks_ids(self):
+    def backlinks_ids(self) -> List[int]:
         """
         List of pages ids that link to a given page
 
@@ -419,7 +429,7 @@ class WikipediaPage(object):
         return self._backlinks_ids
 
     @property
-    def categories(self):
+    def categories(self) -> List[str]:
         """
         List of categories of a page.
         """
@@ -437,12 +447,12 @@ class WikipediaPage(object):
         return self._categories
 
     @property
-    def sections(self):
+    def sections(self) -> List[str]:
         """
         List of section titles from the table of contents on the page.
         """
         if not getattr(self, "_sections", False):
-            query_params = {
+            query_params: Dict[str, str | int] = {
                 "action": "parse",
                 "prop": "sections",
             }
@@ -458,7 +468,7 @@ class WikipediaPage(object):
 
         return self._sections
 
-    def section(self, section_title):
+    def section(self, section_title: str) -> Optional[str]:
         """
         Get the plain text content of a section from `self.sections`.
         Returns None if `section_title` isn't found, otherwise returns a whitespace stripped string.
@@ -470,7 +480,7 @@ class WikipediaPage(object):
                `section_title` and the next subheading, which is often empty.
         """
 
-        section = u"== {} ==".format(section_title)
+        section = "== {} ==".format(section_title)
         try:
             index = self.content.index(section) + len(section)
         except ValueError:
@@ -483,7 +493,7 @@ class WikipediaPage(object):
 
         return self.content[index:next_index].lstrip("=").strip()
 
-    def lang_title(self, lang_code):
+    def lang_title(self, lang_code: str) -> Optional[str]:
         """
         Get the title in specified language code
         Returns None if lang code or title isn't found, otherwise returns a string with title.
@@ -497,8 +507,9 @@ class WikipediaPage(object):
         query_params.update(self.__title_query_param)
         request = self.request(query_params)
         pageid = list(request["query"]["pages"])[0]
+        title: Optional[str] = None
         try:
             title = request["query"]["pages"][pageid]["langlinks"][0]["*"]
         except Exception:
-            title = None
+            pass
         return title
