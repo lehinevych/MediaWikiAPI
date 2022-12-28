@@ -1241,10 +1241,9 @@ mock_data = {
     },
     "data": {
         "celtuce.content": """The stem is usually harvested at a length of around 15–20 cm and a diameter of around 3–4 cm. It is crisp, moist, and mildly flavored, and typically prepared by slicing and then stir frying with more strongly flavored ingredients.""",
-        "celtuce.parentid": 1065914772,
-        "celtuce.revid": 1117075317,
-        "celtuce.summary": """Celtuce (/ˈsɛlt.əs/) (Lactuca sativa var. augustana, angustata, or asparagina), also called stem lettuce, celery lettuce, asparagus lettuce, or Chinese lettuce, is a cultivar of lettuce grown primarily for its thick stem or its leaves. It is used as a vegetable. In Mainland China, the family is informally called woju (traditional Chinese: 萵苣; simplified Chinese: 莴苣; pinyin: wōjù), which is also the name of a cultivar. It is especially popular in both mainland China and Taiwan, where the stem is interchangeably called wosun (traditional Chinese: 萵筍; simplified Chinese: 莴笋; pinyin: wōsǔn) or qingsun (青筍; 青笋; qīngsǔn). Prepared separately, the leaves are called youmaicai (油麥菜; 油麦菜; yóumàicài).
-The pale green leaves, which are tender, and white stems can be eaten raw (in salads) or cooked. It can be pickled, grilled, roasted, or stir-fried. It is mild but nutty, with a slight smoky aftertaste. It is high in vitamins.Popular sources identify it as originating in the Mediterranean region and then being brought to China during the Tang Dynasty, about A.D. 600–900.It can be grown from seed and is sown from April through May in the Northern Hemisphere. The seeds can be planted in a set bed or a temporary nursery bed and then transplanted to the growing site. They should be spread 30 cm apart each way. The young (edible) leaves are ready about 4–5 weeks after planting and the edible stems are ready when about 30 cm tall. They are usually harvested between July and September.The plant can suffer from aphid attack.The stem is usually harvested at a length of around 15–20 cm and a diameter of around 3–4 cm. It is crisp, moist, and mildly flavored, and typically prepared by slicing and then stir frying with more strongly flavored ingredients.""",
+        "celtuce.parentid": 1117075317,
+        "celtuce.revid": 1129643971,
+        "celtuce.summary": """Celtuce (/ˈsɛlt.əs/) (Lactuca sativa var. augustana, angustata, or asparagina), also called stem lettuce, celery lettuce, asparagus lettuce, or Chinese lettuce, is a cultivar of lettuce grown primarily for its thick stem or its leaves.""",
         "celtuce.images": [
             "https://upload.wikimedia.org/wikipedia/commons/8/87/Celtuce.jpg",
             "https://upload.wikimedia.org/wikipedia/commons/c/c8/Emoji_u1f955.svg",

@@ -11,6 +11,9 @@ Contents:
 
    changelog
 
+Version 1.1.6
+=============
+* Add support for Python 3.9, 3.10 and 3.11
 
 Version 1.1.5
 =============
