@@ -224,7 +224,7 @@ class TestPage(unittest.TestCase):
         """Test category members"""
         self.assertEqual(
             api.category_members(title="Physics"),
-            mock_data["category_members_physics"],
+            mock_category_members_physics,
         )
         self.assertEqual(
             api.category_members(pageid=692318),

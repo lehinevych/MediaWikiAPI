@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
+from __future__ import annotations
 from typing import Dict, Tuple, Any, List
 
-mock_wiki_calls: Dict[Tuple, Dict[str, Any]] = {
+mock_wiki_calls: Dict[Tuple, Dict[str, Any]] = {  # type: ignore
     (
         ("explaintext", ""),
         ("prop", "extracts|revisions"),

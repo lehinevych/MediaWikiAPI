@@ -4,7 +4,12 @@ import re
 import collections
 import functools
 from collections.abc import Callable
-from typing import Dict, ParamSpec, TypeVar, Any, Optional
+from typing import Dict, TypeVar, Any, Optional
+
+if sys.version_info >= (3, 10):
+    from typing import ParamSpec
+else:
+    from typing_extensions import ParamSpec
 
 P = ParamSpec("P")
 R = TypeVar("R")

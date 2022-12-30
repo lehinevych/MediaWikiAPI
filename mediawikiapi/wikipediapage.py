@@ -1,5 +1,5 @@
+from __future__ import annotations
 import re
-import requests
 from typing import Dict, List, Any, Tuple, Optional, Generator, Callable, Union
 from decimal import Decimal
 from bs4 import BeautifulSoup
