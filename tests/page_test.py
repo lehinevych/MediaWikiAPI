@@ -17,6 +17,7 @@ from tests.request_mock_data import (
     mock_backlinks_ids,
     mock_bill_foster_images,
     mock_sections,
+    mock_category_members_physics,
 )
 
 api = MediaWikiAPI()
@@ -172,15 +173,16 @@ class TestPage(unittest.TestCase):
     def test_coordinates(self) -> None:
         """Test geo coordinates of a page"""
         self.assertIsNotNone(self.great_wall_of_china.coordinates)
-        lat, lon = self.great_wall_of_china.coordinates
-        self.assertEqual(
-            str(lat.quantize(Decimal("1.000"))),
-            mock_data["great_wall_of_china.coordinates.lat"],
-        )
-        self.assertEqual(
-            str(lon.quantize(Decimal("1.000"))),
-            mock_data["great_wall_of_china.coordinates.lon"],
-        )
+        if self.great_wall_of_china.coordinates is not None:
+            lat, lon = self.great_wall_of_china.coordinates
+            self.assertEqual(
+                str(lat.quantize(Decimal("1.000"))),
+                mock_data["great_wall_of_china.coordinates.lat"],
+            )
+            self.assertEqual(
+                str(lon.quantize(Decimal("1.000"))),
+                mock_data["great_wall_of_china.coordinates.lon"],
+            )
 
     def test_summary(self) -> None:
         """Test the summary."""
@@ -226,7 +228,7 @@ class TestPage(unittest.TestCase):
         )
         self.assertEqual(
             api.category_members(pageid=692318),
-            mock_data["category_members_physics"],
+            mock_category_members_physics,
         )
         with self.assertRaises(ValueError):
             api.category_members(title="Wikipedia", pageid=6923181)

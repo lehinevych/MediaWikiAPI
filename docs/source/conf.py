@@ -22,7 +22,6 @@ from typing import List, Dict
 
 sys.path.insert(0, os.path.abspath("../.."))
 from datetime import datetime
-from mediawikiapi.version import __version__ as version
 
 # -- General configuration ------------------------------------------------
 

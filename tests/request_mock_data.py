@@ -1607,7 +1607,7 @@ mock_categories: Dict[str, List[str]] = {
         "Articles with short description",
         "Articles with unsourced statements from December 2021",
         "Lettuce",
-        "Short descrreiption is different from Wikidata",
+        "Short description is different from Wikidata",
         "Stem vegetables",
         "Vegetable stubs",
     ],
@@ -2258,7 +2258,16 @@ mock_sections: List[str] = [
     "External links",
 ]
 
-mock_data: Dict[str, str | int | Dict[str, str]] = {
+mock_category_members_physics: List[str] = [
+    "Physics",
+    "Portal:Physics",
+    "Physicalism",
+    "Six Ideas that Shaped Physics",
+    "X-ray Reconstruction of Moving Morphology",
+]
+
+
+mock_data: Dict[str, str | int | Dict[str, str] | List[str]] = {
     "celtuce.content": """The stem is usually harvested at a length of around 15–20 cm and a diameter of around 3–4 cm. It is crisp, moist, and mildly flavored, and typically prepared by slicing and then stir frying with more strongly flavored ingredients.""",
     "celtuce.parentid": 1117075317,
     "celtuce.revid": 1129643971,
@@ -2302,13 +2311,6 @@ mock_data: Dict[str, str | int | Dict[str, str]] = {
     ],
     "great_wall_of_china.geo_seach_with_existing_article_name": ["Great Wall of China"],
     "great_wall_of_china.geo_seach_with_non_existing_article_name": [],
-    "category_members_physics": [
-        "Physics",
-        "Portal:Physics",
-        "Physicalism",
-        "Six Ideas that Shaped Physics",
-        "X-ray Reconstruction of Moving Morphology",
-    ],
     "infobox_avatar": {
         "Also known as": "Avatar: The Legend of Aang",
         "Genre": "Action-adventure Fantasy Comedy drama",
