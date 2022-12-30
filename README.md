@@ -77,6 +77,14 @@ cd docs/
 make html
 ```
 
+To run formatter and mypy run:
+
+```
+black --diff --check $(git ls-files '*.py')
+pylint --disable=all --enable=unused-import $(git ls-files '*.py')
+mypy --strict $(git ls-files '*.py')
+```
+
 License
 -------
 
