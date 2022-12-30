@@ -2,15 +2,17 @@
 import codecs
 import os
 import setuptools
+from typing import List, Dict, Any
 from distutils.util import convert_path
 
-main_ns = {}
+
+main_ns: Dict[str, Any] = {}
 ver_path = convert_path("mediawikiapi/version.py")
 with open(ver_path) as ver_file:
     exec(ver_file.read(), main_ns)
 
 
-def local_file(file):
+def local_file(file: str) -> List[str]:
     if os.path.exists(file):
         f = codecs.open(os.path.join(os.path.dirname(__file__), file), "r", "utf-8")
         return f.readlines()
