@@ -1,5 +1,5 @@
 from datetime import timedelta
-from typing import Union, Optional, Any
+from typing import Union, Optional
 from .language import Language
 
 

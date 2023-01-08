@@ -1609,8 +1609,13 @@ mock_data: Dict[str, str | int | Dict[str, str] | List[str]] = {
         "wikibase-shortdesc": "Lettuce cultivar",
         "wikibase_item": "Q574172",
     },
+<<<<<<< HEAD
     "cyclone.revid": 1139631992,
     "cyclone.parentid": 1138924422,
+=======
+    "cyclone.revid": 1131577210,
+    "cyclone.parentid": 1131577096,
+>>>>>>> 6cceb4e (add the config tests, increase coverage to 82% and rename test files)
     "cyclone.section.seasonal_forecasts": "Noted hurricane experts Philip J. Klotzbach, William M. Gray, and their associates at Colorado State University issue forecasts of hurricane activity each year, separately from NOAA. Klotzbach's team, formerly led by Gray, determined the average number of storms per season between 1950 and 2000 to be 9.6 tropical storms, 5.9 hurricanes, and 2.3 major hurricanes (storms exceeding Category 3 on the Saffir–Simpson scale). A normal season, as defined by NOAA, has 9 to 12 named storms, of which five to seven reach hurricane strength, and one to three become major hurricanes.",
     "cyclone.ru_lang": "Сезон атлантических ураганов 2007 года",
     "cyclone.pageprops": {
