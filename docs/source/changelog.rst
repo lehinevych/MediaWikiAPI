@@ -11,6 +11,14 @@ Contents:
 
    changelog
 
+
+Version 1.2
+=============
+* The `Config` allows to specify the API url. This makes the client reusable for other Mediawiki installs with the same API. 
+* Move to the [poetry](https://python-poetry.org/) packaing and dependencies management tool
+* Add typing and mypy check
+* Format the code and use the formatting checks 
+
 Version 1.1.6
 =============
 * Add support for Python 3.9, 3.10 and 3.11
