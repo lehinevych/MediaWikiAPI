@@ -64,8 +64,9 @@ The documentation is available [here](http://mediawikiapi.readthedocs.io/en/late
 To run tests, clone the [repository on GitHub](https://github.com/lehinevych/MediaWikiAPI), then run:
 
 ```bash
-pip install -r requirements.txt
-python -m unittest discover tests/ '*test.py'  # manual style
+poetry install 
+poetry build
+poetry run pytest --junitxml=pytest.xml --cov-report=term-missing:skip-covered --cov=mediawikiapi
 ```
 in the root project directory.
 
@@ -80,9 +81,9 @@ make html
 To run formatter and mypy run:
 
 ```
-black --diff --check $(git ls-files '*.py')
-pylint --disable=all --enable=unused-import $(git ls-files '*.py')
-mypy --strict $(git ls-files '*.py')
+poetry run mypy --strict .
+poetry run flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+poetry run black --diff --check .
 ```
 
 License

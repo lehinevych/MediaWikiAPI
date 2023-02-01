@@ -1,5 +1,5 @@
-from datetime import timedelta, datetime
-from typing import Union, Optional
+from datetime import timedelta
+from typing import Union, Optional, Any
 from .language import Language
 
 
@@ -8,6 +8,7 @@ class Config(object):
     Contains global configuration
     """
 
+    DEFAULT_TIMEOUT = 3.0
     DEFAULT_USER_AGENT = "mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)"
     DONATE_URL = (
         "https://donate.wikimedia.org/w/index.php?title=Special:FundraiserLandingPage"
@@ -18,6 +19,7 @@ class Config(object):
         self,
         language: Optional[str] = None,
         user_agent: Optional[str] = None,
+        timeout: Optional[float] = None,
         rate_limit: Optional[Union[int, timedelta]] = None,
         mediawiki_url: Optional[str] = None,
     ):
@@ -27,10 +29,10 @@ class Config(object):
             self.__lang = Language()
         if isinstance(rate_limit, int):
             rate_limit = timedelta(milliseconds=rate_limit)
-        self.__rate_limit = rate_limit
-        self.timeout = None
-        self.user_agent = user_agent or self.DEFAULT_USER_AGENT
-        self.mediawiki_url = mediawiki_url or self.API_URL
+        self.__rate_limit: Optional[timedelta] = rate_limit
+        self.timeout: float = timeout or self.DEFAULT_TIMEOUT
+        self.user_agent: str = user_agent or self.DEFAULT_USER_AGENT
+        self.mediawiki_url: str = mediawiki_url or self.API_URL
 
     @classmethod
     def donate_url(cls) -> str:
@@ -93,5 +95,3 @@ class Config(object):
             self.__rate_limit = rate_limit
         else:
             self.__rate_limit = timedelta(milliseconds=rate_limit)
-
-        self.__rate_limit_last_call = None
