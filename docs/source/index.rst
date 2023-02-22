@@ -102,7 +102,7 @@ Exception handling example::
 	>>>    print("Got page error, skipping")
 
 
-The library can be used for other Mediawiki installs and sites except Wikipedia which onwer the same API.
+The library can be used for other Mediawiki installs and sites with the same API.
 
 	>>> import mediawikiapi
 	>>> mediawiki = mediawikiapi.MediaWikiAPI(config=Config(mediawiki_url="https://{}.wiktionary.org/w/api.php"))
