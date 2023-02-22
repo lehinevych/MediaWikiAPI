@@ -11,8 +11,11 @@ Release v\ |version|.
 .. image:: https://img.shields.io/pypi/v/mediawikiapi.svg
     :target: https://pypi.python.org/pypi/mediawikiapi
 
-.. image:: https://travis-ci.org/lehinevych/MediaWikiAPI.svg?branch=master
-    :target: https://travis-ci.org/lehinevych/MediaWikiAPI
+.. image:: https://img.shields.io/pypi/pyversions/mediawikiapi.svg
+    :target: https://pypi.python.org/pypi/mediawikiapi
+
+.. image:: https://github.com/lehinevych/MediaWikiAPI/workflows/Python%20package/badge.svg?branch=master
+    :target: https://github.com/lehinevych/MediaWikiAPI/workflows/Python%20package/badge.svg?branch=master
 
 .. image:: https://img.shields.io/github/issues/lehinevych/MediaWikiAPI.svg
     :target: https://github.com/lehinevych/MediaWikiAPI/issues
