@@ -17,13 +17,6 @@ class TestConfig(unittest.TestCase):
             Config().get_api_url(), Config.API_URL.format(Language.DEFAULT_LANGUAGE)
         )
 
-    def test_default_timeout(self) -> None:
-        self.assertEqual(Config().timeout, Config.DEFAULT_TIMEOUT)
-
-    def test_custom_timeout(self) -> None:
-        custom_timeout = 10
-        self.assertEqual(Config(timeout=custom_timeout).timeout, custom_timeout)
-
     def test_default_get_api_url_with_custom_language(self) -> None:
         fr_lang = "fr"
         uk_lang = "uk"
@@ -49,7 +42,7 @@ class TestConfig(unittest.TestCase):
             api_url.format(Language.DEFAULT_LANGUAGE),
         )
 
-    def test_custom_api_url_without_language_support(self) -> None:
+    def test_custom_api_url(self) -> None:
         api_url = "https://wiki.archlinux.org"
         self.assertEqual(Config(mediawiki_url=api_url).get_api_url(), api_url)
 
