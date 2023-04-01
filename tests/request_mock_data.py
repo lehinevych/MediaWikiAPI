@@ -2280,12 +2280,7 @@ mock_sections: List[str] = [
     "External links",
 ]
 
-mock_category_members_physics: List[str] = [
-    "Physics",
-    "Portal:Physics",
-    "Physicalism",
-    "Draft:Martin Regehly",
-]
+mock_category_members_physics: List[str] = ["Physics", "Portal:Physics", "Physicalism"]
 
 
 mock_data: Dict[str, str | int | Dict[str, str] | List[str]] = {
@@ -2299,8 +2294,8 @@ mock_data: Dict[str, str | int | Dict[str, str] | List[str]] = {
         "wikibase-shortdesc": "Lettuce cultivar",
         "wikibase_item": "Q574172",
     },
-    "cyclone.revid": 1139631992,
-    "cyclone.parentid": 1138924422,
+    "cyclone.revid": 1143295896,
+    "cyclone.parentid": 1139631992,
     "cyclone.section.seasonal_forecasts": "Noted hurricane experts Philip J. Klotzbach, William M. Gray, and their associates at Colorado State University issue forecasts of hurricane activity each year, separately from NOAA. Klotzbach's team, formerly led by Gray, determined the average number of storms per season between 1950 and 2000 to be 9.6 tropical storms, 5.9 hurricanes, and 2.3 major hurricanes (storms exceeding Category 3 on the Saffir–Simpson scale). A normal season, as defined by NOAA, has 9 to 12 named storms, of which five to seven reach hurricane strength, and one to three become major hurricanes.",
     "cyclone.ru_lang": "Сезон атлантических ураганов 2007 года",
     "cyclone.pageprops": {
@@ -2334,7 +2329,7 @@ mock_data: Dict[str, str | int | Dict[str, str] | List[str]] = {
     "great_wall_of_china.geo_seach_with_non_existing_article_name": [],
     "infobox_avatar": {
         "Also known as": "Avatar: The Legend of Aang",
-        "Genre": "Action-adventure Fantasy Comedy drama",
+        "Genre": "Action Adventure Comedy drama Fantasy",
         "Created by": "Michael Dante DiMartino Bryan Konietzko",
         "Voices of": "Zach Tyler Eisen Mae Whitman Jack DeSena Dante Basco Jessie Flower Dee Bradley Baker Mako Greg Baldwin Grey DeLisle Mark Hamill",
         "Composers": "Jeremy Zuckerman Benjamin Wynn",
@@ -2346,10 +2341,8 @@ mock_data: Dict[str, str | int | Dict[str, str] | List[str]] = {
         "Animators": "JM Animation (32 episodes)[a]DR Movie (19 episodes)[b]Moi Animation (10 episodes)[c]",
         "Running time": "23 minutes",
         "Production company": "Nickelodeon Animation Studio",
-        "Distributor": "MTV Networks",
         "Original network": "Nickelodeon",
         "Picture format": "NTSC",
         "Original release": "February 21, 2005 (2005-02-21) –July 19, 2008 (2008-07-19)",
-        "Followed by": "Avatar: The Last Airbender (comics) The Legend of Korra",
     },
 }
