@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "mediawikiapi"
-version = "1.1.6"
+version = "1.2"
 description = "Wikipedia API on Python"
 authors = ["Taras Lehinevych <info@taraslehinevych.me>"]
 license = "MIT"
