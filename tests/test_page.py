@@ -20,7 +20,7 @@ from tests.request_mock_data import (
     mock_category_members_physics,
 )
 
-api = MediaWikiAPI()
+api = MediaWikiAPI(config=Config(timeout=10))
 
 
 class TestPageSetUp(unittest.TestCase):
@@ -154,7 +154,7 @@ class TestPage(unittest.TestCase):
         self.assertCountEqual(self.cyclone.images, mock_images["cyclone"])
 
     def test_hanging_page_image_query(self) -> None:
-        bill_foster_page = api.page("Bill Foster (politician)", preload=True)
+        bill_foster_page = api.page("J. Robert Oppenheimer", preload=True)
         self.assertCountEqual(bill_foster_page.images, mock_bill_foster_images)
 
     def test_references(self) -> None:
