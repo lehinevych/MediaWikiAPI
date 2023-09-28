@@ -222,6 +222,11 @@ class WikipediaPage(object):
 
     @property
     def infobox(self) -> Dict[str, Any]:
+        """
+        Info bot section of the page
+
+        Supported only for MediaWiki version 1.34 or higher
+        """
         if getattr(self, "_infobox", False):
             return self._infobox
         if not getattr(self, "_html", False):
@@ -245,6 +250,8 @@ class WikipediaPage(object):
     def content(self) -> str:
         """
         Plain text content of the page, excluding images, tables, and other data.
+
+        Supported only for MediaWiki version 1.34 or higher
         """
         if not getattr(self, "_content", False):
             query_params: Dict[str, str | int] = {
@@ -274,6 +281,8 @@ class WikipediaPage(object):
         other direct API calls. See `Help:Page history
         <http://en.wikipedia.org/wiki/Wikipedia:Revision>`_ for more
         information.
+
+        Supported only for MediaWiki version 1.34 or higher
         """
         if not getattr(self, "_revid", False):
             # fetch the content (side effect is loading the revid)
@@ -286,6 +295,8 @@ class WikipediaPage(object):
         """
         Revision ID of the parent version of the current revision of this
         page. See ``revision_id`` for more information.
+
+        Supported only for MediaWiki version 1.34 or higher
         """
         if not getattr(self, "_parentid", False):
             # fetch the content (side effect is loading the revid)
@@ -296,6 +307,8 @@ class WikipediaPage(object):
     def summary(self) -> str:
         """
         Plain text summary of the page.
+
+        Supported only for MediaWiki version 1.34 or higher
         """
         if not getattr(self, "_summary", False):
             query_params: Dict[str, str | int] = {

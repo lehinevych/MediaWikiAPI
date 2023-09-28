@@ -86,6 +86,11 @@ poetry run flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
 poetry run black --diff --check .
 ```
 
+To build the documentation run:
+```
+poetry run sphinx-build docs/source docs/build
+```
+
 License
 -------
 

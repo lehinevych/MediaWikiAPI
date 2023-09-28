@@ -5,11 +5,9 @@ MediaWikiAPI Documentation
 
 Here you can find the full developer API for the MediaWikiAPI project.
 
-Contents:
+Please note that some functionality available only for MediaWiki version 1.34 or higher 
+For instance: `content`, `infobox`, `parent_id`, `revision_id`, and `summary` 
 
-.. toctree::
-
-   api
 
 .. automodule:: mediawikiapi
   :members:

@@ -5,13 +5,6 @@ Changelog
 
 Here you can find the full developer API for the MediaWikiAPI project.
 
-Contents:
-
-.. toctree::
-
-   changelog
-
-
 Version 1.2
 =============
 * The `Config` allows to specify the API url. This makes the client reusable for other Mediawiki installs with the same API. 
