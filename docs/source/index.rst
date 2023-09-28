@@ -26,8 +26,8 @@ Release v\ |version|.
 
 Installation
 =============
-Start using wikipedia for Python in less than 5 minutes!
-MediaWikiAPI is compatible with Python 3 and Python 2.7.
+Start using wikipedia for Python in less than 1 minute!
+MediaWikiAPI is compatible with Python > 3.9
 If you are looking for the the full developer API, see :ref:`api`.
 
 Begin by installing wikipedia::
@@ -119,6 +119,12 @@ Changelog
 
 API
 ====
+
+Here you can find the full developer API for the MediaWikiAPI project.
+
+Please note that some functionality available only for MediaWiki version 1.34 or higher 
+For instance: `content`, `infobox`, `parent_id`, `revision_id`, and `summary` 
+
 
 .. toctree::
 
