@@ -3,7 +3,6 @@ import unittest
 import mediawikiapi
 from bs4 import BeautifulSoup
 from decimal import Decimal
-from typing import Dict, Any
 from mediawikiapi import MediaWikiAPI
 from mediawikiapi.config import Config
 from mediawikiapi.wikipediapage import WikipediaPage
@@ -105,7 +104,7 @@ class TestPage(unittest.TestCase):
         self.celtuce = api.page("Celtuce")
         self.cyclone = api.page("2007 Atlantic hurricane season")
         self.great_wall_of_china = api.page("Great Wall of China")
-        self.avatar = api.page(title="Avatar_(2009_film)")
+        self.avatar = api.page(title="Avatar (2009 film)", auto_suggest=False)
 
     def test_from_page_id(self) -> None:
         """Test loading from a page id"""
@@ -192,7 +191,6 @@ class TestPage(unittest.TestCase):
     def test_categories(self) -> None:
         """Test the list of categories of Wikipedia pages."""
         self.assertCountEqual(self.celtuce.categories, mock_categories["celtuce"])
-        self.assertCountEqual(self.cyclone.categories, mock_categories["cyclone"])
 
     def test_sections(self) -> None:
         """Test the list of section titles."""

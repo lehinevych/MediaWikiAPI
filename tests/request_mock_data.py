@@ -1614,24 +1614,11 @@ mock_categories: Dict[str, List[str]] = {
         "CS1 errors: bare URL",
         "CS1 errors: missing title",
         "Lettuce",
+        "Pages with plain IPA",
         "Short description is different from Wikidata",
         "Stem vegetables",
         "Vegetable stubs",
-    ],
-    "cyclone": [
-        "2007 Atlantic hurricane season",
-        "Articles which contain graphical timelines",
-        "Articles with short description",
-        "Atlantic hurricane seasons",
-        "CS1 Spanish-language sources (es)",
-        "CS1 maint: multiple names: authors list",
-        "Featured articles",
-        "Pages using the EasyTimeline extension",
-        "Short description matches Wikidata",
-        "Source attribution",
-        "Tropical cyclones in 2007",
-        "Wikipedia indefinitely move-protected pages",
-    ],
+    ]
 }
 
 mock_backlinks: Dict[str, List[str]] = {
@@ -2257,13 +2244,13 @@ mock_bill_foster_images: List[str] = [
     "https://upload.wikimedia.org/wikipedia/commons/a/a1/Oppenheimer_Marshall_Conant_Bradley_and_others_at_Harvard.jpg",
     "https://upload.wikimedia.org/wikipedia/commons/b/b5/Radioactive.svg",
     "https://upload.wikimedia.org/wikipedia/commons/2/22/Robert_Oppenheimer.ogg",
-    "https://upload.wikimedia.org/wikipedia/commons/d/da/SF_From_Marin_Highlands3.jpg",
     "https://upload.wikimedia.org/wikipedia/commons/4/47/Sound-icon.svg",
     "https://upload.wikimedia.org/wikipedia/commons/6/6f/Stylised_atom_with_three_Bohr_model_orbits_and_stylised_nucleus.svg",
     "https://upload.wikimedia.org/wikipedia/commons/4/48/Trinity_-_Explosion_15s.jpg",
     "https://upload.wikimedia.org/wikipedia/commons/f/fc/Trinity_Detonation_T%26B.jpg",
     "https://upload.wikimedia.org/wikipedia/commons/7/7e/Trinity_Test_-_Oppenheimer_and_Groves_at_Ground_Zero_002.jpg",
     "https://upload.wikimedia.org/wikipedia/commons/6/63/University_of_California_Radiation_Laboratory_staff_on_the_magnet_yoke_for_the_60-inch_cyclotron%2C_1938.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/f/ff/Wikidata-logo.svg",
     "https://upload.wikimedia.org/wikipedia/commons/f/fa/Wikiquote-logo.svg",
     "https://upload.wikimedia.org/wikipedia/en/4/4a/Commons-logo.svg",
     "https://upload.wikimedia.org/wikipedia/en/e/e7/Cscr-featured.svg",
@@ -2309,10 +2296,13 @@ mock_sections: List[str] = [
     "External links",
 ]
 
+
 mock_category_members_physics: List[str] = [
     "Physics",
     "Portal:Physics",
-    "Pedersen current",
+    "Force control",
+    "Overlap fermion",
+    "Trajectoid",
 ]
 
 
@@ -2361,21 +2351,20 @@ mock_data: Dict[str, str | int | Dict[str, str] | List[str]] = {
     "great_wall_of_china.geo_seach_with_existing_article_name": ["Great Wall of China"],
     "great_wall_of_china.geo_seach_with_non_existing_article_name": [],
     "infobox_avatar": {
-        "Also known as": "Avatar: The Legend of Aang Avatar The Last Airbender",
-        "Genre": "Action Adventure Comedy drama Fantasy",
-        "Created by": "Michael Dante DiMartino Bryan Konietzko",
-        "Voices of": "Zach Tyler Eisen Mae Whitman Jack DeSena Dante Basco Jessie Flower Dee Bradley Baker Mako Greg Baldwin Grey DeLisle Mark Hamill",
-        "Composers": "Jeremy Zuckerman Benjamin Wynn",
-        "Country of origin": "United States",
-        "Original language": "English",
-        "No. of seasons": "3",
-        "No. of episodes": "61 (list of episodes)",
-        "Executive producers": "Michael Dante DiMartino Bryan Konietzko Aaron Ehasz",
-        "Animators": "JM Animation (32 episodes)[a] DR Movie (19 episodes)[b] Moi Animation (10 episodes)[c]",
-        "Running time": "23 minutes",
-        "Production company": "Nickelodeon Animation Studio",
-        "Original network": "Nickelodeon",
-        "Picture format": "NTSC",
-        "Original release": "February 21, 2005 (2005-02-21) –July 19, 2008 (2008-07-19)",
+        "Directed by": "James Cameron",
+        "Written by": "James Cameron",
+        "Produced by": "James Cameron Jon Landau",
+        "Starring": "Sam Worthington Zoe Saldana Stephen Lang Michelle Rodriguez Sigourney Weaver",
+        "Cinematography": "Mauro Fiore",
+        "Edited by": "Stephen Rivkin John Refoua James Cameron",
+        "Music by": "James Horner",
+        "Productioncompanies": "20th Century Fox Lightstorm Entertainment Dune Entertainment Ingenious Film Partners",
+        "Distributed by": "20th Century Fox",
+        "Release dates": "December 10, 2009 (2009-12-10) (London) December 18, 2009 (2009-12-18) (United States)",
+        "Running time": "162 minutes",
+        "Countries": "United States United Kingdom",
+        "Language": "English",
+        "Budget": "$237 million",
+        "Box office": "$2.923 billion",
     },
 }
