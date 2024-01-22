@@ -1,0 +1,510 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - WMF-Last-Access=22-Jan-2024; NetworkProbeLimit=0.001; enwikiBlockID=7781584%21acb3698c0663da184887e233ee83006d902072e4790c37ee696ccee73a24c70a34f6a80eafc80375caf3156df8ac4f0bf6e670471da800b0efe1729943b5fb2e;
+        WMF-Last-Access-Global=22-Jan-2024; GeoIP=US:WA:Seattle:47.61:-122.34:v4
+      User-Agent:
+      - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?prop=info%7Cpageprops&inprop=url&redirects=&titles=Celtuce&format=json&action=query
+  response:
+    body:
+      string: '{"batchcomplete":"","query":{"pages":{"1868108":{"pageid":1868108,"ns":0,"title":"Celtuce","contentmodel":"wikitext","pagelanguage":"en","pagelanguagehtmlcode":"en","pagelanguagedir":"ltr","touched":"2024-01-14T08:20:36Z","lastrevid":1194071915,"length":4964,"fullurl":"https://en.wikipedia.org/wiki/Celtuce","editurl":"https://en.wikipedia.org/w/index.php?title=Celtuce&action=edit","canonicalurl":"https://en.wikipedia.org/wiki/Celtuce","pageprops":{"page_image_free":"Celtuce.jpg","wikibase-shortdesc":"Lettuce
+        cultivar","wikibase_item":"Q574172"}}}}}'
+    headers:
+      accept-ranges:
+      - bytes
+      age:
+      - '0'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-length:
+      - '554'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Mon, 22 Jan 2024 03:34:49 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw2317.codfw.wmnet
+      server-timing:
+      - cache;desc="pass", host;desc="cp4044"
+      set-cookie:
+      - NetworkProbeLimit=0.001;Path=/;Secure;Max-Age=3600
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      vary:
+      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie
+      x-cache:
+      - cp4044 miss, cp4044 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 205.251.233.111
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - WMF-Last-Access=22-Jan-2024; NetworkProbeLimit=0.001; enwikiBlockID=7781584%21acb3698c0663da184887e233ee83006d902072e4790c37ee696ccee73a24c70a34f6a80eafc80375caf3156df8ac4f0bf6e670471da800b0efe1729943b5fb2e;
+        WMF-Last-Access-Global=22-Jan-2024; GeoIP=US:WA:Seattle:47.61:-122.34:v4
+      User-Agent:
+      - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?prop=info%7Cpageprops&inprop=url&redirects=&titles=2007+Atlantic+hurricane+season&format=json&action=query
+  response:
+    body:
+      string: '{"batchcomplete":"","query":{"pages":{"2528069":{"pageid":2528069,"ns":0,"title":"2007
+        Atlantic hurricane season","contentmodel":"wikitext","pagelanguage":"en","pagelanguagehtmlcode":"en","pagelanguagedir":"ltr","touched":"2024-01-21T21:16:51Z","lastrevid":1197763446,"length":89612,"fullurl":"https://en.wikipedia.org/wiki/2007_Atlantic_hurricane_season","editurl":"https://en.wikipedia.org/w/index.php?title=2007_Atlantic_hurricane_season&action=edit","canonicalurl":"https://en.wikipedia.org/wiki/2007_Atlantic_hurricane_season","pageprops":{"defaultsort":"2007
+        Atlantic Hurricane Season","page_image_free":"2007_Atlantic_hurricane_season_summary_map.png","wikibase-badge-Q17437796":"1","wikibase-shortdesc":"Hurricane
+        season in the Atlantic Ocean","wikibase_item":"Q756793"}}}}}'
+    headers:
+      accept-ranges:
+      - bytes
+      age:
+      - '0'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-length:
+      - '782'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Mon, 22 Jan 2024 03:34:49 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw2418.codfw.wmnet
+      server-timing:
+      - cache;desc="pass", host;desc="cp4044"
+      set-cookie:
+      - NetworkProbeLimit=0.001;Path=/;Secure;Max-Age=3600
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      vary:
+      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie
+      x-cache:
+      - cp4044 miss, cp4044 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 205.251.233.111
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - WMF-Last-Access=22-Jan-2024; NetworkProbeLimit=0.001; enwikiBlockID=7781584%21acb3698c0663da184887e233ee83006d902072e4790c37ee696ccee73a24c70a34f6a80eafc80375caf3156df8ac4f0bf6e670471da800b0efe1729943b5fb2e;
+        WMF-Last-Access-Global=22-Jan-2024; GeoIP=US:WA:Seattle:47.61:-122.34:v4
+      User-Agent:
+      - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?prop=info%7Cpageprops&inprop=url&redirects=&titles=Great+Wall+of+China&format=json&action=query
+  response:
+    body:
+      string: '{"batchcomplete":"","query":{"pages":{"5094570":{"pageid":5094570,"ns":0,"title":"Great
+        Wall of China","contentmodel":"wikitext","pagelanguage":"en","pagelanguagehtmlcode":"en","pagelanguagedir":"ltr","touched":"2024-01-21T16:15:21Z","lastrevid":1195260685,"length":58991,"fullurl":"https://en.wikipedia.org/wiki/Great_Wall_of_China","editurl":"https://en.wikipedia.org/w/index.php?title=Great_Wall_of_China&action=edit","canonicalurl":"https://en.wikipedia.org/wiki/Great_Wall_of_China","pageprops":{"defaultsort":"Great
+        Wall Of China","page_image_free":"The_Great_Wall_of_China_at_Jinshanling-edit.jpg","wikibase-shortdesc":"Series
+        of defensive walls along the historical northern borders of China","wikibase_item":"Q12501"}}}}}'
+    headers:
+      accept-ranges:
+      - bytes
+      age:
+      - '0'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-length:
+      - '730'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Mon, 22 Jan 2024 03:34:49 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw2362.codfw.wmnet
+      server-timing:
+      - cache;desc="pass", host;desc="cp4044"
+      set-cookie:
+      - NetworkProbeLimit=0.001;Path=/;Secure;Max-Age=3600
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      vary:
+      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie
+      x-cache:
+      - cp4044 miss, cp4044 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 205.251.233.111
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - WMF-Last-Access=22-Jan-2024; NetworkProbeLimit=0.001; enwikiBlockID=7781584%21acb3698c0663da184887e233ee83006d902072e4790c37ee696ccee73a24c70a34f6a80eafc80375caf3156df8ac4f0bf6e670471da800b0efe1729943b5fb2e;
+        WMF-Last-Access-Global=22-Jan-2024; GeoIP=US:WA:Seattle:47.61:-122.34:v4
+      User-Agent:
+      - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?prop=info%7Cpageprops&inprop=url&redirects=&titles=Avatar+%282009+film%29&format=json&action=query
+  response:
+    body:
+      string: '{"batchcomplete":"","query":{"pages":{"4273140":{"pageid":4273140,"ns":0,"title":"Avatar
+        (2009 film)","contentmodel":"wikitext","pagelanguage":"en","pagelanguagehtmlcode":"en","pagelanguagedir":"ltr","touched":"2024-01-21T19:15:00Z","lastrevid":1197738338,"length":228059,"fullurl":"https://en.wikipedia.org/wiki/Avatar_(2009_film)","editurl":"https://en.wikipedia.org/w/index.php?title=Avatar_(2009_film)&action=edit","canonicalurl":"https://en.wikipedia.org/wiki/Avatar_(2009_film)","pageprops":{"defaultsort":"Avatar","displaytitle":"<i>Avatar</i>
+        (2009 film)","page_image":"Avatar_(2009_film)_poster.jpg","toc":"","wikibase-badge-Q17437798":"1","wikibase-shortdesc":"Science
+        fiction film by James Cameron","wikibase_item":"Q24871"}}}}}'
+    headers:
+      accept-ranges:
+      - bytes
+      age:
+      - '2'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-length:
+      - '739'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Mon, 22 Jan 2024 03:34:49 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw2284.codfw.wmnet
+      server-timing:
+      - cache;desc="pass", host;desc="cp4044"
+      set-cookie:
+      - NetworkProbeLimit=0.001;Path=/;Secure;Max-Age=3600
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      vary:
+      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie
+      x-cache:
+      - cp4044 miss, cp4044 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 205.251.233.111
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - WMF-Last-Access=22-Jan-2024; NetworkProbeLimit=0.001; enwikiBlockID=7781584%21acb3698c0663da184887e233ee83006d902072e4790c37ee696ccee73a24c70a34f6a80eafc80375caf3156df8ac4f0bf6e670471da800b0efe1729943b5fb2e;
+        WMF-Last-Access-Global=22-Jan-2024; GeoIP=US:WA:Seattle:47.61:-122.34:v4
+      User-Agent:
+      - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?prop=links&plnamespace=0&pllimit=max&titles=Celtuce&format=json&action=query
+  response:
+    body:
+      string: '{"batchcomplete":"","query":{"pages":{"1868108":{"pageid":1868108,"ns":0,"title":"Celtuce","links":[{"ns":0,"title":"Aphid"},{"ns":0,"title":"Calcium
+        in biology"},{"ns":0,"title":"Carbohydrate"},{"ns":0,"title":"China"},{"ns":0,"title":"Cultivar"},{"ns":0,"title":"Dietary
+        Reference Intake"},{"ns":0,"title":"Dietary fiber"},{"ns":0,"title":"EPPO
+        Code"},{"ns":0,"title":"Fat"},{"ns":0,"title":"Folate"},{"ns":0,"title":"Food
+        energy"},{"ns":0,"title":"Germplasm Resources Information Network"},{"ns":0,"title":"Global
+        Biodiversity Information Facility"},{"ns":0,"title":"Google Books"},{"ns":0,"title":"Human
+        iron metabolism"},{"ns":0,"title":"International Plant Names Index"},{"ns":0,"title":"International
+        unit"},{"ns":0,"title":"Lactuca sativa"},{"ns":0,"title":"Lettuce"},{"ns":0,"title":"List
+        of vegetables"},{"ns":0,"title":"Magnesium in biology"},{"ns":0,"title":"Manganese"},{"ns":0,"title":"Mediterranean
+        Basin"},{"ns":0,"title":"Microgram"},{"ns":0,"title":"Milligram"},{"ns":0,"title":"Mineral
+        (nutrient)"},{"ns":0,"title":"National Center for Biotechnology Information"},{"ns":0,"title":"Niacin
+        (nutrient)"},{"ns":0,"title":"Open Tree of Life"},{"ns":0,"title":"Pantothenic
+        acid"},{"ns":0,"title":"Phosphorus"},{"ns":0,"title":"Pinyin"},{"ns":0,"title":"Plant
+        stem"},{"ns":0,"title":"Plants for a Future"},{"ns":0,"title":"Plants of the
+        World Online"},{"ns":0,"title":"Potassium in biology"},{"ns":0,"title":"Protein
+        (nutrient)"},{"ns":0,"title":"Riboflavin"},{"ns":0,"title":"Simplified Chinese
+        characters"},{"ns":0,"title":"Sodium in biology"},{"ns":0,"title":"Species"},{"ns":0,"title":"Stir
+        frying"},{"ns":0,"title":"Taiwan"},{"ns":0,"title":"Tang dynasty"},{"ns":0,"title":"Thiamine"},{"ns":0,"title":"Traditional
+        Chinese characters"},{"ns":0,"title":"Tropicos"},{"ns":0,"title":"Vegetable"},{"ns":0,"title":"Vitamin"},{"ns":0,"title":"Vitamin
+        A"},{"ns":0,"title":"Vitamin B6"},{"ns":0,"title":"Vitamin C"},{"ns":0,"title":"Wikidata"},{"ns":0,"title":"World
+        Register of Marine Species"},{"ns":0,"title":"Zinc"}]}}},"limits":{"links":500}}'
+    headers:
+      accept-ranges:
+      - bytes
+      age:
+      - '0'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-encoding:
+      - gzip
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Mon, 22 Jan 2024 03:34:50 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw2334.codfw.wmnet
+      server-timing:
+      - cache;desc="pass", host;desc="cp4037"
+      set-cookie:
+      - NetworkProbeLimit=0.001;Path=/;Secure;Max-Age=3600
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie
+      x-cache:
+      - cp4037 miss, cp4037 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 205.251.233.183
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - WMF-Last-Access=22-Jan-2024; NetworkProbeLimit=0.001; enwikiBlockID=7781584%21acb3698c0663da184887e233ee83006d902072e4790c37ee696ccee73a24c70a34f6a80eafc80375caf3156df8ac4f0bf6e670471da800b0efe1729943b5fb2e;
+        WMF-Last-Access-Global=22-Jan-2024; GeoIP=US:WA:Seattle:47.61:-122.34:v4
+      User-Agent:
+      - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?prop=links&plnamespace=0&pllimit=max&titles=2007+Atlantic+hurricane+season&format=json&action=query
+  response:
+    body:
+      string: '{"batchcomplete":"","query":{"pages":{"2528069":{"pageid":2528069,"ns":0,"title":"2007
+        Atlantic hurricane season","links":[{"ns":0,"title":"1914 Atlantic hurricane
+        season"},{"ns":0,"title":"1932 Atlantic hurricane season"},{"ns":0,"title":"1933
+        Atlantic hurricane season"},{"ns":0,"title":"1961 Atlantic hurricane season"},{"ns":0,"title":"1988
+        Atlantic hurricane season"},{"ns":0,"title":"1990 Atlantic hurricane season"},{"ns":0,"title":"1992
+        Atlantic hurricane season"},{"ns":0,"title":"1994 Atlantic hurricane season"},{"ns":0,"title":"1997
+        Atlantic hurricane season"},{"ns":0,"title":"1999 Atlantic hurricane season"},{"ns":0,"title":"2000
+        Atlantic hurricane season"},{"ns":0,"title":"2001 Atlantic hurricane season"},{"ns":0,"title":"2002
+        Atlantic hurricane season"},{"ns":0,"title":"2003 Atlantic hurricane season"},{"ns":0,"title":"2004
+        Atlantic hurricane season"},{"ns":0,"title":"2005 Atlantic hurricane season"},{"ns":0,"title":"2006
+        Atlantic hurricane season"},{"ns":0,"title":"2006\u201307 Australian region
+        cyclone season"},{"ns":0,"title":"2006\u201307 South-West Indian Ocean cyclone
+        season"},{"ns":0,"title":"2006\u201307 South Pacific cyclone season"},{"ns":0,"title":"2007
+        North Indian Ocean cyclone season"},{"ns":0,"title":"2007 Pacific hurricane
+        season"},{"ns":0,"title":"2007 Pacific typhoon season"},{"ns":0,"title":"2007\u201308
+        Australian region cyclone season"},{"ns":0,"title":"2007\u201308 South-West
+        Indian Ocean cyclone season"},{"ns":0,"title":"2007\u201308 South Pacific
+        cyclone season"},{"ns":0,"title":"2008 Atlantic hurricane season"},{"ns":0,"title":"2009
+        Atlantic hurricane season"},{"ns":0,"title":"2010 Atlantic hurricane season"},{"ns":0,"title":"2013
+        Atlantic hurricane season"},{"ns":0,"title":"2017 Atlantic hurricane season"},{"ns":0,"title":"2019
+        Atlantic hurricane season"},{"ns":0,"title":"2020 Atlantic hurricane season"},{"ns":0,"title":"Accumulated
+        cyclone energy"},{"ns":0,"title":"Alabama"},{"ns":0,"title":"Atlantic Canada"},{"ns":0,"title":"Atlantic
+        hurricane season"},{"ns":0,"title":"Atmospheric convection"},{"ns":0,"title":"Avalon
+        Peninsula"},{"ns":0,"title":"Azores"},{"ns":0,"title":"Bahamas"},{"ns":0,"title":"Bar
+        (unit)"},{"ns":0,"title":"Baroclinic"},{"ns":0,"title":"Bay of Campeche"},{"ns":0,"title":"Beaumont,
+        Texas"},{"ns":0,"title":"Belize"},{"ns":0,"title":"Bermuda"},{"ns":0,"title":"Bridge
+        City, Texas"},{"ns":0,"title":"Brownsville, Texas"},{"ns":0,"title":"CTV Television
+        Network"},{"ns":0,"title":"Canadian dollar"},{"ns":0,"title":"Cape Hatteras"},{"ns":0,"title":"Cape
+        Lookout (North Carolina)"},{"ns":0,"title":"Cape Verde"},{"ns":0,"title":"Cayman
+        Islands"},{"ns":0,"title":"Central United States"},{"ns":0,"title":"Coastal
+        erosion"},{"ns":0,"title":"Coastal flooding"},{"ns":0,"title":"Cold core low"},{"ns":0,"title":"Cold
+        front"},{"ns":0,"title":"Colombia"},{"ns":0,"title":"Colorado State University"},{"ns":0,"title":"Costa
+        Maya"},{"ns":0,"title":"Cuba"},{"ns":0,"title":"Dominican Republic"},{"ns":0,"title":"Dropsonde"},{"ns":0,"title":"East
+        Coast of the United States"},{"ns":0,"title":"Effects of Hurricane Dean in
+        Mexico"},{"ns":0,"title":"Effects of Hurricane Dean in the Greater Antilles"},{"ns":0,"title":"Effects
+        of Hurricane Dean in the Lesser Antilles"},{"ns":0,"title":"El Ni\u00f1o-Southern
+        Oscillation"},{"ns":0,"title":"El Salvador"},{"ns":0,"title":"Eustis, Florida"},{"ns":0,"title":"Extratropical
+        cyclone"},{"ns":0,"title":"Eye (cyclone)"},{"ns":0,"title":"Eyewall replacement
+        cycle"},{"ns":0,"title":"Florida"},{"ns":0,"title":"Florida Panhandle"},{"ns":0,"title":"Fort
+        Walton Beach, Florida"},{"ns":0,"title":"Frontal system"},{"ns":0,"title":"Georgia
+        (U.S. state)"},{"ns":0,"title":"Google Earth"},{"ns":0,"title":"Greater Antilles"},{"ns":0,"title":"Greenland"},{"ns":0,"title":"Guadeloupe"},{"ns":0,"title":"Guatemala"},{"ns":0,"title":"Gulf
+        Coast of the United States"},{"ns":0,"title":"Gulf of Mexico"},{"ns":0,"title":"Haiti"},{"ns":0,"title":"Hidalgo
+        (state)"},{"ns":0,"title":"High Island, Texas"},{"ns":0,"title":"Hispaniola"},{"ns":0,"title":"History
+        of tropical cyclone naming"},{"ns":0,"title":"Honduras"},{"ns":0,"title":"Hurricane
+        Andrew"},{"ns":0,"title":"Hurricane Claudette (2003)"},{"ns":0,"title":"Hurricane
+        Dean"},{"ns":0,"title":"Hurricane Felix"},{"ns":0,"title":"Hurricane Gilbert"},{"ns":0,"title":"Hurricane
+        Henriette (2007)"},{"ns":0,"title":"Hurricane Humberto (2007)"},{"ns":0,"title":"Hurricane
+        Hunter"},{"ns":0,"title":"Hurricane Iris"},{"ns":0,"title":"Hurricane Irma"},{"ns":0,"title":"Hurricane
+        Karen (2007)"},{"ns":0,"title":"Hurricane Katrina"},{"ns":0,"title":"Hurricane
+        Lorenzo (2007)"},{"ns":0,"title":"Hurricane Maria"},{"ns":0,"title":"Hurricane
+        Michelle"},{"ns":0,"title":"Hurricane Mitch"},{"ns":0,"title":"Hurricane Noel"},{"ns":0,"title":"Hurricane
+        Wilma"},{"ns":0,"title":"Hurricane hunter"},{"ns":0,"title":"Inch of mercury"},{"ns":0,"title":"Jamaica"},{"ns":0,"title":"Knot
+        (unit)"},{"ns":0,"title":"La Ni\u00f1a"},{"ns":0,"title":"Labor Day Hurricane
+        of 1935"},{"ns":0,"title":"Labrador"},{"ns":0,"title":"Lamar, Texas"},{"ns":0,"title":"Leeward
+        Antilles"},{"ns":0,"title":"Leeward Islands"},{"ns":0,"title":"Lesser Antilles"},{"ns":0,"title":"List
+        of historic tropical cyclone names"},{"ns":0,"title":"List of retired Atlantic
+        hurricane names"},{"ns":0,"title":"List of tropical cyclone names"},{"ns":0,"title":"Louisiana"},{"ns":0,"title":"Low-pressure
+        area"},{"ns":0,"title":"Lucayan Archipelago"},{"ns":0,"title":"MXN"},{"ns":0,"title":"Martinique"},{"ns":0,"title":"Matagorda,
+        Texas"},{"ns":0,"title":"Mbar"},{"ns":0,"title":"Mediterranean tropical-like
+        cyclone"},{"ns":0,"title":"Met Office"},{"ns":0,"title":"Meteorological history
+        of Hurricane Dean"},{"ns":0,"title":"Mid-Atlantic States"},{"ns":0,"title":"Mississippi"},{"ns":0,"title":"Mosquito
+        Coast"},{"ns":0,"title":"NOAA"},{"ns":0,"title":"National Hurricane Center"},{"ns":0,"title":"National
+        Oceanic and Atmospheric Administration"},{"ns":0,"title":"Newfoundland (island)"},{"ns":0,"title":"Newfoundland
+        and Labrador"},{"ns":0,"title":"Nicaragua"},{"ns":0,"title":"Nicaraguan c\u00f3rdoba"},{"ns":0,"title":"North
+        Atlantic tropical cyclone"},{"ns":0,"title":"North Carolina"},{"ns":0,"title":"Nova
+        Scotia"},{"ns":0,"title":"Oil refinery"},{"ns":0,"title":"Oklahoma"},{"ns":0,"title":"Oklahoma
+        City, Oklahoma"},{"ns":0,"title":"Pascal (unit)"},{"ns":0,"title":"Port Arthur,
+        Texas"},{"ns":0,"title":"Public domain"},{"ns":0,"title":"Puebla"},{"ns":0,"title":"Puerto
+        Rico"},{"ns":0,"title":"QuikScat"},{"ns":0,"title":"Rip current"},{"ns":0,"title":"Royal
+        St. John''s Regatta"},{"ns":0,"title":"Saffir\u2013Simpson scale"},{"ns":0,"title":"Saharan
+        Air Layer"},{"ns":0,"title":"Saint Lucia"},{"ns":0,"title":"San Lorenzo River
+        (Mexico)"},{"ns":0,"title":"Santiago Province (Dominican Republic)"},{"ns":0,"title":"Satellite"},{"ns":0,"title":"Savannah,
+        Georgia"},{"ns":0,"title":"Sea surface temperature"},{"ns":0,"title":"South
+        Atlantic tropical cyclone"},{"ns":0,"title":"South Carolina"},{"ns":0,"title":"Southeast
+        U.S."},{"ns":0,"title":"Storm surge"},{"ns":0,"title":"Subtropical Storm Andrea
+        (2007)"},{"ns":0,"title":"Subtropical cyclone"},{"ns":0,"title":"Subtropical
+        ridge"},{"ns":0,"title":"Tecolutla"},{"ns":0,"title":"Tecolutla, Mexico"},{"ns":0,"title":"Texas"},{"ns":0,"title":"The
+        Bahamas"},{"ns":0,"title":"The Carolinas"},{"ns":0,"title":"Timeline of 2007
+        Atlantic hurricane season"},{"ns":0,"title":"Timeline of 2007 Atlantic hurricane
+        seasons"},{"ns":0,"title":"Timeline of the 2007 Atlantic hurricane season"},{"ns":0,"title":"Tobago"},{"ns":0,"title":"Trinidad
+        and Tobago"},{"ns":0,"title":"Trinidad and Tobago dollar"},{"ns":0,"title":"Tropical
+        Cyclone Report"},{"ns":0,"title":"Tropical Depression Ten (2007)"},{"ns":0,"title":"Tropical
+        Storm Allison"},{"ns":0,"title":"Tropical Storm Ana (2003)"},{"ns":0,"title":"Tropical
+        Storm Arlene (1981)"},{"ns":0,"title":"Tropical Storm Barry (2007)"},{"ns":0,"title":"Tropical
+        Storm Chantal (2007)"},{"ns":0,"title":"Tropical Storm Erin (2007)"},{"ns":0,"title":"Tropical
+        Storm Gabrielle (2007)"},{"ns":0,"title":"Tropical Storm Olga (2007)"},{"ns":0,"title":"Tropical
+        Storm Zeta (2005)"},{"ns":0,"title":"Tropical cyclone"},{"ns":0,"title":"Tropical
+        cyclone naming"},{"ns":0,"title":"Tropical cyclone scales"},{"ns":0,"title":"Tropical
+        cyclone seasonal forecasting"},{"ns":0,"title":"Tropical cyclone watches and
+        warnings"},{"ns":0,"title":"Tropical cyclones in 2007"},{"ns":0,"title":"Tropical
+        upper tropospheric trough"},{"ns":0,"title":"Tropical wave"},{"ns":0,"title":"Trough
+        (meteorology)"},{"ns":0,"title":"Turks and Caicos Islands"},{"ns":0,"title":"Tuxpan"},{"ns":0,"title":"United
+        States Dollar"},{"ns":0,"title":"United States dollar"},{"ns":0,"title":"Venezuela"},{"ns":0,"title":"Veracruz"},{"ns":0,"title":"Virginia"},{"ns":0,"title":"West-southwest"},{"ns":0,"title":"William
+        M. Gray"},{"ns":0,"title":"Wind shear"},{"ns":0,"title":"Windward Islands"},{"ns":0,"title":"World
+        Meteorological Organization"},{"ns":0,"title":"Wreckhouse, Newfoundland and
+        Labrador"},{"ns":0,"title":"Yucatan Peninsula"},{"ns":0,"title":"Yucat\u00e1n
+        Peninsula"}]}}},"limits":{"links":500}}'
+    headers:
+      accept-ranges:
+      - bytes
+      age:
+      - '0'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-encoding:
+      - gzip
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Mon, 22 Jan 2024 03:34:50 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw2306.codfw.wmnet
+      server-timing:
+      - cache;desc="pass", host;desc="cp4044"
+      set-cookie:
+      - NetworkProbeLimit=0.001;Path=/;Secure;Max-Age=3600
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie
+      x-cache:
+      - cp4044 miss, cp4044 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 205.251.233.111
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -1,0 +1,68 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - WMF-Last-Access=22-Jan-2024; NetworkProbeLimit=0.001; WMF-Last-Access-Global=22-Jan-2024;
+        GeoIP=US:WA:Seattle:47.61:-122.34:v4
+      User-Agent:
+      - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?list=geosearch&gsradius=1000&gscoord=40.67693%7C117.23193&gslimit=10&titles=Test&format=json&action=query
+  response:
+    body:
+      string: '{"batchcomplete":"","query":{"pages":{"11089416":{"pageid":11089416,"ns":0,"title":"Test"}},"geosearch":[{"pageid":5094570,"ns":0,"title":"Great
+        Wall of China","lat":40.68,"lon":117.23,"dist":378.2,"primary":""}]}}'
+    headers:
+      accept-ranges:
+      - bytes
+      age:
+      - '0'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-length:
+      - '214'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Mon, 22 Jan 2024 03:33:58 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw2306.codfw.wmnet
+      server-timing:
+      - cache;desc="pass", host;desc="cp4044"
+      set-cookie:
+      - NetworkProbeLimit=0.001;Path=/;Secure;Max-Age=3600
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      vary:
+      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie
+      x-cache:
+      - cp4044 miss, cp4044 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 205.251.233.111
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+      x-search-id:
+      - cohd7lzri1sdluzd95d0dkeve
+    status:
+      code: 200
+      message: OK
+version: 1

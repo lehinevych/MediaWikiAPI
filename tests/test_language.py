@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
+import pytest
 import unittest
-
 from mediawikiapi import LanguageError
 from mediawikiapi import Language
 
 
+@pytest.mark.vcr()
 class TestLanguage(unittest.TestCase):
     """Test the Language class"""
 

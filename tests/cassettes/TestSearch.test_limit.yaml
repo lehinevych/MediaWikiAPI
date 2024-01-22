@@ -1,0 +1,71 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?list=search&srprop=&srlimit=3&limit=3&srsearch=Porsche&format=json&action=query
+  response:
+    body:
+      string: '{"warnings":{"main":{"*":"Unrecognized parameter: limit."}},"batchcomplete":"","continue":{"sroffset":3,"continue":"-||"},"query":{"searchinfo":{"totalhits":10216,"suggestion":"pors
+        he","suggestionsnippet":"pors he"},"search":[{"ns":0,"title":"Porsche","pageid":24365},{"ns":0,"title":"Porsche
+        911 GT3","pageid":3344895},{"ns":0,"title":"Porsche 911","pageid":48345830}]}}'
+    headers:
+      accept-ranges:
+      - bytes
+      age:
+      - '0'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-length:
+      - '372'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Mon, 22 Jan 2024 03:35:03 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw2417.codfw.wmnet
+      server-timing:
+      - cache;desc="pass", host;desc="cp4044"
+      set-cookie:
+      - WMF-Last-Access=22-Jan-2024;Path=/;HttpOnly;secure;Expires=Fri, 23 Feb 2024
+        00:00:00 GMT
+      - WMF-Last-Access-Global=22-Jan-2024;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Fri,
+        23 Feb 2024 00:00:00 GMT
+      - GeoIP=US:WA:Seattle:47.61:-122.34:v4; Path=/; secure; Domain=.wikipedia.org
+      - NetworkProbeLimit=0.001;Path=/;Secure;Max-Age=3600
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      vary:
+      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie
+      x-cache:
+      - cp4044 miss, cp4044 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 205.251.233.111
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+      x-search-id:
+      - 4077ih4ndlv9m8uajnutc8rew
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -1,0 +1,824 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - WMF-Last-Access=22-Jan-2024; NetworkProbeLimit=0.001; enwikiBlockID=7781584%21acb3698c0663da184887e233ee83006d902072e4790c37ee696ccee73a24c70a34f6a80eafc80375caf3156df8ac4f0bf6e670471da800b0efe1729943b5fb2e;
+        WMF-Last-Access-Global=22-Jan-2024; GeoIP=US:WA:Seattle:47.61:-122.34:v4
+      User-Agent:
+      - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?prop=info%7Cpageprops&inprop=url&redirects=&titles=Celtuce&format=json&action=query
+  response:
+    body:
+      string: '{"batchcomplete":"","query":{"pages":{"1868108":{"pageid":1868108,"ns":0,"title":"Celtuce","contentmodel":"wikitext","pagelanguage":"en","pagelanguagehtmlcode":"en","pagelanguagedir":"ltr","touched":"2024-01-14T08:20:36Z","lastrevid":1194071915,"length":4964,"fullurl":"https://en.wikipedia.org/wiki/Celtuce","editurl":"https://en.wikipedia.org/w/index.php?title=Celtuce&action=edit","canonicalurl":"https://en.wikipedia.org/wiki/Celtuce","pageprops":{"page_image_free":"Celtuce.jpg","wikibase-shortdesc":"Lettuce
+        cultivar","wikibase_item":"Q574172"}}}}}'
+    headers:
+      accept-ranges:
+      - bytes
+      age:
+      - '0'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-length:
+      - '554'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Mon, 22 Jan 2024 03:34:37 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw2321.codfw.wmnet
+      server-timing:
+      - cache;desc="pass", host;desc="cp4037"
+      set-cookie:
+      - NetworkProbeLimit=0.001;Path=/;Secure;Max-Age=3600
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      vary:
+      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie
+      x-cache:
+      - cp4037 miss, cp4037 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 205.251.233.183
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - WMF-Last-Access=22-Jan-2024; NetworkProbeLimit=0.001; enwikiBlockID=7781584%21acb3698c0663da184887e233ee83006d902072e4790c37ee696ccee73a24c70a34f6a80eafc80375caf3156df8ac4f0bf6e670471da800b0efe1729943b5fb2e;
+        WMF-Last-Access-Global=22-Jan-2024; GeoIP=US:WA:Seattle:47.61:-122.34:v4
+      User-Agent:
+      - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?prop=info%7Cpageprops&inprop=url&redirects=&titles=2007+Atlantic+hurricane+season&format=json&action=query
+  response:
+    body:
+      string: '{"batchcomplete":"","query":{"pages":{"2528069":{"pageid":2528069,"ns":0,"title":"2007
+        Atlantic hurricane season","contentmodel":"wikitext","pagelanguage":"en","pagelanguagehtmlcode":"en","pagelanguagedir":"ltr","touched":"2024-01-21T21:16:51Z","lastrevid":1197763446,"length":89612,"fullurl":"https://en.wikipedia.org/wiki/2007_Atlantic_hurricane_season","editurl":"https://en.wikipedia.org/w/index.php?title=2007_Atlantic_hurricane_season&action=edit","canonicalurl":"https://en.wikipedia.org/wiki/2007_Atlantic_hurricane_season","pageprops":{"defaultsort":"2007
+        Atlantic Hurricane Season","page_image_free":"2007_Atlantic_hurricane_season_summary_map.png","wikibase-badge-Q17437796":"1","wikibase-shortdesc":"Hurricane
+        season in the Atlantic Ocean","wikibase_item":"Q756793"}}}}}'
+    headers:
+      accept-ranges:
+      - bytes
+      age:
+      - '0'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-length:
+      - '782'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Mon, 22 Jan 2024 03:34:38 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw2374.codfw.wmnet
+      server-timing:
+      - cache;desc="pass", host;desc="cp4037"
+      set-cookie:
+      - NetworkProbeLimit=0.001;Path=/;Secure;Max-Age=3600
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      vary:
+      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie
+      x-cache:
+      - cp4037 miss, cp4037 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 205.251.233.183
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - WMF-Last-Access=22-Jan-2024; NetworkProbeLimit=0.001; enwikiBlockID=7781584%21acb3698c0663da184887e233ee83006d902072e4790c37ee696ccee73a24c70a34f6a80eafc80375caf3156df8ac4f0bf6e670471da800b0efe1729943b5fb2e;
+        WMF-Last-Access-Global=22-Jan-2024; GeoIP=US:WA:Seattle:47.61:-122.34:v4
+      User-Agent:
+      - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?prop=info%7Cpageprops&inprop=url&redirects=&titles=Great+Wall+of+China&format=json&action=query
+  response:
+    body:
+      string: '{"batchcomplete":"","query":{"pages":{"5094570":{"pageid":5094570,"ns":0,"title":"Great
+        Wall of China","contentmodel":"wikitext","pagelanguage":"en","pagelanguagehtmlcode":"en","pagelanguagedir":"ltr","touched":"2024-01-21T16:15:21Z","lastrevid":1195260685,"length":58991,"fullurl":"https://en.wikipedia.org/wiki/Great_Wall_of_China","editurl":"https://en.wikipedia.org/w/index.php?title=Great_Wall_of_China&action=edit","canonicalurl":"https://en.wikipedia.org/wiki/Great_Wall_of_China","pageprops":{"defaultsort":"Great
+        Wall Of China","page_image_free":"The_Great_Wall_of_China_at_Jinshanling-edit.jpg","wikibase-shortdesc":"Series
+        of defensive walls along the historical northern borders of China","wikibase_item":"Q12501"}}}}}'
+    headers:
+      accept-ranges:
+      - bytes
+      age:
+      - '0'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-length:
+      - '730'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Mon, 22 Jan 2024 03:34:38 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw2261.codfw.wmnet
+      server-timing:
+      - cache;desc="pass", host;desc="cp4044"
+      set-cookie:
+      - NetworkProbeLimit=0.001;Path=/;Secure;Max-Age=3600
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      vary:
+      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie
+      x-cache:
+      - cp4044 miss, cp4044 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 205.251.233.111
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - WMF-Last-Access=22-Jan-2024; NetworkProbeLimit=0.001; enwikiBlockID=7781584%21acb3698c0663da184887e233ee83006d902072e4790c37ee696ccee73a24c70a34f6a80eafc80375caf3156df8ac4f0bf6e670471da800b0efe1729943b5fb2e;
+        WMF-Last-Access-Global=22-Jan-2024; GeoIP=US:WA:Seattle:47.61:-122.34:v4
+      User-Agent:
+      - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?prop=info%7Cpageprops&inprop=url&redirects=&titles=Avatar+%282009+film%29&format=json&action=query
+  response:
+    body:
+      string: '{"batchcomplete":"","query":{"pages":{"4273140":{"pageid":4273140,"ns":0,"title":"Avatar
+        (2009 film)","contentmodel":"wikitext","pagelanguage":"en","pagelanguagehtmlcode":"en","pagelanguagedir":"ltr","touched":"2024-01-21T19:15:00Z","lastrevid":1197738338,"length":228059,"fullurl":"https://en.wikipedia.org/wiki/Avatar_(2009_film)","editurl":"https://en.wikipedia.org/w/index.php?title=Avatar_(2009_film)&action=edit","canonicalurl":"https://en.wikipedia.org/wiki/Avatar_(2009_film)","pageprops":{"defaultsort":"Avatar","displaytitle":"<i>Avatar</i>
+        (2009 film)","page_image":"Avatar_(2009_film)_poster.jpg","toc":"","wikibase-badge-Q17437798":"1","wikibase-shortdesc":"Science
+        fiction film by James Cameron","wikibase_item":"Q24871"}}}}}'
+    headers:
+      accept-ranges:
+      - bytes
+      age:
+      - '0'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-length:
+      - '739'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Mon, 22 Jan 2024 03:34:38 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw2319.codfw.wmnet
+      server-timing:
+      - cache;desc="pass", host;desc="cp4044"
+      set-cookie:
+      - NetworkProbeLimit=0.001;Path=/;Secure;Max-Age=3600
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      vary:
+      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie
+      x-cache:
+      - cp4044 miss, cp4044 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 205.251.233.111
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - WMF-Last-Access=22-Jan-2024; NetworkProbeLimit=0.001; enwikiBlockID=7781584%21acb3698c0663da184887e233ee83006d902072e4790c37ee696ccee73a24c70a34f6a80eafc80375caf3156df8ac4f0bf6e670471da800b0efe1729943b5fb2e;
+        WMF-Last-Access-Global=22-Jan-2024; GeoIP=US:WA:Seattle:47.61:-122.34:v4
+      User-Agent:
+      - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?prop=revisions&rvprop=content&rvlimit=1&rvparse=&titles=Celtuce&format=json&action=query
+  response:
+    body:
+      string: '{"continue":{"rvcontinue":"20240107020046|1194071863","continue":"||"},"warnings":{"main":{"*":"Subscribe
+        to the mediawiki-api-announce mailing list at <https://lists.wikimedia.org/postorius/lists/mediawiki-api-announce.lists.wikimedia.org/>
+        for notice of API deprecations and breaking changes. Use [[Special:ApiFeatureUsage]]
+        to see usage of deprecated features by your application."},"revisions":{"*":"The
+        parameter \"rvparse\" has been deprecated.\nBecause \"rvslots\" was not specified,
+        a legacy format has been used for the output. This format is deprecated, and
+        in the future the new format will always be used."}},"query":{"pages":{"1868108":{"pageid":1868108,"ns":0,"title":"Celtuce","revisions":[{"*":"<div
+        class=\"mw-content-ltr mw-parser-output\" lang=\"en\" dir=\"ltr\"><div class=\"shortdescription
+        nomobile noexcerpt noprint searchaux\" style=\"display:none\">Lettuce cultivar</div>\n<style
+        data-mw-deduplicate=\"TemplateStyles:r1097763485\">.mw-parser-output .ambox{border:1px
+        solid #a2a9b1;border-left:10px solid #36c;background-color:#fbfbfb;box-sizing:border-box}.mw-parser-output
+        .ambox+link+.ambox,.mw-parser-output .ambox+link+style+.ambox,.mw-parser-output
+        .ambox+link+link+.ambox,.mw-parser-output .ambox+.mw-empty-elt+link+.ambox,.mw-parser-output
+        .ambox+.mw-empty-elt+link+style+.ambox,.mw-parser-output .ambox+.mw-empty-elt+link+link+.ambox{margin-top:-1px}html
+        body.mediawiki .mw-parser-output .ambox.mbox-small-left{margin:4px 1em 4px
+        0;overflow:hidden;width:238px;border-collapse:collapse;font-size:88%;line-height:1.25em}.mw-parser-output
+        .ambox-speedy{border-left:10px solid #b32424;background-color:#fee7e6}.mw-parser-output
+        .ambox-delete{border-left:10px solid #b32424}.mw-parser-output .ambox-content{border-left:10px
+        solid #f28500}.mw-parser-output .ambox-style{border-left:10px solid #fc3}.mw-parser-output
+        .ambox-move{border-left:10px solid #9932cc}.mw-parser-output .ambox-protection{border-left:10px
+        solid #a2a9b1}.mw-parser-output .ambox .mbox-text{border:none;padding:0.25em
+        0.5em;width:100%}.mw-parser-output .ambox .mbox-image{border:none;padding:2px
+        0 2px 0.5em;text-align:center}.mw-parser-output .ambox .mbox-imageright{border:none;padding:2px
+        0.5em 2px 0;text-align:center}.mw-parser-output .ambox .mbox-empty-cell{border:none;padding:0;width:1px}.mw-parser-output
+        .ambox .mbox-image-div{width:52px}html.client-js body.skin-minerva .mw-parser-output
+        .mbox-text-span{margin-left:23px!important}@media(min-width:720px){.mw-parser-output
+        .ambox{margin:0 10%}}</style><table class=\"box-More_citations_needed plainlinks
+        metadata ambox ambox-content ambox-Refimprove\" role=\"presentation\"><tbody><tr><td
+        class=\"mbox-image\"><div class=\"mbox-image-div\"><span typeof=\"mw:File\"><a
+        href=\"/wiki/File:Question_book-new.svg\" class=\"mw-file-description\"><img
+        alt=\"\" src=\"//upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/50px-Question_book-new.svg.png\"
+        decoding=\"async\" width=\"50\" height=\"39\" class=\"mw-file-element\" srcset=\"//upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/75px-Question_book-new.svg.png
+        1.5x, //upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/100px-Question_book-new.svg.png
+        2x\" data-file-width=\"512\" data-file-height=\"399\" /></a></span></div></td><td
+        class=\"mbox-text\"><div class=\"mbox-text-span\">This article <b>needs additional
+        citations for <a href=\"/wiki/Wikipedia:Verifiability\" title=\"Wikipedia:Verifiability\">verification</a></b>.<span
+        class=\"hide-when-compact\"> Please help <a href=\"/wiki/Special:EditPage/Celtuce\"
+        title=\"Special:EditPage/Celtuce\">improve this article</a> by <a href=\"/wiki/Help:Referencing_for_beginners\"
+        title=\"Help:Referencing for beginners\">adding citations to reliable sources</a>.
+        Unsourced material may be challenged and removed.<br /><small><span class=\"plainlinks\"><i>Find
+        sources:</i>&#160;<a rel=\"nofollow\" class=\"external text\" href=\"https://www.google.com/search?as_eq=wikipedia&amp;q=%22Celtuce%22\">\"Celtuce\"</a>&#160;\u2013&#160;<a
+        rel=\"nofollow\" class=\"external text\" href=\"https://www.google.com/search?tbm=nws&amp;q=%22Celtuce%22+-wikipedia&amp;tbs=ar:1\">news</a>&#160;<b>\u00b7</b>
+        <a rel=\"nofollow\" class=\"external text\" href=\"https://www.google.com/search?&amp;q=%22Celtuce%22&amp;tbs=bkt:s&amp;tbm=bks\">newspapers</a>&#160;<b>\u00b7</b>
+        <a rel=\"nofollow\" class=\"external text\" href=\"https://www.google.com/search?tbs=bks:1&amp;q=%22Celtuce%22+-wikipedia\">books</a>&#160;<b>\u00b7</b>
+        <a rel=\"nofollow\" class=\"external text\" href=\"https://scholar.google.com/scholar?q=%22Celtuce%22\">scholar</a>&#160;<b>\u00b7</b>
+        <a rel=\"nofollow\" class=\"external text\" href=\"https://www.jstor.org/action/doBasicSearch?Query=%22Celtuce%22&amp;acc=on&amp;wc=on\">JSTOR</a></span></small></span>  <span
+        class=\"date-container\"><i>(<span class=\"date\">January 2017</span>)</i></span><span
+        class=\"hide-when-compact\"><i> (<small><a href=\"/wiki/Help:Maintenance_template_removal\"
+        title=\"Help:Maintenance template removal\">Learn how and when to remove this
+        template message</a></small>)</i></span></div></td></tr></tbody></table>\n<style
+        data-mw-deduplicate=\"TemplateStyles:r1066479718\">.mw-parser-output .infobox-subbox{padding:0;border:none;margin:-3px;width:auto;min-width:100%;font-size:100%;clear:none;float:none;background-color:transparent}.mw-parser-output
+        .infobox-3cols-child{margin:auto}.mw-parser-output .infobox .navbar{font-size:100%}body.skin-minerva
+        .mw-parser-output .infobox-header,body.skin-minerva .mw-parser-output .infobox-subheader,body.skin-minerva
+        .mw-parser-output .infobox-above,body.skin-minerva .mw-parser-output .infobox-title,body.skin-minerva
+        .mw-parser-output .infobox-image,body.skin-minerva .mw-parser-output .infobox-full-data,body.skin-minerva
+        .mw-parser-output .infobox-below{text-align:center}</style><table class=\"infobox
+        biota\"><tbody><tr><th colspan=\"2\" class=\"infobox-above cultivar\" style=\"background:palegreen;\">Celtuce</th></tr><tr><td
+        colspan=\"2\" class=\"infobox-image\"><span class=\"mw-default-size\" typeof=\"mw:File/Frameless\"><a
+        href=\"/wiki/File:Celtuce.jpg\" class=\"mw-file-description\"><img src=\"//upload.wikimedia.org/wikipedia/commons/thumb/8/87/Celtuce.jpg/220px-Celtuce.jpg\"
+        decoding=\"async\" width=\"220\" height=\"99\" class=\"mw-file-element\" srcset=\"//upload.wikimedia.org/wikipedia/commons/thumb/8/87/Celtuce.jpg/330px-Celtuce.jpg
+        1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/8/87/Celtuce.jpg/440px-Celtuce.jpg
+        2x\" data-file-width=\"4229\" data-file-height=\"1902\" /></a></span><div
+        class=\"infobox-caption\">Celtuce stems and heads</div></td></tr><tr><th scope=\"row\"
+        class=\"infobox-label\" style=\"padding-top:0.245em;line-height:1.15em; padding-right:0.5em;\"><a
+        href=\"/wiki/Species\" title=\"Species\">Species</a></th><td class=\"infobox-data
+        binominal\" style=\"min-width:50%;line-height:1.3em;\"><i><a href=\"/wiki/Lactuca_sativa\"
+        class=\"mw-redirect\" title=\"Lactuca sativa\">Lactuca sativa</a></i> var.
+        <i>augustana</i></td></tr><tr><th scope=\"row\" class=\"infobox-label\" style=\"padding-top:0.245em;line-height:1.15em;
+        padding-right:0.5em;\"><a href=\"/wiki/Cultivar\" title=\"Cultivar\">Cultivar</a></th><td
+        class=\"infobox-data\" style=\"min-width:50%;line-height:1.3em;\">''Celtuce''</td></tr><tr><th
+        scope=\"row\" class=\"infobox-label\" style=\"padding-top:0.245em;line-height:1.15em;
+        padding-right:0.5em;\">Origin</th><td class=\"infobox-data\" style=\"min-width:50%;line-height:1.3em;\">Mediterranean
+        region</td></tr></tbody></table>\n<style data-mw-deduplicate=\"TemplateStyles:r1126788409\">.mw-parser-output
+        .plainlist ol,.mw-parser-output .plainlist ul{line-height:inherit;list-style:none;margin:0;padding:0}.mw-parser-output
+        .plainlist ol li,.mw-parser-output .plainlist ul li{margin-bottom:0}</style><link
+        rel=\"mw-deduplicated-inline-style\" href=\"mw-data:TemplateStyles:r1066479718\"><table
+        class=\"infobox nowrap\"><caption class=\"infobox-title\" style=\"white-space:normal;
+        padding-bottom:0.15em;\">Celtuce, raw</caption><tbody><tr><th colspan=\"2\"
+        class=\"infobox-header\">Nutritional value per 100&#160;g (3.5&#160;oz)</th></tr><tr><th
+        scope=\"row\" class=\"infobox-label\"><a href=\"/wiki/Food_energy\" title=\"Food
+        energy\">Energy</a></th><td class=\"infobox-data\">75&#160;kJ (18&#160;kcal)</td></tr><tr><td
+        colspan=\"2\" class=\"infobox-full-data\"><link rel=\"mw-deduplicated-inline-style\"
+        href=\"mw-data:TemplateStyles:r1066479718\"></td></tr><tr><th scope=\"row\"
+        class=\"infobox-label\" style=\"padding-left:0.65em;line-height:1.1em;font-weight:normal;padding-right:0.25em;\"><div
+        style=\"position:relative;left:-0.65em;\"><b><a href=\"/wiki/Carbohydrate\"
+        title=\"Carbohydrate\">Carbohydrates</a></b></div></th><td class=\"infobox-data\"
+        style=\"vertical-align:middle;padding-left:0.65em;line-height:1.1em;\"><div
+        style=\"position:relative;left:-0.65em;\">3.65 g</div></td></tr><tr><th scope=\"row\"
+        class=\"infobox-label\" style=\"padding-left:0.65em;line-height:1.1em;font-weight:normal;padding-right:0.25em;\"><a
+        href=\"/wiki/Dietary_fiber\" title=\"Dietary fiber\">Dietary fiber</a></th><td
+        class=\"infobox-data\" style=\"vertical-align:middle;padding-left:0.65em;line-height:1.1em;\">1.7
+        g</td></tr><tr style=\"display:none\"><td colspan=\"2\">\n</td></tr><tr><td
+        colspan=\"2\" class=\"infobox-full-data\"><link rel=\"mw-deduplicated-inline-style\"
+        href=\"mw-data:TemplateStyles:r1066479718\"></td></tr><tr><th scope=\"row\"
+        class=\"infobox-label\" style=\"padding-left:0.65em;line-height:1.1em;font-weight:normal;padding-right:0.25em;\"><div
+        style=\"position:relative;left:-0.65em;\"><b><a href=\"/wiki/Fat\" title=\"Fat\">Fat</a></b></div></th><td
+        class=\"infobox-data\" style=\"vertical-align:middle;padding-left:0.65em;line-height:1.1em;\"><div
+        style=\"position:relative;left:-0.65em;\">0.3 g</div></td></tr><tr style=\"display:none\"><td
+        colspan=\"2\">\n</td></tr><tr><td colspan=\"2\" class=\"infobox-full-data\"><link
+        rel=\"mw-deduplicated-inline-style\" href=\"mw-data:TemplateStyles:r1066479718\"></td></tr><tr><th
+        scope=\"row\" class=\"infobox-label\" style=\"padding-left:0.65em;line-height:1.1em;font-weight:normal;padding-right:0.25em;\"><div
+        style=\"position:relative;left:-0.65em;\"><b><a href=\"/wiki/Protein_(nutrient)\"
+        title=\"Protein (nutrient)\">Protein</a></b></div></th><td class=\"infobox-data\"
+        style=\"vertical-align:middle;padding-left:0.65em;line-height:1.1em;\"><div
+        style=\"position:relative;left:-0.65em;\">0.85 g</div></td></tr><tr style=\"display:none\"><td
+        colspan=\"2\">\n</td></tr><tr><td colspan=\"2\" class=\"infobox-full-data\"><link
+        rel=\"mw-deduplicated-inline-style\" href=\"mw-data:TemplateStyles:r1066479718\"></td></tr><tr><th
+        scope=\"row\" class=\"infobox-label\" style=\"padding-left:0.65em;line-height:1.1em;font-weight:normal;padding-right:0.25em;\"><b
+        style=\"margin-left:-0.65em\"><a href=\"/wiki/Vitamin\" title=\"Vitamin\">Vitamins</a></b></th><td
+        class=\"infobox-data\" style=\"vertical-align:middle;padding-left:0.65em;line-height:1.1em;\"><b>Quantity</b>
+        <div style=\"float: right;\"><abbr title=\"Percentage of Daily Value\"><b>%DV</b></abbr><sup>\u2020</sup></div></td></tr><tr><th
+        scope=\"row\" class=\"infobox-label\" style=\"padding-left:0.65em;line-height:1.1em;font-weight:normal;padding-right:0.25em;\"><a
+        href=\"/wiki/Vitamin_A\" title=\"Vitamin A\">Vitamin A equiv.</a></th><td
+        class=\"infobox-data\" style=\"vertical-align:middle;padding-left:0.65em;line-height:1.1em;\"><div
+        style=\"float: right;\">22%</div> 175 \u03bcg</td></tr><tr><th scope=\"row\"
+        class=\"infobox-label\" style=\"padding-left:0.65em;line-height:1.1em;font-weight:normal;padding-right:0.25em;\"><a
+        href=\"/wiki/Thiamine\" title=\"Thiamine\">Thiamine (B<span style=\"position:
+        relative; top: 0.35em;\">1</span>)</a></th><td class=\"infobox-data\" style=\"vertical-align:middle;padding-left:0.65em;line-height:1.1em;\"><div
+        style=\"float: right;\">5%</div> 0.055 mg</td></tr><tr><th scope=\"row\" class=\"infobox-label\"
+        style=\"padding-left:0.65em;line-height:1.1em;font-weight:normal;padding-right:0.25em;\"><a
+        href=\"/wiki/Riboflavin\" title=\"Riboflavin\">Riboflavin (B<span style=\"position:
+        relative; top: 0.35em;\">2</span>)</a></th><td class=\"infobox-data\" style=\"vertical-align:middle;padding-left:0.65em;line-height:1.1em;\"><div
+        style=\"float: right;\">6%</div> 0.07 mg</td></tr><tr><th scope=\"row\" class=\"infobox-label\"
+        style=\"padding-left:0.65em;line-height:1.1em;font-weight:normal;padding-right:0.25em;\"><a
+        href=\"/wiki/Niacin_(nutrient)\" class=\"mw-redirect\" title=\"Niacin (nutrient)\">Niacin
+        (B<span style=\"position: relative; top: 0.35em;\">3</span>)</a></th><td class=\"infobox-data\"
+        style=\"vertical-align:middle;padding-left:0.65em;line-height:1.1em;\"><div
+        style=\"float: right;\">4%</div> 0.55 mg</td></tr><tr><th scope=\"row\" class=\"infobox-label\"
+        style=\"padding-left:0.65em;line-height:1.1em;font-weight:normal;padding-right:0.25em;\"><a
+        href=\"/wiki/Pantothenic_acid\" title=\"Pantothenic acid\">Pantothenic acid
+        (B<span style=\"position: relative; top: 0.35em;\">5</span>)</a></th><td class=\"infobox-data\"
+        style=\"vertical-align:middle;padding-left:0.65em;line-height:1.1em;\"><div
+        style=\"float: right;\">4%</div> 0.183 mg</td></tr><tr><th scope=\"row\" class=\"infobox-label\"
+        style=\"padding-left:0.65em;line-height:1.1em;font-weight:normal;padding-right:0.25em;\"><a
+        href=\"/wiki/Vitamin_B6\" title=\"Vitamin B6\">Vitamin B<span style=\"position:
+        relative; top: 0.3em;\">6</span></a></th><td class=\"infobox-data\" style=\"vertical-align:middle;padding-left:0.65em;line-height:1.1em;\"><div
+        style=\"float: right;\">4%</div> 0.05 mg</td></tr><tr><th scope=\"row\" class=\"infobox-label\"
+        style=\"padding-left:0.65em;line-height:1.1em;font-weight:normal;padding-right:0.25em;\"><a
+        href=\"/wiki/Folate\" title=\"Folate\">Folate (B<span style=\"position: relative;
+        top: 0.35em;\">9</span>)</a></th><td class=\"infobox-data\" style=\"vertical-align:middle;padding-left:0.65em;line-height:1.1em;\"><div
+        style=\"float: right;\">12%</div> 46 \u03bcg</td></tr><tr><th scope=\"row\"
+        class=\"infobox-label\" style=\"padding-left:0.65em;line-height:1.1em;font-weight:normal;padding-right:0.25em;\"><a
+        href=\"/wiki/Vitamin_C\" title=\"Vitamin C\">Vitamin C</a></th><td class=\"infobox-data\"
+        style=\"vertical-align:middle;padding-left:0.65em;line-height:1.1em;\"><div
+        style=\"float: right;\">23%</div> 19.5 mg</td></tr><tr style=\"display:none\"><td
+        colspan=\"2\">\n</td></tr><tr><td colspan=\"2\" class=\"infobox-full-data\"><link
+        rel=\"mw-deduplicated-inline-style\" href=\"mw-data:TemplateStyles:r1066479718\"></td></tr><tr><th
+        scope=\"row\" class=\"infobox-label\" style=\"padding-left:0.65em;line-height:1.1em;font-weight:normal;padding-right:0.25em;\"><b
+        style=\"margin-left:-0.65em\"><a href=\"/wiki/Mineral_(nutrient)\" title=\"Mineral
+        (nutrient)\">Minerals</a></b></th><td class=\"infobox-data\" style=\"vertical-align:middle;padding-left:0.65em;line-height:1.1em;\"><b>Quantity</b>
+        <div style=\"float: right;\"><abbr title=\"Percentage of Daily Value\"><b>%DV</b></abbr><sup>\u2020</sup></div></td></tr><tr><th
+        scope=\"row\" class=\"infobox-label\" style=\"padding-left:0.65em;line-height:1.1em;font-weight:normal;padding-right:0.25em;\"><a
+        href=\"/wiki/Calcium_in_biology#Humans\" title=\"Calcium in biology\">Calcium</a></th><td
+        class=\"infobox-data\" style=\"vertical-align:middle;padding-left:0.65em;line-height:1.1em;\"><div
+        style=\"float: right;\">4%</div> 39 mg</td></tr><tr><th scope=\"row\" class=\"infobox-label\"
+        style=\"padding-left:0.65em;line-height:1.1em;font-weight:normal;padding-right:0.25em;\"><a
+        href=\"/wiki/Human_iron_metabolism\" title=\"Human iron metabolism\">Iron</a></th><td
+        class=\"infobox-data\" style=\"vertical-align:middle;padding-left:0.65em;line-height:1.1em;\"><div
+        style=\"float: right;\">4%</div> 0.55 mg</td></tr><tr><th scope=\"row\" class=\"infobox-label\"
+        style=\"padding-left:0.65em;line-height:1.1em;font-weight:normal;padding-right:0.25em;\"><a
+        href=\"/wiki/Magnesium_in_biology\" title=\"Magnesium in biology\">Magnesium</a></th><td
+        class=\"infobox-data\" style=\"vertical-align:middle;padding-left:0.65em;line-height:1.1em;\"><div
+        style=\"float: right;\">8%</div> 28 mg</td></tr><tr><th scope=\"row\" class=\"infobox-label\"
+        style=\"padding-left:0.65em;line-height:1.1em;font-weight:normal;padding-right:0.25em;\"><a
+        href=\"/wiki/Manganese#Biological_role\" title=\"Manganese\">Manganese</a></th><td
+        class=\"infobox-data\" style=\"vertical-align:middle;padding-left:0.65em;line-height:1.1em;\"><div
+        style=\"float: right;\">33%</div> 0.688 mg</td></tr><tr><th scope=\"row\"
+        class=\"infobox-label\" style=\"padding-left:0.65em;line-height:1.1em;font-weight:normal;padding-right:0.25em;\"><a
+        href=\"/wiki/Phosphorus#Biological_role\" title=\"Phosphorus\">Phosphorus</a></th><td
+        class=\"infobox-data\" style=\"vertical-align:middle;padding-left:0.65em;line-height:1.1em;\"><div
+        style=\"float: right;\">6%</div> 39 mg</td></tr><tr><th scope=\"row\" class=\"infobox-label\"
+        style=\"padding-left:0.65em;line-height:1.1em;font-weight:normal;padding-right:0.25em;\"><a
+        href=\"/wiki/Potassium_in_biology\" title=\"Potassium in biology\">Potassium</a></th><td
+        class=\"infobox-data\" style=\"vertical-align:middle;padding-left:0.65em;line-height:1.1em;\"><div
+        style=\"float: right;\">7%</div> 330 mg</td></tr><tr><th scope=\"row\" class=\"infobox-label\"
+        style=\"padding-left:0.65em;line-height:1.1em;font-weight:normal;padding-right:0.25em;\"><a
+        href=\"/wiki/Sodium_in_biology\" title=\"Sodium in biology\">Sodium</a></th><td
+        class=\"infobox-data\" style=\"vertical-align:middle;padding-left:0.65em;line-height:1.1em;\"><div
+        style=\"float: right;\">1%</div> 11 mg</td></tr><tr><th scope=\"row\" class=\"infobox-label\"
+        style=\"padding-left:0.65em;line-height:1.1em;font-weight:normal;padding-right:0.25em;\"><a
+        href=\"/wiki/Zinc#Biological_role\" title=\"Zinc\">Zinc</a></th><td class=\"infobox-data\"
+        style=\"vertical-align:middle;padding-left:0.65em;line-height:1.1em;\"><div
+        style=\"float: right;\">3%</div> 0.27 mg</td></tr><tr style=\"display:none\"><td
+        colspan=\"2\">\n</td></tr><tr><td colspan=\"2\" class=\"infobox-full-data\"><hr
+        /><div class=\"wrap\" style=\"padding:0.3em;line-height:1.2em;\"><a rel=\"nofollow\"
+        class=\"external text\" href=\"https://fdc.nal.usda.gov/fdc-app.html#/food-details/169990/nutrients\">Link
+        to USDA Database entry</a></div></td></tr><tr class=\"plainlist\"><td colspan=\"2\"
+        class=\"infobox-full-data\"><div style=\"background:#e0e0e0;padding:0.15em;line-height:1.25em;\">\n<ul><li>Units</li>\n<li>\u03bcg
+        = <a href=\"/wiki/Microgram\" title=\"Microgram\">micrograms</a>&#160;&#8226;&#32;mg
+        = <a href=\"/wiki/Milligram\" class=\"mw-redirect\" title=\"Milligram\">milligrams</a></li>\n<li>IU
+        = <a href=\"/wiki/International_unit\" title=\"International unit\">International
+        units</a></li></ul>\n</div></td></tr><tr><td colspan=\"2\" class=\"infobox-below
+        wrap\" style=\"background:#e0e0e0;padding:0.3em;line-height:1.5em;font-weight:normal;\"><sup>\u2020</sup>Percentages
+        are roughly approximated using <a href=\"/wiki/Dietary_Reference_Intake\"
+        title=\"Dietary Reference Intake\">US&#160;recommendations</a> for adults.
+        <br /><span class=\"nowrap\">Source: <a rel=\"nofollow\" class=\"external
+        text\" href=\"https://fdc.nal.usda.gov/index.html\">USDA FoodData Central</a></span></td></tr></tbody></table>\n<p><b>Celtuce</b>
+        (<span class=\"IPA nowrap\" lang=\"und-Latn-fonipa\" title=\"Representation
+        in the International Phonetic Alphabet (IPA)\">/\u02c8s\u025blt.\u0259s/</span>)
+        (<i>Lactuca sativa</i> var. <i>augustana</i>,<sup id=\"cite_ref-1\" class=\"reference\"><a
+        href=\"#cite_note-1\">&#91;1&#93;</a></sup><sup id=\"cite_ref-World_2-0\"
+        class=\"reference\"><a href=\"#cite_note-World-2\">&#91;2&#93;</a></sup><sup
+        id=\"cite_ref-3\" class=\"reference\"><a href=\"#cite_note-3\">&#91;3&#93;</a></sup>
+        <i>angustata</i>, or <i>asparagina</i>), also called <b>stem lettuce</b>,<sup
+        id=\"cite_ref-kingsseeds_4-0\" class=\"reference\"><a href=\"#cite_note-kingsseeds-4\">&#91;4&#93;</a></sup>
+        <b>celery lettuce</b>, <b>asparagus lettuce</b>,<sup id=\"cite_ref-modern_5-0\"
+        class=\"reference\"><a href=\"#cite_note-modern-5\">&#91;5&#93;</a></sup>
+        or <b>Chinese lettuce</b>, is a cultivar of <a href=\"/wiki/Lettuce\" title=\"Lettuce\">lettuce</a>
+        grown primarily for its thick <a href=\"/wiki/Plant_stem\" title=\"Plant stem\">stem</a>
+        or its leaves. It is used as a <a href=\"/wiki/Vegetable\" title=\"Vegetable\">vegetable</a>.
+        In mainland China, the family is informally called <i><b>woju</b></i> (<a
+        href=\"/wiki/Traditional_Chinese_characters\" title=\"Traditional Chinese
+        characters\">traditional Chinese</a>&#58; <span lang=\"zh-Hant\"><a href=\"https://en.wiktionary.org/wiki/%E8%90%B5%E8%8B%A3\"
+        class=\"extiw\" title=\"wiktionary:\u8435\u82e3\">\u8435\u82e3</a></span>;
+        <a href=\"/wiki/Simplified_Chinese_characters\" title=\"Simplified Chinese
+        characters\">simplified Chinese</a>&#58; <span lang=\"zh-Hans\"><a href=\"https://en.wiktionary.org/wiki/%E8%8E%B4%E8%8B%A3\"
+        class=\"extiw\" title=\"wikt:\u83b4\u82e3\">\u83b4\u82e3</a></span>; <a href=\"/wiki/Pinyin\"
+        title=\"Pinyin\">pinyin</a>&#58; <i><span lang=\"zh-Latn-pinyin\">w\u014dj\u00f9</span></i>),
+        which is also the name of a cultivar.<sup class=\"noprint Inline-Template
+        Template-Fact\" style=\"white-space:nowrap;\">&#91;<i><a href=\"/wiki/Wikipedia:Citation_needed\"
+        title=\"Wikipedia:Citation needed\"><span title=\"This claim needs references
+        to reliable sources. (December 2021)\">citation needed</span></a></i>&#93;</sup>
+        It is especially popular in both mainland <a href=\"/wiki/China\" title=\"China\">China</a>
+        and <a href=\"/wiki/Taiwan\" title=\"Taiwan\">Taiwan</a>, where the stem is
+        interchangeably called <i><b>wosun</b></i> (<a href=\"/wiki/Traditional_Chinese_characters\"
+        title=\"Traditional Chinese characters\">traditional Chinese</a>&#58; <span
+        lang=\"zh-Hant\"><a href=\"https://en.wiktionary.org/wiki/%E8%90%B5%E7%AD%8D\"
+        class=\"extiw\" title=\"wiktionary:\u8435\u7b4d\">\u8435\u7b4d</a></span>;
+        <a href=\"/wiki/Simplified_Chinese_characters\" title=\"Simplified Chinese
+        characters\">simplified Chinese</a>&#58; <span lang=\"zh-Hans\"><a href=\"https://en.wiktionary.org/wiki/%E8%8E%B4%E7%AC%8B\"
+        class=\"extiw\" title=\"wikt:\u83b4\u7b0b\">\u83b4\u7b0b</a></span>; <a href=\"/wiki/Pinyin\"
+        title=\"Pinyin\">pinyin</a>&#58; <i><span lang=\"zh-Latn-pinyin\">w\u014ds\u01d4n</span></i>)
+        or <i><b>qingsun</b></i> (<span lang=\"zh-Hant\"><a href=\"https://en.wiktionary.org/wiki/%E9%9D%92%E7%AD%8D\"
+        class=\"extiw\" title=\"wiktionary:\u9752\u7b4d\">\u9752\u7b4d</a></span>;
+        <span lang=\"zh-Hans\"><a href=\"https://en.wiktionary.org/wiki/%E9%9D%92%E7%AC%8B\"
+        class=\"extiw\" title=\"wikt:\u9752\u7b0b\">\u9752\u7b0b</a></span>; <i><span
+        lang=\"zh-Latn-pinyin\">q\u012bngs\u01d4n</span></i>). \n</p><p>The pale green
+        leaves,<sup id=\"cite_ref-modern_5-1\" class=\"reference\"><a href=\"#cite_note-modern-5\">&#91;5&#93;</a></sup>
+        which are tender,<sup id=\"cite_ref-World_2-1\" class=\"reference\"><a href=\"#cite_note-World-2\">&#91;2&#93;</a></sup>
+        and white stems<sup id=\"cite_ref-kingsseeds_4-1\" class=\"reference\"><a
+        href=\"#cite_note-kingsseeds-4\">&#91;4&#93;</a></sup> can be eaten raw (in
+        salads) or cooked. It can be pickled, grilled, roasted, or stir-fried.<sup
+        id=\"cite_ref-kingsseeds_4-2\" class=\"reference\"><a href=\"#cite_note-kingsseeds-4\">&#91;4&#93;</a></sup><sup
+        id=\"cite_ref-modern_5-2\" class=\"reference\"><a href=\"#cite_note-modern-5\">&#91;5&#93;</a></sup>
+        It is mild but nutty, with a slight smoky aftertaste.<sup id=\"cite_ref-modern_5-3\"
+        class=\"reference\"><a href=\"#cite_note-modern-5\">&#91;5&#93;</a></sup><sup
+        id=\"cite_ref-rice_6-0\" class=\"reference\"><a href=\"#cite_note-rice-6\">&#91;6&#93;</a></sup>
+        It is high in vitamins.<sup id=\"cite_ref-kingsseeds_4-3\" class=\"reference\"><a
+        href=\"#cite_note-kingsseeds-4\">&#91;4&#93;</a></sup>\n</p><p>Popular sources
+        identify it as originating in the <a href=\"/wiki/Mediterranean_Basin\" title=\"Mediterranean
+        Basin\">Mediterranean</a> region and then being brought to China during the
+        <a href=\"/wiki/Tang_dynasty\" title=\"Tang dynasty\">Tang dynasty</a>,<sup
+        id=\"cite_ref-rice_6-1\" class=\"reference\"><a href=\"#cite_note-rice-6\">&#91;6&#93;</a></sup>
+        about A.D. 600\u2013900.<sup id=\"cite_ref-aholic_7-0\" class=\"reference\"><a
+        href=\"#cite_note-aholic-7\">&#91;7&#93;</a></sup>\n</p><p>It can be grown
+        from seed and is sown from April through May in the Northern Hemisphere. The
+        seeds can be planted in a set bed or a temporary nursery bed and then transplanted
+        to the growing site. They should be spread 30&#160;cm apart each way. The
+        young (edible) leaves are ready about 4\u20135 weeks after planting and the
+        edible stems are ready when about 30&#160;cm tall. They are usually harvested
+        between July and September.<sup id=\"cite_ref-kingsseeds_4-4\" class=\"reference\"><a
+        href=\"#cite_note-kingsseeds-4\">&#91;4&#93;</a></sup>\n</p><p>The plant can
+        suffer from <a href=\"/wiki/Aphid\" title=\"Aphid\">aphid</a> attacks.<sup
+        id=\"cite_ref-aholic_7-1\" class=\"reference\"><a href=\"#cite_note-aholic-7\">&#91;7&#93;</a></sup>\n</p>\n<div
+        id=\"toc\" class=\"toc\" role=\"navigation\" aria-labelledby=\"mw-toc-heading\"><input
+        type=\"checkbox\" role=\"button\" id=\"toctogglecheckbox\" class=\"toctogglecheckbox\"
+        style=\"display:none\" /><div class=\"toctitle\" lang=\"en\" dir=\"ltr\"><h2
+        id=\"mw-toc-heading\">Contents</h2><span class=\"toctogglespan\"><label class=\"toctogglelabel\"
+        for=\"toctogglecheckbox\"></label></span></div>\n<ul>\n<li class=\"toclevel-1
+        tocsection-1\"><a href=\"#Uses\"><span class=\"tocnumber\">1</span> <span
+        class=\"toctext\">Uses</span></a>\n<ul>\n<li class=\"toclevel-2 tocsection-2\"><a
+        href=\"#Culinary\"><span class=\"tocnumber\">1.1</span> <span class=\"toctext\">Culinary</span></a></li>\n</ul>\n</li>\n<li
+        class=\"toclevel-1 tocsection-3\"><a href=\"#See_also\"><span class=\"tocnumber\">2</span>
+        <span class=\"toctext\">See also</span></a></li>\n<li class=\"toclevel-1 tocsection-4\"><a
+        href=\"#References\"><span class=\"tocnumber\">3</span> <span class=\"toctext\">References</span></a></li>\n</ul>\n</div>\n\n<h2><span
+        class=\"mw-headline\" id=\"Uses\">Uses</span><span class=\"mw-editsection\"><span
+        class=\"mw-editsection-bracket\">[</span><a href=\"/w/index.php?title=Celtuce&amp;action=edit&amp;section=1\"
+        title=\"Edit section: Uses\"><span>edit</span></a><span class=\"mw-editsection-bracket\">]</span></span></h2>\n<h3><span
+        class=\"mw-headline\" id=\"Culinary\">Culinary</span><span class=\"mw-editsection\"><span
+        class=\"mw-editsection-bracket\">[</span><a href=\"/w/index.php?title=Celtuce&amp;action=edit&amp;section=2\"
+        title=\"Edit section: Culinary\"><span>edit</span></a><span class=\"mw-editsection-bracket\">]</span></span></h3>\n<p>The
+        stem is usually harvested at a length of around 15\u201320&#160;cm and a diameter
+        of around 3\u20134&#160;cm. It is crisp, moist, and mildly flavored, and typically
+        prepared by slicing and then <a href=\"/wiki/Stir_frying\" title=\"Stir frying\">stir
+        frying</a> with more strongly flavored ingredients.\n</p><p>In the US, celtuce
+        is being used as a gluten-free pasta substitute.<sup id=\"cite_ref-8\" class=\"reference\"><a
+        href=\"#cite_note-8\">&#91;8&#93;</a></sup>\n</p>\n<h2><span class=\"mw-headline\"
+        id=\"See_also\">See also</span><span class=\"mw-editsection\"><span class=\"mw-editsection-bracket\">[</span><a
+        href=\"/w/index.php?title=Celtuce&amp;action=edit&amp;section=3\" title=\"Edit
+        section: See also\"><span>edit</span></a><span class=\"mw-editsection-bracket\">]</span></span></h2>\n<ul><li><a
+        href=\"/wiki/List_of_vegetables\" title=\"List of vegetables\">List of vegetables</a></li>\n<li><i><b><small><span
+        class=\"noviewer\" typeof=\"mw:File\"><a href=\"/wiki/File:Foodlogo2.svg\"
+        class=\"mw-file-description\"><img alt=\"icon\" src=\"//upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Foodlogo2.svg/32px-Foodlogo2.svg.png\"
+        decoding=\"async\" width=\"32\" height=\"23\" class=\"mw-file-element\" srcset=\"//upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Foodlogo2.svg/48px-Foodlogo2.svg.png
+        1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Foodlogo2.svg/64px-Foodlogo2.svg.png
+        2x\" data-file-width=\"146\" data-file-height=\"106\" /></a></span>&#160;<a
+        href=\"/wiki/Portal:Food\" title=\"Portal:Food\">Food&#32;portal</a></small></b></i></li></ul>\n<h2><span
+        class=\"mw-headline\" id=\"References\">References</span><span class=\"mw-editsection\"><span
+        class=\"mw-editsection-bracket\">[</span><a href=\"/w/index.php?title=Celtuce&amp;action=edit&amp;section=4\"
+        title=\"Edit section: References\"><span>edit</span></a><span class=\"mw-editsection-bracket\">]</span></span></h2>\n<style
+        data-mw-deduplicate=\"TemplateStyles:r1011085734\">.mw-parser-output .reflist{font-size:90%;margin-bottom:0.5em;list-style-type:decimal}.mw-parser-output
+        .reflist .references{font-size:100%;margin-bottom:0;list-style-type:inherit}.mw-parser-output
+        .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}.mw-parser-output
+        .reflist-columns{margin-top:0.3em}.mw-parser-output .reflist-columns ol{margin-top:0}.mw-parser-output
+        .reflist-columns li{page-break-inside:avoid;break-inside:avoid-column}.mw-parser-output
+        .reflist-upper-alpha{list-style-type:upper-alpha}.mw-parser-output .reflist-upper-roman{list-style-type:upper-roman}.mw-parser-output
+        .reflist-lower-alpha{list-style-type:lower-alpha}.mw-parser-output .reflist-lower-greek{list-style-type:lower-greek}.mw-parser-output
+        .reflist-lower-roman{list-style-type:lower-roman}</style><div class=\"reflist\">\n<div
+        class=\"mw-references-wrap\"><ol class=\"references\">\n<li id=\"cite_note-1\"><span
+        class=\"mw-cite-backlink\"><b><a href=\"#cite_ref-1\">^</a></b></span> <span
+        class=\"reference-text\">Stanley J. Kays <i><a rel=\"nofollow\" class=\"external
+        text\" href=\"https://books.google.com/books?id=1pBMcf6wyj0C&amp;pg=PA658\">iCultivated
+        Vegetables of the World: A Multilingual Onomasticon</a></i>, p. 658, at <a
+        href=\"/wiki/Google_Books\" title=\"Google Books\">Google Books</a></span>\n</li>\n<li
+        id=\"cite_note-World-2\"><span class=\"mw-cite-backlink\">^ <a href=\"#cite_ref-World_2-0\"><sup><i><b>a</b></i></sup></a>
+        <a href=\"#cite_ref-World_2-1\"><sup><i><b>b</b></i></sup></a></span> <span
+        class=\"reference-text\">Masatoshi Yamaguchi <i><a rel=\"nofollow\" class=\"external
+        text\" href=\"https://books.google.com/books?id=xTPpCAAAQBAJ&amp;pg=PA208\">World
+        Vegetables: Principles, Production and Nutritive Values</a></i>, p. 208, at
+        <a href=\"/wiki/Google_Books\" title=\"Google Books\">Google Books</a></span>\n</li>\n<li
+        id=\"cite_note-3\"><span class=\"mw-cite-backlink\"><b><a href=\"#cite_ref-3\">^</a></b></span>
+        <span class=\"reference-text\">Caroline Foley <i><a rel=\"nofollow\" class=\"external
+        text\" href=\"https://books.google.com/books?id=rZQ7texaDLYC&amp;pg=PA51\">How
+        to Plant Your Allotment</a></i>, p. 51, at <a href=\"/wiki/Google_Books\"
+        title=\"Google Books\">Google Books</a></span>\n</li>\n<li id=\"cite_note-kingsseeds-4\"><span
+        class=\"mw-cite-backlink\">^ <a href=\"#cite_ref-kingsseeds_4-0\"><sup><i><b>a</b></i></sup></a>
+        <a href=\"#cite_ref-kingsseeds_4-1\"><sup><i><b>b</b></i></sup></a> <a href=\"#cite_ref-kingsseeds_4-2\"><sup><i><b>c</b></i></sup></a>
+        <a href=\"#cite_ref-kingsseeds_4-3\"><sup><i><b>d</b></i></sup></a> <a href=\"#cite_ref-kingsseeds_4-4\"><sup><i><b>e</b></i></sup></a></span>
+        <span class=\"reference-text\"><style data-mw-deduplicate=\"TemplateStyles:r1133582631\">.mw-parser-output
+        cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation
+        q{quotes:\"\\\"\"\"\\\"\"\"''\"\"''\"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output
+        .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:url(\"//upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg\")right
+        0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited a,.mw-parser-output
+        .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output
+        .citation .cs1-lock-registration a{background:url(\"//upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg\")right
+        0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription a,.mw-parser-output
+        .citation .cs1-lock-subscription a{background:url(\"//upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg\")right
+        0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:url(\"//upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg\")right
+        0.1em center/12px no-repeat}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output
+        .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output
+        .cs1-maint{display:none;color:#3a3;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output
+        .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output
+        .citation .mw-selflink{font-weight:inherit}</style><cite class=\"citation
+        web cs1\"><a rel=\"nofollow\" class=\"external text\" href=\"https://web.archive.org/web/20180723182147/https://www.kingsseeds.com/Products/Vegetables/Oriental/Celtuce-or-Stem-Lettuce\">\"Celtuce
+        or Stem Lettuce\"</a>. kingsseeds.com. Archived from <a rel=\"nofollow\" class=\"external
+        text\" href=\"https://www.kingsseeds.com/Products/Vegetables/Oriental/Celtuce-or-Stem-Lettuce\">the
+        original</a> on 23 July 2018<span class=\"reference-accessdate\">. Retrieved
+        <span class=\"nowrap\">28 January</span> 2017</span>.</cite><span title=\"ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=Celtuce+or+Stem+Lettuce&amp;rft.pub=kingsseeds.com&amp;rft_id=https%3A%2F%2Fwww.kingsseeds.com%2FProducts%2FVegetables%2FOriental%2FCeltuce-or-Stem-Lettuce&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACeltuce\"
+        class=\"Z3988\"></span></span>\n</li>\n<li id=\"cite_note-modern-5\"><span
+        class=\"mw-cite-backlink\">^ <a href=\"#cite_ref-modern_5-0\"><sup><i><b>a</b></i></sup></a>
+        <a href=\"#cite_ref-modern_5-1\"><sup><i><b>b</b></i></sup></a> <a href=\"#cite_ref-modern_5-2\"><sup><i><b>c</b></i></sup></a>
+        <a href=\"#cite_ref-modern_5-3\"><sup><i><b>d</b></i></sup></a></span> <span
+        class=\"reference-text\"><link rel=\"mw-deduplicated-inline-style\" href=\"mw-data:TemplateStyles:r1133582631\"><cite
+        id=\"CITEREFNosowitz2016\" class=\"citation web cs1\">Nosowitz, Dan (29 April
+        2016). <a rel=\"nofollow\" class=\"external text\" href=\"http://modernfarmer.com/2016/04/celtuce/\">\"Meet
+        The Vegetable: Celtuce, a Mutant and Delicious Lettuce ..on\"</a>. modernfarmer.com<span
+        class=\"reference-accessdate\">. Retrieved <span class=\"nowrap\">28 January</span>
+        2017</span>.</cite><span title=\"ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=Meet+The+Vegetable%3A+Celtuce%2C+a+Mutant+and+Delicious+Lettuce+..on&amp;rft.pub=modernfarmer.com&amp;rft.date=2016-04-29&amp;rft.aulast=Nosowitz&amp;rft.aufirst=Dan&amp;rft_id=http%3A%2F%2Fmodernfarmer.com%2F2016%2F04%2Fceltuce%2F&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACeltuce\"
+        class=\"Z3988\"></span></span>\n</li>\n<li id=\"cite_note-rice-6\"><span class=\"mw-cite-backlink\">^
+        <a href=\"#cite_ref-rice_6-0\"><sup><i><b>a</b></i></sup></a> <a href=\"#cite_ref-rice_6-1\"><sup><i><b>b</b></i></sup></a></span>
+        <span class=\"reference-text\"><link rel=\"mw-deduplicated-inline-style\"
+        href=\"mw-data:TemplateStyles:r1133582631\"><cite class=\"citation web cs1\"><a
+        rel=\"nofollow\" class=\"external text\" href=\"http://soyricefire.com/2013/04/21/celtuce-ribbon-salad/\">\"Celtuce
+        ribbon salad\"</a>. soyricefire.com. 21 April 2013<span class=\"reference-accessdate\">.
+        Retrieved <span class=\"nowrap\">28 January</span> 2017</span>.</cite><span
+        title=\"ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=Celtuce+ribbon+salad&amp;rft.pub=soyricefire.com&amp;rft.date=2013-04-21&amp;rft_id=http%3A%2F%2Fsoyricefire.com%2F2013%2F04%2F21%2Fceltuce-ribbon-salad%2F&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACeltuce\"
+        class=\"Z3988\"></span></span>\n</li>\n<li id=\"cite_note-aholic-7\"><span
+        class=\"mw-cite-backlink\">^ <a href=\"#cite_ref-aholic_7-0\"><sup><i><b>a</b></i></sup></a>
+        <a href=\"#cite_ref-aholic_7-1\"><sup><i><b>b</b></i></sup></a></span> <span
+        class=\"reference-text\"><link rel=\"mw-deduplicated-inline-style\" href=\"mw-data:TemplateStyles:r1133582631\"><cite
+        class=\"citation web cs1\"><a rel=\"nofollow\" class=\"external text\" href=\"https://web.archive.org/web/20170814062829/http://www.seedaholic.com/celtuce-wo-sun.html\">\"Celtuce,
+        ''Wo Sun''<span class=\"cs1-kern-right\"></span>\"</a>. seedaholic.com. Archived
+        from <a rel=\"nofollow\" class=\"external text\" href=\"http://www.seedaholic.com/celtuce-wo-sun.html\">the
+        original</a> on 2017-08-14<span class=\"reference-accessdate\">. Retrieved
+        <span class=\"nowrap\">28 January</span> 2017</span>.</cite><span title=\"ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=Celtuce%2C+%27Wo+Sun%27&amp;rft.pub=seedaholic.com&amp;rft_id=http%3A%2F%2Fwww.seedaholic.com%2Fceltuce-wo-sun.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACeltuce\"
+        class=\"Z3988\"></span></span>\n</li>\n<li id=\"cite_note-8\"><span class=\"mw-cite-backlink\"><b><a
+        href=\"#cite_ref-8\">^</a></b></span> <span class=\"reference-text\"><link
+        rel=\"mw-deduplicated-inline-style\" href=\"mw-data:TemplateStyles:r1133582631\"><cite
+        class=\"citation web cs1\"><a rel=\"nofollow\" class=\"external text\" href=\"https://www.gardensmart.tv/?p=articles&amp;title=Celtuce\">\"Celtuce\"</a>.
+        <i>GardenSmart</i>.</cite><span title=\"ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=GardenSmart&amp;rft.atitle=Celtuce&amp;rft_id=https%3A%2F%2Fwww.gardensmart.tv%2F%3Fp%3Darticles%26title%3DCeltuce&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACeltuce\"
+        class=\"Z3988\"></span></span>\n</li>\n</ol></div></div>\n<div class=\"navbox-styles\"><style
+        data-mw-deduplicate=\"TemplateStyles:r1129693374\">.mw-parser-output .hlist
+        dl,.mw-parser-output .hlist ol,.mw-parser-output .hlist ul{margin:0;padding:0}.mw-parser-output
+        .hlist dd,.mw-parser-output .hlist dt,.mw-parser-output .hlist li{margin:0;display:inline}.mw-parser-output
+        .hlist.inline,.mw-parser-output .hlist.inline dl,.mw-parser-output .hlist.inline
+        ol,.mw-parser-output .hlist.inline ul,.mw-parser-output .hlist dl dl,.mw-parser-output
+        .hlist dl ol,.mw-parser-output .hlist dl ul,.mw-parser-output .hlist ol dl,.mw-parser-output
+        .hlist ol ol,.mw-parser-output .hlist ol ul,.mw-parser-output .hlist ul dl,.mw-parser-output
+        .hlist ul ol,.mw-parser-output .hlist ul ul{display:inline}.mw-parser-output
+        .hlist .mw-empty-li{display:none}.mw-parser-output .hlist dt::after{content:\":
+        \"}.mw-parser-output .hlist dd::after,.mw-parser-output .hlist li::after{content:\"
+        \u00b7 \";font-weight:bold}.mw-parser-output .hlist dd:last-child::after,.mw-parser-output
+        .hlist dt:last-child::after,.mw-parser-output .hlist li:last-child::after{content:none}.mw-parser-output
+        .hlist dd dd:first-child::before,.mw-parser-output .hlist dd dt:first-child::before,.mw-parser-output
+        .hlist dd li:first-child::before,.mw-parser-output .hlist dt dd:first-child::before,.mw-parser-output
+        .hlist dt dt:first-child::before,.mw-parser-output .hlist dt li:first-child::before,.mw-parser-output
+        .hlist li dd:first-child::before,.mw-parser-output .hlist li dt:first-child::before,.mw-parser-output
+        .hlist li li:first-child::before{content:\" (\";font-weight:normal}.mw-parser-output
+        .hlist dd dd:last-child::after,.mw-parser-output .hlist dd dt:last-child::after,.mw-parser-output
+        .hlist dd li:last-child::after,.mw-parser-output .hlist dt dd:last-child::after,.mw-parser-output
+        .hlist dt dt:last-child::after,.mw-parser-output .hlist dt li:last-child::after,.mw-parser-output
+        .hlist li dd:last-child::after,.mw-parser-output .hlist li dt:last-child::after,.mw-parser-output
+        .hlist li li:last-child::after{content:\")\";font-weight:normal}.mw-parser-output
+        .hlist ol{counter-reset:listitem}.mw-parser-output .hlist ol>li{counter-increment:listitem}.mw-parser-output
+        .hlist ol>li::before{content:\" \"counter(listitem)\"\\a0 \"}.mw-parser-output
+        .hlist dd ol>li:first-child::before,.mw-parser-output .hlist dt ol>li:first-child::before,.mw-parser-output
+        .hlist li ol>li:first-child::before{content:\" (\"counter(listitem)\"\\a0
+        \"}</style><style data-mw-deduplicate=\"TemplateStyles:r1061467846\">.mw-parser-output
+        .navbox{box-sizing:border-box;border:1px solid #a2a9b1;width:100%;clear:both;font-size:88%;text-align:center;padding:1px;margin:1em
+        auto 0}.mw-parser-output .navbox .navbox{margin-top:0}.mw-parser-output .navbox+.navbox,.mw-parser-output
+        .navbox+.navbox-styles+.navbox{margin-top:-1px}.mw-parser-output .navbox-inner,.mw-parser-output
+        .navbox-subgroup{width:100%}.mw-parser-output .navbox-group,.mw-parser-output
+        .navbox-title,.mw-parser-output .navbox-abovebelow{padding:0.25em 1em;line-height:1.5em;text-align:center}.mw-parser-output
+        .navbox-group{white-space:nowrap;text-align:right}.mw-parser-output .navbox,.mw-parser-output
+        .navbox-subgroup{background-color:#fdfdfd}.mw-parser-output .navbox-list{line-height:1.5em;border-color:#fdfdfd}.mw-parser-output
+        .navbox-list-with-group{text-align:left;border-left-width:2px;border-left-style:solid}.mw-parser-output
+        tr+tr>.navbox-abovebelow,.mw-parser-output tr+tr>.navbox-group,.mw-parser-output
+        tr+tr>.navbox-image,.mw-parser-output tr+tr>.navbox-list{border-top:2px solid
+        #fdfdfd}.mw-parser-output .navbox-title{background-color:#ccf}.mw-parser-output
+        .navbox-abovebelow,.mw-parser-output .navbox-group,.mw-parser-output .navbox-subgroup
+        .navbox-title{background-color:#ddf}.mw-parser-output .navbox-subgroup .navbox-group,.mw-parser-output
+        .navbox-subgroup .navbox-abovebelow{background-color:#e6e6ff}.mw-parser-output
+        .navbox-even{background-color:#f7f7f7}.mw-parser-output .navbox-odd{background-color:transparent}.mw-parser-output
+        .navbox .hlist td dl,.mw-parser-output .navbox .hlist td ol,.mw-parser-output
+        .navbox .hlist td ul,.mw-parser-output .navbox td.hlist dl,.mw-parser-output
+        .navbox td.hlist ol,.mw-parser-output .navbox td.hlist ul{padding:0.125em
+        0}.mw-parser-output .navbox .navbar{display:block;font-size:100%}.mw-parser-output
+        .navbox-title .navbar{float:left;text-align:left;margin-right:0.5em}</style></div><div
+        role=\"navigation\" class=\"navbox\" aria-labelledby=\"Taxon_identifiers\"
+        style=\"padding:3px\"><table class=\"nowraplinks hlist navbox-inner\" style=\"border-spacing:0;background:transparent;color:inherit\"><tbody><tr><th
+        id=\"Taxon_identifiers\" scope=\"row\" class=\"navbox-group\" style=\"width:1%;text-align:
+        left;\"><a href=\"/wiki/Help:Taxon_identifiers\" title=\"Help:Taxon identifiers\">Taxon
+        identifiers</a></th><td class=\"navbox-list-with-group navbox-list navbox-odd\"
+        style=\"width:100%;padding:0\"><div style=\"padding:0 0.25em\">\n<ul><li><span
+        style=\"white-space:nowrap;\"><a href=\"/wiki/Wikidata\" title=\"Wikidata\">Wikidata</a>:
+        <span class=\"uid\"><span class=\"external\"><a href=\"https://www.wikidata.org/wiki/Q574172\"
+        class=\"extiw\" title=\"wikidata:Q574172\">Q574172</a></span></span></span></li>\n<li><span
+        style=\"white-space:nowrap;\"><a href=\"/wiki/EPPO_Code\" title=\"EPPO Code\">EPPO</a>:
+        <span class=\"uid\"><a rel=\"nofollow\" class=\"external text\" href=\"https://gd.eppo.int/taxon/LACSG\">LACSG</a></span></span></li>\n<li><span
+        style=\"white-space:nowrap;\"><a href=\"/wiki/Global_Biodiversity_Information_Facility\"
+        title=\"Global Biodiversity Information Facility\">GBIF</a>: <span class=\"uid\"><a
+        rel=\"nofollow\" class=\"external text\" href=\"https://www.gbif.org/species/6711035\">6711035</a></span></span></li>\n<li><span
+        style=\"white-space:nowrap;\"><a href=\"/wiki/Germplasm_Resources_Information_Network\"
+        title=\"Germplasm Resources Information Network\">GRIN</a>: <span class=\"uid\"><a
+        rel=\"nofollow\" class=\"external text\" href=\"https://npgsweb.ars-grin.gov/gringlobal/taxonomydetail.aspx?id=404620\">404620</a></span></span></li>\n<li><span
+        style=\"white-space:nowrap;\"><a href=\"/wiki/International_Plant_Names_Index\"
+        title=\"International Plant Names Index\">IPNI</a>: <span class=\"uid\"><a
+        rel=\"nofollow\" class=\"external text\" href=\"https://www.ipni.org/n/77203162-1\">77203162-1</a></span></span></li>\n<li><span
+        style=\"white-space:nowrap;\"><a href=\"/wiki/National_Center_for_Biotechnology_Information\"
+        title=\"National Center for Biotechnology Information\">NCBI</a>: <span class=\"uid\"><a
+        rel=\"nofollow\" class=\"external text\" href=\"https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&amp;id=1049370\">1049370</a></span></span></li>\n<li><span
+        style=\"white-space:nowrap;\"><a href=\"/wiki/Open_Tree_of_Life\" title=\"Open
+        Tree of Life\">Open Tree of Life</a>: <span class=\"uid\"><a rel=\"nofollow\"
+        class=\"external text\" href=\"https://tree.opentreeoflife.org/taxonomy/browse?id=5541628\">5541628</a></span></span></li>\n<li><span
+        style=\"white-space:nowrap;\"><a href=\"/wiki/Plants_for_a_Future\" title=\"Plants
+        for a Future\">PfaF</a>: <span class=\"uid\"><a rel=\"nofollow\" class=\"external
+        text\" href=\"https://pfaf.org/user/Plant.aspx?LatinName=Lactuca+sativa+angustana\">Lactuca
+        sativa angustana</a></span></span></li>\n<li><span style=\"white-space:nowrap;\"><a
+        href=\"/wiki/Plants_of_the_World_Online\" title=\"Plants of the World Online\">POWO</a>:
+        <span class=\"uid\"><a rel=\"nofollow\" class=\"external text\" href=\"https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A77203162-1\">urn:lsid:ipni.org:names:77203162-1</a></span></span></li>\n<li><span
+        style=\"white-space:nowrap;\"><a href=\"/wiki/Tropicos\" title=\"Tropicos\">Tropicos</a>:
+        <span class=\"uid\"><a rel=\"nofollow\" class=\"external text\" href=\"http://legacy.tropicos.org/Name/2727046\">2727046</a></span></span></li>\n<li><span
+        style=\"white-space:nowrap;\"><a href=\"/wiki/World_Register_of_Marine_Species\"
+        title=\"World Register of Marine Species\">WoRMS</a>: <span class=\"uid\"><a
+        rel=\"nofollow\" class=\"external text\" href=\"https://www.marinespecies.org/aphia.php?p=taxdetails&amp;id=1163647\">1163647</a></span></span></li></ul>\n</div></td></tr></tbody></table></div>\n<p><br
+        />\n</p>\n<style data-mw-deduplicate=\"TemplateStyles:r1012311289\">.mw-parser-output
+        .asbox{position:relative;overflow:hidden}.mw-parser-output .asbox table{background:transparent}.mw-parser-output
+        .asbox p{margin:0}.mw-parser-output .asbox p+p{margin-top:0.25em}.mw-parser-output
+        .asbox-body{font-style:italic}.mw-parser-output .asbox-note{font-size:smaller}.mw-parser-output
+        .asbox .navbar{position:absolute;top:-0.75em;right:1em;display:none}</style><div
+        role=\"note\" class=\"metadata plainlinks asbox stub\"><table role=\"presentation\"><tbody><tr
+        class=\"noresize\"><td><span typeof=\"mw:File\"><a href=\"/wiki/File:Emoji_u1f955.svg\"
+        class=\"mw-file-description\"><img alt=\"Stub icon\" src=\"//upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Emoji_u1f955.svg/30px-Emoji_u1f955.svg.png\"
+        decoding=\"async\" width=\"30\" height=\"30\" class=\"mw-file-element\" srcset=\"//upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Emoji_u1f955.svg/45px-Emoji_u1f955.svg.png
+        1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Emoji_u1f955.svg/60px-Emoji_u1f955.svg.png
+        2x\" data-file-width=\"128\" data-file-height=\"128\" /></a></span></td><td><p
+        class=\"asbox-body\">This <a href=\"/wiki/Vegetable\" title=\"Vegetable\">vegetable</a>-related
+        article is a <a href=\"/wiki/Wikipedia:Stub\" title=\"Wikipedia:Stub\">stub</a>.
+        You can help Wikipedia by <a class=\"external text\" href=\"https://en.wikipedia.org/w/index.php?title=Celtuce&amp;action=edit\">expanding
+        it</a>.</p></td></tr></tbody></table><link rel=\"mw-deduplicated-inline-style\"
+        href=\"mw-data:TemplateStyles:r1129693374\"><style data-mw-deduplicate=\"TemplateStyles:r1063604349\">.mw-parser-output
+        .navbar{display:inline;font-size:88%;font-weight:normal}.mw-parser-output
+        .navbar-collapse{float:left;text-align:left}.mw-parser-output .navbar-boxtext{word-spacing:0}.mw-parser-output
+        .navbar ul{display:inline-block;white-space:nowrap;line-height:inherit}.mw-parser-output
+        .navbar-brackets::before{margin-right:-0.125em;content:\"[ \"}.mw-parser-output
+        .navbar-brackets::after{margin-left:-0.125em;content:\" ]\"}.mw-parser-output
+        .navbar li{word-spacing:-0.125em}.mw-parser-output .navbar a>span,.mw-parser-output
+        .navbar a>abbr{text-decoration:inherit}.mw-parser-output .navbar-mini abbr{font-variant:small-caps;border-bottom:none;text-decoration:none;cursor:inherit}.mw-parser-output
+        .navbar-ct-full{font-size:114%;margin:0 7em}.mw-parser-output .navbar-ct-mini{font-size:114%;margin:0
+        4em}</style><div class=\"navbar plainlinks hlist navbar-mini\"><ul><li class=\"nv-view\"><a
+        href=\"/wiki/Template:Vegetable-stub\" title=\"Template:Vegetable-stub\"><abbr
+        title=\"View this template\">v</abbr></a></li><li class=\"nv-talk\"><a href=\"/wiki/Template_talk:Vegetable-stub\"
+        title=\"Template talk:Vegetable-stub\"><abbr title=\"Discuss this template\">t</abbr></a></li><li
+        class=\"nv-edit\"><a href=\"/wiki/Special:EditPage/Template:Vegetable-stub\"
+        title=\"Special:EditPage/Template:Vegetable-stub\"><abbr title=\"Edit this
+        template\">e</abbr></a></li></ul></div></div></div>"}]}}}}'
+    headers:
+      accept-ranges:
+      - bytes
+      age:
+      - '0'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-encoding:
+      - gzip
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Mon, 22 Jan 2024 03:34:39 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw2319.codfw.wmnet
+      server-timing:
+      - cache;desc="pass", host;desc="cp4044"
+      set-cookie:
+      - NetworkProbeLimit=0.001;Path=/;Secure;Max-Age=3600
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie
+      x-cache:
+      - cp4044 miss, cp4044 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 205.251.233.111
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+version: 1

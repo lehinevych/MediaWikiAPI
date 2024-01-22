@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import unittest
+import pytest
 import mediawikiapi
 from bs4 import BeautifulSoup
 from decimal import Decimal
@@ -22,6 +23,7 @@ from tests.request_mock_data import (
 api = MediaWikiAPI(config=Config(timeout=10))
 
 
+@pytest.mark.vcr()
 class TestPageSetUp(unittest.TestCase):
     """Test the functionality of mediawikiapi.page's __init__ and load functions."""
 
@@ -94,10 +96,9 @@ class TestPageSetUp(unittest.TestCase):
         self.assertEqual(butterfly.url, "https://en.wikipedia.org/wiki/Butterfly")
 
 
+@pytest.mark.vcr()
 class TestPage(unittest.TestCase):
     """Test the functionality of the rest of mediawikiapi.page."""
-
-    maxDiff = None
 
     def setUp(self) -> None:
         # shortest wikipedia articles with images and sections

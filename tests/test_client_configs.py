@@ -1,9 +1,5 @@
 # -*- coding: utf-8 -*-
 import unittest
-
-from collections import defaultdict
-from decimal import Decimal
-from typing import Dict, Any
 from mediawikiapi import MediaWikiAPI
 from mediawikiapi.config import Config
 
