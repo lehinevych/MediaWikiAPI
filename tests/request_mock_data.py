@@ -1139,7 +1139,11 @@ mock_wiki_calls: Dict[Tuple, Dict[str, Any]] = {  # type: ignore
             }
         }
     },
-    (("colimit", "max"), ("prop", "coordinates"), ("titles", "Great Wall of China"),): {
+    (
+        ("colimit", "max"),
+        ("prop", "coordinates"),
+        ("titles", "Great Wall of China"),
+    ): {
         "query": {
             "pages": {
                 "5094570": {
