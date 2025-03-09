@@ -1,0 +1,262 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - WMF-Last-Access=08-Mar-2025; NetworkProbeLimit=0.001; WMF-Last-Access-Global=08-Mar-2025;
+        GeoIP=IE:L:Dublin:53.30:-6.18:v4
+      User-Agent:
+      - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?prop=info%7Cpageprops&inprop=url&redirects=&titles=Template&format=json&action=query
+  response:
+    body:
+      string: '{"batchcomplete":"","query":{"pages":{"20627717":{"pageid":20627717,"ns":0,"title":"Template","contentmodel":"wikitext","pagelanguage":"en","pagelanguagehtmlcode":"en","pagelanguagedir":"ltr","touched":"2025-03-04T12:03:43Z","lastrevid":1278599862,"length":2172,"fullurl":"https://en.wikipedia.org/wiki/Template","editurl":"https://en.wikipedia.org/w/index.php?title=Template&action=edit","canonicalurl":"https://en.wikipedia.org/wiki/Template","pageprops":{"disambiguation":"","toc":"","wikibase-shortdesc":"Topics
+        referred to by the same term","wikibase_item":"Q438331"}}}}}'
+    headers:
+      accept-ranges:
+      - bytes
+      age:
+      - '0'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-encoding:
+      - gzip
+      content-length:
+      - '334'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Sat, 08 Mar 2025 23:43:32 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw-api-ext.eqiad.main-5594c987b8-xbxc8
+      server-timing:
+      - cache;desc="pass", host;desc="cp3072"
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      vary:
+      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      x-cache:
+      - cp3072 miss, cp3072 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 86.45.201.103
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - WMF-Last-Access=08-Mar-2025; NetworkProbeLimit=0.001; WMF-Last-Access-Global=08-Mar-2025;
+        GeoIP=IE:L:Dublin:53.30:-6.18:v4
+      User-Agent:
+      - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&format=json&action=query
+  response:
+    body:
+      string: '{"continue":{"rvcontinue":"20250303051125|1278559916","continue":"||"},"warnings":{"main":{"*":"Subscribe
+        to the mediawiki-api-announce mailing list at <https://lists.wikimedia.org/postorius/lists/mediawiki-api-announce.lists.wikimedia.org/>
+        for notice of API deprecations and breaking changes. Use [[Special:ApiFeatureUsage]]
+        to see usage of deprecated features by your application."},"revisions":{"*":"The
+        parameter \"rvparse\" has been deprecated.\nBecause \"rvslots\" was not specified,
+        a legacy format has been used for the output. This format is deprecated, and
+        in the future the new format will always be used."}},"query":{"pages":{"20627717":{"pageid":20627717,"ns":0,"title":"Template","revisions":[{"*":"<div
+        class=\"mw-content-ltr mw-parser-output\" lang=\"en\" dir=\"ltr\"><style data-mw-deduplicate=\"TemplateStyles:r1236090951\">.mw-parser-output
+        .hatnote{font-style:italic}.mw-parser-output div.hatnote{padding-left:1.6em;margin-bottom:0.5em}.mw-parser-output
+        .hatnote i{font-style:normal}.mw-parser-output .hatnote+link+.hatnote{margin-top:-0.5em}@media
+        print{body.ns-0 .mw-parser-output .hatnote{display:none!important}}</style><div
+        role=\"note\" class=\"hatnote navigation-not-searchable selfref\">For templates
+        in Wikipedia, see <a href=\"/wiki/Help:Template\" title=\"Help:Template\">Help:Template</a>
+        and <a href=\"/wiki/Wikipedia:Template_index\" title=\"Wikipedia:Template
+        index\">Wikipedia:Template index</a>.</div>\n<style data-mw-deduplicate=\"TemplateStyles:r1235681985\">.mw-parser-output
+        .side-box{margin:4px 0;box-sizing:border-box;border:1px solid #aaa;font-size:88%;line-height:1.25em;background-color:var(--background-color-interactive-subtle,#f8f9fa);display:flow-root}.mw-parser-output
+        .side-box-abovebelow,.mw-parser-output .side-box-text{padding:0.25em 0.9em}.mw-parser-output
+        .side-box-image{padding:2px 0 2px 0.9em;text-align:center}.mw-parser-output
+        .side-box-imageright{padding:2px 0.9em 2px 0;text-align:center}@media(min-width:500px){.mw-parser-output
+        .side-box-flex{display:flex;align-items:center}.mw-parser-output .side-box-text{flex:1;min-width:0}}@media(min-width:720px){.mw-parser-output
+        .side-box{width:238px}.mw-parser-output .side-box-right{clear:right;float:right;margin-left:1em}.mw-parser-output
+        .side-box-left{margin-right:1em}}</style><style data-mw-deduplicate=\"TemplateStyles:r1237033735\">@media
+        print{body.ns-0 .mw-parser-output .sistersitebox{display:none!important}}@media
+        screen{html.skin-theme-clientpref-night .mw-parser-output .sistersitebox img[src*=\"Wiktionary-logo-en-v2.svg\"]{background-color:white}}@media
+        screen and (prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output
+        .sistersitebox img[src*=\"Wiktionary-logo-en-v2.svg\"]{background-color:white}}</style><div
+        class=\"side-box side-box-right plainlinks sistersitebox\"><style data-mw-deduplicate=\"TemplateStyles:r1126788409\">.mw-parser-output
+        .plainlist ol,.mw-parser-output .plainlist ul{line-height:inherit;list-style:none;margin:0;padding:0}.mw-parser-output
+        .plainlist ol li,.mw-parser-output .plainlist ul li{margin-bottom:0}</style>\n<div
+        class=\"side-box-flex\">\n<div class=\"side-box-image\"><span class=\"noviewer\"
+        typeof=\"mw:File\"><a href=\"/wiki/File:Wiktionary-logo-en-v2.svg\" class=\"mw-file-description\"><img
+        alt=\"\" src=\"//upload.wikimedia.org/wikipedia/commons/thumb/9/99/Wiktionary-logo-en-v2.svg/40px-Wiktionary-logo-en-v2.svg.png\"
+        decoding=\"async\" width=\"40\" height=\"40\" class=\"mw-file-element\" srcset=\"//upload.wikimedia.org/wikipedia/commons/thumb/9/99/Wiktionary-logo-en-v2.svg/60px-Wiktionary-logo-en-v2.svg.png
+        1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/99/Wiktionary-logo-en-v2.svg/80px-Wiktionary-logo-en-v2.svg.png
+        2x\" data-file-width=\"512\" data-file-height=\"512\" /></a></span></div>\n<div
+        class=\"side-box-text plainlist\">Look up <i><b><a href=\"https://en.wiktionary.org/wiki/template\"
+        class=\"extiw\" title=\"wiktionary:template\">template</a></b></i> in Wiktionary,
+        the free dictionary.</div></div>\n</div>\n<p><b>Template</b> may refer to:\n</p>\n<style
+        data-mw-deduplicate=\"TemplateStyles:r1044870489\">@media all and (max-width:720px){body.skin-minerva
+        .mw-parser-output .tocright{display:none}.mw-parser-output .tocright{width:100%!important}}@media
+        all and (min-width:720px){.mw-parser-output .tocright{float:right;clear:right;width:auto;margin:0
+        0 0.5em 1em}.mw-parser-output .tocright-clear-left{clear:left}.mw-parser-output
+        .tocright-clear-both{clear:both}.mw-parser-output .tocright-clear-none{clear:none}}</style><div
+        class=\"tocright\"><div id=\"toc\" class=\"toc\" role=\"navigation\" aria-labelledby=\"mw-toc-heading\"><input
+        type=\"checkbox\" role=\"button\" id=\"toctogglecheckbox\" class=\"toctogglecheckbox\"
+        style=\"display:none\" /><div class=\"toctitle\" lang=\"en\" dir=\"ltr\"><h2
+        id=\"mw-toc-heading\">Contents</h2><span class=\"toctogglespan\"><label class=\"toctogglelabel\"
+        for=\"toctogglecheckbox\"></label></span></div>\n<ul>\n<li class=\"toclevel-1
+        tocsection-1\"><a href=\"#Tools\"><span class=\"tocnumber\">1</span> <span
+        class=\"toctext\">Tools</span></a></li>\n<li class=\"toclevel-1 tocsection-2\"><a
+        href=\"#Computing\"><span class=\"tocnumber\">2</span> <span class=\"toctext\">Computing</span></a></li>\n<li
+        class=\"toclevel-1 tocsection-3\"><a href=\"#Molecular_genetics\"><span class=\"tocnumber\">3</span>
+        <span class=\"toctext\">Molecular genetics</span></a></li>\n<li class=\"toclevel-1
+        tocsection-4\"><a href=\"#Other_uses\"><span class=\"tocnumber\">4</span>
+        <span class=\"toctext\">Other uses</span></a></li>\n<li class=\"toclevel-1
+        tocsection-5\"><a href=\"#See_also\"><span class=\"tocnumber\">5</span> <span
+        class=\"toctext\">See also</span></a></li>\n</ul>\n</div>\n</div>\n<div class=\"mw-heading
+        mw-heading2\"><h2 id=\"Tools\">Tools</h2><span class=\"mw-editsection\"><span
+        class=\"mw-editsection-bracket\">[</span><a href=\"/w/index.php?title=Template&amp;action=edit&amp;section=1\"
+        title=\"Edit section: Tools\"><span>edit</span></a><span class=\"mw-editsection-bracket\">]</span></span></div>\n<ul><li><a
+        href=\"/wiki/Die_(manufacturing)\" title=\"Die (manufacturing)\">Die (manufacturing)</a>,
+        used to cut or shape material</li>\n<li>Mold, in a <a href=\"/wiki/Molding_(process)\"
+        title=\"Molding (process)\">molding process</a></li>\n<li><a href=\"/wiki/Stencil\"
+        title=\"Stencil\">Stencil</a>, a pattern or overlay used in graphic arts (drawing,
+        painting, etc.) and sewing to replicate letters, shapes or designs</li></ul>\n<div
+        class=\"mw-heading mw-heading2\"><h2 id=\"Computing\">Computing</h2><span
+        class=\"mw-editsection\"><span class=\"mw-editsection-bracket\">[</span><a
+        href=\"/w/index.php?title=Template&amp;action=edit&amp;section=2\" title=\"Edit
+        section: Computing\"><span>edit</span></a><span class=\"mw-editsection-bracket\">]</span></span></div>\n<ul><li>The
+        main document from which <a href=\"/wiki/Mail_merge\" title=\"Mail merge\">mail
+        merge</a> documents are created</li>\n<li><a href=\"/wiki/Style_sheet_(web_development)\"
+        title=\"Style sheet (web development)\">Style sheet (web development)</a>
+        or master page, a sheet or page on which a user can globally edit and format
+        graphic elements and text common to each page of a document</li>\n<li><a href=\"/wiki/Template_(C%2B%2B)\"
+        title=\"Template (C++)\">Template (C++)</a>, a tool for generic programming
+        in the C++ language</li>\n<li><a href=\"/wiki/Template_(file_format)\" title=\"Template
+        (file format)\">Template (file format)</a>, a standardized, non-executable
+        file type used by computer software as a pre-formatted example on which to
+        base other files, especially documents</li>\n<li><a href=\"/wiki/Template_(word_processing)\"
+        title=\"Template (word processing)\">Template (word processing)</a>, a standard
+        document containing layout and styles used to configure word processing software</li>\n<li><a
+        href=\"/wiki/Template_metaprogramming\" title=\"Template metaprogramming\">Template
+        metaprogramming</a>, a programming technique used by a compiler to generate
+        temporary source code</li>\n<li><a href=\"/wiki/Template_method_pattern\"
+        title=\"Template method pattern\">Template method pattern</a>, an object-oriented
+        design pattern</li>\n<li><a href=\"/wiki/Template_processor\" title=\"Template
+        processor\">Template processor</a>, a system that combines a template with
+        data to produce an output</li>\n<li><a href=\"/wiki/Web_template\" class=\"mw-redirect\"
+        title=\"Web template\">Web template</a>, a master page or a page element that
+        can be used to produce web pages dynamically</li></ul>\n<div class=\"mw-heading
+        mw-heading2\"><h2 id=\"Molecular_genetics\">Molecular genetics</h2><span class=\"mw-editsection\"><span
+        class=\"mw-editsection-bracket\">[</span><a href=\"/w/index.php?title=Template&amp;action=edit&amp;section=3\"
+        title=\"Edit section: Molecular genetics\"><span>edit</span></a><span class=\"mw-editsection-bracket\">]</span></span></div>\n<ul><li>A
+        strand of <a href=\"/wiki/DNA\" title=\"DNA\">DNA</a> which sets the genetic
+        sequence of new strands during replication</li>\n<li>A strand of <a href=\"/wiki/RNA\"
+        title=\"RNA\">RNA</a> which translates genes into proteins</li></ul>\n<div
+        class=\"mw-heading mw-heading2\"><h2 id=\"Other_uses\">Other uses</h2><span
+        class=\"mw-editsection\"><span class=\"mw-editsection-bracket\">[</span><a
+        href=\"/w/index.php?title=Template&amp;action=edit&amp;section=4\" title=\"Edit
+        section: Other uses\"><span>edit</span></a><span class=\"mw-editsection-bracket\">]</span></span></div>\n<ul><li>A
+        pre-developed <a href=\"/wiki/Page_layout\" title=\"Page layout\">page layout</a>
+        in electronic or paper media used to make new pages with a similar design,
+        pattern, or style</li>\n<li><a href=\"/wiki/Boilerplate_(text)\" class=\"mw-redirect\"
+        title=\"Boilerplate (text)\">Boilerplate (text)</a>, any text that is or can
+        be reused in new contexts or applications without being greatly changed from
+        the original</li>\n<li><a href=\"/wiki/Template_(novel)\" title=\"Template
+        (novel)\"><i>Template</i> (novel)</a>, a novel by Matthew Hughes</li>\n<li><a
+        href=\"/wiki/Template_(racing)\" class=\"mw-redirect\" title=\"Template (racing)\">Template
+        (racing)</a>, a device used in car racing to ensure that the body of the race
+        vehicle adheres to specifications</li></ul>\n<div class=\"mw-heading mw-heading2\"><h2
+        id=\"See_also\">See also</h2><span class=\"mw-editsection\"><span class=\"mw-editsection-bracket\">[</span><a
+        href=\"/w/index.php?title=Template&amp;action=edit&amp;section=5\" title=\"Edit
+        section: See also\"><span>edit</span></a><span class=\"mw-editsection-bracket\">]</span></span></div>\n<ul><li><a
+        href=\"/wiki/Form_letter\" title=\"Form letter\">Form letter</a>, a letter
+        written from a template</li>\n<li><a href=\"/wiki/Template_engine_(disambiguation)\"
+        class=\"mw-redirect mw-disambig\" title=\"Template engine (disambiguation)\">Template
+        engine (disambiguation)</a></li></ul>\n<div class=\"shortdescription nomobile
+        noexcerpt noprint searchaux\" style=\"display:none\">Topics referred to by
+        the same term</div>\n<style data-mw-deduplicate=\"TemplateStyles:r1097304697\">.mw-parser-output
+        .dmbox{display:flex;align-items:center;clear:both;margin:0.9em 1em;border-top:1px
+        solid #ccc;border-bottom:1px solid #ccc;padding:0.25em 0.35em;font-style:italic}.mw-parser-output
+        .dmbox>*{flex-shrink:0;margin:0 0.25em}.mw-parser-output .dmbox-body{flex-grow:1;flex-shrink:1;padding:0.1em
+        0}.mw-parser-output .dmbox-invalid-type{text-align:center}</style>\n<div role=\"note\"
+        id=\"disambigbox\" class=\"metadata plainlinks dmbox dmbox-disambig\"><span
+        typeof=\"mw:File\"><a href=\"/wiki/File:Disambig_gray.svg\" class=\"mw-file-description\"><img
+        alt=\"Disambiguation icon\" src=\"//upload.wikimedia.org/wikipedia/en/thumb/5/5f/Disambig_gray.svg/30px-Disambig_gray.svg.png\"
+        decoding=\"async\" width=\"30\" height=\"23\" class=\"mw-file-element\" srcset=\"//upload.wikimedia.org/wikipedia/en/thumb/5/5f/Disambig_gray.svg/45px-Disambig_gray.svg.png
+        1.5x, //upload.wikimedia.org/wikipedia/en/thumb/5/5f/Disambig_gray.svg/60px-Disambig_gray.svg.png
+        2x\" data-file-width=\"220\" data-file-height=\"168\" /></a></span><div class=\"dmbox-body\">This
+        <a href=\"/wiki/Help:Disambiguation\" title=\"Help:Disambiguation\">disambiguation</a>
+        page lists  articles associated with the title <b>Template</b>.<br /><small>If
+        an <a class=\"external text\" href=\"https://en.wikipedia.org/w/index.php?title=Special:WhatLinksHere/Template&amp;namespace=0\">internal
+        link</a> led you here, you may wish to change the link to point directly to
+        the intended article.</small></div>\n</div></div>"}]}}}}'
+    headers:
+      accept-ranges:
+      - bytes
+      age:
+      - '0'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-encoding:
+      - gzip
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Sat, 08 Mar 2025 23:43:32 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw-api-ext.eqiad.canary-6b5746b994-bn42n
+      server-timing:
+      - cache;desc="pass", host;desc="cp3072"
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      x-cache:
+      - cp3072 miss, cp3072 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 86.45.201.103
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+version: 1

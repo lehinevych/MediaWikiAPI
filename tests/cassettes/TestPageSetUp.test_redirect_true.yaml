@@ -1,0 +1,68 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - WMF-Last-Access=08-Mar-2025; NetworkProbeLimit=0.001; WMF-Last-Access-Global=08-Mar-2025;
+        GeoIP=IE:L:Dublin:53.30:-6.18:v4
+      User-Agent:
+      - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?prop=info%7Cpageprops&inprop=url&redirects=&titles=Template%3Acn&format=json&action=query
+  response:
+    body:
+      string: "{\"batchcomplete\":\"\",\"query\":{\"normalized\":[{\"from\":\"Template:cn\",\"to\":\"Template:Cn\"}],\"redirects\":[{\"from\":\"Template:Cn\",\"to\":\"Template:Citation
+        needed\"}],\"pages\":{\"2048472\":{\"pageid\":2048472,\"ns\":10,\"title\":\"Template:Citation
+        needed\",\"contentmodel\":\"wikitext\",\"pagelanguage\":\"en\",\"pagelanguagehtmlcode\":\"en\",\"pagelanguagedir\":\"ltr\",\"touched\":\"2025-03-03T04:17:36Z\",\"lastrevid\":1234309184,\"length\":776,\"fullurl\":\"https://en.wikipedia.org/wiki/Template:Citation_needed\",\"editurl\":\"https://en.wikipedia.org/w/index.php?title=Template:Citation_needed&action=edit\",\"canonicalurl\":\"https://en.wikipedia.org/wiki/Template:Citation_needed\",\"pageprops\":{\"templatedata\":\"\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffdM\\ufffd\\ufffd@\\ufffd\\ufffd\\ufffd\\ufffd\\ufffdK.&\\ufffd\\ufffd=\\ufffd\\ufffd(\\ufffd\\ufffd%\\ufffd\\ufffdRzPl9\\ufffdv<\\ufffd\\ufffdivk\\ufffd\\ufffd{%'\\ufffd\\ufffd\\ufffdB{\\ufffd4\\ufffd\\ufffdy\\ufffd\\\\C\\\\g\\u07cbO\\ufffd-N\\ufffd\\ufffd\\ufffdvG\\ufffd\\ufffd\\ufffd\\ufffd(\\ufffd\\ufffd\\ufffd05
+        \\t|CQ|;@\\ufffd\\ufffdw\\ufffd>\\ufffdf\\ufffdu \\ufffd\\ufffd\\ufffd>K\\ufffd\\ufffd\\ufffd\\ufffd-<\\ufffdb\\ufffd\\ufffd@\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd?\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd3\\ufffd\\ufffd\\ufffdn\\ufffd\\ufffd\\ufffd\\u008eMO\\ufffd\\ufffd\\ufffd\\ufffdpO\\ufffd*p\\ufffd\\ufffd\\ufffd\\ufffdc\\ufffd\\ufffda\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd)\\ufffd'\\ufffd\\ufffd:\\ufffd\\ufffd\\ufffd+\\ufffd\\ufffdN\\u046b\\ufffdL\\ufffd\\ufffd\\ufffd\\ufffd\\ufffda^\\ufffd\\ufffd\\ufffd\\u0182y\\ufffd7\\ufffd^\\ufffd\\ufffdU\\ufffd/\\ufffd1\\t\\u033ec\\u0500M\\ufffd\\ufffdWe\\ufffd%\\ufffdxp\\ufffd\\ufffd\\\"\\ufffd\\tC\\ufffd\\ufffd\\ufffd\\ufffde\\u03f2x\\ufffdy\\ufffd]mv\\ub3db\\ufffd\\ufffd\\ufffdr\\ufffd\\ufffdG\\ufffd-\\ufffde\\ufffd\\u070e\\ufffd\\ufffds9\\ufffdT\\ufffd5n!\\ufffdP\\ufffdL\\ufffd\\ufffd\\ufffd\\ufffdb`\\ufffd+\\ufffdj\\ufffd\\ufffd\\ufffd*:&\\ufffd\\ufffd\\ufffd\\ufffd[,A\\ufffd\\\"\\ufffd\\ufffdn\\ufffdN\\ufffd.g\\ufffd'\\ufffdZ\\ufffd|f\\ufffd!\\ufffdgb\\ufffdS\\ufffd\\u0694\\ufffd\\ufffd\\ufffdFy\\t\\ufffd&\\ufffdl\\ufffd}>\\ufffd\\ufffdh\\ufffd\\ufffd>\\ufffd\\ufffdk\\ufffd\\ufffd\\ufffd\\ufffd\\ufffdy\\ufffd\\ufffd\\\"QC\\u0313\\ufffd\\ufffdX\\ufffd\\ufffd\\ufffd\\ufffdK\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd?\\ufffd\\ufffdp\\ufffdGN7\\ufffd:\\ufffd\\ufffd\x7Fp*\\ufffdI.\\ufffd\\ufffd{\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd^\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd[\\ufffd\\ufffd\\ufffd\",\"wikibase_item\":\"Q5312535\"}}}}}"
+    headers:
+      accept-ranges:
+      - bytes
+      age:
+      - '0'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-encoding:
+      - gzip
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Sat, 08 Mar 2025 23:43:34 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw-api-ext.eqiad.main-5594c987b8-mlc5p
+      server-timing:
+      - cache;desc="pass", host;desc="cp3072"
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      x-cache:
+      - cp3072 miss, cp3072 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 86.45.201.103
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+version: 1
