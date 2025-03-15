@@ -113,11 +113,12 @@ class WikipediaPage(object):
 
                 # change the title and reload the whole object
                 # TODO this should be refactored
-                self.__init__(  # type:ignore
-                    redirects["to"],
+                self.__init__(
+                    request=self.request,
+                    title=redirects["to"],
                     redirect=redirect,
                     preload=preload,
-                    request=self.request,
+                    original_title=from_title,
                 )
 
             else:
