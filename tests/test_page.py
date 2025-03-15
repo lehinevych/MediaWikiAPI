@@ -7,6 +7,7 @@ from decimal import Decimal
 from mediawikiapi import MediaWikiAPI
 from mediawikiapi.config import Config
 from mediawikiapi.wikipediapage import WikipediaPage
+from mediawikiapi.exceptions import PageError
 from tests.request_mock_data import (
     mock_data,
     mock_images,
@@ -248,3 +249,56 @@ class TestPage(unittest.TestCase):
             api.category_members(pageid=6923181)
         with self.assertRaises(ValueError):
             api.category_members(title="")
+
+
+@pytest.mark.vcr(cassette_library_dir="tests/cassettes/title_handling")
+class TestPageTitleHandling(unittest.TestCase):
+    """Test the handling of page titles with underscores and spaces."""
+
+    def setUp(self) -> None:
+        self.api = MediaWikiAPI(config=Config(timeout=10))
+
+    def test_exact_title_with_underscore(self) -> None:
+        """Test that pages with underscores in titles can be accessed directly."""
+        # Should work directly without auto-suggest
+        page = self.api.page("Honey_badger", auto_suggest=False)
+        self.assertEqual(page.title, "Honey badger")
+
+        # Should also work with auto-suggest enabled (but use exact match first)
+        page = self.api.page("Ada_Lovelace")
+        self.assertEqual(page.title, "Ada Lovelace")
+
+    def test_auto_suggest_fallback(self) -> None:
+        """Test that auto-suggest works as fallback when exact title fails."""
+        # Should fall back to auto-suggest and find the correct page
+        page = self.api.page("honey badger")
+        self.assertEqual(page.title, "Honey badger")
+
+        # Should raise PageError when auto-suggest is disabled and exact title not found
+        with self.assertRaises(mediawikiapi.PageError):
+            self.api.page("nonexistent_page_title", auto_suggest=False)
+
+    def test_underscore_variations(self) -> None:
+        """Test various underscore patterns in page titles."""
+        # Multiple underscores in valid title
+        page = self.api.page("Category:Featured_articles", auto_suggest=False)
+        self.assertEqual(page.title, "Category:Featured articles")
+
+        # Test invalid title patterns
+        with self.assertRaises(mediawikiapi.PageError):
+            self.api.page("ThisPageDefinitelyDoesNotExist2024", auto_suggest=False)
+
+        # Test that spaces and underscores are equivalent for nonexistent pages
+        with self.assertRaises(mediawikiapi.PageError):
+            self.api.page("This Page Does Not Exist 2024", auto_suggest=False)
+        with self.assertRaises(mediawikiapi.PageError):
+            self.api.page("This_Page_Does_Not_Exist_2024", auto_suggest=False)
+
+    def test_space_and_underscore_equivalence(self) -> None:
+        """Test that spaces and underscores are handled appropriately."""
+        # Space version should work
+        page1 = self.api.page("Honey badger")
+        # Underscore version should work and give same result
+        page2 = self.api.page("Honey_badger")
+        self.assertEqual(page1.title, page2.title)
+        self.assertEqual(page1.pageid, page2.pageid)
