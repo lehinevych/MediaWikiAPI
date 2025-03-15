@@ -32,3 +32,28 @@ class TestSearch(unittest.TestCase):
         search, suggestion = self.api.search("qmxjsudek", suggestion=True)
         self.assertEqual(search, [])
         self.assertEqual(suggestion, None)
+
+    def test_language_cache(self) -> None:
+        """Test that search results are properly cached per language."""
+        # First search in English
+        query = "Python"
+        en_results = self.api.search(query)
+
+        # Cache should return same results on second call
+        self.assertEqual(self.api.search(query), en_results)
+
+        # Switch to French
+        self.api.config.language = "fr"
+        fr_results = self.api.search(query)
+
+        # Results should be different in French
+        self.assertNotEqual(en_results, fr_results)
+
+        # French results should be cached
+        self.assertEqual(self.api.search(query), fr_results)
+
+        # Switch back to English
+        self.api.config.language = "en"
+
+        # Should get cached English results
+        self.assertEqual(self.api.search(query), en_results)

@@ -19,7 +19,7 @@ class memoized_class(object):
     """
     Decorator.
     Caches a function's return value each time it is called.
-    If called later with the same arguments,
+    If called later with the same arguments and language,
     the cached value is returned (not reevaluated).
     """
 
@@ -34,7 +34,23 @@ class memoized_class(object):
             # uncacheable. a list, for instance.
             # better to not cache than blow up.
             return self.func(*args, **kwargs)
-        key = str(args) + str(kwargs)
+
+        # Get the language from the instance's config if available
+        language = None
+        if args and args[0] is not None:
+            instance = args[0]
+            if hasattr(instance, "config"):
+                config = getattr(instance, "config")
+                if hasattr(config, "language"):
+                    language = getattr(config, "language")
+
+        # Include language in the cache key if available
+        key = (
+            f"{language}:{str(args)}{str(kwargs)}"
+            if language
+            else str(args) + str(kwargs)
+        )
+
         if key in self.cache:
             return self.cache[key]
         else:

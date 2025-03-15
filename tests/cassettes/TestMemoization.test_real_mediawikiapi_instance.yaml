@@ -1,0 +1,333 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?meta=siteinfo&siprop=languages&format=json&action=query
+  response:
+    body:
+      string: '{"batchcomplete":"","query":{"languages":[{"code":"aa","bcp47":"aa","*":"Qaf\u00e1r
+        af"},{"code":"aae","bcp47":"aae","*":"Arb\u00ebrisht"},{"code":"ab","bcp47":"ab","*":"\u0430\u0525\u0441\u0448\u04d9\u0430"},{"code":"abs","bcp47":"abs","*":"bahasa
+        ambon"},{"code":"ace","bcp47":"ace","*":"Ac\u00e8h"},{"code":"acf","bcp47":"acf","*":"Kw\u00e9y\u00f2l
+        Sent Lisi"},{"code":"acm","bcp47":"acm","*":"\u0639\u0631\u0627\u0642\u064a"},{"code":"ady","bcp47":"ady","*":"\u0430\u0434\u044b\u0433\u0430\u0431\u0437\u044d"},{"code":"ady-cyrl","bcp47":"ady-Cyrl","*":"\u0430\u0434\u044b\u0433\u0430\u0431\u0437\u044d"},{"code":"aeb","bcp47":"aeb","*":"\u062a\u0648\u0646\u0633\u064a
+        / T\u00fbns\u00ee"},{"code":"aeb-arab","bcp47":"aeb-Arab","*":"\u062a\u0648\u0646\u0633\u064a"},{"code":"aeb-latn","bcp47":"aeb-Latn","*":"T\u00fbns\u00ee"},{"code":"af","bcp47":"af","*":"Afrikaans"},{"code":"aln","bcp47":"aln","*":"Geg\u00eb"},{"code":"als","bcp47":"gsw","*":"Alemannisch"},{"code":"alt","bcp47":"alt","*":"\u0430\u043b\u0442\u0430\u0439
+        \u0442\u0438\u043b"},{"code":"am","bcp47":"am","*":"\u12a0\u121b\u122d\u129b"},{"code":"ami","bcp47":"ami","*":"Pangcah"},{"code":"an","bcp47":"an","*":"aragon\u00e9s"},{"code":"ang","bcp47":"ang","*":"\u00c6nglisc"},{"code":"ann","bcp47":"ann","*":"Obolo"},{"code":"anp","bcp47":"anp","*":"\u0905\u0902\u0917\u093f\u0915\u093e"},{"code":"apc","bcp47":"apc","*":"\u0634\u0627\u0645\u064a"},{"code":"ar","bcp47":"ar","*":"\u0627\u0644\u0639\u0631\u0628\u064a\u0629"},{"code":"arc","bcp47":"arc","*":"\u0710\u072a\u0721\u071d\u0710"},{"code":"arn","bcp47":"arn","*":"mapudungun"},{"code":"arq","bcp47":"arq","*":"\u062c\u0627\u0632\u0627\u064a\u0631\u064a\u0629"},{"code":"ary","bcp47":"ary","*":"\u0627\u0644\u062f\u0627\u0631\u062c\u0629"},{"code":"arz","bcp47":"arz","*":"\u0645\u0635\u0631\u0649"},{"code":"as","bcp47":"as","*":"\u0985\u09b8\u09ae\u09c0\u09af\u09bc\u09be"},{"code":"ase","bcp47":"ase","*":"American
+        sign language"},{"code":"ast","bcp47":"ast","*":"asturianu"},{"code":"atj","bcp47":"atj","*":"Atikamekw"},{"code":"av","bcp47":"av","*":"\u0430\u0432\u0430\u0440"},{"code":"avk","bcp47":"avk","*":"Kotava"},{"code":"awa","bcp47":"awa","*":"\u0905\u0935\u0927\u0940"},{"code":"ay","bcp47":"ay","*":"Aymar
+        aru"},{"code":"az","bcp47":"az","*":"az\u0259rbaycanca"},{"code":"azb","bcp47":"azb","*":"\u062a\u06c6\u0631\u06a9\u062c\u0647"},{"code":"ba","bcp47":"ba","*":"\u0431\u0430\u0448\u04a1\u043e\u0440\u0442\u0441\u0430"},{"code":"ban","bcp47":"ban","*":"Basa
+        Bali"},{"code":"ban-bali","bcp47":"ban-Bali","*":"\u1b29\u1b32\u1b29\u1b2e\u1b36"},{"code":"bar","bcp47":"bar","*":"Boarisch"},{"code":"bat-smg","bcp47":"sgs","*":"\u017eemait\u0117\u0161ka"},{"code":"bbc","bcp47":"bbc","*":"Batak
+        Toba"},{"code":"bbc-latn","bcp47":"bbc-Latn","*":"Batak Toba"},{"code":"bcc","bcp47":"bcc","*":"\u062c\u0647\u0644\u0633\u0631\u06cc
+        \u0628\u0644\u0648\u0686\u06cc"},{"code":"bci","bcp47":"bci","*":"wawle"},{"code":"bcl","bcp47":"bcl","*":"Bikol
+        Central"},{"code":"bdr","bcp47":"bdr","*":"Bajau Sama"},{"code":"be","bcp47":"be","*":"\u0431\u0435\u043b\u0430\u0440\u0443\u0441\u043a\u0430\u044f"},{"code":"be-tarask","bcp47":"be-tarask","*":"\u0431\u0435\u043b\u0430\u0440\u0443\u0441\u043a\u0430\u044f
+        (\u0442\u0430\u0440\u0430\u0448\u043a\u0435\u0432\u0456\u0446\u0430)"},{"code":"be-x-old","bcp47":"be-tarask","*":"\u0431\u0435\u043b\u0430\u0440\u0443\u0441\u043a\u0430\u044f
+        (\u0442\u0430\u0440\u0430\u0448\u043a\u0435\u0432\u0456\u0446\u0430)"},{"code":"bew","bcp47":"bew","*":"Betawi"},{"code":"bg","bcp47":"bg","*":"\u0431\u044a\u043b\u0433\u0430\u0440\u0441\u043a\u0438"},{"code":"bgc","bcp47":"bgc","*":"\u0939\u0930\u093f\u092f\u093e\u0923\u0935\u0940"},{"code":"bgn","bcp47":"bgn","*":"\u0631\u0648\u0686
+        \u06a9\u067e\u062a\u06cc\u0646 \u0628\u0644\u0648\u0686\u06cc"},{"code":"bh","bcp47":"bh","*":"\u092d\u094b\u091c\u092a\u0941\u0930\u0940"},{"code":"bho","bcp47":"bho","*":"\u092d\u094b\u091c\u092a\u0941\u0930\u0940"},{"code":"bi","bcp47":"bi","*":"Bislama"},{"code":"bjn","bcp47":"bjn","*":"Banjar"},{"code":"blk","bcp47":"blk","*":"\u1015\u1021\u102d\u102f\u101d\u103a\u108f\u1018\u102c\u108f\u101e\u102c\u108f"},{"code":"bm","bcp47":"bm","*":"bamanankan"},{"code":"bn","bcp47":"bn","*":"\u09ac\u09be\u0982\u09b2\u09be"},{"code":"bo","bcp47":"bo","*":"\u0f56\u0f7c\u0f51\u0f0b\u0f61\u0f72\u0f42"},{"code":"bpy","bcp47":"bpy","*":"\u09ac\u09bf\u09b7\u09cd\u09a3\u09c1\u09aa\u09cd\u09b0\u09bf\u09af\u09bc\u09be
+        \u09ae\u09a3\u09bf\u09aa\u09c1\u09b0\u09c0"},{"code":"bqi","bcp47":"bqi","*":"\u0628\u062e\u062a\u06cc\u0627\u0631\u06cc"},{"code":"br","bcp47":"br","*":"brezhoneg"},{"code":"brh","bcp47":"brh","*":"Br\u00e1hu\u00ed"},{"code":"bs","bcp47":"bs","*":"bosanski"},{"code":"btm","bcp47":"btm","*":"Batak
+        Mandailing"},{"code":"bto","bcp47":"bto","*":"Iriga Bicolano"},{"code":"bug","bcp47":"bug","*":"Basa
+        Ugi"},{"code":"bxr","bcp47":"bxr","*":"\u0431\u0443\u0440\u044f\u0430\u0434"},{"code":"ca","bcp47":"ca","*":"catal\u00e0"},{"code":"cbk-zam","bcp47":"cbk","*":"Chavacano
+        de Zamboanga"},{"code":"ccp","bcp47":"ccp","*":"\ud804\udd0c\ud804\udd0b\ud804\udd34\ud804\udd1f\ud804\udd33\ud804\udd26"},{"code":"cdo","bcp47":"cdo","*":"\u95a9\u6771\u8a9e
+        / M\u00ecng-d\u0115\u0324ng-ng\u1e73\u0304"},{"code":"cdo-hant","bcp47":"cdo-Hant","*":"\u95a9\u6771\u8a9e\uff08\u50b3\u7d71\u6f22\u5b57\uff09"},{"code":"cdo-latn","bcp47":"cdo-Latn","*":"M\u00ecng-d\u0115\u0324ng-ng\u1e73\u0304
+        (B\u00e0ng-u\u00e2-c\u00ea)"},{"code":"ce","bcp47":"ce","*":"\u043d\u043e\u0445\u0447\u0438\u0439\u043d"},{"code":"ceb","bcp47":"ceb","*":"Cebuano"},{"code":"ch","bcp47":"ch","*":"Chamoru"},{"code":"chn","bcp47":"chn","*":"chinuk
+        wawa"},{"code":"cho","bcp47":"cho","*":"Chahta anumpa"},{"code":"chr","bcp47":"chr","*":"\u13e3\u13b3\u13a9"},{"code":"chy","bcp47":"chy","*":"Tsets\u00eahest\u00e2hese"},{"code":"ckb","bcp47":"ckb","*":"\u06a9\u0648\u0631\u062f\u06cc"},{"code":"co","bcp47":"co","*":"corsu"},{"code":"cop","bcp47":"cop","*":"\u03ef\u2c99\u2c89\u2ca7\u2ca3\u2c89\u2c99\u2c9b\u0300\u2cad\u2c8f\u2c99\u2c93"},{"code":"cps","bcp47":"cps","*":"Capice\u00f1o"},{"code":"cpx","bcp47":"cpx","*":"\u8386\u4ed9\u8a9e
+        / P\u00f3-sing-g\u1e73\u0302"},{"code":"cpx-hans","bcp47":"cpx-Hans","*":"\u8386\u4ed9\u8bed\uff08\u7b80\u4f53\uff09"},{"code":"cpx-hant","bcp47":"cpx-Hant","*":"\u8386\u4ed9\u8a9e\uff08\u7e41\u9ad4\uff09"},{"code":"cpx-latn","bcp47":"cpx-Latn","*":"P\u00f3-sing-g\u1e73\u0302
+        (B\u00e1\u207f-u\u0101-ci\u030d)"},{"code":"cr","bcp47":"cr","*":"N\u0113hiyaw\u0113win
+        / \u14c0\u1426\u1403\u152d\u140d\u140f\u1423"},{"code":"crh","bcp47":"crh","*":"q\u0131r\u0131mtatarca"},{"code":"crh-cyrl","bcp47":"crh-Cyrl","*":"\u043a\u044a\u044b\u0440\u044b\u043c\u0442\u0430\u0442\u0430\u0440\u0434\u0436\u0430
+        (\u041a\u0438\u0440\u0438\u043b\u043b)"},{"code":"crh-latn","bcp47":"crh-Latn","*":"q\u0131r\u0131mtatarca
+        (Latin)"},{"code":"crh-ro","bcp47":"crh-Latn-RO","*":"tatar\u015fa"},{"code":"cs","bcp47":"cs","*":"\u010de\u0161tina"},{"code":"csb","bcp47":"csb","*":"kasz\u00ebbsczi"},{"code":"cu","bcp47":"cu","*":"\u0441\u043b\u043e\u0432\u0463\u043d\u044c\u0441\u043a\u044a
+        / \u2c14\u2c0e\u2c11\u2c02\u2c21\u2c10\u2c20\u2c14\u2c0d\u2c1f"},{"code":"cv","bcp47":"cv","*":"\u0447\u04d1\u0432\u0430\u0448\u043b\u0430"},{"code":"cy","bcp47":"cy","*":"Cymraeg"},{"code":"da","bcp47":"da","*":"dansk"},{"code":"dag","bcp47":"dag","*":"dagbanli"},{"code":"de","bcp47":"de","*":"Deutsch"},{"code":"de-at","bcp47":"de-AT","*":"\u00d6sterreichisches
+        Deutsch"},{"code":"de-ch","bcp47":"de-CH","*":"Schweizer Hochdeutsch"},{"code":"de-formal","bcp47":"de-x-formal","*":"Deutsch
+        (Sie-Form)"},{"code":"dga","bcp47":"dga","*":"Dagaare"},{"code":"din","bcp47":"din","*":"Thu\u0254\u014bj\u00e4\u014b"},{"code":"diq","bcp47":"diq","*":"Zazaki"},{"code":"dsb","bcp47":"dsb","*":"dolnoserbski"},{"code":"dtp","bcp47":"dtp","*":"Kadazandusun"},{"code":"dty","bcp47":"dty","*":"\u0921\u094b\u091f\u0947\u0932\u0940"},{"code":"dua","bcp47":"dua","*":"Du\u00e1l\u00e1"},{"code":"dv","bcp47":"dv","*":"\u078b\u07a8\u0788\u07ac\u0780\u07a8\u0784\u07a6\u0790\u07b0"},{"code":"dz","bcp47":"dz","*":"\u0f47\u0f7c\u0f44\u0f0b\u0f41"},{"code":"ee","bcp47":"ee","*":"e\u028begbe"},{"code":"efi","bcp47":"efi","*":"Ef\u1ecbk"},{"code":"egl","bcp47":"egl","*":"Emili\u00e0n"},{"code":"el","bcp47":"el","*":"\u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac"},{"code":"eml","bcp47":"egl","*":"emili\u00e0n
+        e rumagn\u00f2l"},{"code":"en","bcp47":"en","*":"English"},{"code":"en-ca","bcp47":"en-CA","*":"Canadian
+        English"},{"code":"en-gb","bcp47":"en-GB","*":"British English"},{"code":"eo","bcp47":"eo","*":"Esperanto"},{"code":"es","bcp47":"es","*":"espa\u00f1ol"},{"code":"es-419","bcp47":"es-419","*":"espa\u00f1ol
+        de Am\u00e9rica Latina"},{"code":"es-formal","bcp47":"es-x-formal","*":"espa\u00f1ol
+        (formal)"},{"code":"et","bcp47":"et","*":"eesti"},{"code":"eu","bcp47":"eu","*":"euskara"},{"code":"ext","bcp47":"ext","*":"estreme\u00f1u"},{"code":"fa","bcp47":"fa","*":"\u0641\u0627\u0631\u0633\u06cc"},{"code":"fat","bcp47":"fat","*":"mfantse"},{"code":"ff","bcp47":"ff","*":"Fulfulde"},{"code":"fi","bcp47":"fi","*":"suomi"},{"code":"fit","bcp47":"fit","*":"me\u00e4nkieli"},{"code":"fiu-vro","bcp47":"vro","*":"v\u00f5ro"},{"code":"fj","bcp47":"fj","*":"Na
+        Vosa Vakaviti"},{"code":"fo","bcp47":"fo","*":"f\u00f8royskt"},{"code":"fon","bcp47":"fon","*":"f\u0254\u0300ngb\u00e8"},{"code":"fr","bcp47":"fr","*":"fran\u00e7ais"},{"code":"frc","bcp47":"frc","*":"fran\u00e7ais
+        cadien"},{"code":"frp","bcp47":"frp","*":"arpetan"},{"code":"frr","bcp47":"frr","*":"Nordfriisk"},{"code":"fur","bcp47":"fur","*":"furlan"},{"code":"fvr","bcp47":"fvr","*":"poor\u2019\u00ed\u014b
+        bel\u00e9\u2019\u014b"},{"code":"fy","bcp47":"fy","*":"Frysk"},{"code":"ga","bcp47":"ga","*":"Gaeilge"},{"code":"gaa","bcp47":"gaa","*":"Ga"},{"code":"gag","bcp47":"gag","*":"Gagauz"},{"code":"gan","bcp47":"gan","*":"\u8d1b\u8a9e"},{"code":"gan-hans","bcp47":"gan-Hans","*":"\u8d63\u8bed\uff08\u7b80\u4f53\uff09"},{"code":"gan-hant","bcp47":"gan-Hant","*":"\u8d1b\u8a9e\uff08\u7e41\u9ad4\uff09"},{"code":"gcf","bcp47":"gcf","*":"kr\u00e9y\u00f2l
+        Gwadloup"},{"code":"gcr","bcp47":"gcr","*":"kriy\u00f2l gwiyannen"},{"code":"gd","bcp47":"gd","*":"G\u00e0idhlig"},{"code":"gl","bcp47":"gl","*":"galego"},{"code":"gld","bcp47":"gld","*":"\u043d\u0430\u0304\u043d\u0438"},{"code":"glk","bcp47":"glk","*":"\u06af\u06cc\u0644\u06a9\u06cc"},{"code":"gn","bcp47":"gn","*":"Ava\u00f1e''\u1ebd"},{"code":"gom","bcp47":"gom","*":"\u0917\u094b\u0902\u092f\u091a\u0940
+        \u0915\u094b\u0902\u0915\u0923\u0940 / G\u00f5ychi Konknni"},{"code":"gom-deva","bcp47":"gom-Deva","*":"\u0917\u094b\u0902\u092f\u091a\u0940
+        \u0915\u094b\u0902\u0915\u0923\u0940"},{"code":"gom-latn","bcp47":"gom-Latn","*":"G\u00f5ychi
+        Konknni"},{"code":"gor","bcp47":"gor","*":"Bahasa Hulontalo"},{"code":"got","bcp47":"got","*":"\ud800\udf32\ud800\udf3f\ud800\udf44\ud800\udf39\ud800\udf43\ud800\udf3a"},{"code":"gpe","bcp47":"gpe","*":"Ghanaian
+        Pidgin"},{"code":"grc","bcp47":"grc","*":"\u1f08\u03c1\u03c7\u03b1\u03af\u03b1
+        \u1f11\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u1f74"},{"code":"gsw","bcp47":"gsw","*":"Alemannisch"},{"code":"gu","bcp47":"gu","*":"\u0a97\u0ac1\u0a9c\u0ab0\u0abe\u0aa4\u0ac0"},{"code":"guc","bcp47":"guc","*":"wayuunaiki"},{"code":"gur","bcp47":"gur","*":"farefare"},{"code":"guw","bcp47":"guw","*":"gungbe"},{"code":"gv","bcp47":"gv","*":"Gaelg"},{"code":"ha","bcp47":"ha","*":"Hausa"},{"code":"hak","bcp47":"hak","*":"\u5ba2\u5bb6\u8a9e
+        / Hak-k\u00e2-ng\u00ee"},{"code":"hak-hans","bcp47":"hak-Hans","*":"\u5ba2\u5bb6\u8bed\uff08\u7b80\u4f53\uff09"},{"code":"hak-hant","bcp47":"hak-Hant","*":"\u5ba2\u5bb6\u8a9e\uff08\u7e41\u9ad4\uff09"},{"code":"hak-latn","bcp47":"hak-Latn","*":"Hak-k\u00e2-ng\u00ee
+        (Pha\u030dk-fa-s\u1e73)"},{"code":"haw","bcp47":"haw","*":"Hawai\u02bbi"},{"code":"he","bcp47":"he","*":"\u05e2\u05d1\u05e8\u05d9\u05ea"},{"code":"hi","bcp47":"hi","*":"\u0939\u093f\u0928\u094d\u0926\u0940"},{"code":"hif","bcp47":"hif","*":"Fiji
+        Hindi"},{"code":"hif-latn","bcp47":"hif-Latn","*":"Fiji Hindi"},{"code":"hil","bcp47":"hil","*":"Ilonggo"},{"code":"hke","bcp47":"hke","*":"kihunde"},{"code":"hno","bcp47":"hno","*":"\u06c1\u0646\u062f\u06a9\u0648"},{"code":"ho","bcp47":"ho","*":"Hiri
+        Motu"},{"code":"hr","bcp47":"hr","*":"hrvatski"},{"code":"hrx","bcp47":"hrx","*":"Hunsrik"},{"code":"hsb","bcp47":"hsb","*":"hornjoserbsce"},{"code":"hsn","bcp47":"hsn","*":"\u6e58\u8a9e"},{"code":"ht","bcp47":"ht","*":"Krey\u00f2l
+        ayisyen"},{"code":"hu","bcp47":"hu","*":"magyar"},{"code":"hu-formal","bcp47":"hu-x-formal","*":"magyar
+        (formal)"},{"code":"hy","bcp47":"hy","*":"\u0570\u0561\u0575\u0565\u0580\u0565\u0576"},{"code":"hyw","bcp47":"hyw","*":"\u0531\u0580\u0565\u0582\u0574\u057f\u0561\u0570\u0561\u0575\u0565\u0580\u0567\u0576"},{"code":"hz","bcp47":"hz","*":"Otsiherero"},{"code":"ia","bcp47":"ia","*":"interlingua"},{"code":"iba","bcp47":"iba","*":"Jaku
+        Iban"},{"code":"ibb","bcp47":"ibb","*":"ibibio"},{"code":"id","bcp47":"id","*":"Bahasa
+        Indonesia"},{"code":"ie","bcp47":"ie","*":"Interlingue"},{"code":"ig","bcp47":"ig","*":"Igbo"},{"code":"igl","bcp47":"igl","*":"Igala"},{"code":"ii","bcp47":"ii","*":"\ua187\ua259"},{"code":"ik","bcp47":"ik","*":"I\u00f1upiatun"},{"code":"ike-cans","bcp47":"ike-Cans","*":"\u1403\u14c4\u1483\u144e\u1450\u1466"},{"code":"ike-latn","bcp47":"ike-Latn","*":"inuktitut"},{"code":"ilo","bcp47":"ilo","*":"Ilokano"},{"code":"inh","bcp47":"inh","*":"\u0433\u04c0\u0430\u043b\u0433\u04c0\u0430\u0439"},{"code":"io","bcp47":"io","*":"Ido"},{"code":"is","bcp47":"is","*":"\u00edslenska"},{"code":"isv-cyrl","bcp47":"isv-Cyrl","*":"\u043c\u0435\u0434\u0436\u0443\u0441\u043b\u043e\u0432\u0458\u0430\u043d\u0441\u043a\u044b"},{"code":"isv-latn","bcp47":"isv-Latn","*":"med\u017euslovjansky"},{"code":"it","bcp47":"it","*":"italiano"},{"code":"iu","bcp47":"iu","*":"\u1403\u14c4\u1483\u144e\u1450\u1466
+        / inuktitut"},{"code":"ja","bcp47":"ja","*":"\u65e5\u672c\u8a9e"},{"code":"jam","bcp47":"jam","*":"Patois"},{"code":"jbo","bcp47":"jbo","*":"la
+        .lojban."},{"code":"jut","bcp47":"jut","*":"jysk"},{"code":"jv","bcp47":"jv","*":"Jawa"},{"code":"ka","bcp47":"ka","*":"\u10e5\u10d0\u10e0\u10d7\u10e3\u10da\u10d8"},{"code":"kaa","bcp47":"kaa","*":"Qaraqalpaqsha"},{"code":"kab","bcp47":"kab","*":"Taqbaylit"},{"code":"kai","bcp47":"kai","*":"Karai-karai"},{"code":"kbd","bcp47":"kbd","*":"\u0430\u0434\u044b\u0433\u044d\u0431\u0437\u044d"},{"code":"kbd-cyrl","bcp47":"kbd-Cyrl","*":"\u0430\u0434\u044b\u0433\u044d\u0431\u0437\u044d"},{"code":"kbp","bcp47":"kbp","*":"Kab\u0269y\u025b"},{"code":"kcg","bcp47":"kcg","*":"Tyap"},{"code":"kea","bcp47":"kea","*":"kabuverdianu"},{"code":"kg","bcp47":"kg","*":"Kongo"},{"code":"kge","bcp47":"kge","*":"Kumoring"},{"code":"khw","bcp47":"khw","*":"\u06a9\u06be\u0648\u0627\u0631"},{"code":"ki","bcp47":"ki","*":"G\u0129k\u0169y\u0169"},{"code":"kiu","bcp47":"kiu","*":"K\u0131rmancki"},{"code":"kj","bcp47":"kj","*":"Kwanyama"},{"code":"kjh","bcp47":"kjh","*":"\u0445\u0430\u043a\u0430\u0441"},{"code":"kjp","bcp47":"kjp","*":"\u1016\u1060\u102f\u1036\u101c\u102d\u1000\u103a"},{"code":"kk","bcp47":"kk","*":"\u049b\u0430\u0437\u0430\u049b\u0448\u0430"},{"code":"kk-arab","bcp47":"kk-Arab","*":"\u0642\u0627\u0632\u0627\u0642\u0634\u0627
+        (\u062a\u0674\u0648\u062a\u06d5)"},{"code":"kk-cn","bcp47":"kk-Arab-CN","*":"\u0642\u0627\u0632\u0627\u0642\u0634\u0627
+        (\u062c\u06c7\u0646\u06af\u0648)"},{"code":"kk-cyrl","bcp47":"kk-Cyrl","*":"\u049b\u0430\u0437\u0430\u049b\u0448\u0430
+        (\u043a\u0438\u0440\u0438\u043b)"},{"code":"kk-kz","bcp47":"kk-KZ","*":"\u049b\u0430\u0437\u0430\u049b\u0448\u0430
+        (\u049a\u0430\u0437\u0430\u049b\u0441\u0442\u0430\u043d)"},{"code":"kk-latn","bcp47":"kk-Latn","*":"qazaq\u015fa
+        (lat\u0131n)"},{"code":"kk-tr","bcp47":"kk-Latn-TR","*":"qazaq\u015fa (T\u00fcrk\u00efya)"},{"code":"kl","bcp47":"kl","*":"kalaallisut"},{"code":"km","bcp47":"km","*":"\u1797\u17b6\u179f\u17b6\u1781\u17d2\u1798\u17c2\u179a"},{"code":"kn","bcp47":"kn","*":"\u0c95\u0ca8\u0ccd\u0ca8\u0ca1"},{"code":"knc","bcp47":"knc","*":"Yerwa
+        Kanuri"},{"code":"ko","bcp47":"ko","*":"\ud55c\uad6d\uc5b4"},{"code":"ko-kp","bcp47":"ko-KP","*":"\uc870\uc120\ub9d0"},{"code":"koi","bcp47":"koi","*":"\u043f\u0435\u0440\u0435\u043c
+        \u043a\u043e\u043c\u0438"},{"code":"kr","bcp47":"kr","*":"kanuri"},{"code":"krc","bcp47":"krc","*":"\u043a\u044a\u0430\u0440\u0430\u0447\u0430\u0439-\u043c\u0430\u043b\u043a\u044a\u0430\u0440"},{"code":"kri","bcp47":"kri","*":"Krio"},{"code":"krj","bcp47":"krj","*":"Kinaray-a"},{"code":"krl","bcp47":"krl","*":"karjal"},{"code":"ks","bcp47":"ks","*":"\u0915\u0949\u0936\u0941\u0930
+        / \u06a9\u0672\u0634\u064f\u0631"},{"code":"ks-arab","bcp47":"ks-Arab","*":"\u06a9\u0672\u0634\u064f\u0631"},{"code":"ks-deva","bcp47":"ks-Deva","*":"\u0915\u0949\u0936\u0941\u0930"},{"code":"ksh","bcp47":"ksh","*":"Ripoarisch"},{"code":"ksw","bcp47":"ksw","*":"\u1005\u103e\u102e\u1064"},{"code":"ku","bcp47":"ku","*":"kurd\u00ee"},{"code":"ku-arab","bcp47":"ku-Arab","*":"\u06a9\u0648\u0631\u062f\u06cc
+        (\u0639\u06d5\u0631\u06d5\u0628\u06cc)"},{"code":"ku-latn","bcp47":"ku-Latn","*":"kurd\u00ee
+        (lat\u00een\u00ee)"},{"code":"kum","bcp47":"kum","*":"\u043a\u044a\u0443\u043c\u0443\u043a\u044a"},{"code":"kus","bcp47":"kus","*":"K\u028bsaal"},{"code":"kv","bcp47":"kv","*":"\u043a\u043e\u043c\u0438"},{"code":"kw","bcp47":"kw","*":"kernowek"},{"code":"ky","bcp47":"ky","*":"\u043a\u044b\u0440\u0433\u044b\u0437\u0447\u0430"},{"code":"la","bcp47":"la","*":"Latina"},{"code":"lad","bcp47":"lad","*":"Ladino"},{"code":"lb","bcp47":"lb","*":"L\u00ebtzebuergesch"},{"code":"lbe","bcp47":"lbe","*":"\u043b\u0430\u043a\u043a\u0443"},{"code":"lez","bcp47":"lez","*":"\u043b\u0435\u0437\u0433\u0438"},{"code":"lfn","bcp47":"lfn","*":"Lingua
+        Franca Nova"},{"code":"lg","bcp47":"lg","*":"Luganda"},{"code":"li","bcp47":"li","*":"Limburgs"},{"code":"lij","bcp47":"lij","*":"Ligure"},{"code":"liv","bcp47":"liv","*":"L\u012bv\u00f5
+        k\u0113\u013c"},{"code":"ljp","bcp47":"ljp","*":"Lampung Api"},{"code":"lki","bcp47":"lki","*":"\u0644\u06d5\u06a9\u06cc"},{"code":"lld","bcp47":"lld","*":"Ladin"},{"code":"lmo","bcp47":"lmo","*":"lombard"},{"code":"ln","bcp47":"ln","*":"ling\u00e1la"},{"code":"lo","bcp47":"lo","*":"\u0ea5\u0eb2\u0ea7"},{"code":"loz","bcp47":"loz","*":"Silozi"},{"code":"lrc","bcp47":"lrc","*":"\u0644\u06ca\u0631\u06cc
+        \u0634\u0648\u0645\u0627\u0644\u06cc"},{"code":"lt","bcp47":"lt","*":"lietuvi\u0173"},{"code":"ltg","bcp47":"ltg","*":"latga\u013cu"},{"code":"lua","bcp47":"lua","*":"ciluba"},{"code":"lus","bcp47":"lus","*":"Mizo
+        \u0163awng"},{"code":"luz","bcp47":"luz","*":"\u0644\u0626\u0631\u06cc \u062f\u0648\u0659\u0645\u06cc\u0646\u06cc"},{"code":"lv","bcp47":"lv","*":"latvie\u0161u"},{"code":"lzh","bcp47":"lzh","*":"\u6587\u8a00"},{"code":"lzz","bcp47":"lzz","*":"Lazuri"},{"code":"mad","bcp47":"mad","*":"Madhur\u00e2"},{"code":"mag","bcp47":"mag","*":"\u092e\u0917\u0939\u0940"},{"code":"mai","bcp47":"mai","*":"\u092e\u0948\u0925\u093f\u0932\u0940"},{"code":"map-bms","bcp47":"jv-x-bms","*":"Basa
+        Banyumasan"},{"code":"mdf","bcp47":"mdf","*":"\u043c\u043e\u043a\u0448\u0435\u043d\u044c"},{"code":"mg","bcp47":"mg","*":"Malagasy"},{"code":"mh","bcp47":"mh","*":"Ebon"},{"code":"mhr","bcp47":"mhr","*":"\u043e\u043b\u044b\u043a
+        \u043c\u0430\u0440\u0438\u0439"},{"code":"mi","bcp47":"mi","*":"M\u0101ori"},{"code":"min","bcp47":"min","*":"Minangkabau"},{"code":"mk","bcp47":"mk","*":"\u043c\u0430\u043a\u0435\u0434\u043e\u043d\u0441\u043a\u0438"},{"code":"ml","bcp47":"ml","*":"\u0d2e\u0d32\u0d2f\u0d3e\u0d33\u0d02"},{"code":"mn","bcp47":"mn","*":"\u043c\u043e\u043d\u0433\u043e\u043b"},{"code":"mnc","bcp47":"mnc","*":"manju
+        gisun"},{"code":"mnc-latn","bcp47":"mnc-Latn","*":"manju gisun"},{"code":"mnc-mong","bcp47":"mnc-Mong","*":"\u182e\u1820\u1828\u1835\u1860
+        \u1864\u1873\u1830\u1860\u1828"},{"code":"mni","bcp47":"mni","*":"\uabc3\uabe4\uabc7\uabe9
+        \uabc2\uabe3\uabdf"},{"code":"mnw","bcp47":"mnw","*":"\u1018\u102c\u101e\u102c\u1019\u1014\u103a"},{"code":"mo","bcp47":"ro-Cyrl-MD","*":"\u043c\u043e\u043b\u0434\u043e\u0432\u0435\u043d\u044f\u0441\u043a\u044d"},{"code":"mos","bcp47":"mos","*":"moore"},{"code":"mr","bcp47":"mr","*":"\u092e\u0930\u093e\u0920\u0940"},{"code":"mrh","bcp47":"mrh","*":"Mara"},{"code":"mrj","bcp47":"mrj","*":"\u043a\u044b\u0440\u044b\u043a
+        \u043c\u0430\u0440\u044b"},{"code":"ms","bcp47":"ms","*":"Bahasa Melayu"},{"code":"ms-arab","bcp47":"ms-Arab","*":"\u0628\u0647\u0627\u0633
+        \u0645\u0644\u0627\u064a\u0648"},{"code":"mt","bcp47":"mt","*":"Malti"},{"code":"mui","bcp47":"mui","*":"Baso
+        Palembang"},{"code":"mus","bcp47":"mus","*":"Mvskoke"},{"code":"mwl","bcp47":"mwl","*":"Mirand\u00e9s"},{"code":"my","bcp47":"my","*":"\u1019\u103c\u1014\u103a\u1019\u102c\u1018\u102c\u101e\u102c"},{"code":"myv","bcp47":"myv","*":"\u044d\u0440\u0437\u044f\u043d\u044c"},{"code":"mzn","bcp47":"mzn","*":"\u0645\u0627\u0632\u0650\u0631\u0648\u0646\u06cc"},{"code":"na","bcp47":"na","*":"Dorerin
+        Naoero"},{"code":"nah","bcp47":"nah","*":"N\u0101huatl"},{"code":"nan","bcp47":"nan","*":"\u95a9\u5357\u8a9e
+        / B\u00e2n-l\u00e2m-g\u00fa"},{"code":"nan-hant","bcp47":"nan-Hant","*":"\u95a9\u5357\u8a9e\uff08\u50b3\u7d71\u6f22\u5b57\uff09"},{"code":"nan-latn-pehoeji","bcp47":"nan-Latn-pehoeji","*":"B\u00e2n-l\u00e2m-g\u00fa
+        (Pe\u030dh-\u014de-j\u012b)"},{"code":"nan-latn-tailo","bcp47":"nan-Latn-tailo","*":"B\u00e2n-l\u00e2m-g\u00fa
+        (T\u00e2i-l\u00f4)"},{"code":"nap","bcp47":"nap","*":"Napulitano"},{"code":"nb","bcp47":"nb","*":"norsk
+        bokm\u00e5l"},{"code":"nds","bcp47":"nds","*":"Plattd\u00fc\u00fctsch"},{"code":"nds-nl","bcp47":"nds-NL","*":"Nedersaksies"},{"code":"ne","bcp47":"ne","*":"\u0928\u0947\u092a\u093e\u0932\u0940"},{"code":"new","bcp47":"new","*":"\u0928\u0947\u092a\u093e\u0932
+        \u092d\u093e\u0937\u093e"},{"code":"ng","bcp47":"ng","*":"Oshiwambo"},{"code":"nia","bcp47":"nia","*":"Li
+        Niha"},{"code":"nit","bcp47":"nit","*":"\u0c15\u0c4a\u0c32\u0c3e\u0c2e\u0c3f"},{"code":"niu","bcp47":"niu","*":"Niu\u0113"},{"code":"nl","bcp47":"nl","*":"Nederlands"},{"code":"nl-informal","bcp47":"nl-x-informal","*":"Nederlands
+        (informeel)"},{"code":"nmz","bcp47":"nmz","*":"nawdm"},{"code":"nn","bcp47":"nn","*":"norsk
+        nynorsk"},{"code":"no","bcp47":"no","*":"norsk"},{"code":"nod","bcp47":"nod","*":"\u1a23\u1a64\u1a74\u1a3e\u1a6e\u1a6c\u1a65\u1a26"},{"code":"nog","bcp47":"nog","*":"\u043d\u043e\u0433\u0430\u0439\u0448\u0430"},{"code":"nov","bcp47":"nov","*":"Novial"},{"code":"nqo","bcp47":"nqo","*":"\u07d2\u07de\u07cf"},{"code":"nr","bcp47":"nr","*":"isiNdebele
+        seSewula"},{"code":"nrm","bcp47":"nrf","*":"Nouormand"},{"code":"nso","bcp47":"nso","*":"Sesotho
+        sa Leboa"},{"code":"nup","bcp47":"nup","*":"Nupe"},{"code":"nv","bcp47":"nv","*":"Din\u00e9
+        bizaad"},{"code":"ny","bcp47":"ny","*":"Chi-Chewa"},{"code":"nyn","bcp47":"nyn","*":"runyankore"},{"code":"nyo","bcp47":"nyo","*":"Orunyoro"},{"code":"nys","bcp47":"nys","*":"Nyunga"},{"code":"oc","bcp47":"oc","*":"occitan"},{"code":"ojb","bcp47":"ojb","*":"Ojibwemowin"},{"code":"olo","bcp47":"olo","*":"livvinkarjala"},{"code":"om","bcp47":"om","*":"Oromoo"},{"code":"or","bcp47":"or","*":"\u0b13\u0b21\u0b3c\u0b3f\u0b06"},{"code":"os","bcp47":"os","*":"\u0438\u0440\u043e\u043d"},{"code":"pa","bcp47":"pa","*":"\u0a2a\u0a70\u0a1c\u0a3e\u0a2c\u0a40"},{"code":"pag","bcp47":"pag","*":"Pangasinan"},{"code":"pam","bcp47":"pam","*":"Kapampangan"},{"code":"pap","bcp47":"pap","*":"Papiamentu"},{"code":"pcd","bcp47":"pcd","*":"Picard"},{"code":"pcm","bcp47":"pcm","*":"Naij\u00e1"},{"code":"pdc","bcp47":"pdc","*":"Deitsch"},{"code":"pdt","bcp47":"pdt","*":"Plautdietsch"},{"code":"pfl","bcp47":"pfl","*":"P\u00e4lzisch"},{"code":"pi","bcp47":"pi","*":"\u092a\u093e\u0932\u093f"},{"code":"pih","bcp47":"pih","*":"Norfuk
+        / Pitkern"},{"code":"pl","bcp47":"pl","*":"polski"},{"code":"pms","bcp47":"pms","*":"Piemont\u00e8is"},{"code":"pnb","bcp47":"pnb","*":"\u067e\u0646\u062c\u0627\u0628\u06cc"},{"code":"pnt","bcp47":"pnt","*":"\u03a0\u03bf\u03bd\u03c4\u03b9\u03b1\u03ba\u03ac"},{"code":"prg","bcp47":"prg","*":"pr\u016bsiskan"},{"code":"ps","bcp47":"ps","*":"\u067e\u069a\u062a\u0648"},{"code":"pt","bcp47":"pt","*":"portugu\u00eas"},{"code":"pt-br","bcp47":"pt-BR","*":"portugu\u00eas
+        do Brasil"},{"code":"pwn","bcp47":"pwn","*":"pinayuanan"},{"code":"qu","bcp47":"qu","*":"Runa
+        Simi"},{"code":"qug","bcp47":"qug","*":"Runa shimi"},{"code":"rgn","bcp47":"rgn","*":"Rumagn\u00f4l"},{"code":"rif","bcp47":"rif","*":"Tarifit"},{"code":"rki","bcp47":"rki","*":"\u101b\u1001\u102d\u102f\u1004\u103a"},{"code":"rm","bcp47":"rm","*":"rumantsch"},{"code":"rmc","bcp47":"rmc","*":"roma\u0148i
+        \u010dhib"},{"code":"rmy","bcp47":"rmy","*":"romani \u010dhib"},{"code":"rn","bcp47":"rn","*":"ikirundi"},{"code":"ro","bcp47":"ro","*":"rom\u00e2n\u0103"},{"code":"roa-rup","bcp47":"rup","*":"arm\u00e3neashti"},{"code":"roa-tara","bcp47":"nap-x-tara","*":"tarand\u00edne"},{"code":"rsk","bcp47":"rsk","*":"\u0440\u0443\u0441\u043a\u0438"},{"code":"ru","bcp47":"ru","*":"\u0440\u0443\u0441\u0441\u043a\u0438\u0439"},{"code":"rue","bcp47":"rue","*":"\u0440\u0443\u0441\u0438\u043d\u044c\u0441\u043a\u044b\u0439"},{"code":"rup","bcp47":"rup","*":"arm\u00e3neashti"},{"code":"ruq","bcp47":"ruq","*":"Vl\u0103he\u015fte"},{"code":"ruq-cyrl","bcp47":"ruq-Cyrl","*":"\u0412\u043b\u0430\u0445\u0435\u0441\u0442\u0435"},{"code":"ruq-latn","bcp47":"ruq-Latn","*":"Vl\u0103he\u015fte"},{"code":"rut","bcp47":"rut","*":"\u043c\u044b\u0445\u0430\u04c0\u0431\u0438\u0448\u0434\u044b"},{"code":"rw","bcp47":"rw","*":"Ikinyarwanda"},{"code":"ryu","bcp47":"ryu","*":"\u3046\u3061\u306a\u30fc\u3050\u3061"},{"code":"sa","bcp47":"sa","*":"\u0938\u0902\u0938\u094d\u0915\u0943\u0924\u092e\u094d"},{"code":"sah","bcp47":"sah","*":"\u0441\u0430\u0445\u0430
+        \u0442\u044b\u043b\u0430"},{"code":"sat","bcp47":"sat","*":"\u1c65\u1c5f\u1c71\u1c5b\u1c5f\u1c72\u1c64"},{"code":"sc","bcp47":"sc","*":"sardu"},{"code":"scn","bcp47":"scn","*":"sicilianu"},{"code":"sco","bcp47":"sco","*":"Scots"},{"code":"sd","bcp47":"sd","*":"\u0633\u0646\u068c\u064a"},{"code":"sdc","bcp47":"sdc","*":"Sassaresu"},{"code":"sdh","bcp47":"sdh","*":"\u06a9\u0648\u0631\u062f\u06cc
+        \u062e\u0648\u0627\u0631\u06af"},{"code":"se","bcp47":"se","*":"davvis\u00e1megiella"},{"code":"se-fi","bcp47":"se-FI","*":"davvis\u00e1megiella
+        (Suoma bealde)"},{"code":"se-no","bcp47":"se-NO","*":"davvis\u00e1megiella
+        (Norgga bealde)"},{"code":"se-se","bcp47":"se-SE","*":"davvis\u00e1megiella
+        (Ruo\u0167a bealde)"},{"code":"sei","bcp47":"sei","*":"Cmique Itom"},{"code":"ses","bcp47":"ses","*":"Koyraboro
+        Senni"},{"code":"sg","bcp47":"sg","*":"S\u00e4ng\u00f6"},{"code":"sgs","bcp47":"sgs","*":"\u017eemait\u0117\u0161ka"},{"code":"sh","bcp47":"sh","*":"srpskohrvatski
+        / \u0441\u0440\u043f\u0441\u043a\u043e\u0445\u0440\u0432\u0430\u0442\u0441\u043a\u0438"},{"code":"sh-cyrl","bcp47":"sh-Cyrl","*":"\u0441\u0440\u043f\u0441\u043a\u043e\u0445\u0440\u0432\u0430\u0442\u0441\u043a\u0438
+        (\u045b\u0438\u0440\u0438\u043b\u0438\u0446\u0430)"},{"code":"sh-latn","bcp47":"sh-Latn","*":"srpskohrvatski
+        (latinica)"},{"code":"shi","bcp47":"shi","*":"Tacl\u1e25it"},{"code":"shi-latn","bcp47":"shi-Latn","*":"Tacl\u1e25it"},{"code":"shi-tfng","bcp47":"shi-Tfng","*":"\u2d5c\u2d30\u2d5b\u2d4d\u2d43\u2d49\u2d5c"},{"code":"shn","bcp47":"shn","*":"\u1010\u1086\u1038"},{"code":"shy","bcp47":"shy","*":"tacawit"},{"code":"shy-latn","bcp47":"shy-Latn","*":"tacawit"},{"code":"si","bcp47":"si","*":"\u0dc3\u0dd2\u0d82\u0dc4\u0dbd"},{"code":"simple","bcp47":"en-simple","*":"Simple
+        English"},{"code":"sjd","bcp47":"sjd","*":"\u043a\u04e3\u043b\u043b\u0442
+        \u0441\u0430\u0304\u043c\u044c \u043a\u04e3\u043b\u043b"},{"code":"sje","bcp47":"sje","*":"bidums\u00e1megiella"},{"code":"sk","bcp47":"sk","*":"sloven\u010dina"},{"code":"skr","bcp47":"skr","*":"\u0633\u0631\u0627\u0626\u06cc\u06a9\u06cc"},{"code":"skr-arab","bcp47":"skr-Arab","*":"\u0633\u0631\u0627\u0626\u06cc\u06a9\u06cc"},{"code":"sl","bcp47":"sl","*":"sloven\u0161\u010dina"},{"code":"sli","bcp47":"sli","*":"Schl\u00e4sch"},{"code":"sm","bcp47":"sm","*":"Gagana
+        Samoa"},{"code":"sma","bcp47":"sma","*":"\u00e5arjelsaemien"},{"code":"smn","bcp47":"smn","*":"anar\u00e2\u0161kiel\u00e2"},{"code":"sms","bcp47":"sms","*":"nu\u00f5rtts\u00e4\u00e4\u02b9m\u01e9i\u00f5ll"},{"code":"sn","bcp47":"sn","*":"chiShona"},{"code":"so","bcp47":"so","*":"Soomaaliga"},{"code":"sq","bcp47":"sq","*":"shqip"},{"code":"sr","bcp47":"sr","*":"\u0441\u0440\u043f\u0441\u043a\u0438
+        / srpski"},{"code":"sr-ec","bcp47":"sr-Cyrl","*":"\u0441\u0440\u043f\u0441\u043a\u0438
+        (\u045b\u0438\u0440\u0438\u043b\u0438\u0446\u0430)"},{"code":"sr-el","bcp47":"sr-Latn","*":"srpski
+        (latinica)"},{"code":"srn","bcp47":"srn","*":"Sranantongo"},{"code":"sro","bcp47":"sro","*":"sardu
+        campidanesu"},{"code":"ss","bcp47":"ss","*":"SiSwati"},{"code":"st","bcp47":"st","*":"Sesotho"},{"code":"stq","bcp47":"stq","*":"Seeltersk"},{"code":"sty","bcp47":"sty","*":"\u0441\u0435\u0431\u0435\u0440\u0442\u0430\u0442\u0430\u0440"},{"code":"su","bcp47":"su","*":"Sunda"},{"code":"sv","bcp47":"sv","*":"svenska"},{"code":"sw","bcp47":"sw","*":"Kiswahili"},{"code":"syl","bcp47":"syl","*":"\ua80d\ua824\ua81f\ua810\ua824"},{"code":"szl","bcp47":"szl","*":"\u015bl\u016fnski"},{"code":"szy","bcp47":"szy","*":"Sakizaya"},{"code":"ta","bcp47":"ta","*":"\u0ba4\u0bae\u0bbf\u0bb4\u0bcd"},{"code":"tay","bcp47":"tay","*":"Tayal"},{"code":"tcy","bcp47":"tcy","*":"\u0ca4\u0cc1\u0cb3\u0cc1"},{"code":"tdd","bcp47":"tdd","*":"\u1956\u196d\u1970
+        \u1956\u196c\u1972 \u1951\u1968\u1952\u1970"},{"code":"te","bcp47":"te","*":"\u0c24\u0c46\u0c32\u0c41\u0c17\u0c41"},{"code":"tet","bcp47":"tet","*":"tetun"},{"code":"tg","bcp47":"tg","*":"\u0442\u043e\u04b7\u0438\u043a\u04e3"},{"code":"tg-cyrl","bcp47":"tg-Cyrl","*":"\u0442\u043e\u04b7\u0438\u043a\u04e3"},{"code":"tg-latn","bcp47":"tg-Latn","*":"tojik\u012b"},{"code":"th","bcp47":"th","*":"\u0e44\u0e17\u0e22"},{"code":"ti","bcp47":"ti","*":"\u1275\u130d\u122d\u129b"},{"code":"tig","bcp47":"tig","*":"\u1275\u130d\u122c"},{"code":"tk","bcp47":"tk","*":"T\u00fcrkmen\u00e7e"},{"code":"tl","bcp47":"tl","*":"Tagalog"},{"code":"tly","bcp47":"tly","*":"tol\u0131\u015fi"},{"code":"tly-cyrl","bcp47":"tly-Cyrl","*":"\u0442\u043e\u043b\u044b\u0448\u0438"},{"code":"tn","bcp47":"tn","*":"Setswana"},{"code":"to","bcp47":"to","*":"lea
+        faka-Tonga"},{"code":"tok","bcp47":"tok","*":"toki pona"},{"code":"tpi","bcp47":"tpi","*":"Tok
+        Pisin"},{"code":"tr","bcp47":"tr","*":"T\u00fcrk\u00e7e"},{"code":"tru","bcp47":"tru","*":"\u1e6auroyo"},{"code":"trv","bcp47":"trv","*":"Seediq"},{"code":"ts","bcp47":"ts","*":"Xitsonga"},{"code":"tt","bcp47":"tt","*":"\u0442\u0430\u0442\u0430\u0440\u0447\u0430
+        / tatar\u00e7a"},{"code":"tt-cyrl","bcp47":"tt-Cyrl","*":"\u0442\u0430\u0442\u0430\u0440\u0447\u0430"},{"code":"tt-latn","bcp47":"tt-Latn","*":"tatar\u00e7a"},{"code":"ttj","bcp47":"ttj","*":"Orutooro"},{"code":"tum","bcp47":"tum","*":"chiTumbuka"},{"code":"tw","bcp47":"tw","*":"Twi"},{"code":"ty","bcp47":"ty","*":"reo
+        tahiti"},{"code":"tyv","bcp47":"tyv","*":"\u0442\u044b\u0432\u0430 \u0434\u044b\u043b"},{"code":"tzm","bcp47":"tzm","*":"\u2d5c\u2d30\u2d4e\u2d30\u2d63\u2d49\u2d56\u2d5c"},{"code":"udm","bcp47":"udm","*":"\u0443\u0434\u043c\u0443\u0440\u0442"},{"code":"ug","bcp47":"ug","*":"\u0626\u06c7\u064a\u063a\u06c7\u0631\u0686\u06d5
+        / Uyghurche"},{"code":"ug-arab","bcp47":"ug-Arab","*":"\u0626\u06c7\u064a\u063a\u06c7\u0631\u0686\u06d5"},{"code":"ug-latn","bcp47":"ug-Latn","*":"Uyghurche"},{"code":"uk","bcp47":"uk","*":"\u0443\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0430"},{"code":"ur","bcp47":"ur","*":"\u0627\u0631\u062f\u0648"},{"code":"uz","bcp47":"uz","*":"o\u02bbzbekcha
+        / \u045e\u0437\u0431\u0435\u043a\u0447\u0430"},{"code":"uz-cyrl","bcp47":"uz-Cyrl","*":"\u045e\u0437\u0431\u0435\u043a\u0447\u0430"},{"code":"uz-latn","bcp47":"uz-Latn","*":"o\u02bbzbekcha"},{"code":"ve","bcp47":"ve","*":"Tshivenda"},{"code":"vec","bcp47":"vec","*":"v\u00e8neto"},{"code":"vep","bcp47":"vep","*":"veps\u00e4n
+        kel\u2019"},{"code":"vi","bcp47":"vi","*":"Ti\u1ebfng Vi\u1ec7t"},{"code":"vls","bcp47":"vls","*":"West-Vlams"},{"code":"vmf","bcp47":"vmf","*":"Mainfr\u00e4nkisch"},{"code":"vmw","bcp47":"vmw","*":"emakhuwa"},{"code":"vo","bcp47":"vo","*":"Volap\u00fck"},{"code":"vot","bcp47":"vot","*":"Va\u010f\u010fa"},{"code":"vro","bcp47":"vro","*":"v\u00f5ro"},{"code":"wa","bcp47":"wa","*":"walon"},{"code":"wal","bcp47":"wal","*":"wolaytta"},{"code":"war","bcp47":"war","*":"Winaray"},{"code":"wls","bcp47":"wls","*":"Faka\u02bbuvea"},{"code":"wlx","bcp47":"wlx","*":"waale"},{"code":"wo","bcp47":"wo","*":"Wolof"},{"code":"wuu","bcp47":"wuu","*":"\u5434\u8bed"},{"code":"wuu-hans","bcp47":"wuu-Hans","*":"\u5434\u8bed\uff08\u7b80\u4f53\uff09"},{"code":"wuu-hant","bcp47":"wuu-Hant","*":"\u5433\u8a9e\uff08\u6b63\u9ad4\uff09"},{"code":"xal","bcp47":"xal","*":"\u0445\u0430\u043b\u044c\u043c\u0433"},{"code":"xh","bcp47":"xh","*":"isiXhosa"},{"code":"xmf","bcp47":"xmf","*":"\u10db\u10d0\u10e0\u10d2\u10d0\u10da\u10e3\u10e0\u10d8"},{"code":"xsy","bcp47":"xsy","*":"saisiyat"},{"code":"yi","bcp47":"yi","*":"\u05d9\u05d9\u05b4\u05d3\u05d9\u05e9"},{"code":"yo","bcp47":"yo","*":"Yor\u00f9b\u00e1"},{"code":"yrl","bcp47":"yrl","*":"Nh\u1ebd\u1ebdgat\u00fa"},{"code":"yue","bcp47":"yue","*":"\u7cb5\u8a9e"},{"code":"yue-hans","bcp47":"yue-Hans","*":"\u7cb5\u8bed\uff08\u7b80\u4f53\uff09"},{"code":"yue-hant","bcp47":"yue-Hant","*":"\u7cb5\u8a9e\uff08\u7e41\u9ad4\uff09"},{"code":"za","bcp47":"za","*":"Vahcuengh"},{"code":"zea","bcp47":"zea","*":"Ze\u00eauws"},{"code":"zgh","bcp47":"zgh","*":"\u2d5c\u2d30\u2d4e\u2d30\u2d63\u2d49\u2d56\u2d5c
+        \u2d5c\u2d30\u2d4f\u2d30\u2d61\u2d30\u2d62\u2d5c"},{"code":"zgh-latn","bcp47":"zgh-Latn","*":"tamazi\u0263t
+        tanawayt"},{"code":"zh","bcp47":"zh","*":"\u4e2d\u6587"},{"code":"zh-classical","bcp47":"lzh","*":"\u6587\u8a00"},{"code":"zh-cn","bcp47":"zh-Hans-CN","*":"\u4e2d\u6587\uff08\u4e2d\u56fd\u5927\u9646\uff09"},{"code":"zh-hans","bcp47":"zh-Hans","*":"\u4e2d\u6587\uff08\u7b80\u4f53\uff09"},{"code":"zh-hant","bcp47":"zh-Hant","*":"\u4e2d\u6587\uff08\u7e41\u9ad4\uff09"},{"code":"zh-hk","bcp47":"zh-Hant-HK","*":"\u4e2d\u6587\uff08\u9999\u6e2f\uff09"},{"code":"zh-min-nan","bcp47":"nan","*":"B\u00e2n-l\u00e2m-g\u00fa"},{"code":"zh-mo","bcp47":"zh-Hant-MO","*":"\u4e2d\u6587\uff08\u6fb3\u9580\uff09"},{"code":"zh-my","bcp47":"zh-Hans-MY","*":"\u4e2d\u6587\uff08\u9a6c\u6765\u897f\u4e9a\uff09"},{"code":"zh-sg","bcp47":"zh-Hans-SG","*":"\u4e2d\u6587\uff08\u65b0\u52a0\u5761\uff09"},{"code":"zh-tw","bcp47":"zh-Hant-TW","*":"\u4e2d\u6587\uff08\u81fa\u7063\uff09"},{"code":"zh-yue","bcp47":"yue","*":"\u7cb5\u8a9e"},{"code":"zu","bcp47":"zu","*":"isiZulu"}]}}'
+    headers:
+      accept-ranges:
+      - bytes
+      age:
+      - '0'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-encoding:
+      - gzip
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Sat, 15 Mar 2025 01:03:58 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw-api-ext.eqiad.main-dd9d54c99-pfz9w
+      server-timing:
+      - cache;desc="pass", host;desc="cp3072"
+      set-cookie:
+      - WMF-Last-Access=15-Mar-2025;Path=/;HttpOnly;secure;Expires=Wed, 16 Apr 2025
+        00:00:00 GMT
+      - WMF-Last-Access-Global=15-Mar-2025;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Wed,
+        16 Apr 2025 00:00:00 GMT
+      - GeoIP=IE:L:Dublin:53.30:-6.18:v4; Path=/; secure; Domain=.wikipedia.org
+      - NetworkProbeLimit=0.001;Path=/;Secure;SameSite=Lax;Max-Age=3600
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      x-cache:
+      - cp3072 miss, cp3072 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 86.45.201.103
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?list=search&srprop=&srlimit=10&limit=10&srsearch=Python&format=json&action=query
+  response:
+    body:
+      string: '{"warnings":{"main":{"*":"Unrecognized parameter: limit."}},"batchcomplete":"","continue":{"sroffset":10,"continue":"-||"},"query":{"searchinfo":{"totalhits":12733},"search":[{"ns":0,"title":"Python
+        (programming language)","pageid":23862},{"ns":0,"title":"Python","pageid":46332325},{"ns":0,"title":"Monty
+        Python","pageid":18942},{"ns":0,"title":"Reticulated python","pageid":88595},{"ns":0,"title":"Burmese
+        python","pageid":819149},{"ns":0,"title":"Python (codename)","pageid":53672527},{"ns":0,"title":"Ball
+        python","pageid":271890},{"ns":0,"title":"Python (missile)","pageid":317752},{"ns":0,"title":"History
+        of Python","pageid":21356332},{"ns":0,"title":"Monty Python and the Holy Grail","pageid":19701}]}}'
+    headers:
+      accept-ranges:
+      - bytes
+      age:
+      - '0'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-encoding:
+      - gzip
+      content-length:
+      - '337'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Sat, 15 Mar 2025 01:03:58 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw-api-ext.eqiad.main-dd9d54c99-svsbt
+      server-timing:
+      - cache;desc="pass", host;desc="cp3072"
+      set-cookie:
+      - WMF-Last-Access=15-Mar-2025;Path=/;HttpOnly;secure;Expires=Wed, 16 Apr 2025
+        00:00:00 GMT
+      - WMF-Last-Access-Global=15-Mar-2025;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Wed,
+        16 Apr 2025 00:00:00 GMT
+      - GeoIP=IE:L:Dublin:53.30:-6.18:v4; Path=/; secure; Domain=.wikipedia.org
+      - NetworkProbeLimit=0.001;Path=/;Secure;SameSite=Lax;Max-Age=3600
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      vary:
+      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      x-cache:
+      - cp3072 miss, cp3072 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 86.45.201.103
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+      x-search-id:
+      - 5lp73ayjtcyewvge94yv340fl
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - WMF-Last-Access-Global=15-Mar-2025; GeoIP=IE:L:Dublin:53.30:-6.18:v4
+      User-Agent:
+      - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
+    method: GET
+    uri: https://fr.wikipedia.org/w/api.php?list=search&srprop=&srlimit=10&limit=10&srsearch=Python&format=json&action=query
+  response:
+    body:
+      string: '{"warnings":{"main":{"*":"Unrecognized parameter: limit."}},"batchcomplete":"","continue":{"sroffset":10,"continue":"-||"},"query":{"searchinfo":{"totalhits":3929},"search":[{"ns":0,"title":"Python
+        (langage)","pageid":2340},{"ns":0,"title":"Monty Python","pageid":11938},{"ns":0,"title":"Python
+        r\u00e9ticul\u00e9","pageid":1579288},{"ns":0,"title":"Python","pageid":2302},{"ns":0,"title":"Python
+        royal","pageid":1463677},{"ns":0,"title":"Monty Python : Sacr\u00e9 Graal
+        !","pageid":11964},{"ns":0,"title":"Colt Python","pageid":321642},{"ns":0,"title":"Python
+        de Seba","pageid":321228},{"ns":0,"title":"PYTHON","pageid":12118202},{"ns":0,"title":"Python
+        (mythologie)","pageid":164638}]}}'
+    headers:
+      accept-ranges:
+      - bytes
+      age:
+      - '0'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-encoding:
+      - gzip
+      content-length:
+      - '323'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Sat, 15 Mar 2025 01:03:59 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw-api-ext.eqiad.main-dd9d54c99-6gf66
+      server-timing:
+      - cache;desc="pass", host;desc="cp3072"
+      set-cookie:
+      - WMF-Last-Access=15-Mar-2025;Path=/;HttpOnly;secure;Expires=Wed, 16 Apr 2025
+        00:00:00 GMT
+      - NetworkProbeLimit=0.001;Path=/;Secure;SameSite=Lax;Max-Age=3600
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      vary:
+      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      x-cache:
+      - cp3072 miss, cp3072 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 86.45.201.103
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+      x-search-id:
+      - f1tuc58bfesvj781ddw5cf14h
+    status:
+      code: 200
+      message: OK
+version: 1
