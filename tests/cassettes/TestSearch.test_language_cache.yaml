@@ -1,0 +1,150 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?list=search&srprop=&srlimit=10&limit=10&srsearch=Python&format=json&action=query
+  response:
+    body:
+      string: '{"warnings":{"main":{"*":"Unrecognized parameter: limit."}},"batchcomplete":"","continue":{"sroffset":10,"continue":"-||"},"query":{"searchinfo":{"totalhits":12733},"search":[{"ns":0,"title":"Python
+        (programming language)","pageid":23862},{"ns":0,"title":"Python","pageid":46332325},{"ns":0,"title":"Monty
+        Python","pageid":18942},{"ns":0,"title":"Reticulated python","pageid":88595},{"ns":0,"title":"Burmese
+        python","pageid":819149},{"ns":0,"title":"Python (codename)","pageid":53672527},{"ns":0,"title":"Ball
+        python","pageid":271890},{"ns":0,"title":"Python (missile)","pageid":317752},{"ns":0,"title":"History
+        of Python","pageid":21356332},{"ns":0,"title":"Monty Python and the Holy Grail","pageid":19701}]}}'
+    headers:
+      accept-ranges:
+      - bytes
+      age:
+      - '0'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-encoding:
+      - gzip
+      content-length:
+      - '337'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Sat, 15 Mar 2025 00:56:14 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw-api-ext.eqiad.main-dd9d54c99-bdpg7
+      server-timing:
+      - cache;desc="pass", host;desc="cp3072"
+      set-cookie:
+      - WMF-Last-Access=15-Mar-2025;Path=/;HttpOnly;secure;Expires=Wed, 16 Apr 2025
+        00:00:00 GMT
+      - WMF-Last-Access-Global=15-Mar-2025;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Wed,
+        16 Apr 2025 00:00:00 GMT
+      - GeoIP=IE:L:Dublin:53.30:-6.18:v4; Path=/; secure; Domain=.wikipedia.org
+      - NetworkProbeLimit=0.001;Path=/;Secure;SameSite=Lax;Max-Age=3600
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      vary:
+      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      x-cache:
+      - cp3072 miss, cp3072 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 86.45.201.103
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+      x-search-id:
+      - zjteravt3tfqyvyz2todyglc
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - WMF-Last-Access-Global=15-Mar-2025; GeoIP=IE:L:Dublin:53.30:-6.18:v4
+      User-Agent:
+      - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
+    method: GET
+    uri: https://fr.wikipedia.org/w/api.php?list=search&srprop=&srlimit=10&limit=10&srsearch=Python&format=json&action=query
+  response:
+    body:
+      string: '{"warnings":{"main":{"*":"Unrecognized parameter: limit."}},"batchcomplete":"","continue":{"sroffset":10,"continue":"-||"},"query":{"searchinfo":{"totalhits":3929},"search":[{"ns":0,"title":"Python
+        (langage)","pageid":2340},{"ns":0,"title":"Monty Python","pageid":11938},{"ns":0,"title":"Python
+        r\u00e9ticul\u00e9","pageid":1579288},{"ns":0,"title":"Python","pageid":2302},{"ns":0,"title":"Python
+        royal","pageid":1463677},{"ns":0,"title":"Monty Python : Sacr\u00e9 Graal
+        !","pageid":11964},{"ns":0,"title":"Colt Python","pageid":321642},{"ns":0,"title":"Python
+        de Seba","pageid":321228},{"ns":0,"title":"Python bivittatus","pageid":5865262},{"ns":0,"title":"Python
+        (mythologie)","pageid":164638}]}}'
+    headers:
+      accept-ranges:
+      - bytes
+      age:
+      - '0'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-encoding:
+      - gzip
+      content-length:
+      - '324'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Sat, 15 Mar 2025 00:56:14 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw-api-ext.eqiad.main-dd9d54c99-rvk2l
+      server-timing:
+      - cache;desc="pass", host;desc="cp3072"
+      set-cookie:
+      - WMF-Last-Access=15-Mar-2025;Path=/;HttpOnly;secure;Expires=Wed, 16 Apr 2025
+        00:00:00 GMT
+      - NetworkProbeLimit=0.001;Path=/;Secure;SameSite=Lax;Max-Age=3600
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      vary:
+      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      x-cache:
+      - cp3072 miss, cp3072 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 86.45.201.103
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+      x-search-id:
+      - ctwltrxu7ta9l18dv2kv7bchz
+    status:
+      code: 200
+      message: OK
+version: 1
