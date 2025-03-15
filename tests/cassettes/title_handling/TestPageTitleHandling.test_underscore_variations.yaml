@@ -11,15 +11,18 @@ interactions:
       User-Agent:
       - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
     method: GET
-    uri: https://en.wikipedia.org/w/api.php?prop=info%7Cpageprops&inprop=url&redirects=&titles=butteryfly&format=json&action=query
+    uri: https://en.wikipedia.org/w/api.php?prop=info%7Cpageprops&inprop=url&redirects=&titles=Category%3AFeatured_articles&format=json&action=query
   response:
     body:
-      string: '{"batchcomplete":"","query":{"normalized":[{"from":"butteryfly","to":"Butteryfly"}],"pages":{"-1":{"ns":0,"title":"Butteryfly","missing":"","contentmodel":"wikitext","pagelanguage":"en","pagelanguagehtmlcode":"en","pagelanguagedir":"ltr","fullurl":"https://en.wikipedia.org/wiki/Butteryfly","editurl":"https://en.wikipedia.org/w/index.php?title=Butteryfly&action=edit","canonicalurl":"https://en.wikipedia.org/wiki/Butteryfly"}}}}'
+      string: '{"batchcomplete":"","query":{"normalized":[{"from":"Category:Featured_articles","to":"Category:Featured
+        articles"}],"pages":{"8966941":{"pageid":8966941,"ns":14,"title":"Category:Featured
+        articles","contentmodel":"wikitext","pagelanguage":"en","pagelanguagehtmlcode":"en","pagelanguagedir":"ltr","touched":"2025-03-15T00:06:27Z","lastrevid":1214573828,"length":625,"fullurl":"https://en.wikipedia.org/wiki/Category:Featured_articles","editurl":"https://en.wikipedia.org/w/index.php?title=Category:Featured_articles&action=edit","canonicalurl":"https://en.wikipedia.org/wiki/Category:Featured_articles","pageprops":{"defaultsort":"Featured
+        Articles","expectunusedcategory":"","hiddencat":"","notoc":"","wikibase_item":"Q4387444"}}}}}'
     headers:
       accept-ranges:
       - bytes
       age:
-      - '0'
+      - '2'
       cache-control:
       - private, must-revalidate, max-age=0
       content-disposition:
@@ -27,11 +30,11 @@ interactions:
       content-encoding:
       - gzip
       content-length:
-      - '231'
+      - '371'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 15 Mar 2025 01:39:15 GMT
+      - Sat, 15 Mar 2025 01:45:23 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -39,7 +42,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.eqiad.main-dd9d54c99-ghj4w
+      - mw-api-ext.eqiad.main-dd9d54c99-4kkwv
       server-timing:
       - cache;desc="pass", host;desc="cp3072"
       set-cookie:
@@ -81,11 +84,10 @@ interactions:
       User-Agent:
       - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
     method: GET
-    uri: https://en.wikipedia.org/w/api.php?list=search&srprop=&srlimit=1&limit=1&srsearch=butteryfly&srinfo=suggestion&format=json&action=query
+    uri: https://en.wikipedia.org/w/api.php?prop=info%7Cpageprops&inprop=url&redirects=&titles=ThisPageDefinitelyDoesNotExist2024&format=json&action=query
   response:
     body:
-      string: '{"warnings":{"main":{"*":"Unrecognized parameter: limit."}},"batchcomplete":"","continue":{"sroffset":1,"continue":"-||"},"query":{"searchinfo":{"suggestion":"butterfly","suggestionsnippet":"butterfly"},"search":[{"ns":0,"title":"Great
-        Road Historic District","pageid":17239598}]}}'
+      string: '{"batchcomplete":"","query":{"pages":{"-1":{"ns":0,"title":"ThisPageDefinitelyDoesNotExist2024","missing":"","contentmodel":"wikitext","pagelanguage":"en","pagelanguagehtmlcode":"en","pagelanguagedir":"ltr","fullurl":"https://en.wikipedia.org/wiki/ThisPageDefinitelyDoesNotExist2024","editurl":"https://en.wikipedia.org/w/index.php?title=ThisPageDefinitelyDoesNotExist2024&action=edit","canonicalurl":"https://en.wikipedia.org/wiki/ThisPageDefinitelyDoesNotExist2024"}}}}'
     headers:
       accept-ranges:
       - bytes
@@ -98,11 +100,11 @@ interactions:
       content-encoding:
       - gzip
       content-length:
-      - '216'
+      - '227'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 15 Mar 2025 01:39:15 GMT
+      - Sat, 15 Mar 2025 01:45:24 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -110,7 +112,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.eqiad.main-dd9d54c99-7r4s8
+      - mw-api-ext.eqiad.main-dd9d54c99-gx7qq
       server-timing:
       - cache;desc="pass", host;desc="cp3072"
       strict-transport-security:
@@ -127,8 +129,6 @@ interactions:
       - nosniff
       x-frame-options:
       - DENY
-      x-search-id:
-      - 37zmzh26wsbb5rbvnlgjjzdup
     status:
       code: 200
       message: OK
@@ -147,11 +147,11 @@ interactions:
       User-Agent:
       - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
     method: GET
-    uri: https://en.wikipedia.org/w/api.php?prop=info%7Cpageprops&inprop=url&redirects=&titles=butterfly&format=json&action=query
+    uri: https://en.wikipedia.org/w/api.php?prop=info%7Cpageprops&inprop=url&redirects=&titles=This+Page+Does+Not+Exist+2024&format=json&action=query
   response:
     body:
-      string: '{"batchcomplete":"","query":{"normalized":[{"from":"butterfly","to":"Butterfly"}],"pages":{"48338":{"pageid":48338,"ns":0,"title":"Butterfly","contentmodel":"wikitext","pagelanguage":"en","pagelanguagehtmlcode":"en","pagelanguagedir":"ltr","touched":"2025-03-13T09:07:32Z","lastrevid":1279511297,"length":103287,"fullurl":"https://en.wikipedia.org/wiki/Butterfly","editurl":"https://en.wikipedia.org/w/index.php?title=Butterfly&action=edit","canonicalurl":"https://en.wikipedia.org/wiki/Butterfly","pageprops":{"jsonconfig_getdata":"1","page_image_free":"Fesoj_-_Papilio_machaon_(by).jpg","wikibase-badge-Q17437798":"","wikibase-shortdesc":"Group
-        of insects in the order Lepidoptera","wikibase_item":"Q11946202"}}}}}'
+      string: '{"batchcomplete":"","query":{"pages":{"-1":{"ns":0,"title":"This Page
+        Does Not Exist 2024","missing":"","contentmodel":"wikitext","pagelanguage":"en","pagelanguagehtmlcode":"en","pagelanguagedir":"ltr","fullurl":"https://en.wikipedia.org/wiki/This_Page_Does_Not_Exist_2024","editurl":"https://en.wikipedia.org/w/index.php?title=This_Page_Does_Not_Exist_2024&action=edit","canonicalurl":"https://en.wikipedia.org/wiki/This_Page_Does_Not_Exist_2024"}}}}'
     headers:
       accept-ranges:
       - bytes
@@ -164,11 +164,11 @@ interactions:
       content-encoding:
       - gzip
       content-length:
-      - '426'
+      - '240'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 15 Mar 2025 01:39:15 GMT
+      - Sat, 15 Mar 2025 01:45:24 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -176,11 +176,76 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.eqiad.main-dd9d54c99-fq9vr
+      - mw-api-ext.eqiad.main-dd9d54c99-k4476
       server-timing:
       - cache;desc="pass", host;desc="cp3072"
       strict-transport-security:
       - max-age=106384710; includeSubDomains; preload
+      vary:
+      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      x-cache:
+      - cp3072 miss, cp3072 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 86.45.201.103
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - WMF-Last-Access=15-Mar-2025; NetworkProbeLimit=0.001; WMF-Last-Access-Global=15-Mar-2025;
+        GeoIP=IE:L:Dublin:53.30:-6.18:v4
+      User-Agent:
+      - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?prop=info%7Cpageprops&inprop=url&redirects=&titles=This_Page_Does_Not_Exist_2024&format=json&action=query
+  response:
+    body:
+      string: '{"batchcomplete":"","query":{"normalized":[{"from":"This_Page_Does_Not_Exist_2024","to":"This
+        Page Does Not Exist 2024"}],"pages":{"-1":{"ns":0,"title":"This Page Does
+        Not Exist 2024","missing":"","contentmodel":"wikitext","pagelanguage":"en","pagelanguagehtmlcode":"en","pagelanguagedir":"ltr","fullurl":"https://en.wikipedia.org/wiki/This_Page_Does_Not_Exist_2024","editurl":"https://en.wikipedia.org/w/index.php?title=This_Page_Does_Not_Exist_2024&action=edit","canonicalurl":"https://en.wikipedia.org/wiki/This_Page_Does_Not_Exist_2024"}}}}'
+    headers:
+      accept-ranges:
+      - bytes
+      age:
+      - '0'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-encoding:
+      - gzip
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Sat, 15 Mar 2025 01:45:24 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw-api-ext.eqiad.main-dd9d54c99-gx7qq
+      server-timing:
+      - cache;desc="pass", host;desc="cp3072"
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
       vary:
       - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
       x-cache:

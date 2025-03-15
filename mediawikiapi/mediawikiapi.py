@@ -210,33 +210,40 @@ class MediaWikiAPI(object):
         * redirect - allow redirection without raising RedirectError
         * preload - load content, summary, images, references, and links during initialization
 
-        Attention!
-
-        The usage of auto_suggest may provide you with different page than you searched.
+        The method first tries to load the page using the exact title provided.
+        If that fails and auto_suggest is True, it will attempt to find a matching page
+        using the search API.
 
         For example:
-
-        `page("The Squires (disambiguation)", auto_suggest=True)` returns page with title `Squires (disambiguation)`
-
-        `page("The Squires (disambiguation)", auto_suggest=False)` returns page with title `The Squires (disambiguation)`
+        >>> page = wiki.page("Python_(programming_language)")  # Tries exact match first
+        >>> page = wiki.page("Python programming")  # Tries exact match, then falls back to search
         """
         request_f = partial(self.session.request, config=self.config)
         if title is not None:
-            if auto_suggest:
-                results, suggestion = self.search(title, results=1, suggestion=True)
-                if suggestion:
-                    return WikipediaPage(
-                        request=request_f,
-                        title=suggestion,
-                        pageid=pageid,
-                        redirect=redirect,
-                        preload=preload,
-                    )
-                try:
-                    title = results[0]
-                except IndexError:
-                    # if there are no suggestion or search results, the page doesn't exist
-                    raise PageError(title=title)
+            # Always try exact title match first
+            try:
+                return WikipediaPage(
+                    request=request_f, title=title, redirect=redirect, preload=preload
+                )
+            except PageError:
+                if not auto_suggest:
+                    raise
+
+            # If exact match fails and auto_suggest is True, try search
+            results, suggestion = self.search(title, results=1, suggestion=True)
+            if suggestion:
+                return WikipediaPage(
+                    request=request_f,
+                    title=suggestion,
+                    pageid=pageid,
+                    redirect=redirect,
+                    preload=preload,
+                )
+            try:
+                title = results[0]
+            except IndexError:
+                # if there are no suggestion or search results, the page doesn't exist
+                raise PageError(title=title)
             return WikipediaPage(
                 request=request_f, title=title, redirect=redirect, preload=preload
             )
