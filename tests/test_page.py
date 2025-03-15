@@ -70,6 +70,19 @@ class TestPageSetUp(unittest.TestCase):
         self.assertEqual(capital_party.title, "Communist party")
         self.assertEqual(capital_party, lower_party)
 
+    def test_redirect_request_param(self) -> None:
+        """Test that redirects handle the request parameter correctly without duplication"""
+        # This test verifies the fix for the bug where request parameter was being passed twice
+        # during redirect handling
+        try:
+            page = api.page("Template:cn", auto_suggest=False)
+            self.assertEqual(page.title, "Template:Citation needed")
+            self.assertEqual(
+                page.url, "https://en.wikipedia.org/wiki/Template:Citation_needed"
+            )
+        except TypeError as e:
+            self.fail(f"Redirect handling failed with TypeError: {str(e)}")
+
     def test_disambiguate(self) -> None:
         """Test that page raises an error when a disambiguation page is reached."""
         page = api.page("Template", auto_suggest=False, redirect=False)
