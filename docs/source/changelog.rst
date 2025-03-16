@@ -5,6 +5,15 @@ Changelog
 
 Here you can find the full developer API for the MediaWikiAPI project.
 
+Version 1.3
+=============
+* Add support for Python 3.13
+* Update version of the dependencies in https://github.com/lehinevych/MediaWikiAPI/pull/78
+* Fix issue with duplicate request parameter for redirect logic in https://github.com/lehinevych/MediaWikiAPI/pull/79
+* modify the memoized_class to take into account the language configuration in https://github.com/lehinevych/MediaWikiAPI/pull/80
+* Ensure that page is trying direct match first and then autosuggestion if enabled in https://github.com/lehinevych/MediaWikiAPI/pull/81
+* Update documentation in https://github.com/lehinevych/MediaWikiAPI/pull/68
+
 Version 1.2
 =============
 * The `Config` allows to specify the API url. This makes the client reusable for other Mediawiki installs with the same API. 
