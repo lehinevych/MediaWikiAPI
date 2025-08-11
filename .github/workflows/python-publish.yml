@@ -18,27 +18,29 @@ jobs:
         with:
           python-version: "3.x"
 
-      - name: Run poetry image
-        uses: abatilo/actions-poetry@v3
-        with:
-          poetry-version: "1.4.1"
+      - name: Install uv
+        run: curl -LsSf https://astral.sh/uv/install.sh | sh
+
+      - name: Add uv to PATH
+        run: echo "$HOME/.cargo/bin" >> $GITHUB_PATH
 
       - name: Install dependencies
-        run: poetry install
+        run: pip install build twine
 
       - name: Build
-        run: poetry build
+        run: python -m build
 
       # - name: Publish TestPyPI
       #   env:
-      #     POETRY_REPOSITORIES_TESTPYPI_URL: https://test.pypi.org/legacy/
-      #     POETRY_HTTP_BASIC_TESTPYPI_USERNAME: __token__
-      #     POETRY_HTTP_BASIC_TESTPYPI_PASSWORD: ${{ secrets.TEST_PYPI_API_TOKEN }}
+      #     TWINE_USERNAME: __token__
+      #     TWINE_PASSWORD: ${{ secrets.TEST_PYPI_API_TOKEN }}
+      #     TWINE_REPOSITORY_URL: https://test.pypi.org/legacy/
       #   run: |
-      #     poetry publish -r testpypi
+      #     twine upload --repository testpypi dist/*
 
       - name: Publish PyPI
         env:
-          POETRY_PYPI_TOKEN_PYPI: ${{ secrets.POETRY_PYPI_TOKEN_PYPI }}
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.POETRY_PYPI_TOKEN_PYPI }}
         run: |
-          poetry publish
+          twine upload dist/*

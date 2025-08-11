@@ -14,7 +14,6 @@ jobs:
     strategy:
       matrix:
         python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
-        poetry-version: ["latest", "main", "1.8.4"]
         os: [ubuntu-22.04, macos-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
@@ -23,29 +22,69 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Run image
-        uses: abatilo/actions-poetry@v3
-        with:
-          poetry-version: ${{ matrix.poetry-version }}
+      - name: Install uv (Unix)
+        if: runner.os != 'Windows'
+        run: curl -LsSf https://astral.sh/uv/install.sh | sh
+        shell: bash
+        
+      - name: Install uv (Windows)
+        if: runner.os == 'Windows'
+        run: iwr https://astral.sh/uv/install.ps1 -useb | iex
+        shell: pwsh
 
-      - name: Install packages
-        run: poetry install # --no-dev
+      - name: Add uv to PATH
+        run: echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+        shell: bash
 
-      - name: Check formatting with black
-        run: |
-          poetry run black --diff --check .
+      - name: Create virtual environment
+        run: uv venv
 
-      - name: Lint with flake8
-        run: |
-          # stop the build if there are Python syntax errors or undefined names
-          poetry run flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-          # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-          poetry run flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics --exclude docs,tests,mediawikiapi/__init__.py
+      - name: Install packages (Unix)
+        if: runner.os != 'Windows'
+        run: source .venv/bin/activate && uv pip install -e ".[dev]"
+        shell: bash
+        
+      - name: Install packages (Windows)
+        if: runner.os == 'Windows'
+        run: .venv\Scripts\activate && uv pip install -e ".[dev]"
+        shell: cmd
 
-      - name: Type checking with mypy
-        run: |
-          poetry run mypy --strict .
+      - name: Check formatting with ruff (Unix)
+        if: runner.os != 'Windows'
+        run: source .venv/bin/activate && ruff format --check .
+        shell: bash
 
-      - name: Test with pytest
-        run: |
-          poetry run pytest --junitxml=pytest.xml --cov-report=term-missing:skip-covered --cov=mediawikiapi --cov-fail-under=82
+      - name: Check formatting with ruff (Windows)
+        if: runner.os == 'Windows'
+        run: .venv\Scripts\activate && ruff format --check .
+        shell: cmd
+
+      - name: Lint with ruff (Unix)
+        if: runner.os != 'Windows'
+        run: source .venv/bin/activate && ruff check .
+        shell: bash
+
+      - name: Lint with ruff (Windows)
+        if: runner.os == 'Windows'
+        run: .venv\Scripts\activate && ruff check .
+        shell: cmd
+
+      - name: Type checking with mypy (Unix)
+        if: runner.os != 'Windows'
+        run: source .venv/bin/activate && mypy --strict .
+        shell: bash
+
+      - name: Type checking with mypy (Windows)
+        if: runner.os == 'Windows'
+        run: .venv\Scripts\activate && mypy --strict .
+        shell: cmd
+
+      - name: Test with pytest (Unix)
+        if: runner.os != 'Windows'
+        run: source .venv/bin/activate && pytest --junitxml=pytest.xml --cov-report=term-missing:skip-covered --cov=mediawikiapi --cov-fail-under=82
+        shell: bash
+
+      - name: Test with pytest (Windows)
+        if: runner.os == 'Windows'
+        run: .venv\Scripts\activate && pytest --junitxml=pytest.xml --cov-report=term-missing:skip-covered --cov=mediawikiapi --cov-fail-under=82
+        shell: cmd

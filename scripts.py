@@ -28,6 +28,14 @@ def install_docs() -> int:
     return run_command(["uv", "pip", "install", "-e", ".[docs]"])
 
 
+def setup_hooks() -> int:
+    """Set up pre-commit hooks."""
+    result = run_command(["uv", "pip", "install", "pre-commit"])
+    if result != 0:
+        return result
+    return run_command(["pre-commit", "install"])
+
+
 def test(args: List[str]) -> int:
     """Run tests with pytest."""
     cmd = ["pytest"]
@@ -39,8 +47,8 @@ def test(args: List[str]) -> int:
 
 
 def lint() -> int:
-    """Run linting tools."""
-    return run_command(["flake8", ".", "--count", "--select=E9,F63,F7,F82", "--show-source", "--statistics"])
+    """Run linting tools with ruff."""
+    return run_command(["ruff", "check", "."])
 
 
 def typecheck() -> int:
@@ -49,17 +57,13 @@ def typecheck() -> int:
 
 
 def format_code() -> int:
-    """Format code with black and isort."""
-    black_result = run_command(["black", "."])
-    isort_result = run_command(["isort", "."])
-    return black_result or isort_result
+    """Format code with ruff."""
+    return run_command(["ruff", "format", "."])
 
 
 def format_check() -> int:
-    """Check code formatting."""
-    black_result = run_command(["black", "--diff", "--check", "."])
-    isort_result = run_command(["isort", "--check", "."])
-    return black_result or isort_result
+    """Check code formatting with ruff."""
+    return run_command(["ruff", "format", "--check", "."])
 
 
 def build() -> int:
@@ -87,14 +91,17 @@ def main() -> int:
     test_parser.add_argument("args", nargs="*", help="Arguments to pass to pytest")
 
     # Lint and format commands
-    subparsers.add_parser("lint", help="Run linting tools")
+    subparsers.add_parser("lint", help="Run linting tools with ruff")
     subparsers.add_parser("typecheck", help="Run type checking")
-    subparsers.add_parser("format", help="Format code with black and isort")
-    subparsers.add_parser("format-check", help="Check code formatting")
+    subparsers.add_parser("format", help="Format code with ruff")
+    subparsers.add_parser("format-check", help="Check code formatting with ruff")
 
     # Build commands
     subparsers.add_parser("build", help="Build the package")
     subparsers.add_parser("build-docs", help="Build the documentation")
+    
+    # Git hooks
+    subparsers.add_parser("setup-hooks", help="Set up pre-commit hooks")
 
     args = parser.parse_args()
 
@@ -118,6 +125,8 @@ def main() -> int:
         return build()
     elif args.command == "build-docs":
         return build_docs()
+    elif args.command == "setup-hooks":
+        return setup_hooks()
     else:
         parser.print_help()
         return 1

@@ -17,10 +17,8 @@ dependencies = [
 docs = ["sphinx>=7.2.6"]
 dev = [
     "mypy>=1.15.0",
-    "black>=25.1.0",
-    "isort>=6.0.1",
-    "autoflake>=2.3.1",
-    "flake8>=7.1.2",
+    "ruff>=0.3.0",
+    "pre-commit>=3.6.0",
     "pytest>=8.3.5",
     "pytest-cov>=6.0.0",
     "pytest-vcr>=1.0.2",
@@ -29,11 +27,35 @@ dev = [
     "types-requests>=2.32.0.20250306",
 ]
 
-[tool.isort]
-multi_line_output = 3
-include_trailing_comma = true
-force_grid_wrap = 0
-line_length = 88
+[tool.ruff]
+target-version = "py39"
+line-length = 88
+exclude = [
+    ".git",
+    ".venv",
+    "__pycache__",
+    "build",
+    "dist",
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "N", "B", "S", "A", "C4", "PT", "RUF", "SIM", "ARG", "ERA"]
+ignore = ["E203"]
+fixable = ["ALL"]
+unfixable = []
+pycodestyle.max-doc-length = 88
+
+[tool.ruff.lint.isort]
+known-first-party = ["mediawikiapi"]
+
+[tool.ruff.lint.flake8-quotes]
+docstring-quotes = "double"
+inline-quotes = "double"
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
 
 [build-system]
 requires = ["hatchling"]

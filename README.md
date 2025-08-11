@@ -91,7 +91,7 @@ uv pip install -e ".[docs]"
 sphinx-build docs/source docs/build
 ```
 
-To run formatter and mypy run:
+To run formatter and linting tools:
 
 ```bash
 ./scripts.py format-check
@@ -103,8 +103,14 @@ Or manually:
 
 ```bash
 mypy --strict .
-flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-black --diff --check .
+ruff check .
+ruff format --check .
+```
+
+To set up pre-commit hooks for automatic linting and formatting:
+
+```bash
+./setup-hooks.py
 ```
 
 License

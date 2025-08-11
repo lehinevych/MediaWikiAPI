@@ -11,6 +11,8 @@ Version 2.0
 * Add scripts.py helper for common development tasks
 * Update build system to hatchling
 * Modernize project metadata format in pyproject.toml to PEP 621
+* Replace Black, isort, flake8, and autoflake with Ruff for linting and formatting
+* Add pre-commit hooks for automatic code quality checks
 * Improve development workflow documentation
 
 Version 1.3
