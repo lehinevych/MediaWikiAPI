@@ -5,6 +5,14 @@ Changelog
 
 Here you can find the full developer API for the MediaWikiAPI project.
 
+Version 2.0
+=============
+* Migrate from Poetry to uv for dependency management
+* Add scripts.py helper for common development tasks
+* Update build system to hatchling
+* Modernize project metadata format in pyproject.toml to PEP 621
+* Improve development workflow documentation
+
 Version 1.3
 =============
 * Add support for Python 3.13

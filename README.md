@@ -64,31 +64,47 @@ The documentation is available [here](http://mediawikiapi.readthedocs.io/en/late
 To run tests, clone the [repository on GitHub](https://github.com/lehinevych/MediaWikiAPI), then run:
 
 ```bash
-poetry install 
-poetry build
-poetry run pytest --junitxml=pytest.xml --cov-report=term-missing:skip-covered --cov=mediawikiapi
+# Install uv if not already installed
+curl -sSf https://astral.sh/uv/install.sh | sh
+
+# Create and activate a virtual environment
+uv venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+
+# Install dependencies and run tests
+./scripts.py install-dev
+./scripts.py test
 ```
 in the root project directory.
 
-To build the documentation yourself, after installing requirements.txt, run:
+To build the documentation yourself, run:
 
-``` bash
-pip install sphinx
-cd docs/
-make html
+```bash
+./scripts.py install-docs
+./scripts.py build-docs
+```
+
+Or manually:
+
+```bash
+uv pip install -e ".[docs]"
+sphinx-build docs/source docs/build
 ```
 
 To run formatter and mypy run:
 
-```
-poetry run mypy --strict .
-poetry run flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-poetry run black --diff --check .
+```bash
+./scripts.py format-check
+./scripts.py typecheck
+./scripts.py lint
 ```
 
-To build the documentation run:
-```
-poetry run sphinx-build docs/source docs/build
+Or manually:
+
+```bash
+mypy --strict .
+flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+black --diff --check .
 ```
 
 License
