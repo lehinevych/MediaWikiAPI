@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import annotations
-from typing import Dict, Tuple, Any, List
 
-from bs4.element import whitespace_re
+from typing import Any, Dict, List, Tuple
 
 mock_wiki_calls: Dict[Tuple, Dict[str, Any]] = {  # type: ignore
     (
@@ -2324,9 +2323,9 @@ mock_category_members_physics: List[str] = [
 
 mock_data: Dict[str, str | int | Dict[str, str] | List[str]] = {
     "celtuce.content": """The stem is usually harvested at a length of around 15–20 cm and a diameter of around 3–4 cm. It is crisp, moist, and mildly flavored, and typically prepared by slicing and then stir frying with more strongly flavored ingredients.""",
-    "celtuce.parentid": 1194071863,
-    "celtuce.revid": 1194071915,
-    "celtuce.summary": """Celtuce (/ˈsɛlt.əs/) (Lactuca sativa var. augustana, angustata, or asparagina), also called stem lettuce, celery lettuce, asparagus lettuce, or Chinese lettuce, is a cultivar of lettuce grown primarily for its thick stem or its leaves.""",
+    "celtuce.parentid": 1281734985,
+    "celtuce.revid": 1297837376,
+    "celtuce.summary": """Celtuce () (Lactuca sativa var. augustana, angustata, or asparagina), also called stem lettuce, celery lettuce, asparagus lettuce, or Chinese lettuce, is a cultivar of lettuce grown primarily for its thick stem or its leaves, which are known as A-choy. It is used as a vegetable. In China, the family is informally called woju (traditional Chinese: 萵苣; simplified Chinese: 莴苣; pinyin: wōjù), which is also the name of a cultivar. It is especially popular in both China and Taiwan, where the stem is interchangeably called wosun (traditional Chinese: 萵筍; simplified Chinese: 莴笋; pinyin: wōsǔn) or qingsun(青筍; 青笋; qīngsǔn).""",
     "celtuce.es_lang": "Lechuga china",
     "celtuce.pageprops": {
         "page_image_free": "Celtuce.jpg",
@@ -2344,17 +2343,18 @@ mock_data: Dict[str, str | int | Dict[str, str] | List[str]] = {
         "wikibase-shortdesc": "Hurricane season in the Atlantic Ocean",
         "wikibase_item": "Q756793",
     },
+    # Order doesn't matter - let's use the most recent results
     "barack.search": [
         "Barack Obama",
         "Family of Barack Obama",
         "Barack Obama Sr.",
         "Presidency of Barack Obama",
-        "Early life and career of Barack Obama",
-        "First inauguration of Barack Obama",
-        "Cabinet of Barack Obama",
-        "Barack Obama religion conspiracy theories",
-        "Barack Obama Plaza",
+        "Michelle Obama",
+        "Barack Obama tan suit controversy",
         "Barack Obama Presidential Center",
+        "Barack Obama Plaza",
+        "Bibliography of Barack Obama",
+        "First inauguration of Barack Obama",
     ],
     "porsche.search": ["Porsche", "Porsche 911 GT3", "Porsche 911"],
     "great_wall_of_china.coordinates.lat": "40.680",
@@ -2363,6 +2363,7 @@ mock_data: Dict[str, str | int | Dict[str, str] | List[str]] = {
     "great_wall_of_china.geo_seach_with_radius": [
         "Great Wall of China",
         "Jinshanling",
+        "Bakeshiying",
         "Gubeikou",
         "Xinchengzi, Beijing",
     ],

@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 import unittest
 from datetime import timedelta
-from mediawikiapi.config import Config
+
 from mediawikiapi import Language
+from mediawikiapi.config import Config
 
 
 class TestConfig(unittest.TestCase):
@@ -62,7 +63,7 @@ class TestConfig(unittest.TestCase):
         config = Config()
         config.rate_limit = None
         self.assertEqual(config.rate_limit, None)
-        config.rate_limit = rate_limit_int  # type:ignore
+        config.rate_limit = rate_limit_int
         self.assertEqual(config.rate_limit, rate_limit)
         config.rate_limit = rate_limit
         self.assertEqual(config.rate_limit, rate_limit)
@@ -77,5 +78,5 @@ class TestConfig(unittest.TestCase):
         config = Config()
         config.language = fr_lang
         self.assertEqual(config.language, fr_lang)
-        config.language = Language(uk_lang)  # type:ignore
+        config.language = Language(uk_lang)
         self.assertEqual(config.language, uk_lang)

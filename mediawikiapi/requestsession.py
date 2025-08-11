@@ -1,7 +1,9 @@
 import time
-import requests
 from datetime import datetime
-from typing import Dict, Any, Union, Optional
+from typing import Any, Dict, Optional, Union
+
+import requests
+
 from .config import Config
 from .language import Language
 

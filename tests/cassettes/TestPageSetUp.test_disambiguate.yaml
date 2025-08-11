@@ -9,16 +9,22 @@ interactions:
       Connection:
       - keep-alive
       Cookie:
-      - WMF-Last-Access=08-Mar-2025; NetworkProbeLimit=0.001; WMF-Last-Access-Global=08-Mar-2025;
-        GeoIP=IE:L:Dublin:53.30:-6.18:v4
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=11-Aug-2025;
+        WMF-Uniq=3cEbA0zYMY-UvTrB82-zXQJMAAEBAFvd_8w8U69SPkK95dCdDpjLNFFy9SizEshW;
+        NetworkProbeLimit=0.001; WMF-Last-Access=11-Aug-2025
       User-Agent:
       - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
     method: GET
     uri: https://en.wikipedia.org/w/api.php?prop=info%7Cpageprops&inprop=url&redirects=&titles=Template&format=json&action=query
   response:
     body:
-      string: '{"batchcomplete":"","query":{"pages":{"20627717":{"pageid":20627717,"ns":0,"title":"Template","contentmodel":"wikitext","pagelanguage":"en","pagelanguagehtmlcode":"en","pagelanguagedir":"ltr","touched":"2025-03-04T12:03:43Z","lastrevid":1278599862,"length":2172,"fullurl":"https://en.wikipedia.org/wiki/Template","editurl":"https://en.wikipedia.org/w/index.php?title=Template&action=edit","canonicalurl":"https://en.wikipedia.org/wiki/Template","pageprops":{"disambiguation":"","toc":"","wikibase-shortdesc":"Topics
-        referred to by the same term","wikibase_item":"Q438331"}}}}}'
+      string: !!binary |
+        H4sIAAAAAAAAA5VRy27DIBD8FYtDT078TOxaivoNlXLqpcKwMagYKKzbRFH/vUuiSFFVqSoXYIYZ
+        ZnfPbOQolHCzN4DABsZy9r5AOLHhzDyfIKZDXW7rrqu6G6glG25Yziy9KXOGGk1y2AOZcTLLmXAW
+        weLsJBhiPvWbRjgiMcnFcDsttBMD9gemcDaCZL9xUgeCDQbC0S1CAcWhjPVmVfarst3XzVBth037
+        Qg8MjxjgIyWu6seu79qy3BAMdkJFVVRdnbPDYswSUkSF6ONQFGDXKa2nz/jahalIt+KuNCLwL0mh
+        rYTj2iv/dGnO7qZ/4AK1s7tkktrErbNa8P9mSE3xwfnLjKSOfB41dShZXyeJTlwPSTnyCKuoXEAJ
+        MeF757WIWYADhAAyQ5eNpwwVZOQEGUKY76SvNLqZVM9t0zdNxb7S+gYtf67/QAIAAA==
     headers:
       accept-ranges:
       - bytes
@@ -35,7 +41,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 08 Mar 2025 23:43:32 GMT
+      - Mon, 11 Aug 2025 17:51:41 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -43,19 +49,19 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.eqiad.main-5594c987b8-xbxc8
+      - mw-api-ext.codfw.main-747b795978-w7xgw
       server-timing:
-      - cache;desc="pass", host;desc="cp3072"
+      - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
       - max-age=106384710; includeSubDomains; preload
       vary:
-      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
       x-cache:
-      - cp3072 miss, cp3072 pass
+      - cp4043 miss, cp4043 pass
       x-cache-status:
       - pass
       x-client-ip:
-      - 86.45.201.103
+      - 205.251.233.110
       x-content-type-options:
       - nosniff
       x-frame-options:
@@ -73,148 +79,82 @@ interactions:
       Connection:
       - keep-alive
       Cookie:
-      - WMF-Last-Access=08-Mar-2025; NetworkProbeLimit=0.001; WMF-Last-Access-Global=08-Mar-2025;
-        GeoIP=IE:L:Dublin:53.30:-6.18:v4
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=11-Aug-2025;
+        WMF-Uniq=3cEbA0zYMY-UvTrB82-zXQJMAAEBAFvd_8w8U69SPkK95dCdDpjLNFFy9SizEshW;
+        NetworkProbeLimit=0.001; WMF-Last-Access=11-Aug-2025
       User-Agent:
       - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
     method: GET
     uri: https://en.wikipedia.org/w/api.php?prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&format=json&action=query
   response:
     body:
-      string: '{"continue":{"rvcontinue":"20250303051125|1278559916","continue":"||"},"warnings":{"main":{"*":"Subscribe
-        to the mediawiki-api-announce mailing list at <https://lists.wikimedia.org/postorius/lists/mediawiki-api-announce.lists.wikimedia.org/>
-        for notice of API deprecations and breaking changes. Use [[Special:ApiFeatureUsage]]
-        to see usage of deprecated features by your application."},"revisions":{"*":"The
-        parameter \"rvparse\" has been deprecated.\nBecause \"rvslots\" was not specified,
-        a legacy format has been used for the output. This format is deprecated, and
-        in the future the new format will always be used."}},"query":{"pages":{"20627717":{"pageid":20627717,"ns":0,"title":"Template","revisions":[{"*":"<div
-        class=\"mw-content-ltr mw-parser-output\" lang=\"en\" dir=\"ltr\"><style data-mw-deduplicate=\"TemplateStyles:r1236090951\">.mw-parser-output
-        .hatnote{font-style:italic}.mw-parser-output div.hatnote{padding-left:1.6em;margin-bottom:0.5em}.mw-parser-output
-        .hatnote i{font-style:normal}.mw-parser-output .hatnote+link+.hatnote{margin-top:-0.5em}@media
-        print{body.ns-0 .mw-parser-output .hatnote{display:none!important}}</style><div
-        role=\"note\" class=\"hatnote navigation-not-searchable selfref\">For templates
-        in Wikipedia, see <a href=\"/wiki/Help:Template\" title=\"Help:Template\">Help:Template</a>
-        and <a href=\"/wiki/Wikipedia:Template_index\" title=\"Wikipedia:Template
-        index\">Wikipedia:Template index</a>.</div>\n<style data-mw-deduplicate=\"TemplateStyles:r1235681985\">.mw-parser-output
-        .side-box{margin:4px 0;box-sizing:border-box;border:1px solid #aaa;font-size:88%;line-height:1.25em;background-color:var(--background-color-interactive-subtle,#f8f9fa);display:flow-root}.mw-parser-output
-        .side-box-abovebelow,.mw-parser-output .side-box-text{padding:0.25em 0.9em}.mw-parser-output
-        .side-box-image{padding:2px 0 2px 0.9em;text-align:center}.mw-parser-output
-        .side-box-imageright{padding:2px 0.9em 2px 0;text-align:center}@media(min-width:500px){.mw-parser-output
-        .side-box-flex{display:flex;align-items:center}.mw-parser-output .side-box-text{flex:1;min-width:0}}@media(min-width:720px){.mw-parser-output
-        .side-box{width:238px}.mw-parser-output .side-box-right{clear:right;float:right;margin-left:1em}.mw-parser-output
-        .side-box-left{margin-right:1em}}</style><style data-mw-deduplicate=\"TemplateStyles:r1237033735\">@media
-        print{body.ns-0 .mw-parser-output .sistersitebox{display:none!important}}@media
-        screen{html.skin-theme-clientpref-night .mw-parser-output .sistersitebox img[src*=\"Wiktionary-logo-en-v2.svg\"]{background-color:white}}@media
-        screen and (prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output
-        .sistersitebox img[src*=\"Wiktionary-logo-en-v2.svg\"]{background-color:white}}</style><div
-        class=\"side-box side-box-right plainlinks sistersitebox\"><style data-mw-deduplicate=\"TemplateStyles:r1126788409\">.mw-parser-output
-        .plainlist ol,.mw-parser-output .plainlist ul{line-height:inherit;list-style:none;margin:0;padding:0}.mw-parser-output
-        .plainlist ol li,.mw-parser-output .plainlist ul li{margin-bottom:0}</style>\n<div
-        class=\"side-box-flex\">\n<div class=\"side-box-image\"><span class=\"noviewer\"
-        typeof=\"mw:File\"><a href=\"/wiki/File:Wiktionary-logo-en-v2.svg\" class=\"mw-file-description\"><img
-        alt=\"\" src=\"//upload.wikimedia.org/wikipedia/commons/thumb/9/99/Wiktionary-logo-en-v2.svg/40px-Wiktionary-logo-en-v2.svg.png\"
-        decoding=\"async\" width=\"40\" height=\"40\" class=\"mw-file-element\" srcset=\"//upload.wikimedia.org/wikipedia/commons/thumb/9/99/Wiktionary-logo-en-v2.svg/60px-Wiktionary-logo-en-v2.svg.png
-        1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/99/Wiktionary-logo-en-v2.svg/80px-Wiktionary-logo-en-v2.svg.png
-        2x\" data-file-width=\"512\" data-file-height=\"512\" /></a></span></div>\n<div
-        class=\"side-box-text plainlist\">Look up <i><b><a href=\"https://en.wiktionary.org/wiki/template\"
-        class=\"extiw\" title=\"wiktionary:template\">template</a></b></i> in Wiktionary,
-        the free dictionary.</div></div>\n</div>\n<p><b>Template</b> may refer to:\n</p>\n<style
-        data-mw-deduplicate=\"TemplateStyles:r1044870489\">@media all and (max-width:720px){body.skin-minerva
-        .mw-parser-output .tocright{display:none}.mw-parser-output .tocright{width:100%!important}}@media
-        all and (min-width:720px){.mw-parser-output .tocright{float:right;clear:right;width:auto;margin:0
-        0 0.5em 1em}.mw-parser-output .tocright-clear-left{clear:left}.mw-parser-output
-        .tocright-clear-both{clear:both}.mw-parser-output .tocright-clear-none{clear:none}}</style><div
-        class=\"tocright\"><div id=\"toc\" class=\"toc\" role=\"navigation\" aria-labelledby=\"mw-toc-heading\"><input
-        type=\"checkbox\" role=\"button\" id=\"toctogglecheckbox\" class=\"toctogglecheckbox\"
-        style=\"display:none\" /><div class=\"toctitle\" lang=\"en\" dir=\"ltr\"><h2
-        id=\"mw-toc-heading\">Contents</h2><span class=\"toctogglespan\"><label class=\"toctogglelabel\"
-        for=\"toctogglecheckbox\"></label></span></div>\n<ul>\n<li class=\"toclevel-1
-        tocsection-1\"><a href=\"#Tools\"><span class=\"tocnumber\">1</span> <span
-        class=\"toctext\">Tools</span></a></li>\n<li class=\"toclevel-1 tocsection-2\"><a
-        href=\"#Computing\"><span class=\"tocnumber\">2</span> <span class=\"toctext\">Computing</span></a></li>\n<li
-        class=\"toclevel-1 tocsection-3\"><a href=\"#Molecular_genetics\"><span class=\"tocnumber\">3</span>
-        <span class=\"toctext\">Molecular genetics</span></a></li>\n<li class=\"toclevel-1
-        tocsection-4\"><a href=\"#Other_uses\"><span class=\"tocnumber\">4</span>
-        <span class=\"toctext\">Other uses</span></a></li>\n<li class=\"toclevel-1
-        tocsection-5\"><a href=\"#See_also\"><span class=\"tocnumber\">5</span> <span
-        class=\"toctext\">See also</span></a></li>\n</ul>\n</div>\n</div>\n<div class=\"mw-heading
-        mw-heading2\"><h2 id=\"Tools\">Tools</h2><span class=\"mw-editsection\"><span
-        class=\"mw-editsection-bracket\">[</span><a href=\"/w/index.php?title=Template&amp;action=edit&amp;section=1\"
-        title=\"Edit section: Tools\"><span>edit</span></a><span class=\"mw-editsection-bracket\">]</span></span></div>\n<ul><li><a
-        href=\"/wiki/Die_(manufacturing)\" title=\"Die (manufacturing)\">Die (manufacturing)</a>,
-        used to cut or shape material</li>\n<li>Mold, in a <a href=\"/wiki/Molding_(process)\"
-        title=\"Molding (process)\">molding process</a></li>\n<li><a href=\"/wiki/Stencil\"
-        title=\"Stencil\">Stencil</a>, a pattern or overlay used in graphic arts (drawing,
-        painting, etc.) and sewing to replicate letters, shapes or designs</li></ul>\n<div
-        class=\"mw-heading mw-heading2\"><h2 id=\"Computing\">Computing</h2><span
-        class=\"mw-editsection\"><span class=\"mw-editsection-bracket\">[</span><a
-        href=\"/w/index.php?title=Template&amp;action=edit&amp;section=2\" title=\"Edit
-        section: Computing\"><span>edit</span></a><span class=\"mw-editsection-bracket\">]</span></span></div>\n<ul><li>The
-        main document from which <a href=\"/wiki/Mail_merge\" title=\"Mail merge\">mail
-        merge</a> documents are created</li>\n<li><a href=\"/wiki/Style_sheet_(web_development)\"
-        title=\"Style sheet (web development)\">Style sheet (web development)</a>
-        or master page, a sheet or page on which a user can globally edit and format
-        graphic elements and text common to each page of a document</li>\n<li><a href=\"/wiki/Template_(C%2B%2B)\"
-        title=\"Template (C++)\">Template (C++)</a>, a tool for generic programming
-        in the C++ language</li>\n<li><a href=\"/wiki/Template_(file_format)\" title=\"Template
-        (file format)\">Template (file format)</a>, a standardized, non-executable
-        file type used by computer software as a pre-formatted example on which to
-        base other files, especially documents</li>\n<li><a href=\"/wiki/Template_(word_processing)\"
-        title=\"Template (word processing)\">Template (word processing)</a>, a standard
-        document containing layout and styles used to configure word processing software</li>\n<li><a
-        href=\"/wiki/Template_metaprogramming\" title=\"Template metaprogramming\">Template
-        metaprogramming</a>, a programming technique used by a compiler to generate
-        temporary source code</li>\n<li><a href=\"/wiki/Template_method_pattern\"
-        title=\"Template method pattern\">Template method pattern</a>, an object-oriented
-        design pattern</li>\n<li><a href=\"/wiki/Template_processor\" title=\"Template
-        processor\">Template processor</a>, a system that combines a template with
-        data to produce an output</li>\n<li><a href=\"/wiki/Web_template\" class=\"mw-redirect\"
-        title=\"Web template\">Web template</a>, a master page or a page element that
-        can be used to produce web pages dynamically</li></ul>\n<div class=\"mw-heading
-        mw-heading2\"><h2 id=\"Molecular_genetics\">Molecular genetics</h2><span class=\"mw-editsection\"><span
-        class=\"mw-editsection-bracket\">[</span><a href=\"/w/index.php?title=Template&amp;action=edit&amp;section=3\"
-        title=\"Edit section: Molecular genetics\"><span>edit</span></a><span class=\"mw-editsection-bracket\">]</span></span></div>\n<ul><li>A
-        strand of <a href=\"/wiki/DNA\" title=\"DNA\">DNA</a> which sets the genetic
-        sequence of new strands during replication</li>\n<li>A strand of <a href=\"/wiki/RNA\"
-        title=\"RNA\">RNA</a> which translates genes into proteins</li></ul>\n<div
-        class=\"mw-heading mw-heading2\"><h2 id=\"Other_uses\">Other uses</h2><span
-        class=\"mw-editsection\"><span class=\"mw-editsection-bracket\">[</span><a
-        href=\"/w/index.php?title=Template&amp;action=edit&amp;section=4\" title=\"Edit
-        section: Other uses\"><span>edit</span></a><span class=\"mw-editsection-bracket\">]</span></span></div>\n<ul><li>A
-        pre-developed <a href=\"/wiki/Page_layout\" title=\"Page layout\">page layout</a>
-        in electronic or paper media used to make new pages with a similar design,
-        pattern, or style</li>\n<li><a href=\"/wiki/Boilerplate_(text)\" class=\"mw-redirect\"
-        title=\"Boilerplate (text)\">Boilerplate (text)</a>, any text that is or can
-        be reused in new contexts or applications without being greatly changed from
-        the original</li>\n<li><a href=\"/wiki/Template_(novel)\" title=\"Template
-        (novel)\"><i>Template</i> (novel)</a>, a novel by Matthew Hughes</li>\n<li><a
-        href=\"/wiki/Template_(racing)\" class=\"mw-redirect\" title=\"Template (racing)\">Template
-        (racing)</a>, a device used in car racing to ensure that the body of the race
-        vehicle adheres to specifications</li></ul>\n<div class=\"mw-heading mw-heading2\"><h2
-        id=\"See_also\">See also</h2><span class=\"mw-editsection\"><span class=\"mw-editsection-bracket\">[</span><a
-        href=\"/w/index.php?title=Template&amp;action=edit&amp;section=5\" title=\"Edit
-        section: See also\"><span>edit</span></a><span class=\"mw-editsection-bracket\">]</span></span></div>\n<ul><li><a
-        href=\"/wiki/Form_letter\" title=\"Form letter\">Form letter</a>, a letter
-        written from a template</li>\n<li><a href=\"/wiki/Template_engine_(disambiguation)\"
-        class=\"mw-redirect mw-disambig\" title=\"Template engine (disambiguation)\">Template
-        engine (disambiguation)</a></li></ul>\n<div class=\"shortdescription nomobile
-        noexcerpt noprint searchaux\" style=\"display:none\">Topics referred to by
-        the same term</div>\n<style data-mw-deduplicate=\"TemplateStyles:r1097304697\">.mw-parser-output
-        .dmbox{display:flex;align-items:center;clear:both;margin:0.9em 1em;border-top:1px
-        solid #ccc;border-bottom:1px solid #ccc;padding:0.25em 0.35em;font-style:italic}.mw-parser-output
-        .dmbox>*{flex-shrink:0;margin:0 0.25em}.mw-parser-output .dmbox-body{flex-grow:1;flex-shrink:1;padding:0.1em
-        0}.mw-parser-output .dmbox-invalid-type{text-align:center}</style>\n<div role=\"note\"
-        id=\"disambigbox\" class=\"metadata plainlinks dmbox dmbox-disambig\"><span
-        typeof=\"mw:File\"><a href=\"/wiki/File:Disambig_gray.svg\" class=\"mw-file-description\"><img
-        alt=\"Disambiguation icon\" src=\"//upload.wikimedia.org/wikipedia/en/thumb/5/5f/Disambig_gray.svg/30px-Disambig_gray.svg.png\"
-        decoding=\"async\" width=\"30\" height=\"23\" class=\"mw-file-element\" srcset=\"//upload.wikimedia.org/wikipedia/en/thumb/5/5f/Disambig_gray.svg/45px-Disambig_gray.svg.png
-        1.5x, //upload.wikimedia.org/wikipedia/en/thumb/5/5f/Disambig_gray.svg/60px-Disambig_gray.svg.png
-        2x\" data-file-width=\"220\" data-file-height=\"168\" /></a></span><div class=\"dmbox-body\">This
-        <a href=\"/wiki/Help:Disambiguation\" title=\"Help:Disambiguation\">disambiguation</a>
-        page lists  articles associated with the title <b>Template</b>.<br /><small>If
-        an <a class=\"external text\" href=\"https://en.wikipedia.org/w/index.php?title=Special:WhatLinksHere/Template&amp;namespace=0\">internal
-        link</a> led you here, you may wish to change the link to point directly to
-        the intended article.</small></div>\n</div></div>"}]}}}}'
+      string: !!binary |
+        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
+        16dc/xExAAA=
     headers:
       accept-ranges:
       - bytes
@@ -229,7 +169,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 08 Mar 2025 23:43:32 GMT
+      - Mon, 11 Aug 2025 17:51:41 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -237,21 +177,21 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.eqiad.canary-6b5746b994-bn42n
+      - mw-api-ext.codfw.main-747b795978-hx7dz
       server-timing:
-      - cache;desc="pass", host;desc="cp3072"
+      - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
       - max-age=106384710; includeSubDomains; preload
       transfer-encoding:
       - chunked
       vary:
-      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
       x-cache:
-      - cp3072 miss, cp3072 pass
+      - cp4043 miss, cp4043 pass
       x-cache-status:
       - pass
       x-client-ip:
-      - 86.45.201.103
+      - 205.251.233.110
       x-content-type-options:
       - nosniff
       x-frame-options:

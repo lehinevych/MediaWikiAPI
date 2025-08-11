@@ -14,12 +14,14 @@ interactions:
     uri: https://en.wikipedia.org/w/api.php?list=search&srprop=&srlimit=10&limit=10&srsearch=Python&format=json&action=query
   response:
     body:
-      string: '{"warnings":{"main":{"*":"Unrecognized parameter: limit."}},"batchcomplete":"","continue":{"sroffset":10,"continue":"-||"},"query":{"searchinfo":{"totalhits":12733},"search":[{"ns":0,"title":"Python
-        (programming language)","pageid":23862},{"ns":0,"title":"Python","pageid":46332325},{"ns":0,"title":"Monty
-        Python","pageid":18942},{"ns":0,"title":"Reticulated python","pageid":88595},{"ns":0,"title":"Burmese
-        python","pageid":819149},{"ns":0,"title":"Python (codename)","pageid":53672527},{"ns":0,"title":"Ball
-        python","pageid":271890},{"ns":0,"title":"Python (missile)","pageid":317752},{"ns":0,"title":"History
-        of Python","pageid":21356332},{"ns":0,"title":"Monty Python and the Holy Grail","pageid":19701}]}}'
+      string: !!binary |
+        H4sIAAAAAAAAA4WRTU+EMBCG/0ozJzVooCzLx9GLezExJp6MhwoFJikttkMM7vLfLWti0MX1RNp5
+        P6YPe3gXVqNuHBR76ATq+XsFBTxpK0vTaPyQFeuFFZ0kaQumsEO6gWkK4FVQ2Zam65UfeQsEUBpN
+        qAc5pzhr6tpJgiIKlxO4PhzA298GacejUApbtqhrM5/IkFAtkt8o4nnIA3BD00hHaPxy0I/UGu1g
+        ee009v1c9D318V+pUDzvwV8UfgVCUnP/w1HkE3rRSKyg2GzjmMc8mYI/tOyit6bxDDqPiimhm8Fb
+        LxcRPM62fMV/7589spPGKMs3/ExdaSqpPfJlRRJvU57wdMX2KAnLQQma/9XvrixL8rWn3QqlTtU8
+        9buFa/LBdtLJlfwojzb5imOHjowdmalPAfAoTmbqZxh06ByqHwjiKE2T/zAzoStGrWQ7o0Z2ZwWq
+        Jfk8DaPpZZo+ARMEX337AgAA
     headers:
       accept-ranges:
       - bytes
@@ -32,11 +34,11 @@ interactions:
       content-encoding:
       - gzip
       content-length:
-      - '337'
+      - '360'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 15 Mar 2025 00:56:14 GMT
+      - Mon, 11 Aug 2025 17:51:15 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -44,32 +46,34 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.eqiad.main-dd9d54c99-bdpg7
+      - mw-api-ext.codfw.main-747b795978-8c4x7
       server-timing:
-      - cache;desc="pass", host;desc="cp3072"
+      - cache;desc="pass", host;desc="cp4043"
       set-cookie:
-      - WMF-Last-Access=15-Mar-2025;Path=/;HttpOnly;secure;Expires=Wed, 16 Apr 2025
-        00:00:00 GMT
-      - WMF-Last-Access-Global=15-Mar-2025;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Wed,
-        16 Apr 2025 00:00:00 GMT
-      - GeoIP=IE:L:Dublin:53.30:-6.18:v4; Path=/; secure; Domain=.wikipedia.org
-      - NetworkProbeLimit=0.001;Path=/;Secure;SameSite=Lax;Max-Age=3600
+      - WMF-Last-Access=11-Aug-2025;Path=/;HttpOnly;secure;Expires=Fri, 12 Sep 2025
+        12:00:00 GMT
+      - WMF-Last-Access-Global=11-Aug-2025;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Fri,
+        12 Sep 2025 12:00:00 GMT
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; Path=/; secure; Domain=.wikipedia.org
+      - NetworkProbeLimit=0.001;Path=/;Secure;SameSite=None;Max-Age=3600
+      - WMF-Uniq=E62lNjx291wg9e7enJ8bxgJMAAAAAFvdxC5e07QA4JpYq1xrIPSt06Z25pkl-YvQ;Domain=.wikipedia.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue,
+        11 Aug 2026 00:00:00 GMT
       strict-transport-security:
       - max-age=106384710; includeSubDomains; preload
       vary:
-      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
       x-cache:
-      - cp3072 miss, cp3072 pass
+      - cp4043 miss, cp4043 pass
       x-cache-status:
       - pass
       x-client-ip:
-      - 86.45.201.103
+      - 205.251.233.110
       x-content-type-options:
       - nosniff
       x-frame-options:
       - DENY
       x-search-id:
-      - zjteravt3tfqyvyz2todyglc
+      - 7kt5otwu7xusq124525if4d7s
     status:
       code: 200
       message: OK
@@ -83,20 +87,22 @@ interactions:
       Connection:
       - keep-alive
       Cookie:
-      - WMF-Last-Access-Global=15-Mar-2025; GeoIP=IE:L:Dublin:53.30:-6.18:v4
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=11-Aug-2025;
+        WMF-Uniq=E62lNjx291wg9e7enJ8bxgJMAAAAAFvdxC5e07QA4JpYq1xrIPSt06Z25pkl-YvQ
       User-Agent:
       - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
     method: GET
     uri: https://fr.wikipedia.org/w/api.php?list=search&srprop=&srlimit=10&limit=10&srsearch=Python&format=json&action=query
   response:
     body:
-      string: '{"warnings":{"main":{"*":"Unrecognized parameter: limit."}},"batchcomplete":"","continue":{"sroffset":10,"continue":"-||"},"query":{"searchinfo":{"totalhits":3929},"search":[{"ns":0,"title":"Python
-        (langage)","pageid":2340},{"ns":0,"title":"Monty Python","pageid":11938},{"ns":0,"title":"Python
-        r\u00e9ticul\u00e9","pageid":1579288},{"ns":0,"title":"Python","pageid":2302},{"ns":0,"title":"Python
-        royal","pageid":1463677},{"ns":0,"title":"Monty Python : Sacr\u00e9 Graal
-        !","pageid":11964},{"ns":0,"title":"Colt Python","pageid":321642},{"ns":0,"title":"Python
-        de Seba","pageid":321228},{"ns":0,"title":"Python bivittatus","pageid":5865262},{"ns":0,"title":"Python
-        (mythologie)","pageid":164638}]}}'
+      string: !!binary |
+        H4sIAAAAAAAAA4VSzU/DIBT/V/CdpqmGfoy1XD14MjExntQDdqwloVDhNaZu/d+l22K67OsEvPf7
+        esAafoQzylQe+Boaocy43gGHN+NkaSujfuWStMKJRqJ0nGjVKHyAYYjgS2BZl7ZpdWgFCkRQWoPK
+        dHJU8c6uVl4i8JhOO3C/2UCgf3fS9VugFK6slVnZ8YQWha4VhkRpkecR+K6qpEdlQzZoe6yt8TAt
+        e6PadvT57wb1nSjw9zWEAg8JUKEe7V+2IDLTwlSikrdBqw2rWgJP0owO0RHjOWTvyY43QcdxkeYn
+        4HsDZ3uhp/CMpWyxuED46CiVBaqy07vtlD1fFEl+3u5gCpqcd2ms7lznD+bIaVJkVwYnnLyKcp+R
+        PDkhNLk5vA12SuPRajy+uzSJWXYh5cxL10qD09eZ52yeMXqBVMnwa6eUNKYsSYbPYfgDODh+JOoC
+        AAA=
     headers:
       accept-ranges:
       - bytes
@@ -108,12 +114,10 @@ interactions:
       - inline; filename=api-result.json
       content-encoding:
       - gzip
-      content-length:
-      - '324'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 15 Mar 2025 00:56:14 GMT
+      - Mon, 11 Aug 2025 17:51:15 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -121,29 +125,33 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.eqiad.main-dd9d54c99-rvk2l
+      - mw-api-ext.codfw.main-747b795978-9lpbz
       server-timing:
-      - cache;desc="pass", host;desc="cp3072"
+      - cache;desc="pass", host;desc="cp4043"
       set-cookie:
-      - WMF-Last-Access=15-Mar-2025;Path=/;HttpOnly;secure;Expires=Wed, 16 Apr 2025
-        00:00:00 GMT
-      - NetworkProbeLimit=0.001;Path=/;Secure;SameSite=Lax;Max-Age=3600
+      - WMF-Last-Access=11-Aug-2025;Path=/;HttpOnly;secure;Expires=Fri, 12 Sep 2025
+        12:00:00 GMT
+      - NetworkProbeLimit=0.001;Path=/;Secure;SameSite=None;Max-Age=3600
+      - WMF-Uniq=E62lNjx291wg9e7enJ8bxgJMAAEBAFvdYSAAkq56yUWb0IWWXxukF7VOiqCfq9Un;Domain=.wikipedia.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue,
+        11 Aug 2026 00:00:00 GMT
       strict-transport-security:
       - max-age=106384710; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
       vary:
-      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
       x-cache:
-      - cp3072 miss, cp3072 pass
+      - cp4043 miss, cp4043 pass
       x-cache-status:
       - pass
       x-client-ip:
-      - 86.45.201.103
+      - 205.251.233.110
       x-content-type-options:
       - nosniff
       x-frame-options:
       - DENY
       x-search-id:
-      - ctwltrxu7ta9l18dv2kv7bchz
+      - fz91offd93bzxnl2jwmxowyp
     status:
       code: 200
       message: OK

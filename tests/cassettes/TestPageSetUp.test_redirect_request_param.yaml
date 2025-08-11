@@ -9,21 +9,30 @@ interactions:
       Connection:
       - keep-alive
       Cookie:
-      - WMF-Last-Access=08-Mar-2025; NetworkProbeLimit=0.001; WMF-Last-Access-Global=08-Mar-2025;
-        GeoIP=IE:L:Dublin:53.30:-6.18:v4
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=11-Aug-2025;
+        WMF-Uniq=3cEbA0zYMY-UvTrB82-zXQJMAAEBAFvd_8w8U69SPkK95dCdDpjLNFFy9SizEshW;
+        NetworkProbeLimit=0.001; WMF-Last-Access=11-Aug-2025
       User-Agent:
       - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
     method: GET
     uri: https://en.wikipedia.org/w/api.php?prop=info%7Cpageprops&inprop=url&redirects=&titles=Template%3Acn&format=json&action=query
   response:
     body:
-      string: "{\"batchcomplete\":\"\",\"query\":{\"normalized\":[{\"from\":\"Template:cn\",\"to\":\"Template:Cn\"}],\"redirects\":[{\"from\":\"Template:Cn\",\"to\":\"Template:Citation
-        needed\"}],\"pages\":{\"2048472\":{\"pageid\":2048472,\"ns\":10,\"title\":\"Template:Citation
-        needed\",\"contentmodel\":\"wikitext\",\"pagelanguage\":\"en\",\"pagelanguagehtmlcode\":\"en\",\"pagelanguagedir\":\"ltr\",\"touched\":\"2025-03-14T22:01:21Z\",\"lastrevid\":1234309184,\"length\":776,\"fullurl\":\"https://en.wikipedia.org/wiki/Template:Citation_needed\",\"editurl\":\"https://en.wikipedia.org/w/index.php?title=Template:Citation_needed&action=edit\",\"canonicalurl\":\"https://en.wikipedia.org/wiki/Template:Citation_needed\",\"pageprops\":{\"templatedata\":\"\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffdM\\ufffd\\ufffd@\\ufffd\\ufffd\\ufffd\\ufffd\\ufffdK.&\\ufffd\\ufffd=\\ufffd\\ufffd(\\ufffd\\ufffd%\\ufffd\\ufffdRzPl9\\ufffdv<\\ufffd\\ufffdivk\\ufffd\\ufffd{%'\\ufffd\\ufffd\\ufffdB{\\ufffd4\\ufffd\\ufffdy\\ufffd\\\\C\\\\g\\u07cbO\\ufffd-N\\ufffd\\ufffd\\ufffdvG\\ufffd\\ufffd\\ufffd\\ufffd(\\ufffd\\ufffd\\ufffd05
-        \\t|CQ|;@\\ufffd\\ufffdw\\ufffd>\\ufffdf\\ufffdu \\ufffd\\ufffd\\ufffd>K\\ufffd\\ufffd\\ufffd\\ufffd-<\\ufffdb\\ufffd\\ufffd@\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd?\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd3\\ufffd\\ufffd\\ufffdn\\ufffd\\ufffd\\ufffd\\u008eMO\\ufffd\\ufffd\\ufffd\\ufffdpO\\ufffd*p\\ufffd\\ufffd\\ufffd\\ufffdc\\ufffd\\ufffda\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd)\\ufffd'\\ufffd\\ufffd:\\ufffd\\ufffd\\ufffd+\\ufffd\\ufffdN\\u046b\\ufffdL\\ufffd\\ufffd\\ufffd\\ufffd\\ufffda^\\ufffd\\ufffd\\ufffd\\u0182y\\ufffd7\\ufffd^\\ufffd\\ufffdU\\ufffd/\\ufffd1\\t\\u033ec\\u0500M\\ufffd\\ufffdWe\\ufffd%\\ufffdxp\\ufffd\\ufffd\\\"\\ufffd\\tC\\ufffd\\ufffd\\ufffd\\ufffde\\u03f2x\\ufffdy\\ufffd]mv\\ub3db\\ufffd\\ufffd\\ufffdr\\ufffd\\ufffdG\\ufffd-\\ufffde\\ufffd\\u070e\\ufffd\\ufffds9\\ufffdT\\ufffd5n!\\ufffdP\\ufffdL\\ufffd\\ufffd\\ufffd\\ufffdb`\\ufffd+\\ufffdj\\ufffd\\ufffd\\ufffd*:&\\ufffd\\ufffd\\ufffd\\ufffd[,A\\ufffd\\\"\\ufffd\\ufffdn\\ufffdN\\ufffd.g\\ufffd'\\ufffdZ\\ufffd|f\\ufffd!\\ufffdgb\\ufffdS\\ufffd\\u0694\\ufffd\\ufffd\\ufffdFy\\t\\ufffd&\\ufffdl\\ufffd}>\\ufffd\\ufffdh\\ufffd\\ufffd>\\ufffd\\ufffdk\\ufffd\\ufffd\\ufffd\\ufffd\\ufffdy\\ufffd\\ufffd\\\"QC\\u0313\\ufffd\\ufffdX\\ufffd\\ufffd\\ufffd\\ufffdK\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd?\\ufffd\\ufffdp\\ufffdGN7\\ufffd:\\ufffd\\ufffd\x7Fp*\\ufffdI.\\ufffd\\ufffd{\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd^\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd[\\ufffd\\ufffd\\ufffd\",\"wikibase_item\":\"Q5312535\"}}}}}"
+      string: !!binary |
+        H4sIAAAAAAAAA6VWe0/bMBD/KswSjLE+nFdTsgHbKg1NjNfGtAkCzE3cJGvqZKlTWgraV5+NPWST
+        pgyRP3y+88/3viRz0Ec0iINslKeYYuAB0AC/S1zMgDcHJCtGKE2ucQi8szkYFNmIIU4wAyOKvYAw
+        MM1UUY+A2/MGKHCYFDig44X3egvuJRTRJCMrBOOQmeNKchThMXfDhHbXdk2+5bKEeSNFDUAYwoBM
+        XUJTvExjAwQZoZjQURbilCGvkmFC8ZQCYSlFJCoZZSeYPJDFdJQG7NqiMxYoE6e0uIupDGKeLOay
+        6TRht2nAE+h4huXBzikDpGhMCzzhERimZVtw0+jaTIxJRGPguW6nAQZlmpYF9zCmNB977TYmLe5s
+        zmyhVlZEbc61K5Fe3kfKgPQxFe2EhHjayuN85y53W3X61lDAuS2ulGcRkYwkAXqujzyHeZHldxWm
+        EhciiphSvxwMBuHz132Vebccu9daU9ktlVlXmVWV+XJ9lG6K7eStepBMhio7X31ZNflhLqitCmeS
+        8Xu+H/kldIP+oRA1D6oqJrt18axXRdBZ8elN7/jmjZaLK0G2BRkIUq5U72/v1Rlrytj7T0i4WHee
+        WlOrKiKLsBB28f5hnZZcnmzkdYhAZdByn14JopXYq8JeqwwrJrQ7MmGfl+tHFwsjNLqm7BZXEA32
+        TZC2IIZP2Q3Lwiwu6ECojcZ3rLX2VE/Kv3GkvTr/MFc9MKdaB5+PJn7Zt/SeEGuhMrKDm/eqZHQu
+        xCpsLMfsRBCHvBCbo0cy2P+pJf9XFbHhrdVdPmu8f5AEteHkPLYirfyngtzIQZJuRjINX+/j62za
+        VYMfZ7xOfCd9SgW53VZRsTaVKjNc3kgzvbDHPV44QxupH7UvyKdOqjbasqV2D9wF4/En3xCbTy3t
+        pfk/Vi6WH59VRezjwz9OfTTGl+wPgP+aHDuWYTqWA2758xfxOnbdFQkAAA==
     headers:
-      accept-ranges:
-      - bytes
       age:
       - '0'
       cache-control:
@@ -35,7 +44,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 15 Mar 2025 00:36:12 GMT
+      - Mon, 11 Aug 2025 17:51:42 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -43,26 +52,21 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.eqiad.main-dd9d54c99-q89wk
+      - mw-api-ext.codfw.main-747b795978-tq6qr
       server-timing:
-      - cache;desc="pass", host;desc="cp3072"
-      set-cookie:
-      - WMF-Last-Access=15-Mar-2025;Path=/;HttpOnly;secure;Expires=Wed, 16 Apr 2025
-        00:00:00 GMT
-      - WMF-Last-Access-Global=15-Mar-2025;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Wed,
-        16 Apr 2025 00:00:00 GMT
+      - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
       - max-age=106384710; includeSubDomains; preload
       transfer-encoding:
       - chunked
       vary:
-      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
       x-cache:
-      - cp3072 miss, cp3072 pass
+      - cp4043 miss, cp4043 pass
       x-cache-status:
       - pass
       x-client-ip:
-      - 86.45.201.103
+      - 205.251.233.110
       x-content-type-options:
       - nosniff
       x-frame-options:

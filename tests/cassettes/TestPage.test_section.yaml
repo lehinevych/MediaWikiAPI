@@ -9,31 +9,37 @@ interactions:
       Connection:
       - keep-alive
       Cookie:
-      - WMF-Last-Access=22-Jan-2024; NetworkProbeLimit=0.001; enwikiBlockID=7781584%21acb3698c0663da184887e233ee83006d902072e4790c37ee696ccee73a24c70a34f6a80eafc80375caf3156df8ac4f0bf6e670471da800b0efe1729943b5fb2e;
-        WMF-Last-Access-Global=22-Jan-2024; GeoIP=US:WA:Seattle:47.61:-122.34:v4
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=11-Aug-2025;
+        WMF-Uniq=3cEbA0zYMY-UvTrB82-zXQJMAAEBAFvd_8w8U69SPkK95dCdDpjLNFFy9SizEshW;
+        NetworkProbeLimit=0.001; WMF-Last-Access=11-Aug-2025
       User-Agent:
       - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
     method: GET
     uri: https://en.wikipedia.org/w/api.php?prop=info%7Cpageprops&inprop=url&redirects=&titles=Celtuce&format=json&action=query
   response:
     body:
-      string: '{"batchcomplete":"","query":{"pages":{"1868108":{"pageid":1868108,"ns":0,"title":"Celtuce","contentmodel":"wikitext","pagelanguage":"en","pagelanguagehtmlcode":"en","pagelanguagedir":"ltr","touched":"2024-01-14T08:20:36Z","lastrevid":1194071915,"length":4964,"fullurl":"https://en.wikipedia.org/wiki/Celtuce","editurl":"https://en.wikipedia.org/w/index.php?title=Celtuce&action=edit","canonicalurl":"https://en.wikipedia.org/wiki/Celtuce","pageprops":{"page_image_free":"Celtuce.jpg","wikibase-shortdesc":"Lettuce
-        cultivar","wikibase_item":"Q574172"}}}}}'
+      string: !!binary |
+        H4sIAAAAAAAAA5VRTU8DIRD9K4aDp+1+1Xa3JI0Hr15MPHlpKDtdUBYQhlrT+N8dmjYaY2IkhI83
+        7w2PmSPbCpRKuskbQGCcsYK9JgjvjB+ZFyPEfGj6Zd/U/QXTA+NnqGCWGHXBUKPJ+jswmCRQGuks
+        gsXJDWAo8KZfNMIBKZJzGGHHRDtFwP7AFE5Gkuy32KADwQYD4eiSVEBmWFu3i1nd03ysG96ueL18
+        IoIREQPsT37bVdfPu3m3JBjsiIrxxbxfFWyXjEkhW1SIPvKqAltmt54eE6ULY5Vv1dfPCMe/FJW2
+        AxxKr/ztqTTrs/xaSNTOrnOOXCRhndVS/NNBrogPzsdLSzZ6yusuwLcmlM9+JHLWbkWEWVQu4ABR
+        EuUeMFOuZDKo9yJ8422oTxNRHhbdTdO17COPT45xiRwqAgAA
     headers:
-      accept-ranges:
-      - bytes
       age:
       - '0'
       cache-control:
       - private, must-revalidate, max-age=0
       content-disposition:
       - inline; filename=api-result.json
+      content-encoding:
+      - gzip
       content-length:
-      - '554'
+      - '321'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Mon, 22 Jan 2024 03:34:56 GMT
+      - Mon, 11 Aug 2025 17:52:11 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -41,21 +47,19 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw2300.codfw.wmnet
+      - mw-api-ext.codfw.main-747b795978-52z76
       server-timing:
-      - cache;desc="pass", host;desc="cp4037"
-      set-cookie:
-      - NetworkProbeLimit=0.001;Path=/;Secure;Max-Age=3600
+      - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
       - max-age=106384710; includeSubDomains; preload
       vary:
-      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
       x-cache:
-      - cp4037 miss, cp4037 pass
+      - cp4043 miss, cp4043 pass
       x-cache-status:
       - pass
       x-client-ip:
-      - 205.251.233.183
+      - 205.251.233.110
       x-content-type-options:
       - nosniff
       x-frame-options:
@@ -73,33 +77,38 @@ interactions:
       Connection:
       - keep-alive
       Cookie:
-      - WMF-Last-Access=22-Jan-2024; NetworkProbeLimit=0.001; enwikiBlockID=7781584%21acb3698c0663da184887e233ee83006d902072e4790c37ee696ccee73a24c70a34f6a80eafc80375caf3156df8ac4f0bf6e670471da800b0efe1729943b5fb2e;
-        WMF-Last-Access-Global=22-Jan-2024; GeoIP=US:WA:Seattle:47.61:-122.34:v4
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=11-Aug-2025;
+        WMF-Uniq=3cEbA0zYMY-UvTrB82-zXQJMAAEBAFvd_8w8U69SPkK95dCdDpjLNFFy9SizEshW;
+        NetworkProbeLimit=0.001; WMF-Last-Access=11-Aug-2025
       User-Agent:
       - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
     method: GET
     uri: https://en.wikipedia.org/w/api.php?prop=info%7Cpageprops&inprop=url&redirects=&titles=2007+Atlantic+hurricane+season&format=json&action=query
   response:
     body:
-      string: '{"batchcomplete":"","query":{"pages":{"2528069":{"pageid":2528069,"ns":0,"title":"2007
-        Atlantic hurricane season","contentmodel":"wikitext","pagelanguage":"en","pagelanguagehtmlcode":"en","pagelanguagedir":"ltr","touched":"2024-01-21T21:16:51Z","lastrevid":1197763446,"length":89612,"fullurl":"https://en.wikipedia.org/wiki/2007_Atlantic_hurricane_season","editurl":"https://en.wikipedia.org/w/index.php?title=2007_Atlantic_hurricane_season&action=edit","canonicalurl":"https://en.wikipedia.org/wiki/2007_Atlantic_hurricane_season","pageprops":{"defaultsort":"2007
-        Atlantic Hurricane Season","page_image_free":"2007_Atlantic_hurricane_season_summary_map.png","wikibase-badge-Q17437796":"1","wikibase-shortdesc":"Hurricane
-        season in the Atlantic Ocean","wikibase_item":"Q756793"}}}}}'
+      string: !!binary |
+        H4sIAAAAAAAAA61Sy07DMBD8lcoHTm3ebZpIFeLGtYITl8h1tomFYxt7A60q/p11oRVvLkRRHrO7
+        45ndPbANR9ELM1gFCKxmbMoeRnB7Vh+Y5R348JHNs2WyqE6YbFn9Bk2ZpoxkylCiCvVZkpSTK1Rc
+        oxSTfnROCq5h4oF7o4ldGI2gcTAtKMp/kvcSYYcUCdRU1430pgjoT1iPgxJU9l2slY5ghY5wNKPo
+        oT2KyeazZEn3bVLVaVLPyztKUNyjg8dgI82TYpnmZUpOFOgOe1ZXWVEUU7YdlRpd0NgjWl/HMego
+        yLV0Go+M6+LwFwfHzclxc3bcnB1TOv5FFEvdwi6yvb08dnL1O+sFFyiNXgXq0FOujab4/+gNfbXO
+        2OPoW9jyUaE3Dr9M9/o83Zv3tY0cwnPr4LQQPx/X+HEYuNs3A7eR1R1RBJEb7mG24W0Hs3VaFnlZ
+        VovX5TxHfU+SWvDiI97QNg0Ercv5oqxy9hyuF6H4jNjnAgAA
     headers:
-      accept-ranges:
-      - bytes
       age:
       - '0'
       cache-control:
       - private, must-revalidate, max-age=0
       content-disposition:
       - inline; filename=api-result.json
+      content-encoding:
+      - gzip
       content-length:
-      - '782'
+      - '378'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Mon, 22 Jan 2024 03:34:57 GMT
+      - Mon, 11 Aug 2025 17:52:11 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -107,21 +116,19 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw2368.codfw.wmnet
+      - mw-api-ext.codfw.main-747b795978-52z76
       server-timing:
-      - cache;desc="pass", host;desc="cp4044"
-      set-cookie:
-      - NetworkProbeLimit=0.001;Path=/;Secure;Max-Age=3600
+      - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
       - max-age=106384710; includeSubDomains; preload
       vary:
-      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
       x-cache:
-      - cp4044 miss, cp4044 pass
+      - cp4043 miss, cp4043 pass
       x-cache-status:
       - pass
       x-client-ip:
-      - 205.251.233.111
+      - 205.251.233.110
       x-content-type-options:
       - nosniff
       x-frame-options:
@@ -139,33 +146,38 @@ interactions:
       Connection:
       - keep-alive
       Cookie:
-      - WMF-Last-Access=22-Jan-2024; NetworkProbeLimit=0.001; enwikiBlockID=7781584%21acb3698c0663da184887e233ee83006d902072e4790c37ee696ccee73a24c70a34f6a80eafc80375caf3156df8ac4f0bf6e670471da800b0efe1729943b5fb2e;
-        WMF-Last-Access-Global=22-Jan-2024; GeoIP=US:WA:Seattle:47.61:-122.34:v4
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=11-Aug-2025;
+        WMF-Uniq=3cEbA0zYMY-UvTrB82-zXQJMAAEBAFvd_8w8U69SPkK95dCdDpjLNFFy9SizEshW;
+        NetworkProbeLimit=0.001; WMF-Last-Access=11-Aug-2025
       User-Agent:
       - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
     method: GET
     uri: https://en.wikipedia.org/w/api.php?prop=info%7Cpageprops&inprop=url&redirects=&titles=Great+Wall+of+China&format=json&action=query
   response:
     body:
-      string: '{"batchcomplete":"","query":{"pages":{"5094570":{"pageid":5094570,"ns":0,"title":"Great
-        Wall of China","contentmodel":"wikitext","pagelanguage":"en","pagelanguagehtmlcode":"en","pagelanguagedir":"ltr","touched":"2024-01-21T16:15:21Z","lastrevid":1195260685,"length":58991,"fullurl":"https://en.wikipedia.org/wiki/Great_Wall_of_China","editurl":"https://en.wikipedia.org/w/index.php?title=Great_Wall_of_China&action=edit","canonicalurl":"https://en.wikipedia.org/wiki/Great_Wall_of_China","pageprops":{"defaultsort":"Great
-        Wall Of China","page_image_free":"The_Great_Wall_of_China_at_Jinshanling-edit.jpg","wikibase-shortdesc":"Series
-        of defensive walls along the historical northern borders of China","wikibase_item":"Q12501"}}}}}'
+      string: !!binary |
+        H4sIAAAAAAAAA6VSwU7kMAz9lSoHTjPTdJjCUAlx4IDEBa1AWolLFVq3CaROSNyFFdp/X3vEsFo0
+        EgdySNpn++U9O2/qwVBnuzBFDwSqUWqhnmdIv1XzpqIZIctHrc829aneY65XzTu0UMgZfJAjL/VX
+        CQwVP433RRiKS+vQMGUXkABpCj14TnpxT47glTgifN7gOPPJEcBPmKXJd1x2KNa7xLCnxDiFubPA
+        wtRar+ul3i6r6q46bXTd1Mf3nOBNpgS/RHt1rPWZPtluKoYBR7LsZ7tZbxdqmL2fk2i0RDE3ZQm4
+        ErmRbzOrkMZS/sqdzVZstmFo9zY5h76qLh328LqKNl7senZ+gOrIdOQCngufdM9gQNeZbyiTtsUU
+        4m6cPQxm9pRDov8ndvNvYlLQukn2IYG0/85Ce4C8ZeDaYbYGvcNxKZpXj3FkDtHzYDIss+Wresgd
+        09xCcpDlcQwMuoF9iddcOCyQEQsJP1TsGVp+LhMX/6jWta7UH1l/AUtTG+W8AgAA
     headers:
-      accept-ranges:
-      - bytes
       age:
       - '0'
       cache-control:
       - private, must-revalidate, max-age=0
       content-disposition:
       - inline; filename=api-result.json
+      content-encoding:
+      - gzip
       content-length:
-      - '730'
+      - '390'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Mon, 22 Jan 2024 03:34:57 GMT
+      - Mon, 11 Aug 2025 17:52:11 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -173,21 +185,19 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw2286.codfw.wmnet
+      - mw-api-ext.codfw.main-747b795978-h6ggs
       server-timing:
-      - cache;desc="pass", host;desc="cp4044"
-      set-cookie:
-      - NetworkProbeLimit=0.001;Path=/;Secure;Max-Age=3600
+      - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
       - max-age=106384710; includeSubDomains; preload
       vary:
-      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
       x-cache:
-      - cp4044 miss, cp4044 pass
+      - cp4043 miss, cp4043 pass
       x-cache-status:
       - pass
       x-client-ip:
-      - 205.251.233.111
+      - 205.251.233.110
       x-content-type-options:
       - nosniff
       x-frame-options:
@@ -205,33 +215,38 @@ interactions:
       Connection:
       - keep-alive
       Cookie:
-      - WMF-Last-Access=22-Jan-2024; NetworkProbeLimit=0.001; enwikiBlockID=7781584%21acb3698c0663da184887e233ee83006d902072e4790c37ee696ccee73a24c70a34f6a80eafc80375caf3156df8ac4f0bf6e670471da800b0efe1729943b5fb2e;
-        WMF-Last-Access-Global=22-Jan-2024; GeoIP=US:WA:Seattle:47.61:-122.34:v4
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=11-Aug-2025;
+        WMF-Uniq=3cEbA0zYMY-UvTrB82-zXQJMAAEBAFvd_8w8U69SPkK95dCdDpjLNFFy9SizEshW;
+        NetworkProbeLimit=0.001; WMF-Last-Access=11-Aug-2025
       User-Agent:
       - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
     method: GET
     uri: https://en.wikipedia.org/w/api.php?prop=info%7Cpageprops&inprop=url&redirects=&titles=Avatar+%282009+film%29&format=json&action=query
   response:
     body:
-      string: '{"batchcomplete":"","query":{"pages":{"4273140":{"pageid":4273140,"ns":0,"title":"Avatar
-        (2009 film)","contentmodel":"wikitext","pagelanguage":"en","pagelanguagehtmlcode":"en","pagelanguagedir":"ltr","touched":"2024-01-21T19:15:00Z","lastrevid":1197738338,"length":228059,"fullurl":"https://en.wikipedia.org/wiki/Avatar_(2009_film)","editurl":"https://en.wikipedia.org/w/index.php?title=Avatar_(2009_film)&action=edit","canonicalurl":"https://en.wikipedia.org/wiki/Avatar_(2009_film)","pageprops":{"defaultsort":"Avatar","displaytitle":"<i>Avatar</i>
-        (2009 film)","page_image":"Avatar_(2009_film)_poster.jpg","toc":"","wikibase-badge-Q17437798":"1","wikibase-shortdesc":"Science
-        fiction film by James Cameron","wikibase_item":"Q24871"}}}}}'
+      string: !!binary |
+        H4sIAAAAAAAAA51Sy07DMBD8lcgHBFLbPGnaqC1CSBy4IXHiErnJNjE4trE3pVXFv7NuKUItEhI5
+        xMns7HjW4x1bcqzaSndGAgIrGBuwtx7slhU7ZngDzn9kSZ7GWXTERM2KL2jAFDFoQYHS99+uOXIb
+        XCZRNA1WQnZXpFhphaCw0zVI4ryLV4GwQap4OclV09NKFVAnWIudrKjtt1otLMESLeGo+6oF8sWS
+        KLkeRpNhHD/FaZGkRTZ9JoLkDi2svfU4ja7TdJxMMoJBNdgy4uVJPB6wVS9lb73JFtG4IgxBjbxf
+        Q9vxkbZN6P/Cw5jlfszyOCZR8K/mUKgaNiPTmpv9kc3PlS54hUKruZfzh8eVVqLi//flD81YbfZZ
+        1rDivUSnLX7HRZxaOCP59hjjTCwOpVkoFidperlSdIfEzjcsjXYIdvRimn0w1eFWeXtL7mC45HUD
+        w8c4z9I8n05Oqq4lYzU433VPcsFyGzzwDlxwR2+r1Q9ySbeoI95jkk3ymH345xOMGFkv0gIAAA==
     headers:
-      accept-ranges:
-      - bytes
       age:
       - '0'
       cache-control:
       - private, must-revalidate, max-age=0
       content-disposition:
       - inline; filename=api-result.json
+      content-encoding:
+      - gzip
       content-length:
-      - '739'
+      - '397'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Mon, 22 Jan 2024 03:34:57 GMT
+      - Mon, 11 Aug 2025 17:52:11 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -239,21 +254,19 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw2288.codfw.wmnet
+      - mw-api-ext.codfw.main-747b795978-wtnxk
       server-timing:
-      - cache;desc="pass", host;desc="cp4044"
-      set-cookie:
-      - NetworkProbeLimit=0.001;Path=/;Secure;Max-Age=3600
+      - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
       - max-age=106384710; includeSubDomains; preload
       vary:
-      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
       x-cache:
-      - cp4044 miss, cp4044 pass
+      - cp4043 miss, cp4043 pass
       x-cache-status:
       - pass
       x-client-ip:
-      - 205.251.233.111
+      - 205.251.233.110
       x-content-type-options:
       - nosniff
       x-frame-options:
@@ -271,430 +284,209 @@ interactions:
       Connection:
       - keep-alive
       Cookie:
-      - WMF-Last-Access=22-Jan-2024; NetworkProbeLimit=0.001; enwikiBlockID=7781584%21acb3698c0663da184887e233ee83006d902072e4790c37ee696ccee73a24c70a34f6a80eafc80375caf3156df8ac4f0bf6e670471da800b0efe1729943b5fb2e;
-        WMF-Last-Access-Global=22-Jan-2024; GeoIP=US:WA:Seattle:47.61:-122.34:v4
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=11-Aug-2025;
+        WMF-Uniq=3cEbA0zYMY-UvTrB82-zXQJMAAEBAFvd_8w8U69SPkK95dCdDpjLNFFy9SizEshW;
+        NetworkProbeLimit=0.001; WMF-Last-Access=11-Aug-2025
       User-Agent:
       - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
     method: GET
     uri: https://en.wikipedia.org/w/api.php?prop=extracts%7Crevisions&explaintext=&rvprop=ids&titles=2007+Atlantic+hurricane+season&format=json&action=query
   response:
     body:
-      string: '{"batchcomplete":"","query":{"pages":{"2528069":{"pageid":2528069,"ns":0,"title":"2007
-        Atlantic hurricane season","extract":"The 2007 Atlantic hurricane season was
-        the first season since 2003 to feature tropical activity both before and after
-        the official bounds of the season. There were an above-average number of named
-        storms during the season \u2013 15, however many storms were weak and short-lived.
-        Despite the predominance of weak systems, this was the first season on record
-        to feature more than one Category 5 landfalling hurricane. This would not
-        happen again until 2017. It produced 17 tropical cyclones, 15 tropical storms,
-        six hurricanes, and two major hurricanes. It officially started on June 1
-        and ended on November 30, dates which conventionally delimit the period during
-        which most tropical cyclones form in the Atlantic Ocean, although as shown
-        by Subtropical Storm Andrea and Tropical Storm Olga in early May and early
-        December, respectively, the formation of tropical cyclones is possible at
-        any time of the year. The first system, Subtropical Storm Andrea, developed
-        on May 9, while the last storm, Tropical Storm Olga, dissipated on December
-        13. The most intense hurricane, Dean, was, at the time, the third most intense
-        landfalling Atlantic storm on record. It was the second on record in which
-        an Atlantic hurricane, Felix, and an eastern Pacific hurricane, Henriette,
-        made landfall on the same day. September had a then record-tying eight storms,
-        until it was surpassed in 2020. However, the strengths and durations of most
-        of the storms were low.\nPre-season forecasts by Colorado State University
-        called for 14 named storms and 7 hurricanes, of which three were expected
-        to attain major hurricane status. The National Oceanic and Atmospheric Administration
-        (NOAA) later issued its initial forecast, which predicted 13 to 17 named storms,
-        7 to 10 hurricanes and three to five major hurricanes. After several revisions
-        in the projected number of storms, NOAA and CSU lowered their forecasts by
-        the middle of the season.\nSeveral storms made landfall or directly affected
-        land. Hurricanes Dean and Felix made landfall at Category 5 intensity, causing
-        severe damage in parts of Mexico and Central America, respectively. Both storm
-        names, as well as Noel, the name of a hurricane that affected the Caribbean,
-        were retired from the naming list of Atlantic hurricanes. The United States
-        was affected by five cyclones, although the storms were generally weak; three
-        tropical depressions and only two tropical storms, Barry and Gabrielle, and
-        one hurricane, Humberto, made landfall in the country. Elsewhere, three storms
-        directly affected Canada, although none severely. The combined storms killed
-        at least 478 people and caused about $3.42 billion (2007 USD$, 4.83 billion
-        2024 USD) in damage.\n\n\n== Seasonal forecasts ==\nPhilip J. Klotzbach, William
-        M. Gray, and their associates at Colorado State University issue forecasts
-        of hurricane activity each year, separately from NOAA. Klotzbach''s team,
-        formerly led by Gray, determined the average number of storms per season between
-        1950 and 2000 to be 9.6 tropical storms, 5.9 hurricanes, and 2.3 major hurricanes
-        (storms exceeding Category 3 on the Saffir\u2013Simpson scale). A normal season,
-        as defined by NOAA, has 9 to 12 named storms, of which five to seven reach
-        hurricane strength, and one to three become major hurricanes.\n\n\n=== Pre-season
-        forecasts ===\nOn December 8, 2006, Klotzbach''s team issued its first extended-range
-        forecast for the 2007 season, predicting above-average activity (14 named
-        storms, seven hurricanes, three of Category 3 or higher). It listed a 64 percent
-        chance of at least one major hurricane striking the U.S. mainland. This included
-        a 40 percent chance of at least one major hurricane strike on the East Coast,
-        including the Florida peninsula, and a 40 percent chance of at least one such
-        strike on the Gulf Coast from the Florida Panhandle westward. The potential
-        for major hurricane activity in the Caribbean was forecast to be above average,
-        and the team predicted that El Ni\u00f1o, associated with reduced hurricane
-        activity in the Atlantic, would dissipate by the active portion of the season.On
-        April 3 a new forecast was issued, calling for a very active hurricane season
-        of 17 named storms, nine hurricanes and five intense hurricanes. The increase
-        in the forecast was attributed to the rapid dissipation of El Ni\u00f1o conditions.
-        The team also forecast a neutral or weak-to-moderate La Ni\u00f1a and noted
-        that sea surface temperatures were much higher than average. The estimated
-        potential for at least one major hurricane to affect the U.S. was increased
-        to 74 percent; the East Coast potential increased to 50 percent, and from
-        the Florida Panhandle westward to Brownsville, Texas, the probability rose
-        to 49 percent. However, the team''s report noted that while they predicted
-        an active season, it was not suggesting that 2007 would be \"as active as
-        the 2004 and 2005 seasons\".\n\n\n=== Midseason outlooks ===\nOn June 19 the
-        UK Met Office (UKMO) issued a forecast of 10 tropical storms in the July to
-        November period with a 70 percent chance that the number would be in the range
-        of 7 to 13. On August 3, 2007, Klotzbach''s team lowered its season estimate
-        to 15 named storms, of which eight were to become hurricanes and four to become
-        major hurricanes. Team members noted that conditions had become slightly less
-        favorable for storms than earlier in the year. Sea surface temperature anomalies
-        were cooler, and several Saharan Air Layer events had suppressed development
-        of tropical cyclones. El Ni\u00f1o-Southern Oscillation (ENSO) conditions
-        were also noted to have been slightly cooler.On August 9, 2007, NOAA revised
-        its season estimate slightly downwards to 13 to 16 named storms, of which
-        seven to nine were to be hurricanes, and three to five major hurricanes. However,
-        the agency reaffirmed its prediction of an above-average season, citing warmer-than-normal
-        sea surface temperatures in parts of the Atlantic Ocean and Caribbean and
-        the likelihood of La Ni\u00f1a conditions during the peak of the season.\n\n\n==
-        Seasonal summary ==\n\nOnly two major hurricanes\u2014storms of Category 3
-        intensity or higher\u2014formed during the season, the least since the 1997
-        season, although tied with the 2006 and 2002 seasons. Named storms were active
-        for 33.50 days during the season, the lowest number of active days since the
-        1994 season. There were only 11.25 days with active hurricanes, the lowest
-        value since the 2002 season. Despite this, the number of days with major hurricanes
-        was above the long-term average. Four named storms made landfall on the U.S.
-        during the year, but damage from those storms totaled to only about $82 million
-        (2007 USD); this was the least damage the U.S. saw from any Atlantic hurricane
-        season since the 1990 season. The season was one of only six Atlantic hurricane
-        seasons to produce two Category 5 equivalent hurricanes, the others being
-        the 1932, 1933, 1961, 2005, 2017, and 2019 seasons. The two Category 5 hurricanes,
-        Dean and Felix, both reached Category 5 strength on two separate occasions,
-        and both made landfall at Category 5 intensity, making the 2007 season the
-        first to feature two hurricanes doing each, both of which would not be repeated
-        until 2017. When Hurricane Felix was upgraded to a Category 5 storm on September
-        2, it became the eighth to form in this basin since 2000. This gave the decade
-        more hurricanes of such strength than any other on record. Hurricane Humberto
-        was the first hurricane to make landfall in Texas since Hurricane Claudette
-        in 2003.Overall, the season''s activity was reflected with a cumulative accumulated
-        cyclone energy (ACE) rating of 74, which is below the long-term average of
-        93, and the lowest since 2002. ACE is, broadly speaking, a measure of the
-        power of the hurricane multiplied by the length of time it existed, so storms
-        that last a long time, as well as particularly strong hurricanes, have high
-        ACEs. ACE is only calculated for full advisories on tropical systems at or
-        exceeding 34 knots (39 mph, 63 km/h) or tropical storm strength. Although
-        officially, subtropical cyclones, such as Andrea or the initial portions of
-        Gabrielle, Jerry, and Olga, are excluded from the total, the figure above
-        includes periods when storms were in a subtropical phase.\n\n\n== Systems
-        ==\n\n\n=== Subtropical Storm Andrea ===\n\nThe first storm of the season,
-        Subtropical Storm Andrea, originated from a large extratropical cyclone that
-        formed off the mid-Atlantic coast on May 6. It deepened steadily along a cold
-        front that pushed through Florida. When the system lost most of its baroclinic
-        support, development ceased until its low moved into warmer waters near the
-        Bahamas. However, interaction between the low and a strong high-pressure system
-        to the north generated hurricane-force winds in the system. Decreasing vertical
-        wind shear allowed the storm to generate deeper convection much closer to
-        the center. By May 9 the previously extratropical cyclone had transformed
-        into Subtropical Storm Andrea while located about 140 miles (225 km) southeast
-        of Savannah, Georgia. Andrea began its subtropical phase as it was weakening,
-        and continued this deterioration as it moved southward into an environment
-        with higher wind shear. By May 11, Andrea had lost all significant convection
-        and degenerated into a remnant low. Though it produced intermittent bursts
-        of convection, Andrea''s chance of regeneration was extinguished when an advancing
-        cold front pushed it northward and eventually absorbed the system.Andrea was
-        short-lived, dissipating on May 11. It was the first pre-season storm to develop
-        since Tropical Storm Ana in April 2003 and the first Atlantic named storm
-        in May since Tropical Storm Arlene in 1981. Six people drowned along the Southeast
-        U.S. Coast. However, because Andrea never made landfall, most of the resulting
-        damage was associated with large waves, higher than normal tides, associated
-        coastal flooding, and beach erosion caused by the storm.\n\n\n=== Tropical
-        Storm Barry ===\n\nOn June 1, Tropical Storm Barry developed on the first
-        day of the hurricane season. It originated from a trough of low pressure in
-        the southeastern Gulf of Mexico that previously formed in the northwestern
-        Caribbean. It accelerated to the northeast before reaching a peak intensity
-        of 997 mbar and making landfall on Florida. Barry dissipated on June 2. In
-        Florida, the rainfall resulted in slick roads, which caused two traffic-related
-        deaths, and a woman was killed after being injured by rough surf.\n\n\n===
-        Tropical Storm Chantal ===\n\nAfter two months of inactivity, an area of low
-        pressure formed near the Bahamas on July 28 and gradually began to organize
-        while moving north-northeast. On July 30 it was classified as Tropical Depression
-        Three and was named Tropical Storm Chantal shortly thereafter while south
-        of Nova Scotia. The storm weakened on August 1 and made landfall on Newfoundland;
-        it later tracked into the North Atlantic as an extratropical storm.Chantal
-        moved over the Avalon Peninsula of Newfoundland where flooding was observed,
-        where about 4 inches (100 mm) of rain caused the postponement of the annual
-        Royal St. John''s Regatta. Insured damage across the area totaled $5.8 million
-        (2007 CAD; $5.5 million 2007 USD$, 7.76 million 2024 USD).\n\n\n=== Hurricane
-        Dean ===\n\nOn August 11, a tropical wave moved off the west coast of Africa,
-        and, encountering favorable conditions, quickly spawned Tropical Depression
-        Four, roughly 520 miles (835 km) west-southwest of Cape Verde. The depression
-        moved briskly westward, south of a deep layered ridge, and was upgraded to
-        Tropical Storm Dean on August 14. The storm continued to strengthen overnight
-        as it gained organization, and became the first hurricane of the season on
-        August 16. On August 17 the eye of the hurricane passed into the Caribbean
-        between the islands of Martinique and Saint Lucia as a Category 2 hurricane.In
-        the warm waters of the Caribbean, Dean rapidly strengthened into a Category
-        5 hurricane with 165 mph (266 km/h) sustained winds. This made it the strongest
-        Atlantic hurricane since Hurricane Wilma\u2014and it was tied for the seventh
-        most intense Atlantic storm of all time. An eyewall replacement cycle weakened
-        Dean, which then passed just south of Jamaica as a Category 4 hurricane. Dean
-        regained Category 5 status late on August 20 and at that strength it made
-        landfall on the Yucat\u00e1n Peninsula of Mexico near Costa Maya on August
-        21. Dean was the first storm to make landfall as a Category 5 hurricane in
-        the Atlantic basin since Hurricane Andrew in 1992. A dropsonde in the eye
-        of the storm estimated a central pressure of 905 mbar, tying Dean with Hurricane
-        Mitch for the seventh most intense Atlantic hurricane ever recorded. Dean
-        was the third most intense landfalling Atlantic storm in history (after the
-        Labor Day Hurricane of 1935 and Hurricane Gilbert of 1988). Dean weakened
-        over land, but re-intensified slightly in the Gulf of Mexico. It made its
-        final landfall near Tecolutla, Veracruz on August 22, dissipating the next
-        day.In Hispaniola, Dean killed 15 people and destroyed hundreds of homes.
-        Dean also left $616 million (2007 USD$, 869 million 2024 USD) in damage on
-        Martinique and $154 million (2007 USD$, 217 million 2024 USD) on Guadeloupe.
-        In Mexico, Hurricane Dean made landfall on the Yucat\u00e1n Peninsula on August
-        21 as a Category 5 hurricane. Throughout its track, Dean killed 44 people
-        and caused several billion dollars in damage.\n\n\n=== Tropical Storm Erin
-        ===\n\nTropical Storm Erin formed on August 16 in the Gulf of Mexico from
-        a persistent area of convection. Based on reconnaissance data received from
-        an NOAA plane investigating the depression, it was upgraded to Tropical Storm
-        Erin on August 15. It weakened to a tropical depression as it made landfall
-        near Lamar, Texas, on August 16, and the NHC issued its last advisory on the
-        system shortly thereafter as it moved inland. Early on August 19 after entering
-        Oklahoma, the remnants of Erin suddenly re-intensified to maximum sustained
-        winds of 60 mph (95 km/h) a short distance west of Oklahoma City.The storm
-        flooded more than 40 homes and businesses. Along its path into the central
-        states, Erin killed 16 people\u20149 directly\u2014and left about $25 million
-        (2007 USD$, 35.3 million 2024 USD) in total damage.\n\n\n=== Hurricane Felix
-        ===\n\nAn area of disturbed weather east of the Windward Islands was designated
-        Tropical Depression Six on August 31. Early on September 1, it was named Tropical
-        Storm Felix, and it was upgraded to a hurricane later that day. Tracking generally
-        westward, it rapidly intensified to Category 5, and after fluctuating in strength,
-        made landfall on Nicaragua with 160 mph (260 km/h) winds. At least 133 deaths
-        and more than $50 million (2007 USD) in damage have been attributed to Felix.
-        With Felix, the 2007 Atlantic hurricane season became the first known to include
-        two hurricanes making landfall at Category 5; hurricanes Irma and Maria made
-        landfall at Category 5 intensity during the 2017 Atlantic season.Felix took
-        a similar path as Hurricane Dean though a bit further south, although its
-        effects were not severe; damage on Tobago was estimated at $250,000 (2007
-        TTD; $40,000 2007 USD$, 56,453 2024 USD). Felix made landfall just south of
-        the border between Nicaragua and Honduras, in a region historically known
-        as the Mosquito Coast, as a Category 5 hurricane with 160 mph (260 km/h) winds
-        on September 4. Residents of the region were reported to have been given little
-        warning of the oncoming hurricane, which left many fisherman stranded at sea.
-        In all, Felix killed at least 130 people, and damage in Nicaragua totaled
-        C$869.3 million (2007 NIO; $46.7 million 2007 USD$, 65.9 million 2024 USD).\n\n\n===
-        Tropical Storm Gabrielle ===\n\nA cold front that moved off the southeastern
-        coast of the United States on September 1 developed a weak low over the waters
-        near Georgia. The low drifted eastward and weakened over the next few days
-        until it joined with convection from an upper-level trough that had been moving
-        over the western Atlantic. On September 8, the center of circulation became
-        sufficiently organized to be declared Subtropical Storm Gabrielle, about 360
-        nautical miles (670 km) southeast of Cape Hatteras. For the next twelve hours,
-        the system''s strongest winds and thunderstorms remained separated from the
-        center. On September 8 new convection eventually united with the center, leading
-        the transition of Gabrielle into a tropical storm. Gabrielle gradually strengthened
-        as it traveled northwest towards North Carolina and Virginia. The storm reached
-        its peak intensity of 60 mph (95 km/h) just before it arrived in Cape Lookout,
-        though strong wind shear kept most of the convection and surface winds offshore.
-        Gabrielle weakened over land, and moved back into the Atlantic on September
-        10. The circulation deteriorated further, and the storm dissipated southwest
-        of Nova Scotia the next day.In advance of the storm, tropical cyclone watches
-        and warnings were issued for coastal areas, while rescue teams and the U.S.
-        Coast Guard were put on standby. The storm dropped heavy rainfall near its
-        immediate landfall location but little precipitation elsewhere. Along the
-        coast, high waves, rip currents, and storm surge were reported. Slight localized
-        flooding was reported. Gusty winds also occurred, though no wind damage was
-        reported. Overall damage was minor, and there were no fatalities.\n\n\n===
-        Tropical Storm Ingrid ===\nA large tropical wave exited Africa on September
-        6 and initially failed to develop due to strong easterly shear. On September
-        9, a broad low-pressure area developed about midway between Africa and the
-        Lesser Antilles. The wind shear slowly weakened, and early on September 12
-        Tropical Depression Eight developed about 1125 miles (1815 km) east of the
-        Lesser Antilles. The system moved west-northwestward due to a ridge to its
-        north, and with continued wind shear, it remained a tropical depression for
-        24 hours before convection increased further. Early on September 13 it intensified
-        into Tropical Storm Ingrid, reaching peak winds of 45 mph (75 km/h). Operationally,
-        it was not upgraded to a tropical storm until that evening.Ingrid remained
-        a tropical storm until September 15, when it weakened to a tropical depression
-        due to high shear from a strong tropical upper tropospheric trough. Gradual
-        weakening continued as it passed northeast of the Leeward Islands. Ingrid
-        briefly reorganized on September 16, before weakening further and degenerating
-        into an open wave early on September 17. The remnants turned northwestward
-        within the low-level steering flow, and dissipated on September 18 without
-        redevelopment. There were no reports of damage or casualties associated with
-        Ingrid because the storm never threatened land.\n\n\n=== Hurricane Humberto
-        ===\n\nOn September 12, an area of thunderstorm activity in the Gulf of Mexico
-        organized into Tropical Depression Nine, about 60 mi (97 km) southeast of
-        Matagorda, Texas. Within three hours of forming, it was named Tropical Storm
-        Humberto, and it turned to the north-northeast before rapidly intensifying.
-        In the early morning hours of September 13, a Hurricane Hunter aircraft found
-        that Humberto had strengthened into a hurricane while located about 15 miles
-        (20 km) off the coast of Texas. Humberto quickly weakened and entered Southwest
-        Louisiana as a tropical storm during the afternoon of September 13, dissipating
-        the next day.Humberto caused some structural damage on High Island and widespread
-        tree and power line damage in the Beaumont\u2013Port Arthur area. Power outages
-        caused four oil refineries to halt production in Beaumont. One person was
-        reported dead as a result of the storm, a Bridge City man killed when his
-        carport crashed on him outside his house. Damage was estimated at $50 million.\n\n\n===
-        Tropical Depression Ten ===\n\nA subtropical depression formed on September
-        21 in the northeastern Gulf of Mexico from the interaction of a tropical wave,
-        the tail end of a cold front, and an upper-level low. Initially containing
-        a poorly defined circulation and intermittent thunderstorm activity, the system
-        transitioned into a tropical depression after convection increased over the
-        center. Tracking northwestward, the depression moved ashore near Fort Walton
-        Beach early on September 22, and shortly thereafter it dissipated over southeastern
-        Alabama.It was the first tropical cyclone to threaten the New Orleans area
-        after the destructive 2005 hurricane season and Hurricane Katrina. Overall
-        impact from the cyclone was minor and largely limited to light rainfall. However,
-        the precursor system spawned a damaging tornado in Eustis, Florida, where
-        20 houses were destroyed and 30 more were damaged. Damage was estimated at
-        $6.2 million.\n\n\n=== Tropical Storm Jerry ===\nThe origins of Jerry were
-        from a non-tropical low-pressure area over the central Atlantic on September
-        21. The system meandered for two days, gradually developing deeper convection
-        and gaining organization. On September 23, the National Hurricane Center declared
-        it a subtropical depression, as a warm core had developed but the system was
-        still involved with an upper-level low, and its strongest winds were well
-        removed from the center. Early on September 23, both satellite estimates and
-        QuikScat data determined that the depression had strengthened into Subtropical
-        Storm Jerry, despite the lack of a well-defined inner core.The storm slowly
-        acquired tropical characteristics including a better-defined warm core, and
-        Jerry became fully tropical that evening as a weak and sheared tropical storm
-        with 40 mph (65 km/h) winds over a small radius. It accelerated northeastward
-        over cooler waters with sea surface temperatures below 75 \u00b0F (24 \u00b0C).
-        On September 24, it weakened to a tropical depression ahead of a powerful
-        cold front with little deep convection remaining in the system. That evening,
-        a QuikScat pass determined that Jerry opened up into a trough, which was being
-        absorbed into the larger frontal system. It completely dissipated by early
-        on September 25. Jerry never approached land during its lifespan, and no damage
-        or casualties were reported.\n\n\n=== Hurricane Karen ===\nA very large tropical
-        wave accompanied by a large envelope of low pressure emerged from the coast
-        of Africa on September 21. As it moved westward, deep convection gradually
-        increased over the disturbance as its broad low-level circulation became better-defined.
-        By September 24, as the system traveled northwestward it organized enough
-        to become a tropical depression. Six hours later the depression was upgraded
-        to Tropical Storm Karen.Karen''s organization and intensity remained steady
-        for the next day. Early on September 26, however, the storm strengthened significantly.
-        In post-operational analysis the cyclone was determined to have reached hurricane-strength
-        for about twelve hours. However, strengthening was short-lived because a sharp
-        upper-level trough to the west of Karen increased the amount of vertical wind
-        shear over the hurricane. By September 28 these unfavorable conditions had
-        weakened Karen to a marginal tropical storm and left its large low-level circulation
-        exposed. Meanwhile, the storm began heading northward and experiencing intermittent
-        bursts of deep convection. However, the relentless wind shear exposed the
-        system''s circulation until it dissipated in the mid-Atlantic on September
-        29. Karen''s remnants lingered near the Leeward Islands for the next few days,
-        although the system never directly affected land. As a result, no reported
-        damages or casualties were associated with Karen.\n\n\n=== Hurricane Lorenzo
-        ===\n\nA tropical wave moved off the western coast of Africa on September
-        11, traversed the Caribbean and crossed the Yucat\u00e1n on September 21.
-        The disturbance developed a small surface low on September 24 while moving
-        erratically over the southwestern Gulf of Mexico. Strong upper-level winds
-        initially prevented the system from developing convection; however, the shear
-        relaxed on the following day and convection increased. On the evening of September
-        25, a hurricane hunter aircraft found evidence that the low qualified as a
-        tropical depression. Under weak steering currents, the depression drifted
-        south and southwest, executing a small cyclonic loop into the Bay of Campeche.
-        Upper-level winds gave way to an anticyclone above the depression, and the
-        system became Tropical Storm Lorenzo on September 27 about 130 nautical miles
-        (240 km) east of Tuxpan. Rapid intensification brought Lorenzo to hurricane
-        status early that evening, less than twelve hours after becoming a tropical
-        storm. Lorenzo reached its peak intensity on September 28, then weakened slightly
-        before making landfall near Tecolutla, Mexico as a minimal hurricane. The
-        small circulation weakened rapidly after landfall, and the system dissipated
-        the next day.Six deaths in Mexico were attributed to Lorenzo, mostly due to
-        flash floods and mudslides. The states of Puebla and Veracruz reported damage
-        from rain and high winds. Two hundred people were forced to evacuate in Hidalgo
-        when the San Lorenzo River overflowed its banks. Lorenzo made landfall in
-        virtually the same location that Hurricane Dean had struck a month earlier.
-        Damage was estimated at $1 billion (2007 MXN; $92 million 2007 USD$, 130 million
-        2024 USD).\n\n\n=== Tropical Storm Melissa ===\nOn September 26, a tropical
-        wave exited Africa and quickly developed a low-pressure area. Following a
-        convective increase and better-defined outflow, it developed into Tropical
-        Depression Fourteen about 115 miles (185 km) west-southwest of the southernmost
-        Cape Verde Islands early on September 28. Because the depression was isolated
-        from the subtropical ridge, the depression drifted west-northwestward. Westerly
-        wind shear prevented significant development, but following an increase in
-        convection, the depression intensified into Tropical Storm Melissa early on
-        September 29. Similar to previous storms Ingrid and Karen, high wind shear
-        in the deep tropics hindered Melissa''s development, and its peak winds were
-        only 40 mph (65 km/h); operationally, satellite imagery suggested the storm
-        reached 45 mph (72 km/h). By September 30, the shear and cooler waters weakened
-        Melissa to a tropical depression with a poorly defined surface center. The
-        system lost its deep convection and by that afternoon, Melissa degenerated
-        into a remnant low. It continued west-northwestward, producing intermittent
-        convection, until being absorbed by a front northeast of the Lesser Antilles
-        on October 5. There were no reports of damage or casualties associated with
-        Melissa.\n\n\n=== Tropical Depression Fifteen ===\nAn area of disturbed weather
-        extended from the northwestern Caribbean to the western Atlantic Ocean on
-        October 4, possibly related to the remnants of Hurricane Karen. The system
-        slowly organized, developing a surface low pressure on October 8 to the northeast
-        of the Turks and Caicos Islands. Convection associated with the storm steadily
-        increased as the low moved towards the northeast. By October 11, the low organized
-        into Tropical Depression Fifteen about 740 mi (1,190 km) east-southeast of
-        Bermuda, after the convection had persisted for about 12 hours. An upper-level
-        low to the west caused strong southwesterly wind shear, which inhibited development.On
-        October 12, a building ridge caused the depression to slow at the same time
-        as the convection began decreasing. The storm''s center became exposed as
-        the deep convection became limited to a few small cells north of the center.
-        By that afternoon, the depression degenerated into a remnant low. The remnant
-        low persisted for the next several days while picking up speed and taking
-        a gradual turn towards the northeast. The low transitioned into an extratropical
-        cyclone on October 14 and intensified, moving through the Azores with gale-force
-        winds. It reached winds of 50 mph (85 km/h) before being absorbed by a larger
-        extratropical storm on October 18.\n\n\n=== Hurricane Noel ===\n\nDuring the
-        evening of October 27, a low-pressure system that had been slowly developing
-        over the eastern Caribbean organized into Tropical Depression Sixteen. On
-        the next day, it strengthened into Tropical Storm Noel, and made landfall
-        on Haiti on October 29. Noel meandered across the western Caribbean for the
-        next three days, intensifying into a hurricane on November 1. Tracking northward,
-        Noel began its transition into an extratropical cyclone on November 2, becoming
-        fully extratropical on November 4 while over Labrador. As a powerful extratropical
-        cyclone, Noel crossed back into the Atlantic and began a track towards western
-        Greenland.Throughout the Caribbean, Hurricane Noel caused severe damage. Torrential
-        rainfall and mudslides caused by the storm killed at least 87 people in the
-        Dominican Republic and at least 73 in Haiti. Noel generated winds of 130 mph
-        (210 km/h) in the Wreckhouse region of Newfoundland and Labrador.\n\n\n===
-        Tropical Storm Olga ===\n\nIn the second week of December, after the official
-        end of the hurricane season, a low developed east of the northernmost Lesser
-        Antilles. It slowly acquired tropical characteristics, and late on December
-        10, the National Hurricane Center declared it Subtropical Storm Olga while
-        just north of Puerto Rico. It is the first post-season storm since Tropical
-        Storm Zeta in the 2005 season. Olga was only one of a few out of season tropical
-        cyclones to make landfall. The storm made landfall on December 11 on the eastern
-        tip of the Dominican Republic. Later that evening, Olga transitioned into
-        a tropical storm just after making landfall. Olga tracked over Hispaniola
-        and emerged in the Caribbean. Strong wind shear and dry air caused Olga to
-        weaken into a remnant low early on December 13.The storm impacted many areas
-        affected by Tropical Storm Noel a month earlier. In Puerto Rico, moderate
-        rainfall caused one death. According to the National Hurricane Center''s Tropical
-        Cyclone Report on Olga, at least 22 occurred due to the release of floodgates
-        at a dam in Santiago Province. Two deaths were also reported in Haiti, and
-        one fatality was confirmed in Puerto Rico. Almost 12,000 homes were damaged,
-        of which 370 were completely destroyed.\n\n\n== Storm names ==\n\nThe following
-        list of names was used for named storms that formed in the North Atlantic
-        in 2007. This is the same list used for the 2001 season, except for Andrea,
-        Ingrid, and Melissa, which replaced Allison, Iris, and Michelle, respectively.
-        Each of the new names was first used in 2007. The names not retired after
-        the season were used for the 2013 season.\n\n\n=== Retirement ===\n\nOn May
-        13, 2008, at the 30th Session of the World Meteorological Organization''s
-        Regional Association IV Hurricane Committee, the WMO retired the names Dean,
-        Felix, and Noel from its Atlantic hurricane name lists, and they will not
-        be used again for another Atlantic hurricane. They were replaced with Dorian,
-        Fernand, and Nestor for the 2013 season.\n\n\n== Season effects ==\nThis is
-        a table of all of the storms that formed in the 2007 Atlantic hurricane season.
-        It includes their name, duration, peak classification and intensities, areas
-        affected, damage, and death totals. Deaths in parentheses are additional and
-        indirect (an example of an indirect death would be a traffic accident), but
-        were still related to that storm. Damage and deaths include totals while the
-        storm was extratropical, a wave, or a low, and all of the damage figures are
-        in 2007 USD.\n\n\n== See also ==\nTropical cyclones in 2007\n2007 Pacific
-        hurricane season\n2007 Pacific typhoon season\n2007 North Indian Ocean cyclone
-        season\nSouth-West Indian Ocean cyclone seasons: 2006\u201307, 2007\u201308\nAustralian
-        region cyclone seasons: 2006\u201307, 2007\u201308\nSouth Pacific cyclone
-        seasons: 2006\u201307, 2007\u201308\n\n\n== Notes ==\n\n\n== References ==\n\n\n==
-        External links ==\nNational Hurricane Center Website\n2007 hurricanes \u2013
-        Free download of all 2007 hurricane paths \u2013 Google Earth required","revisions":[{"revid":1197763446,"parentid":1197585562}]}}}}'
+      string: !!binary |
+        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
     headers:
       accept-ranges:
       - bytes
@@ -709,7 +501,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Mon, 22 Jan 2024 03:34:57 GMT
+      - Mon, 11 Aug 2025 17:52:11 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -717,23 +509,21 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw2368.codfw.wmnet
+      - mw-api-ext.codfw.main-747b795978-g7gtm
       server-timing:
-      - cache;desc="pass", host;desc="cp4037"
-      set-cookie:
-      - NetworkProbeLimit=0.001;Path=/;Secure;Max-Age=3600
+      - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
       - max-age=106384710; includeSubDomains; preload
       transfer-encoding:
       - chunked
       vary:
-      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
       x-cache:
-      - cp4037 miss, cp4037 pass
+      - cp4043 miss, cp4043 pass
       x-cache-status:
       - pass
       x-client-ip:
-      - 205.251.233.183
+      - 205.251.233.110
       x-content-type-options:
       - nosniff
       x-frame-options:

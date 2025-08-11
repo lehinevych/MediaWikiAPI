@@ -14,15 +14,19 @@ interactions:
     uri: https://en.wikipedia.org/w/api.php?prop=info%7Cpageprops&inprop=url&redirects=&titles=Category%3AFeatured_articles&format=json&action=query
   response:
     body:
-      string: '{"batchcomplete":"","query":{"normalized":[{"from":"Category:Featured_articles","to":"Category:Featured
-        articles"}],"pages":{"8966941":{"pageid":8966941,"ns":14,"title":"Category:Featured
-        articles","contentmodel":"wikitext","pagelanguage":"en","pagelanguagehtmlcode":"en","pagelanguagedir":"ltr","touched":"2025-03-15T00:06:27Z","lastrevid":1214573828,"length":625,"fullurl":"https://en.wikipedia.org/wiki/Category:Featured_articles","editurl":"https://en.wikipedia.org/w/index.php?title=Category:Featured_articles&action=edit","canonicalurl":"https://en.wikipedia.org/wiki/Category:Featured_articles","pageprops":{"defaultsort":"Featured
-        Articles","expectunusedcategory":"","hiddencat":"","notoc":"","wikibase_item":"Q4387444"}}}}}'
+      string: !!binary |
+        H4sIAAAAAAAAA6VSTU/DMAz9K8gHTtv6QRlbpQkhJO5InEBoConXRkuTkDqwMfHfcbZpQmiMA700
+        fn55tl+8gRdBspWu8wYJoQYYwGvEsIZ6A9aFThj9gQrqpw0sguuYcSsIGxfW9R0KigHVXATS0mDP
+        d8kdY5wdGJ/PA/Ci4RPrT6bj8bQq0jFhmsvsoQFYZhQVC2oyeFpzANJZQkudU2iY+66XmnBFsKtl
+        hG0i/zmD9gfWUmckXzuWUzowbChs54qyTT5AmZeXw3wyLIqH/LLO87ooH5lgRE8B39IMRTkty3x8
+        NSkZRttQC/W4yjlaRGNiSC22RL6vswztKHXruZgYudBkKcpOWsxU+ksk01bhauRbf701cPa74rmQ
+        pJ2dJdlkpbDOain+32ey0gfnt0+tcCGiod4FYtXDG958G2vlUVK0sUcl97q7fWy1UmgZ24VLruGa
+        IHyLYb4IokvLBAVnrCMnd6TU3ovocc6LkJb2vrqYXFVVBZ/p+wIfJYn79wIAAA==
     headers:
       accept-ranges:
       - bytes
       age:
-      - '2'
+      - '0'
       cache-control:
       - private, must-revalidate, max-age=0
       content-disposition:
@@ -30,11 +34,11 @@ interactions:
       content-encoding:
       - gzip
       content-length:
-      - '371'
+      - '388'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 15 Mar 2025 01:45:23 GMT
+      - Mon, 11 Aug 2025 17:52:14 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -42,26 +46,28 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.eqiad.main-dd9d54c99-4kkwv
+      - mw-api-ext.codfw.main-747b795978-mxgl8
       server-timing:
-      - cache;desc="pass", host;desc="cp3072"
+      - cache;desc="pass", host;desc="cp4043"
       set-cookie:
-      - WMF-Last-Access=15-Mar-2025;Path=/;HttpOnly;secure;Expires=Wed, 16 Apr 2025
-        00:00:00 GMT
-      - WMF-Last-Access-Global=15-Mar-2025;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Wed,
-        16 Apr 2025 00:00:00 GMT
-      - GeoIP=IE:L:Dublin:53.30:-6.18:v4; Path=/; secure; Domain=.wikipedia.org
-      - NetworkProbeLimit=0.001;Path=/;Secure;SameSite=Lax;Max-Age=3600
+      - WMF-Last-Access=11-Aug-2025;Path=/;HttpOnly;secure;Expires=Fri, 12 Sep 2025
+        12:00:00 GMT
+      - WMF-Last-Access-Global=11-Aug-2025;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Fri,
+        12 Sep 2025 12:00:00 GMT
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; Path=/; secure; Domain=.wikipedia.org
+      - NetworkProbeLimit=0.001;Path=/;Secure;SameSite=None;Max-Age=3600
+      - WMF-Uniq=D1jh2yoYWAARuHRpfmrttAJMAAAAAFvdVc43Xi7t5MXnJBnJlJQliAnhyTebYayy;Domain=.wikipedia.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue,
+        11 Aug 2026 00:00:00 GMT
       strict-transport-security:
       - max-age=106384710; includeSubDomains; preload
       vary:
-      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
       x-cache:
-      - cp3072 miss, cp3072 pass
+      - cp4043 miss, cp4043 pass
       x-cache-status:
       - pass
       x-client-ip:
-      - 86.45.201.103
+      - 205.251.233.110
       x-content-type-options:
       - nosniff
       x-frame-options:
@@ -79,15 +85,20 @@ interactions:
       Connection:
       - keep-alive
       Cookie:
-      - WMF-Last-Access=15-Mar-2025; NetworkProbeLimit=0.001; WMF-Last-Access-Global=15-Mar-2025;
-        GeoIP=IE:L:Dublin:53.30:-6.18:v4
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=11-Aug-2025;
+        WMF-Uniq=D1jh2yoYWAARuHRpfmrttAJMAAAAAFvdVc43Xi7t5MXnJBnJlJQliAnhyTebYayy;
+        NetworkProbeLimit=0.001; WMF-Last-Access=11-Aug-2025
       User-Agent:
       - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
     method: GET
     uri: https://en.wikipedia.org/w/api.php?prop=info%7Cpageprops&inprop=url&redirects=&titles=ThisPageDefinitelyDoesNotExist2024&format=json&action=query
   response:
     body:
-      string: '{"batchcomplete":"","query":{"pages":{"-1":{"ns":0,"title":"ThisPageDefinitelyDoesNotExist2024","missing":"","contentmodel":"wikitext","pagelanguage":"en","pagelanguagehtmlcode":"en","pagelanguagedir":"ltr","fullurl":"https://en.wikipedia.org/wiki/ThisPageDefinitelyDoesNotExist2024","editurl":"https://en.wikipedia.org/w/index.php?title=ThisPageDefinitelyDoesNotExist2024&action=edit","canonicalurl":"https://en.wikipedia.org/wiki/ThisPageDefinitelyDoesNotExist2024"}}}}'
+      string: !!binary |
+        H4sIAAAAAAAAA61QvU4DMQx+lwxM5VIqppOqLmWtOvACIedeLHxOmvjEVRXvjg0bQipDMyTO92fL
+        V/cWJKaYp0Ig4HrnVu48Q724/upKGKFZ8fhkN2u9XjlBIVO+JmxHVezhhIwCdNlnaIcsLws22aw3
+        z5o1YWvI409wzCzAMuUBSJEPfFfbIspYJwo8zvoqA/wLSzJRVNtf3IBVYZKq+GkmmquFJ5HSeu+B
+        O+tTVBa6XEdvP/+v2dUit8I88gBLV1LZfe9lezv5IUTBzFuLt6UEzowx3GvuTz1f5UsNntcBAAA=
     headers:
       accept-ranges:
       - bytes
@@ -104,7 +115,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 15 Mar 2025 01:45:24 GMT
+      - Mon, 11 Aug 2025 17:52:14 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -112,19 +123,22 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.eqiad.main-dd9d54c99-gx7qq
+      - mw-api-ext.codfw.main-747b795978-8c4x7
       server-timing:
-      - cache;desc="pass", host;desc="cp3072"
+      - cache;desc="pass", host;desc="cp4043"
+      set-cookie:
+      - WMF-Uniq=D1jh2yoYWAARuHRpfmrttAJMAAEBAFvdPwBQgAUnY54taSORGb1GBvX6TiYxHPsL;Domain=.wikipedia.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue,
+        11 Aug 2026 00:00:00 GMT
       strict-transport-security:
       - max-age=106384710; includeSubDomains; preload
       vary:
-      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
       x-cache:
-      - cp3072 miss, cp3072 pass
+      - cp4043 miss, cp4043 pass
       x-cache-status:
       - pass
       x-client-ip:
-      - 86.45.201.103
+      - 205.251.233.110
       x-content-type-options:
       - nosniff
       x-frame-options:
@@ -142,16 +156,21 @@ interactions:
       Connection:
       - keep-alive
       Cookie:
-      - WMF-Last-Access=15-Mar-2025; NetworkProbeLimit=0.001; WMF-Last-Access-Global=15-Mar-2025;
-        GeoIP=IE:L:Dublin:53.30:-6.18:v4
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=11-Aug-2025;
+        WMF-Uniq=D1jh2yoYWAARuHRpfmrttAJMAAEBAFvdPwBQgAUnY54taSORGb1GBvX6TiYxHPsL;
+        NetworkProbeLimit=0.001; WMF-Last-Access=11-Aug-2025
       User-Agent:
       - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
     method: GET
     uri: https://en.wikipedia.org/w/api.php?prop=info%7Cpageprops&inprop=url&redirects=&titles=This+Page+Does+Not+Exist+2024&format=json&action=query
   response:
     body:
-      string: '{"batchcomplete":"","query":{"pages":{"-1":{"ns":0,"title":"This Page
-        Does Not Exist 2024","missing":"","contentmodel":"wikitext","pagelanguage":"en","pagelanguagehtmlcode":"en","pagelanguagedir":"ltr","fullurl":"https://en.wikipedia.org/wiki/This_Page_Does_Not_Exist_2024","editurl":"https://en.wikipedia.org/w/index.php?title=This_Page_Does_Not_Exist_2024&action=edit","canonicalurl":"https://en.wikipedia.org/wiki/This_Page_Does_Not_Exist_2024"}}}}'
+      string: !!binary |
+        H4sIAAAAAAAAA62QMU8DMQyF/8opA1O5lIrppIqFrqhD9yjkzMUi54TEJw5V/HfswoQQLGRInOeX
+        5085m0fPIYY8lwQMZjBmY14WqG9mOJviJ2haXN/oTlJvN4aRkzpPEVt3FEt3n6F1D5m7w4qNu912
+        dysxM7aGNH1mhkwMxHMeIYnyis/IsLJ0dEjyNC1ySgfomxZ5TkGe/dQbsYqcuIr+tKS0VA2PzKUN
+        1gL1OqeIzfe5TlZvVrGdYjvFdoLtLtjuC1vc/FeORRph7Ussd5ff2P8aeuUDY6a9JutXeMqEwf8D
+        7busD19hgZDDAQAA
     headers:
       accept-ranges:
       - bytes
@@ -168,7 +187,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 15 Mar 2025 01:45:24 GMT
+      - Mon, 11 Aug 2025 17:52:14 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -176,19 +195,19 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.eqiad.main-dd9d54c99-k4476
+      - mw-api-ext.codfw.main-747b795978-9lpbz
       server-timing:
-      - cache;desc="pass", host;desc="cp3072"
+      - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
       - max-age=106384710; includeSubDomains; preload
       vary:
-      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
       x-cache:
-      - cp3072 miss, cp3072 pass
+      - cp4043 miss, cp4043 pass
       x-cache-status:
       - pass
       x-client-ip:
-      - 86.45.201.103
+      - 205.251.233.110
       x-content-type-options:
       - nosniff
       x-frame-options:
@@ -206,17 +225,21 @@ interactions:
       Connection:
       - keep-alive
       Cookie:
-      - WMF-Last-Access=15-Mar-2025; NetworkProbeLimit=0.001; WMF-Last-Access-Global=15-Mar-2025;
-        GeoIP=IE:L:Dublin:53.30:-6.18:v4
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=11-Aug-2025;
+        WMF-Uniq=D1jh2yoYWAARuHRpfmrttAJMAAEBAFvdPwBQgAUnY54taSORGb1GBvX6TiYxHPsL;
+        NetworkProbeLimit=0.001; WMF-Last-Access=11-Aug-2025
       User-Agent:
       - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
     method: GET
     uri: https://en.wikipedia.org/w/api.php?prop=info%7Cpageprops&inprop=url&redirects=&titles=This_Page_Does_Not_Exist_2024&format=json&action=query
   response:
     body:
-      string: '{"batchcomplete":"","query":{"normalized":[{"from":"This_Page_Does_Not_Exist_2024","to":"This
-        Page Does Not Exist 2024"}],"pages":{"-1":{"ns":0,"title":"This Page Does
-        Not Exist 2024","missing":"","contentmodel":"wikitext","pagelanguage":"en","pagelanguagehtmlcode":"en","pagelanguagedir":"ltr","fullurl":"https://en.wikipedia.org/wiki/This_Page_Does_Not_Exist_2024","editurl":"https://en.wikipedia.org/w/index.php?title=This_Page_Does_Not_Exist_2024&action=edit","canonicalurl":"https://en.wikipedia.org/wiki/This_Page_Does_Not_Exist_2024"}}}}'
+      string: !!binary |
+        H4sIAAAAAAAAA62QP0/EMAzFv0rlgam0x4mp0okFVsTAhlAUUl9rkX8krihU991xekwI0YUsSZ5/
+        fs/yAi+azWiCixYZoQOo4W3C9AHdAj4kpy19Yg/d0wLHFJwQjyNl9aAHVLcBs7oPrO5myqz2u/21
+        tHP4hqoCVQWqBKpWqFqh03MNUYq5pFxerVny3kkzscXN/hoc5Ux+OA9sgmf07EKPVpR3eiXGmeEc
+        YrUfJrmlgv6HNrKzRtp+q/WURLacRD9O1k6pmI/MMXdti74pOVEw3YQ0tOXXbu1GaN7yacn3ODdx
+        jDfrNg5/ml5owxT8oTiXVWgfPBn9D9Oe5HwBbsaeOyACAAA=
     headers:
       accept-ranges:
       - bytes
@@ -228,10 +251,12 @@ interactions:
       - inline; filename=api-result.json
       content-encoding:
       - gzip
+      content-length:
+      - '263'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 15 Mar 2025 01:45:24 GMT
+      - Mon, 11 Aug 2025 17:52:14 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -239,21 +264,19 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.eqiad.main-dd9d54c99-gx7qq
+      - mw-api-ext.codfw.main-747b795978-c8dz5
       server-timing:
-      - cache;desc="pass", host;desc="cp3072"
+      - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
       - max-age=106384710; includeSubDomains; preload
-      transfer-encoding:
-      - chunked
       vary:
-      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
       x-cache:
-      - cp3072 miss, cp3072 pass
+      - cp4043 miss, cp4043 pass
       x-cache-status:
       - pass
       x-client-ip:
-      - 86.45.201.103
+      - 205.251.233.110
       x-content-type-options:
       - nosniff
       x-frame-options:

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import unittest
+
 from mediawikiapi import MediaWikiAPI
 from mediawikiapi.config import Config
 

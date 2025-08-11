@@ -1,5 +1,6 @@
 from datetime import timedelta
-from typing import Union, Optional
+from typing import Optional, Union
+
 from .language import Language
 
 
@@ -85,8 +86,9 @@ class Config(object):
         HTTPTimeoutError still might be raised.
 
         Arguments:
-        * min_wait - (integer or timedelta) describes the minimum time to wait in miliseconds before requests.
-               Example timedelta(milliseconds=50). If None, rate_limit won't be used.
+        * min_wait - (integer or timedelta) describes the minimum time to wait in
+               miliseconds before requests. Example timedelta(milliseconds=50).
+               If None, rate_limit won't be used.
 
         """
         if rate_limit is None:

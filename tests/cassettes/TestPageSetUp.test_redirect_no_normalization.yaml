@@ -9,22 +9,28 @@ interactions:
       Connection:
       - keep-alive
       Cookie:
-      - WMF-Last-Access=08-Mar-2025; NetworkProbeLimit=0.001; WMF-Last-Access-Global=08-Mar-2025;
-        GeoIP=IE:L:Dublin:53.30:-6.18:v4
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=11-Aug-2025;
+        WMF-Uniq=3cEbA0zYMY-UvTrB82-zXQJMAAEBAFvd_8w8U69SPkK95dCdDpjLNFFy9SizEshW;
+        NetworkProbeLimit=0.001; WMF-Last-Access=11-Aug-2025
       User-Agent:
       - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
     method: GET
     uri: https://en.wikipedia.org/w/api.php?prop=info%7Cpageprops&inprop=url&redirects=&titles=Communist+Party&format=json&action=query
   response:
     body:
-      string: '{"batchcomplete":"","query":{"redirects":[{"from":"Communist Party","to":"Communist
-        party"}],"pages":{"37008":{"pageid":37008,"ns":0,"title":"Communist party","contentmodel":"wikitext","pagelanguage":"en","pagelanguagehtmlcode":"en","pagelanguagedir":"ltr","touched":"2025-03-08T16:23:00Z","lastrevid":1276297586,"length":14817,"fullurl":"https://en.wikipedia.org/wiki/Communist_party","editurl":"https://en.wikipedia.org/w/index.php?title=Communist_party&action=edit","canonicalurl":"https://en.wikipedia.org/wiki/Communist_party","pageprops":{"jsonconfig_getdata":"1","wikibase-shortdesc":"Political
-        party that promotes communist philosophy and values","wikibase_item":"Q233591"}}}}}'
+      string: !!binary |
+        H4sIAAAAAAAAA51Sy07DMBD8lWgPnNLmUdq0kRAHfgAkTiBUGWdbWzi2sTfQquq/s04FCFQJiVyS
+        zI7Hszt7gGdBUknXe4OE0ALk8Dpg2EN7gICdDigpQvt4gE1wPRNuXN8PVkfKbkWgPfPJ/YD9CB+f
+        cvBiizEJzZqyXKaPhOgO2hHIwXK1ZAFNBs9o5CCdJbTUuw4NE971iybcEZy0jbDbgd9cQfsLU9Qb
+        ycfO1bgrhg2F0fwgFbIlqMt6PimXk7K+rxZtNWur5oEJRkQK+JZcV3WzqFfNfLlgGO2WFGOXy6rJ
+        YTMYM4TkURH52BYF2mmy6/k2MXVhW6S/4qvF9WeLXKe/ThbadribeuWvx1ld/ZK5EJK0s1dJK01N
+        WGe1FP90lEblg/NjdInzLCJOonKBOoySFW+d0ZQuOAWVkRKcGe+HI4yZ/I5RaeOi82qfCdtlb+yI
+        FyL/El1zmmmn7urZbL6q4JieD70bDX2UAgAA
     headers:
       accept-ranges:
       - bytes
       age:
-      - '0'
+      - '2'
       cache-control:
       - private, must-revalidate, max-age=0
       content-disposition:
@@ -34,7 +40,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 08 Mar 2025 23:43:33 GMT
+      - Mon, 11 Aug 2025 17:51:41 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -42,21 +48,21 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.eqiad.main-5594c987b8-444fg
+      - mw-api-ext.codfw.main-747b795978-mbjrs
       server-timing:
-      - cache;desc="pass", host;desc="cp3072"
+      - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
       - max-age=106384710; includeSubDomains; preload
       transfer-encoding:
       - chunked
       vary:
-      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
       x-cache:
-      - cp3072 miss, cp3072 pass
+      - cp4043 miss, cp4043 pass
       x-cache-status:
       - pass
       x-client-ip:
-      - 86.45.201.103
+      - 205.251.233.110
       x-content-type-options:
       - nosniff
       x-frame-options:

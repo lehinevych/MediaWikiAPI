@@ -1,11 +1,12 @@
-from functools import partial
-from typing import Dict, List, Union, Optional, Any, Tuple
 from decimal import Decimal
-from .exceptions import PageError, HTTPTimeoutError, MediaWikiAPIException
+from functools import partial
+from typing import Any, Dict, List, Optional, Tuple, Union
+
 from .config import Config
+from .exceptions import HTTPTimeoutError, MediaWikiAPIException, PageError
+from .requestsession import RequestSession
 from .util import memorized
 from .wikipediapage import WikipediaPage
-from .requestsession import RequestSession
 
 
 class MediaWikiAPI(object):

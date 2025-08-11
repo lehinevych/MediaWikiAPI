@@ -14,7 +14,12 @@ interactions:
     uri: https://en.wikipedia.org/w/api.php?prop=info%7Cpageprops&inprop=url&redirects=&titles=butteryfly&format=json&action=query
   response:
     body:
-      string: '{"batchcomplete":"","query":{"normalized":[{"from":"butteryfly","to":"Butteryfly"}],"pages":{"-1":{"ns":0,"title":"Butteryfly","missing":"","contentmodel":"wikitext","pagelanguage":"en","pagelanguagehtmlcode":"en","pagelanguagedir":"ltr","fullurl":"https://en.wikipedia.org/wiki/Butteryfly","editurl":"https://en.wikipedia.org/w/index.php?title=Butteryfly&action=edit","canonicalurl":"https://en.wikipedia.org/wiki/Butteryfly"}}}}'
+      string: !!binary |
+        H4sIAAAAAAAAA5WPwU7DMAyG38UHTqWBa6UJiddAHLLUbS0cJ6SOtlHt3XG2wzSEhMglye/v/21v
+        sPcalpBiZlSEAaCDz4rlBMMGkkr0TF84wvC2wVRSNGJfVQ2Y+GSsJlNeb8r5vYPsZ1yb//H5kmLv
+        JyNJGe/hDiKtK8l87RuSKIrGNCKbcqAPUjwqXBPZy1zttgrKD23RyMFsv9VGKiazFtOnylxLC19U
+        8zo4h9K3Ptkw36cyu/ZzdzNaSf8yOZIRj31e8stlz90t4cEHpSS7FtOW9JKEgv/vHGc730Yd2S6u
+        AQAA
     headers:
       accept-ranges:
       - bytes
@@ -31,7 +36,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 15 Mar 2025 01:39:15 GMT
+      - Mon, 11 Aug 2025 17:51:40 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -39,26 +44,28 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.eqiad.main-dd9d54c99-ghj4w
+      - mw-api-ext.codfw.main-747b795978-9h4dj
       server-timing:
-      - cache;desc="pass", host;desc="cp3072"
+      - cache;desc="pass", host;desc="cp4043"
       set-cookie:
-      - WMF-Last-Access=15-Mar-2025;Path=/;HttpOnly;secure;Expires=Wed, 16 Apr 2025
-        00:00:00 GMT
-      - WMF-Last-Access-Global=15-Mar-2025;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Wed,
-        16 Apr 2025 00:00:00 GMT
-      - GeoIP=IE:L:Dublin:53.30:-6.18:v4; Path=/; secure; Domain=.wikipedia.org
-      - NetworkProbeLimit=0.001;Path=/;Secure;SameSite=Lax;Max-Age=3600
+      - WMF-Last-Access=11-Aug-2025;Path=/;HttpOnly;secure;Expires=Fri, 12 Sep 2025
+        12:00:00 GMT
+      - WMF-Last-Access-Global=11-Aug-2025;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Fri,
+        12 Sep 2025 12:00:00 GMT
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; Path=/; secure; Domain=.wikipedia.org
+      - NetworkProbeLimit=0.001;Path=/;Secure;SameSite=None;Max-Age=3600
+      - WMF-Uniq=3cEbA0zYMY-UvTrB82-zXQJMAAAAAFvdS_gHp_Uu2dpoY29DNPDIQOafxCWS9GwD;Domain=.wikipedia.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue,
+        11 Aug 2026 00:00:00 GMT
       strict-transport-security:
       - max-age=106384710; includeSubDomains; preload
       vary:
-      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
       x-cache:
-      - cp3072 miss, cp3072 pass
+      - cp4043 miss, cp4043 pass
       x-cache-status:
       - pass
       x-client-ip:
-      - 86.45.201.103
+      - 205.251.233.110
       x-content-type-options:
       - nosniff
       x-frame-options:
@@ -76,16 +83,20 @@ interactions:
       Connection:
       - keep-alive
       Cookie:
-      - WMF-Last-Access=15-Mar-2025; NetworkProbeLimit=0.001; WMF-Last-Access-Global=15-Mar-2025;
-        GeoIP=IE:L:Dublin:53.30:-6.18:v4
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=11-Aug-2025;
+        WMF-Uniq=3cEbA0zYMY-UvTrB82-zXQJMAAAAAFvdS_gHp_Uu2dpoY29DNPDIQOafxCWS9GwD;
+        NetworkProbeLimit=0.001; WMF-Last-Access=11-Aug-2025
       User-Agent:
       - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
     method: GET
     uri: https://en.wikipedia.org/w/api.php?list=search&srprop=&srlimit=1&limit=1&srsearch=butteryfly&srinfo=suggestion&format=json&action=query
   response:
     body:
-      string: '{"warnings":{"main":{"*":"Unrecognized parameter: limit."}},"batchcomplete":"","continue":{"sroffset":1,"continue":"-||"},"query":{"searchinfo":{"suggestion":"butterfly","suggestionsnippet":"butterfly"},"search":[{"ns":0,"title":"Great
-        Road Historic District","pageid":17239598}]}}'
+      string: !!binary |
+        H4sIAAAAAAAAA02PsW4CMQyGX+XkEV0rYKBVnqErE2IwwRcs3TkhcdTCkXevjw5lsqzP/2d7hm/M
+        whIKuBkmZFnqChzsJZOPQfhO5y5hxomUsutGnljfobUeTqj+4uOURkMWgR58FGWptFhKjsNQSMFt
+        XgG8PR5g6WulfHvOEWZ/YRnis6shUFGOdgmcqtrSYbyZ+h8U4ZQW7ws34Z8H3GEGsXfWPSjruGz8
+        wjvmWjrFH9P2kDAQn8F9bj/Wm107tvYL/U4rkwgBAAA=
     headers:
       accept-ranges:
       - bytes
@@ -98,11 +109,11 @@ interactions:
       content-encoding:
       - gzip
       content-length:
-      - '216'
+      - '203'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 15 Mar 2025 01:39:15 GMT
+      - Mon, 11 Aug 2025 17:51:40 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -110,25 +121,28 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.eqiad.main-dd9d54c99-7r4s8
+      - mw-api-ext.codfw.main-747b795978-q66lc
       server-timing:
-      - cache;desc="pass", host;desc="cp3072"
+      - cache;desc="pass", host;desc="cp4043"
+      set-cookie:
+      - WMF-Uniq=3cEbA0zYMY-UvTrB82-zXQJMAAEBAFvd_8w8U69SPkK95dCdDpjLNFFy9SizEshW;Domain=.wikipedia.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Tue,
+        11 Aug 2026 00:00:00 GMT
       strict-transport-security:
       - max-age=106384710; includeSubDomains; preload
       vary:
-      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
       x-cache:
-      - cp3072 miss, cp3072 pass
+      - cp4043 miss, cp4043 pass
       x-cache-status:
       - pass
       x-client-ip:
-      - 86.45.201.103
+      - 205.251.233.110
       x-content-type-options:
       - nosniff
       x-frame-options:
       - DENY
       x-search-id:
-      - 37zmzh26wsbb5rbvnlgjjzdup
+      - 5z307oktw4il4nw6iaomlwi6a
     status:
       code: 200
       message: OK
@@ -142,21 +156,29 @@ interactions:
       Connection:
       - keep-alive
       Cookie:
-      - WMF-Last-Access=15-Mar-2025; NetworkProbeLimit=0.001; WMF-Last-Access-Global=15-Mar-2025;
-        GeoIP=IE:L:Dublin:53.30:-6.18:v4
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=11-Aug-2025;
+        WMF-Uniq=3cEbA0zYMY-UvTrB82-zXQJMAAEBAFvd_8w8U69SPkK95dCdDpjLNFFy9SizEshW;
+        NetworkProbeLimit=0.001; WMF-Last-Access=11-Aug-2025
       User-Agent:
       - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
     method: GET
     uri: https://en.wikipedia.org/w/api.php?prop=info%7Cpageprops&inprop=url&redirects=&titles=butterfly&format=json&action=query
   response:
     body:
-      string: '{"batchcomplete":"","query":{"normalized":[{"from":"butterfly","to":"Butterfly"}],"pages":{"48338":{"pageid":48338,"ns":0,"title":"Butterfly","contentmodel":"wikitext","pagelanguage":"en","pagelanguagehtmlcode":"en","pagelanguagedir":"ltr","touched":"2025-03-13T09:07:32Z","lastrevid":1279511297,"length":103287,"fullurl":"https://en.wikipedia.org/wiki/Butterfly","editurl":"https://en.wikipedia.org/w/index.php?title=Butterfly&action=edit","canonicalurl":"https://en.wikipedia.org/wiki/Butterfly","pageprops":{"jsonconfig_getdata":"1","page_image_free":"Fesoj_-_Papilio_machaon_(by).jpg","wikibase-badge-Q17437798":"","wikibase-shortdesc":"Group
-        of insects in the order Lepidoptera","wikibase_item":"Q11946202"}}}}}'
+      string: !!binary |
+        H4sIAAAAAAAAA5VSwWrcMBD9FaNDScG7ttfeeNcQCj20lx4a6KklGFke20pkjSqN22yX/HtHG7Ik
+        pRBijGW/N+/5aUZH0UlSk8LZGSAQjRCp+LmAP4jmKCz6WRr9B3rR/DiKwePMFd1CBH4wBy4lZODj
+        GXi4SYWTI4SornZluYsvEdFscQJSYZnNWarJwAt1KhRaAksz9mCY+q3vNME9iUdXI+248MoM2H+w
+        iWajWPY/rteeYUP+FHhRU9yP2OSb7Srf8f0tL5rNvsk337nAyEAefsW8RZlXVV1t9wXDYEeaGMvL
+        y3qbimExZvEx5ETkQpNlYNcxr+PfyTX6MYtf2fPdMUOvaTJte7hfu8l9ODXo6mzwTirSaK+iS2yV
+        tGi1km9OETvjPLrwNJpWz/E5eIjd+wQBb9tV+1U6bTS2s1STRNtedIf361s3skO07GSAVSf7EVbX
+        RV2Vdb3fPZ6eMxsm9NRDUIx/9ri4BIdE2wCKAq8JTZCg78EnX8DpHh1HlM8MWp59PG/XRbGvLnlc
+        4iFefwE7SXQyswIAAA==
     headers:
       accept-ranges:
       - bytes
       age:
-      - '0'
+      - '1'
       cache-control:
       - private, must-revalidate, max-age=0
       content-disposition:
@@ -164,11 +186,11 @@ interactions:
       content-encoding:
       - gzip
       content-length:
-      - '426'
+      - '412'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 15 Mar 2025 01:39:15 GMT
+      - Mon, 11 Aug 2025 17:51:41 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -176,19 +198,19 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.eqiad.main-dd9d54c99-fq9vr
+      - mw-api-ext.codfw.main-747b795978-q66lc
       server-timing:
-      - cache;desc="pass", host;desc="cp3072"
+      - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
       - max-age=106384710; includeSubDomains; preload
       vary:
-      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
       x-cache:
-      - cp3072 miss, cp3072 pass
+      - cp4043 miss, cp4043 pass
       x-cache-status:
       - pass
       x-client-ip:
-      - 86.45.201.103
+      - 205.251.233.110
       x-content-type-options:
       - nosniff
       x-frame-options:

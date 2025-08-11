@@ -40,7 +40,13 @@ def test(args: List[str]) -> int:
     """Run tests with pytest."""
     cmd = ["pytest"]
     if not args:
-        cmd.extend(["--junitxml=pytest.xml", "--cov-report=term-missing:skip-covered", "--cov=mediawikiapi"])
+        cmd.extend(
+            [
+                "--junitxml=pytest.xml",
+                "--cov-report=term-missing:skip-covered",
+                "--cov=mediawikiapi",
+            ]
+        )
     else:
         cmd.extend(args)
     return run_command(cmd)
@@ -83,8 +89,12 @@ def main() -> int:
 
     # Install commands
     install_parser = subparsers.add_parser("install", help="Install the package")
-    install_dev_parser = subparsers.add_parser("install-dev", help="Install development dependencies")
-    install_docs_parser = subparsers.add_parser("install-docs", help="Install documentation dependencies")
+    install_dev_parser = subparsers.add_parser(
+        "install-dev", help="Install development dependencies"
+    )
+    install_docs_parser = subparsers.add_parser(
+        "install-docs", help="Install documentation dependencies"
+    )
 
     # Test commands
     test_parser = subparsers.add_parser("test", help="Run tests")
@@ -99,7 +109,7 @@ def main() -> int:
     # Build commands
     subparsers.add_parser("build", help="Build the package")
     subparsers.add_parser("build-docs", help="Build the documentation")
-    
+
     # Git hooks
     subparsers.add_parser("setup-hooks", help="Set up pre-commit hooks")
 

@@ -66,9 +66,10 @@ class RedirectError(MediaWikiAPIException):
         self.title = title
 
     def __unicode__(self) -> str:
-        return '"{0}" resulted in a redirect. Set the redirect property to True to allow automatic redirects.'.format(
-            self.title
-        )
+        return (
+            '"{0}" resulted in a redirect. '
+            "Set the redirect property to True to allow automatic redirects."
+        ).format(self.title)
 
 
 class HTTPTimeoutError(MediaWikiAPIException):

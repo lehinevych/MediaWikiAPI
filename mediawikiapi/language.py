@@ -1,5 +1,7 @@
-import requests
 from typing import Dict, Optional
+
+import requests
+
 from .exceptions import LanguageError
 
 __all__ = ["Language"]
@@ -41,7 +43,7 @@ class Language(object):
         language = language.lower()
         if (
             self.__class__.predefined_languages
-            and language in self.__class__.predefined_languages.keys()
+            and language in self.__class__.predefined_languages
         ):
             self._language = language
         else:
@@ -61,7 +63,10 @@ class Language(object):
             "User-Agent": "mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)"
         }
         response = requests.get(
-            "https://en.wikipedia.org/w/api.php", params=params, headers=headers
+            "https://en.wikipedia.org/w/api.php",
+            params=params,
+            headers=headers,
+            timeout=10,
         )
         response_dict = response.json()
         languages = response_dict["query"]["languages"]

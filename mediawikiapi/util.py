@@ -1,10 +1,11 @@
 from __future__ import annotations
-import sys
-import re
+
 import collections
 import functools
+import re
+import sys
 from collections.abc import Callable
-from typing import Dict, TypeVar, Any, Optional
+from typing import Any, Dict, Optional, TypeVar
 
 if sys.version_info >= (3, 10):
     from typing import ParamSpec
@@ -40,16 +41,12 @@ class memoized_class(object):
         if args and args[0] is not None:
             instance = args[0]
             if hasattr(instance, "config"):
-                config = getattr(instance, "config")
+                config = instance.config
                 if hasattr(config, "language"):
-                    language = getattr(config, "language")
+                    language = config.language
 
         # Include language in the cache key if available
-        key = (
-            f"{language}:{str(args)}{str(kwargs)}"
-            if language
-            else str(args) + str(kwargs)
-        )
+        key = f"{language}:{args!s}{kwargs!s}" if language else str(args) + str(kwargs)
 
         if key in self.cache:
             return self.cache[key]

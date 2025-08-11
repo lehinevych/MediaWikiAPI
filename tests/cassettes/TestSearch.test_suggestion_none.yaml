@@ -9,15 +9,18 @@ interactions:
       Connection:
       - keep-alive
       Cookie:
-      - WMF-Last-Access=22-Jan-2024; NetworkProbeLimit=0.001; WMF-Last-Access-Global=22-Jan-2024;
-        GeoIP=US:WA:Seattle:47.61:-122.34:v4
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=11-Aug-2025;
+        WMF-Uniq=E62lNjx291wg9e7enJ8bxgJMAAEBAFvdYSAAkq56yUWb0IWWXxukF7VOiqCfq9Un;
+        NetworkProbeLimit=0.001; WMF-Last-Access=11-Aug-2025
       User-Agent:
       - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
     method: GET
     uri: https://en.wikipedia.org/w/api.php?list=search&srprop=&srlimit=10&limit=10&srsearch=qmxjsudek&srinfo=suggestion&format=json&action=query
   response:
     body:
-      string: '{"warnings":{"main":{"*":"Unrecognized parameter: limit."}},"batchcomplete":"","query":{"search":[]}}'
+      string: !!binary |
+        H4sIAAAAAAAAAxWMQQ5AMBBFryJ/KY0D9B5WYjFqUpPoYFQE6d2xeouX9x6cZCoad/gHiUR/1vBo
+        1TgsUeXmsVrJKHFm89UsSXKDUhwGymEKS1rnT30JHLaD7foXO5OFCb7rS3kBiw+JU2UAAAA=
     headers:
       accept-ranges:
       - bytes
@@ -27,12 +30,14 @@ interactions:
       - private, must-revalidate, max-age=0
       content-disposition:
       - inline; filename=api-result.json
+      content-encoding:
+      - gzip
       content-length:
-      - '101'
+      - '110'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Mon, 22 Jan 2024 03:35:04 GMT
+      - Mon, 11 Aug 2025 17:51:16 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -40,27 +45,25 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-76547589f-x8mp5
+      - mw-api-ext.codfw.main-747b795978-wlvbh
       server-timing:
-      - cache;desc="pass", host;desc="cp4044"
-      set-cookie:
-      - NetworkProbeLimit=0.001;Path=/;Secure;Max-Age=3600
+      - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
       - max-age=106384710; includeSubDomains; preload
       vary:
-      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
       x-cache:
-      - cp4044 miss, cp4044 pass
+      - cp4043 miss, cp4043 pass
       x-cache-status:
       - pass
       x-client-ip:
-      - 205.251.233.111
+      - 205.251.233.110
       x-content-type-options:
       - nosniff
       x-frame-options:
       - DENY
       x-search-id:
-      - bth5ha1ijk2h22dbw8q0follt
+      - 9c3hslkzfacu97jqosxgi26wg
     status:
       code: 200
       message: OK

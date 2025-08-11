@@ -14,6 +14,10 @@ Version 2.0
 * Replace Black, isort, flake8, and autoflake with Ruff for linting and formatting
 * Add pre-commit hooks for automatic code quality checks
 * Improve development workflow documentation
+* Fix type checking and linting issues
+* Add test fixtures update script for maintaining tests with changing Wikipedia API responses
+* Update GitHub Actions workflows to use uv and ruff
+* Make tests more resilient to Wikipedia content changes
 
 Version 1.3
 =============

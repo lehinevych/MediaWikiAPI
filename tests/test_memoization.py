@@ -1,8 +1,9 @@
 import unittest
+
 import pytest
-from mediawikiapi.util import memorized
+
 from mediawikiapi import MediaWikiAPI
-from typing import Any, Optional
+from mediawikiapi.util import memorized
 
 
 class MockConfig:
@@ -26,7 +27,7 @@ class MockInstanceWithConfig:
 
     @memorized
     def method_with_unhashable_arg(self, arg: list[str]) -> str:
-        return f"{self.config.language}:{str(arg)}"
+        return f"{self.config.language}:{arg!s}"
 
 
 class MockInstanceWithoutConfig:
@@ -53,7 +54,7 @@ def standalone_cached_function(arg: str) -> str:
     return arg
 
 
-@pytest.mark.vcr()
+@pytest.mark.vcr
 class TestMemoization(unittest.TestCase):
     def test_basic_caching(self) -> None:
         """Test basic caching functionality with language"""

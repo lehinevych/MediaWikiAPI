@@ -9,31 +9,35 @@ interactions:
       Connection:
       - keep-alive
       Cookie:
-      - WMF-Last-Access=22-Jan-2024; NetworkProbeLimit=0.001; enwikiBlockID=7781584%21acb3698c0663da184887e233ee83006d902072e4790c37ee696ccee73a24c70a34f6a80eafc80375caf3156df8ac4f0bf6e670471da800b0efe1729943b5fb2e;
-        WMF-Last-Access-Global=22-Jan-2024; GeoIP=US:WA:Seattle:47.61:-122.34:v4
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=11-Aug-2025;
+        WMF-Uniq=3cEbA0zYMY-UvTrB82-zXQJMAAEBAFvd_8w8U69SPkK95dCdDpjLNFFy9SizEshW;
+        NetworkProbeLimit=0.001; WMF-Last-Access=11-Aug-2025
       User-Agent:
       - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
     method: GET
     uri: https://en.wikipedia.org/w/api.php?prop=info%7Cpageprops&inprop=url&redirects=&titles=Celtuce&format=json&action=query
   response:
     body:
-      string: '{"batchcomplete":"","query":{"pages":{"1868108":{"pageid":1868108,"ns":0,"title":"Celtuce","contentmodel":"wikitext","pagelanguage":"en","pagelanguagehtmlcode":"en","pagelanguagedir":"ltr","touched":"2024-01-14T08:20:36Z","lastrevid":1194071915,"length":4964,"fullurl":"https://en.wikipedia.org/wiki/Celtuce","editurl":"https://en.wikipedia.org/w/index.php?title=Celtuce&action=edit","canonicalurl":"https://en.wikipedia.org/wiki/Celtuce","pageprops":{"page_image_free":"Celtuce.jpg","wikibase-shortdesc":"Lettuce
-        cultivar","wikibase_item":"Q574172"}}}}}'
+      string: !!binary |
+        H4sIAAAAAAAAA5VRTU8DIRD9K4aDp+1+1Xa3JI0Hr15MPHlpKDtdUBYQhlrT+N8dmjYaY2IkhI83
+        7w2PmSPbCpRKuskbQGCcsYK9JgjvjB+ZFyPEfGj6Zd/U/QXTA+NnqGCWGHXBUKPJ+jswmCRQGuks
+        gsXJDWAo8KZfNMIBKZJzGGHHRDtFwP7AFE5Gkuy32KADwQYD4eiSVEBmWFu3i1nd03ysG96ueL18
+        IoIREQPsT37bVdfPu3m3JBjsiIrxxbxfFWyXjEkhW1SIPvKqAltmt54eE6ULY5Vv1dfPCMe/FJW2
+        AxxKr/ztqTTrs/xaSNTOrnOOXCRhndVS/NNBrogPzsdLSzZ6yusuwLcmlM9+JHLWbkWEWVQu4ABR
+        EuUeMFOuZDKo9yJ8422oTxNRHhbdTdO17COPT45xiRwqAgAA
     headers:
-      accept-ranges:
-      - bytes
       age:
       - '0'
       cache-control:
       - private, must-revalidate, max-age=0
       content-disposition:
       - inline; filename=api-result.json
-      content-length:
-      - '554'
+      content-encoding:
+      - gzip
       content-type:
       - application/json; charset=utf-8
       date:
-      - Mon, 22 Jan 2024 03:34:47 GMT
+      - Mon, 11 Aug 2025 17:52:07 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -41,21 +45,21 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw2358.codfw.wmnet
+      - mw-api-ext.codfw.main-747b795978-gmb9d
       server-timing:
-      - cache;desc="pass", host;desc="cp4044"
-      set-cookie:
-      - NetworkProbeLimit=0.001;Path=/;Secure;Max-Age=3600
+      - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
       - max-age=106384710; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
       vary:
-      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
       x-cache:
-      - cp4044 miss, cp4044 pass
+      - cp4043 miss, cp4043 pass
       x-cache-status:
       - pass
       x-client-ip:
-      - 205.251.233.111
+      - 205.251.233.110
       x-content-type-options:
       - nosniff
       x-frame-options:
@@ -73,33 +77,36 @@ interactions:
       Connection:
       - keep-alive
       Cookie:
-      - WMF-Last-Access=22-Jan-2024; NetworkProbeLimit=0.001; enwikiBlockID=7781584%21acb3698c0663da184887e233ee83006d902072e4790c37ee696ccee73a24c70a34f6a80eafc80375caf3156df8ac4f0bf6e670471da800b0efe1729943b5fb2e;
-        WMF-Last-Access-Global=22-Jan-2024; GeoIP=US:WA:Seattle:47.61:-122.34:v4
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=11-Aug-2025;
+        WMF-Uniq=3cEbA0zYMY-UvTrB82-zXQJMAAEBAFvd_8w8U69SPkK95dCdDpjLNFFy9SizEshW;
+        NetworkProbeLimit=0.001; WMF-Last-Access=11-Aug-2025
       User-Agent:
       - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
     method: GET
     uri: https://en.wikipedia.org/w/api.php?prop=info%7Cpageprops&inprop=url&redirects=&titles=2007+Atlantic+hurricane+season&format=json&action=query
   response:
     body:
-      string: '{"batchcomplete":"","query":{"pages":{"2528069":{"pageid":2528069,"ns":0,"title":"2007
-        Atlantic hurricane season","contentmodel":"wikitext","pagelanguage":"en","pagelanguagehtmlcode":"en","pagelanguagedir":"ltr","touched":"2024-01-21T21:16:51Z","lastrevid":1197763446,"length":89612,"fullurl":"https://en.wikipedia.org/wiki/2007_Atlantic_hurricane_season","editurl":"https://en.wikipedia.org/w/index.php?title=2007_Atlantic_hurricane_season&action=edit","canonicalurl":"https://en.wikipedia.org/wiki/2007_Atlantic_hurricane_season","pageprops":{"defaultsort":"2007
-        Atlantic Hurricane Season","page_image_free":"2007_Atlantic_hurricane_season_summary_map.png","wikibase-badge-Q17437796":"1","wikibase-shortdesc":"Hurricane
-        season in the Atlantic Ocean","wikibase_item":"Q756793"}}}}}'
+      string: !!binary |
+        H4sIAAAAAAAAA61Sy07DMBD8lcoHTm3ebZpIFeLGtYITl8h1tomFYxt7A60q/p11oRVvLkRRHrO7
+        45ndPbANR9ELM1gFCKxmbMoeRnB7Vh+Y5R348JHNs2WyqE6YbFn9Bk2ZpoxkylCiCvVZkpSTK1Rc
+        oxSTfnROCq5h4oF7o4ldGI2gcTAtKMp/kvcSYYcUCdRU1430pgjoT1iPgxJU9l2slY5ghY5wNKPo
+        oT2KyeazZEn3bVLVaVLPyztKUNyjg8dgI82TYpnmZUpOFOgOe1ZXWVEUU7YdlRpd0NgjWl/HMego
+        yLV0Go+M6+LwFwfHzclxc3bcnB1TOv5FFEvdwi6yvb08dnL1O+sFFyiNXgXq0FOujab4/+gNfbXO
+        2OPoW9jyUaE3Dr9M9/o83Zv3tY0cwnPr4LQQPx/X+HEYuNs3A7eR1R1RBJEb7mG24W0Hs3VaFnlZ
+        VovX5TxHfU+SWvDiI97QNg0Ercv5oqxy9hyuF6H4jNjnAgAA
     headers:
-      accept-ranges:
-      - bytes
       age:
       - '0'
       cache-control:
       - private, must-revalidate, max-age=0
       content-disposition:
       - inline; filename=api-result.json
-      content-length:
-      - '782'
+      content-encoding:
+      - gzip
       content-type:
       - application/json; charset=utf-8
       date:
-      - Mon, 22 Jan 2024 03:34:47 GMT
+      - Mon, 11 Aug 2025 17:52:07 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -107,21 +114,21 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw2321.codfw.wmnet
+      - mw-api-ext.codfw.main-747b795978-tq6qr
       server-timing:
-      - cache;desc="pass", host;desc="cp4037"
-      set-cookie:
-      - NetworkProbeLimit=0.001;Path=/;Secure;Max-Age=3600
+      - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
       - max-age=106384710; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
       vary:
-      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
       x-cache:
-      - cp4037 miss, cp4037 pass
+      - cp4043 miss, cp4043 pass
       x-cache-status:
       - pass
       x-client-ip:
-      - 205.251.233.183
+      - 205.251.233.110
       x-content-type-options:
       - nosniff
       x-frame-options:
@@ -139,33 +146,38 @@ interactions:
       Connection:
       - keep-alive
       Cookie:
-      - WMF-Last-Access=22-Jan-2024; NetworkProbeLimit=0.001; enwikiBlockID=7781584%21acb3698c0663da184887e233ee83006d902072e4790c37ee696ccee73a24c70a34f6a80eafc80375caf3156df8ac4f0bf6e670471da800b0efe1729943b5fb2e;
-        WMF-Last-Access-Global=22-Jan-2024; GeoIP=US:WA:Seattle:47.61:-122.34:v4
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=11-Aug-2025;
+        WMF-Uniq=3cEbA0zYMY-UvTrB82-zXQJMAAEBAFvd_8w8U69SPkK95dCdDpjLNFFy9SizEshW;
+        NetworkProbeLimit=0.001; WMF-Last-Access=11-Aug-2025
       User-Agent:
       - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
     method: GET
     uri: https://en.wikipedia.org/w/api.php?prop=info%7Cpageprops&inprop=url&redirects=&titles=Great+Wall+of+China&format=json&action=query
   response:
     body:
-      string: '{"batchcomplete":"","query":{"pages":{"5094570":{"pageid":5094570,"ns":0,"title":"Great
-        Wall of China","contentmodel":"wikitext","pagelanguage":"en","pagelanguagehtmlcode":"en","pagelanguagedir":"ltr","touched":"2024-01-21T16:15:21Z","lastrevid":1195260685,"length":58991,"fullurl":"https://en.wikipedia.org/wiki/Great_Wall_of_China","editurl":"https://en.wikipedia.org/w/index.php?title=Great_Wall_of_China&action=edit","canonicalurl":"https://en.wikipedia.org/wiki/Great_Wall_of_China","pageprops":{"defaultsort":"Great
-        Wall Of China","page_image_free":"The_Great_Wall_of_China_at_Jinshanling-edit.jpg","wikibase-shortdesc":"Series
-        of defensive walls along the historical northern borders of China","wikibase_item":"Q12501"}}}}}'
+      string: !!binary |
+        H4sIAAAAAAAAA6VSwU7kMAz9lSoHTjPTdJjCUAlx4IDEBa1AWolLFVq3CaROSNyFFdp/X3vEsFo0
+        EgdySNpn++U9O2/qwVBnuzBFDwSqUWqhnmdIv1XzpqIZIctHrc829aneY65XzTu0UMgZfJAjL/VX
+        CQwVP433RRiKS+vQMGUXkABpCj14TnpxT47glTgifN7gOPPJEcBPmKXJd1x2KNa7xLCnxDiFubPA
+        wtRar+ul3i6r6q46bXTd1Mf3nOBNpgS/RHt1rPWZPtluKoYBR7LsZ7tZbxdqmL2fk2i0RDE3ZQm4
+        ErmRbzOrkMZS/sqdzVZstmFo9zY5h76qLh328LqKNl7senZ+gOrIdOQCngufdM9gQNeZbyiTtsUU
+        4m6cPQxm9pRDov8ndvNvYlLQukn2IYG0/85Ce4C8ZeDaYbYGvcNxKZpXj3FkDtHzYDIss+Wresgd
+        09xCcpDlcQwMuoF9iddcOCyQEQsJP1TsGVp+LhMX/6jWta7UH1l/AUtTG+W8AgAA
     headers:
-      accept-ranges:
-      - bytes
       age:
       - '0'
       cache-control:
       - private, must-revalidate, max-age=0
       content-disposition:
       - inline; filename=api-result.json
+      content-encoding:
+      - gzip
       content-length:
-      - '730'
+      - '390'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Mon, 22 Jan 2024 03:34:47 GMT
+      - Mon, 11 Aug 2025 17:52:07 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -173,21 +185,19 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-76547589f-xp5f6
+      - mw-api-ext.codfw.main-747b795978-rbhlc
       server-timing:
-      - cache;desc="pass", host;desc="cp4044"
-      set-cookie:
-      - NetworkProbeLimit=0.001;Path=/;Secure;Max-Age=3600
+      - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
       - max-age=106384710; includeSubDomains; preload
       vary:
-      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
       x-cache:
-      - cp4044 miss, cp4044 pass
+      - cp4043 miss, cp4043 pass
       x-cache-status:
       - pass
       x-client-ip:
-      - 205.251.233.111
+      - 205.251.233.110
       x-content-type-options:
       - nosniff
       x-frame-options:
@@ -205,101 +215,38 @@ interactions:
       Connection:
       - keep-alive
       Cookie:
-      - WMF-Last-Access=22-Jan-2024; NetworkProbeLimit=0.001; enwikiBlockID=7781584%21acb3698c0663da184887e233ee83006d902072e4790c37ee696ccee73a24c70a34f6a80eafc80375caf3156df8ac4f0bf6e670471da800b0efe1729943b5fb2e;
-        WMF-Last-Access-Global=22-Jan-2024; GeoIP=US:WA:Seattle:47.61:-122.34:v4
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=11-Aug-2025;
+        WMF-Uniq=3cEbA0zYMY-UvTrB82-zXQJMAAEBAFvd_8w8U69SPkK95dCdDpjLNFFy9SizEshW;
+        NetworkProbeLimit=0.001; WMF-Last-Access=11-Aug-2025
       User-Agent:
       - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
     method: GET
     uri: https://en.wikipedia.org/w/api.php?prop=info%7Cpageprops&inprop=url&redirects=&titles=Avatar+%282009+film%29&format=json&action=query
   response:
     body:
-      string: '{"batchcomplete":"","query":{"pages":{"4273140":{"pageid":4273140,"ns":0,"title":"Avatar
-        (2009 film)","contentmodel":"wikitext","pagelanguage":"en","pagelanguagehtmlcode":"en","pagelanguagedir":"ltr","touched":"2024-01-21T19:15:00Z","lastrevid":1197738338,"length":228059,"fullurl":"https://en.wikipedia.org/wiki/Avatar_(2009_film)","editurl":"https://en.wikipedia.org/w/index.php?title=Avatar_(2009_film)&action=edit","canonicalurl":"https://en.wikipedia.org/wiki/Avatar_(2009_film)","pageprops":{"defaultsort":"Avatar","displaytitle":"<i>Avatar</i>
-        (2009 film)","page_image":"Avatar_(2009_film)_poster.jpg","toc":"","wikibase-badge-Q17437798":"1","wikibase-shortdesc":"Science
-        fiction film by James Cameron","wikibase_item":"Q24871"}}}}}'
+      string: !!binary |
+        H4sIAAAAAAAAA51Sy07DMBD8lcgHBFLbPGnaqC1CSBy4IXHiErnJNjE4trE3pVXFv7NuKUItEhI5
+        xMns7HjW4x1bcqzaSndGAgIrGBuwtx7slhU7ZngDzn9kSZ7GWXTERM2KL2jAFDFoQYHS99+uOXIb
+        XCZRNA1WQnZXpFhphaCw0zVI4ryLV4GwQap4OclV09NKFVAnWIudrKjtt1otLMESLeGo+6oF8sWS
+        KLkeRpNhHD/FaZGkRTZ9JoLkDi2svfU4ja7TdJxMMoJBNdgy4uVJPB6wVS9lb73JFtG4IgxBjbxf
+        Q9vxkbZN6P/Cw5jlfszyOCZR8K/mUKgaNiPTmpv9kc3PlS54hUKruZfzh8eVVqLi//flD81YbfZZ
+        1rDivUSnLX7HRZxaOCP59hjjTCwOpVkoFidperlSdIfEzjcsjXYIdvRimn0w1eFWeXtL7mC45HUD
+        w8c4z9I8n05Oqq4lYzU433VPcsFyGzzwDlxwR2+r1Q9ySbeoI95jkk3ymH345xOMGFkv0gIAAA==
     headers:
-      accept-ranges:
-      - bytes
-      age:
-      - '2'
-      cache-control:
-      - private, must-revalidate, max-age=0
-      content-disposition:
-      - inline; filename=api-result.json
-      content-length:
-      - '739'
-      content-type:
-      - application/json; charset=utf-8
-      date:
-      - Mon, 22 Jan 2024 03:34:47 GMT
-      nel:
-      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
-        0.0}'
-      report-to:
-      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
-        }] }'
-      server:
-      - mw2298.codfw.wmnet
-      server-timing:
-      - cache;desc="pass", host;desc="cp4044"
-      set-cookie:
-      - NetworkProbeLimit=0.001;Path=/;Secure;Max-Age=3600
-      strict-transport-security:
-      - max-age=106384710; includeSubDomains; preload
-      vary:
-      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie
-      x-cache:
-      - cp4044 miss, cp4044 pass
-      x-cache-status:
-      - pass
-      x-client-ip:
-      - 205.251.233.111
-      x-content-type-options:
-      - nosniff
-      x-frame-options:
-      - DENY
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate
-      Connection:
-      - keep-alive
-      Cookie:
-      - WMF-Last-Access=22-Jan-2024; NetworkProbeLimit=0.001; enwikiBlockID=7781584%21acb3698c0663da184887e233ee83006d902072e4790c37ee696ccee73a24c70a34f6a80eafc80375caf3156df8ac4f0bf6e670471da800b0efe1729943b5fb2e;
-        WMF-Last-Access-Global=22-Jan-2024; GeoIP=US:WA:Seattle:47.61:-122.34:v4
-      User-Agent:
-      - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
-    method: GET
-    uri: https://en.wikipedia.org/w/api.php?prop=langlinks&llurl=True&lllang=es&titles=Celtuce&format=json&action=query
-  response:
-    body:
-      string: '{"batchcomplete":"","warnings":{"main":{"*":"Subscribe to the mediawiki-api-announce
-        mailing list at <https://lists.wikimedia.org/postorius/lists/mediawiki-api-announce.lists.wikimedia.org/>
-        for notice of API deprecations and breaking changes. Use [[Special:ApiFeatureUsage]]
-        to see usage of deprecated features by your application."},"langlinks":{"*":"The
-        parameter \"llurl\" has been deprecated."}},"query":{"pages":{"1868108":{"pageid":1868108,"ns":0,"title":"Celtuce","langlinks":[{"lang":"es","url":"https://es.wikipedia.org/wiki/Lechuga_china","*":"Lechuga
-        china"}]}}}}'
-    headers:
-      accept-ranges:
-      - bytes
       age:
       - '0'
       cache-control:
       - private, must-revalidate, max-age=0
       content-disposition:
       - inline; filename=api-result.json
+      content-encoding:
+      - gzip
       content-length:
-      - '575'
+      - '397'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Mon, 22 Jan 2024 03:34:48 GMT
+      - Mon, 11 Aug 2025 17:52:07 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -307,21 +254,19 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw2356.codfw.wmnet
+      - mw-api-ext.codfw.main-747b795978-pzr42
       server-timing:
-      - cache;desc="pass", host;desc="cp4044"
-      set-cookie:
-      - NetworkProbeLimit=0.001;Path=/;Secure;Max-Age=3600
+      - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
       - max-age=106384710; includeSubDomains; preload
       vary:
-      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
       x-cache:
-      - cp4044 miss, cp4044 pass
+      - cp4043 miss, cp4043 pass
       x-cache-status:
       - pass
       x-client-ip:
-      - 205.251.233.111
+      - 205.251.233.110
       x-content-type-options:
       - nosniff
       x-frame-options:
@@ -339,22 +284,23 @@ interactions:
       Connection:
       - keep-alive
       Cookie:
-      - WMF-Last-Access=22-Jan-2024; NetworkProbeLimit=0.001; enwikiBlockID=7781584%21acb3698c0663da184887e233ee83006d902072e4790c37ee696ccee73a24c70a34f6a80eafc80375caf3156df8ac4f0bf6e670471da800b0efe1729943b5fb2e;
-        WMF-Last-Access-Global=22-Jan-2024; GeoIP=US:WA:Seattle:47.61:-122.34:v4
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=11-Aug-2025;
+        WMF-Uniq=3cEbA0zYMY-UvTrB82-zXQJMAAEBAFvd_8w8U69SPkK95dCdDpjLNFFy9SizEshW;
+        NetworkProbeLimit=0.001; WMF-Last-Access=11-Aug-2025
       User-Agent:
       - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
     method: GET
-    uri: https://en.wikipedia.org/w/api.php?prop=langlinks&llurl=True&lllang=ru&titles=2007+Atlantic+hurricane+season&format=json&action=query
+    uri: https://en.wikipedia.org/w/api.php?prop=langlinks&llurl=True&lllang=es&titles=Celtuce&format=json&action=query
   response:
     body:
-      string: '{"batchcomplete":"","warnings":{"main":{"*":"Subscribe to the mediawiki-api-announce
-        mailing list at <https://lists.wikimedia.org/postorius/lists/mediawiki-api-announce.lists.wikimedia.org/>
-        for notice of API deprecations and breaking changes. Use [[Special:ApiFeatureUsage]]
-        to see usage of deprecated features by your application."},"langlinks":{"*":"The
-        parameter \"llurl\" has been deprecated."}},"query":{"pages":{"2528069":{"pageid":2528069,"ns":0,"title":"2007
-        Atlantic hurricane season","langlinks":[{"lang":"ru","url":"https://ru.wikipedia.org/wiki/%D0%A1%D0%B5%D0%B7%D0%BE%D0%BD_%D0%B0%D1%82%D0%BB%D0%B0%D0%BD%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D1%85_%D1%83%D1%80%D0%B0%D0%B3%D0%B0%D0%BD%D0%BE%D0%B2_2007_%D0%B3%D0%BE%D0%B4%D0%B0","*":"\u0421\u0435\u0437\u043e\u043d
-        \u0430\u0442\u043b\u0430\u043d\u0442\u0438\u0447\u0435\u0441\u043a\u0438\u0445
-        \u0443\u0440\u0430\u0433\u0430\u043d\u043e\u0432 2007 \u0433\u043e\u0434\u0430"}]}}}}'
+      string: !!binary |
+        H4sIAAAAAAAAA21RXUsDMRD8K0se5bxrX6QcIhRBEHwQ1KdaZC+3vVuaJjEfSCn97256rSgYOHI7
+        m5nJTg6qw6RH7XbeUCLVKlWpLwyW7RBVe1A7ZFv2K2m95C7qwB1BcpBGgh31jF+85Wv08lnrstUC
+        Ixvhg+GYABPcjin52DZNAWJdCCdm7cLQeBeTC5zj1G3+16z/o97BxgWwLrGYug0snx+hJx9IY2Jn
+        I6DtoQuE23IbPaIdKNbwFglWqxdPmtG0S88PhCkHeos40HpdhotEkEtZZC+S1MNmOhmh28Pe5QDo
+        veHJrlbHShnxkNm38ZLZq8TkMeBO0g3wrozJwbwrGFFEiOwvdREQhc9MYV/YXuxPMvPFzWI+W1ww
+        7lV7hipl5cSsUomTKY93TyZlTerPRVaHUyVt0auU+Mvv5UloCtX/hFqq5on0mAf80CNbFE6Z5IzB
+        hB3XR1nfKry/cj8CAAA=
     headers:
       accept-ranges:
       - bytes
@@ -367,11 +313,11 @@ interactions:
       content-encoding:
       - gzip
       content-length:
-      - '493'
+      - '356'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Mon, 22 Jan 2024 03:34:48 GMT
+      - Mon, 11 Aug 2025 17:52:07 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -379,21 +325,92 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw2366.codfw.wmnet
+      - mw-api-ext.codfw.main-747b795978-fpgzn
       server-timing:
-      - cache;desc="pass", host;desc="cp4044"
-      set-cookie:
-      - NetworkProbeLimit=0.001;Path=/;Secure;Max-Age=3600
+      - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
       - max-age=106384710; includeSubDomains; preload
       vary:
-      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
       x-cache:
-      - cp4044 miss, cp4044 pass
+      - cp4043 miss, cp4043 pass
       x-cache-status:
       - pass
       x-client-ip:
-      - 205.251.233.111
+      - 205.251.233.110
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=11-Aug-2025;
+        WMF-Uniq=3cEbA0zYMY-UvTrB82-zXQJMAAEBAFvd_8w8U69SPkK95dCdDpjLNFFy9SizEshW;
+        NetworkProbeLimit=0.001; WMF-Last-Access=11-Aug-2025
+      User-Agent:
+      - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?prop=langlinks&llurl=True&lllang=ru&titles=2007+Atlantic+hurricane+season&format=json&action=query
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA21R24rbMBD9lUGQl5I6ju00aSgFL2mhb4XtPiUhyPYkFnEkVReWEPLvHcnrXW9Z
+        g49GZ2bOXHRjFXd1W6uL7tAhWzM2Zc/cSCFPlq1v7MKFDOcncj36ytZGVAhOgWsRLtgI/izO4jPX
+        9EupvKyJ5qKjfOiEdcAdfGud03Y9mwXCJiEhZibKnGZaWaeM8Lb3zj7WTD5K/Q5HZUAqJ6ioOkL5
+        +xc0qA3W3AklLXDZQGWQn0M3dcvlCW0CTxZhu33UWAverUstfiJ33uCT5Sfc78NwFhF8uAbZQRIb
+        OPaRFqorXJU3wLXuRF8uYfcp66gGzX62w87+0Jo0N/xC2zWwY13nTbdj0HISQZQjdRIghb8ezTVk
+        ayofZbJFtkq/fB040bD1CzVlkiLSKXPCdeHxsjRdQumoC9oJtN4Yak4izcOtkuxdf9tbvFGW8eSh
+        tsgcXsr4uGv9uutwm0026aScB3xYRFxG/BFxc4hHOtnMJ6ss2g8DE9wjfhXt5SBEdi9ajryLQzzy
+        iOlIKH8v+lo/O4TpD6OYni/6eBoxvMfOp0U2D5gvIi4jYsQG4pEGLLJoV29M3oz4VbSXb0JFL8pH
+        3kWUK/KI6Ugo/1/0pX4G8QFHMT1f9PHsvr/T9w+AQ3yxtAMAAA==
+    headers:
+      accept-ranges:
+      - bytes
+      age:
+      - '2'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-encoding:
+      - gzip
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Mon, 11 Aug 2025 17:52:07 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw-api-ext.codfw.main-747b795978-slglk
+      server-timing:
+      - cache;desc="pass", host;desc="cp4043"
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      x-cache:
+      - cp4043 miss, cp4043 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 205.251.233.110
       x-content-type-options:
       - nosniff
       x-frame-options:

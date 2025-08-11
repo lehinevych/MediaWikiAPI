@@ -9,17 +9,22 @@ interactions:
       Connection:
       - keep-alive
       Cookie:
-      - WMF-Last-Access=22-Jan-2024; NetworkProbeLimit=0.001; WMF-Last-Access-Global=22-Jan-2024;
-        GeoIP=US:WA:Seattle:47.61:-122.34:v4
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=11-Aug-2025;
+        WMF-Uniq=P6Co9e0owceCGbduXF2ljQJMAAEBAFvd1G9yw5snqb8CdGACIl2jy3FABWiBrV-s;
+        NetworkProbeLimit=0.001; WMF-Last-Access=11-Aug-2025
       User-Agent:
       - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
     method: GET
     uri: https://en.wikipedia.org/w/api.php?list=geosearch&gsradius=10000&gscoord=40.67693%7C117.23193&gslimit=10&format=json&action=query
   response:
     body:
-      string: '{"batchcomplete":"","query":{"geosearch":[{"pageid":5094570,"ns":0,"title":"Great
-        Wall of China","lat":40.68,"lon":117.23,"dist":378.2,"primary":""},{"pageid":10135375,"ns":0,"title":"Jinshanling","lat":40.67638888888889,"lon":117.24444444444444,"dist":1057.1,"primary":""},{"pageid":34692121,"ns":0,"title":"Gubeikou","lat":40.69,"lon":117.15722222222223,"dist":6465,"primary":""},{"pageid":57219049,"ns":0,"title":"Xinchengzi,
-        Beijing","lat":40.6425,"lon":117.32805555555555,"dist":8966.7,"primary":""}]}}'
+      string: !!binary |
+        H4sIAAAAAAAAA3XQy27CMBAF0F+JZh1FHj9jL+miUn+glaouTHATg3HSPBYU8e8Ni4BLxN3YkjU+
+        unOGrR2rpmqPXXCjAwOQw8/k+hOYM9SuHZztqwbM5xk6Wzu/AyOI5kKRHOIAZj5GP4br5Gvv7Ji9
+        2xCy9jt7aXy082fBjmA4KWQ539sIBlEVlOWw88P8wlRZ0By63h/tFQW45HcKCTLBlFhZbz4OjY3B
+        xzo1lGTlEp16PM1iIxGqwKe40lJKLeQK39iDGxp/+o8ryiTekuCoGRFL5IJLZGWhnuKMS02R4nrL
+        09b5QzultdOqKBS95bZmyaV4as0TqAnXK+vDx6pxsf71ebZxfv+wbU5FAjNa3muKBS7nJT7W/Lpc
+        /gBbevXOeAIAAA==
     headers:
       accept-ranges:
       - bytes
@@ -29,12 +34,14 @@ interactions:
       - private, must-revalidate, max-age=0
       content-disposition:
       - inline; filename=api-result.json
+      content-encoding:
+      - gzip
       content-length:
-      - '507'
+      - '295'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Mon, 22 Jan 2024 03:33:58 GMT
+      - Mon, 11 Aug 2025 17:51:39 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -42,27 +49,25 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-76547589f-xp5f6
+      - mw-api-ext.codfw.main-747b795978-gsm4w
       server-timing:
-      - cache;desc="pass", host;desc="cp4044"
-      set-cookie:
-      - NetworkProbeLimit=0.001;Path=/;Secure;Max-Age=3600
+      - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
       - max-age=106384710; includeSubDomains; preload
       vary:
-      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
       x-cache:
-      - cp4044 miss, cp4044 pass
+      - cp4043 miss, cp4043 pass
       x-cache-status:
       - pass
       x-client-ip:
-      - 205.251.233.111
+      - 205.251.233.110
       x-content-type-options:
       - nosniff
       x-frame-options:
       - DENY
       x-search-id:
-      - 415nx78ji6c9nyhrvafqvud0l
+      - 104tfdgkz839vl3cvvg8tv5ud
     status:
       code: 200
       message: OK

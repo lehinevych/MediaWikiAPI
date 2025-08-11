@@ -1,11 +1,13 @@
 import unittest
-import pytest
-from mediawikiapi import MediaWikiAPI
-from mediawikiapi.config import Config
 from decimal import Decimal
 
+import pytest
 
-@pytest.mark.vcr()
+from mediawikiapi import MediaWikiAPI
+from mediawikiapi.config import Config
+
+
+@pytest.mark.vcr
 class TestContinuation(unittest.TestCase):
     """Test the continuation functionality of MediaWikiAPI"""
 
