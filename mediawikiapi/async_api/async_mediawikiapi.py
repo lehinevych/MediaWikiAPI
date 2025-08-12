@@ -16,7 +16,13 @@ class AsyncMediaWikiAPI(BaseMediaWikiAPI[AsyncWikipediaPage, Coroutine[Any, Any,
     def __init__(self, config: Optional[Config] = None) -> None:
         """Initialize with optional configuration"""
         super().__init__(config)
-        self.session = AsyncRequestSession()
+        # Initialize the session with connection pooling settings from config
+        self.session = AsyncRequestSession(
+            pool_size=self.config.connection_pool_size,
+            pool_connections_per_host=self.config.connections_per_host
+        )
+        # Configure concurrent requests limit
+        self.session.set_max_concurrent_requests(self.config.max_concurrent_requests)
 
     async def close(self) -> None:
         """Close the session"""
@@ -29,6 +35,33 @@ class AsyncMediaWikiAPI(BaseMediaWikiAPI[AsyncWikipediaPage, Coroutine[Any, Any,
     async def __aexit__(self, exc_type: Any, exc_val: Any, exc_tb: Any) -> None:
         """Close the session when exiting context"""
         await self.close()
+        
+    def set_connection_pool_size(self, size: int) -> None:
+        """Set the maximum number of connections in the connection pool.
+        
+        Args:
+            size: Maximum number of connections
+        """
+        self.config.connection_pool_size = size
+        self.session.set_pool_size(size)
+        
+    def set_connections_per_host(self, limit: int) -> None:
+        """Set the maximum number of connections per host.
+        
+        Args:
+            limit: Maximum number of connections per host
+        """
+        self.config.connections_per_host = limit
+        self.session.set_max_connections_per_host(limit)
+        
+    def set_concurrent_request_limit(self, limit: int) -> None:
+        """Set the maximum number of concurrent requests.
+        
+        Args:
+            limit: Maximum number of concurrent requests
+        """
+        self.config.max_concurrent_requests = limit
+        self.session.set_max_concurrent_requests(limit)
 
     def invalidate_cache(self, method_name: str, *args: Any, **kwargs: Any) -> bool:
         """

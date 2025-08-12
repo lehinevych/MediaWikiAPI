@@ -24,6 +24,11 @@ class Config(object):
     DEFAULT_RETRY_BACKOFF_MAX = 60  # seconds
     DEFAULT_RETRY_STATUS_CODES = {429, 500, 502, 503, 504}
     
+    # Default concurrency settings
+    DEFAULT_CONNECTION_POOL_SIZE = 100
+    DEFAULT_CONNECTIONS_PER_HOST = 10
+    DEFAULT_MAX_CONCURRENT_REQUESTS = 10
+    
     class RetryStrategy(Enum):
         """Enum defining retry strategies"""
         NONE = auto()           # No retries
@@ -46,6 +51,9 @@ class Config(object):
         retry_strategy: RetryStrategy = RetryStrategy.DEFAULT,
         min_api_version: Optional[MediaWikiVersion] = None,
         feature_compatibility_mode: bool = True,
+        connection_pool_size: Optional[int] = None,
+        connections_per_host: Optional[int] = None,
+        max_concurrent_requests: Optional[int] = None,
     ):
         if language is not None:
             self.__lang = Language(language)
@@ -64,6 +72,19 @@ class Config(object):
         self.min_api_version: MediaWikiVersion = min_api_version or MEDIAWIKI_1_34
         self.feature_compatibility_mode: bool = feature_compatibility_mode
         self.detected_api_versions: Dict[str, MediaWikiVersion] = {}
+        
+        # Initialize concurrency control settings
+        self.connection_pool_size: int = connection_pool_size or self.DEFAULT_CONNECTION_POOL_SIZE
+        self.connections_per_host: int = connections_per_host or self.DEFAULT_CONNECTIONS_PER_HOST
+        self.max_concurrent_requests: int = max_concurrent_requests or self.DEFAULT_MAX_CONCURRENT_REQUESTS
+        
+        # Validate concurrency settings
+        if self.connection_pool_size < 1:
+            raise ValueError("Connection pool size must be at least 1")
+        if self.connections_per_host < 1:
+            raise ValueError("Connections per host must be at least 1")
+        if self.max_concurrent_requests < 1:
+            raise ValueError("Maximum concurrent requests must be at least 1")
         
         # Initialize retry settings
         self.retry_strategy = retry_strategy

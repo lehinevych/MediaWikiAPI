@@ -3,7 +3,8 @@ import random
 import socket
 import time
 from datetime import datetime
-from typing import Any, Dict, Optional, Union, Coroutine
+from typing import Any, Dict, Optional, Union, Coroutine, List
+from urllib.parse import urlparse
 
 import aiohttp
 from aiohttp.client_exceptions import (
@@ -23,27 +24,52 @@ from ..common.http_util import (
     calculate_backoff_with_jitter, prepare_api_url, prepare_error_context,
     prepare_request_headers, should_rate_limit, should_retry_status_code
 )
+from ..common.concurrency import AsyncRequestLimiter, BackpressureController
 from ..config import Config
 from ..exceptions import NetworkError, HTTPTimeoutError
 from ..language import Language
 
 
 class AsyncRequestSession(BaseRequestSession):
-    """Asynchronous request wrapper class for aiohttp"""
+    """Asynchronous request wrapper class for aiohttp with advanced connection pooling"""
 
-    def __init__(self) -> None:
-        """Initialize the async session"""
+    def __init__(self, pool_size: int = 100, pool_connections_per_host: int = 10) -> None:
+        """Initialize the async session with connection pooling
+        
+        Args:
+            pool_size: Total number of connections in the pool
+            pool_connections_per_host: Maximum number of connections per host
+        """
         super().__init__()
         self.__session: Optional[aiohttp.ClientSession] = None
         self.__rate_limit_last_call: Optional[datetime] = None
         self.__reuse_count: int = 0
         self.__max_reuse_count: int = 1000  # Limit to prevent memory leaks
+        self.__pool_size = pool_size
+        self.__pool_connections_per_host = pool_connections_per_host
+        
+        # Advanced concurrency controls
+        self.__max_concurrent_requests: int = 10  # Default max concurrent requests
+        self.__request_limiter = AsyncRequestLimiter(
+            global_limit=self.__max_concurrent_requests,
+            per_host_limit=self.__pool_connections_per_host
+        )
+        self.__backpressure_controller = BackpressureController()
+        self.__active_requests: int = 0
 
     @property
     async def session(self) -> aiohttp.ClientSession:
-        """Get or create an aiohttp client session"""
+        """Get or create an aiohttp client session with optimized connection pooling"""
         if self.__session is None or self.__session.closed:
-            self.__session = aiohttp.ClientSession()
+            # Create a TCP connector with connection pooling settings
+            connector = aiohttp.TCPConnector(
+                limit=self.__pool_size,  # Total number of concurrent connections
+                limit_per_host=self.__pool_connections_per_host,  # Connections per host
+                enable_cleanup_closed=True,  # Clean up closed connections
+                force_close=False,  # Keep connections alive
+                ttl_dns_cache=300  # Cache DNS results for 5 minutes
+            )
+            self.__session = aiohttp.ClientSession(connector=connector)
         return self.__session
 
     async def close(self) -> None:
@@ -53,10 +79,21 @@ class AsyncRequestSession(BaseRequestSession):
             self.__session = None
 
     async def new_session(self) -> None:
-        """Create a new session, closing the old one if it exists"""
+        """Create a new session with connection pooling, closing the old one if it exists"""
         await self.close()
-        self.__session = aiohttp.ClientSession()
+        # Create a TCP connector with connection pooling settings
+        connector = aiohttp.TCPConnector(
+            limit=self.__pool_size,  # Total number of concurrent connections
+            limit_per_host=self.__pool_connections_per_host,  # Connections per host
+            enable_cleanup_closed=True,  # Clean up closed connections
+            force_close=False,  # Keep connections alive
+            ttl_dns_cache=300  # Cache DNS results for 5 minutes
+        )
+        self.__session = aiohttp.ClientSession(connector=connector)
         self.__reuse_count = 0
+        
+        # Initialize the semaphore for concurrent request limiting
+        self.__request_semaphore = asyncio.Semaphore(self.__max_concurrent_requests)
         
     def increment_reuse_counter(self) -> int:
         """Increment the session reuse counter and check if we need a new session.
@@ -84,6 +121,45 @@ class AsyncRequestSession(BaseRequestSession):
         if count < 1:
             raise ValueError("Maximum reuse count must be at least 1")
         self.__max_reuse_count = count
+        
+    def set_pool_size(self, size: int) -> None:
+        """Set the size of the connection pool.
+        
+        Args:
+            size: Maximum number of connections in the pool
+        """
+        if size < 1:
+            raise ValueError("Pool size must be at least 1")
+        self.__pool_size = size
+        # We need to recreate the session for this to take effect
+        if self.__session and not self.__session.closed:
+            asyncio.create_task(self.new_session())
+            
+    def set_max_connections_per_host(self, limit: int) -> None:
+        """Set the maximum number of connections per host.
+        
+        Args:
+            limit: Maximum number of connections per host
+        """
+        if limit < 1:
+            raise ValueError("Connections per host must be at least 1")
+        self.__pool_connections_per_host = limit
+        # Update both the connection pool and request limiter
+        self.__request_limiter.set_per_host_limit(limit)
+        # We need to recreate the session for this to take effect
+        if self.__session and not self.__session.closed:
+            asyncio.create_task(self.new_session())
+            
+    def set_max_concurrent_requests(self, limit: int) -> None:
+        """Set the maximum number of concurrent requests.
+        
+        Args:
+            limit: Maximum number of concurrent requests
+        """
+        if limit < 1:
+            raise ValueError("Max concurrent requests must be at least 1")
+        self.__max_concurrent_requests = limit
+        self.__request_limiter.set_global_limit(limit)
 
     async def detect_api_version(self, api_url: str, config: Config) -> Optional[MediaWikiVersion]:
         """
@@ -133,7 +209,43 @@ class AsyncRequestSession(BaseRequestSession):
         params: Dict[str, Any],
         config: Config,
         language: Optional[Union[str, Language]] = None,
+        priority: int = 0,  # Higher values indicate higher priority
     ) -> Dict[str, Any]:
+        """Make a request to the MediaWiki API with backpressure control.
+        
+        Args:
+            params: API request parameters
+            config: Configuration object
+            language: Optional language override
+            priority: Request priority (higher values = higher priority, default 0)
+            
+        Returns:
+            API response as a dictionary
+        """
+        # Prepare the API URL
+        api_url = prepare_api_url(config, language)
+        # Extract host for per-host limiting
+        parsed_url = urlparse(api_url)
+        host = parsed_url.netloc
+        
+        # Record this request for backpressure calculations
+        self.__backpressure_controller.record_request()
+        
+        # Apply backpressure based on request patterns
+        backpressure_delay = self.__backpressure_controller.get_delay(priority)
+        if backpressure_delay > 0:
+            await asyncio.sleep(backpressure_delay)
+        
+        # Get semaphores for global and per-host concurrency control
+        host_semaphore = self.__request_limiter.get_host_semaphore(host)
+        
+        # Limit both global concurrency and per-host concurrency
+        async with self.__request_limiter.global_semaphore, host_semaphore:
+            # Increment the active request counter
+            self.__active_requests += 1
+            
+            # Use a try-finally block to ensure we always decrement the counter
+            try:
         """
         Make an asynchronous request to the Wikipedia API using the given search parameters,
         language and configuration
@@ -222,6 +334,9 @@ class AsyncRequestSession(BaseRequestSession):
                         
             except ServerTimeoutError as e:
                 # Always retry timeouts if we haven't exceeded max_retries
+                # Record timeout error for backpressure control
+                self.__backpressure_controller.record_error(None)
+                
                 if not config.should_retry(attempt, None):
                     error_context = {
                         "timeout": config.timeout, 
@@ -260,6 +375,9 @@ class AsyncRequestSession(BaseRequestSession):
             except ClientResponseError as e:
                 # Get status code for retry decision
                 status_code = e.status
+                
+                # Record error for backpressure control
+                self.__backpressure_controller.record_error(status_code)
                 
                 if not config.should_retry(attempt, status_code):
                     error_context = {
@@ -316,6 +434,8 @@ class AsyncRequestSession(BaseRequestSession):
 
         # If there's no continue token, return the data as is
         if not should_continue(data):
+            # Decrement active requests counter before returning
+            self.__active_requests -= 1
             return data
 
         # Handle continuation
@@ -502,4 +622,6 @@ class AsyncRequestSession(BaseRequestSession):
             if not should_continue(result):
                 break
 
+        # Decrement active requests counter before returning
+        self.__active_requests -= 1
         return result
