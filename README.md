@@ -16,6 +16,15 @@ Wikipedia data, not getting it.
 
 Supports both synchronous and asynchronous usage patterns.
 
+MediaWikiAPI is compatible with Python 3.9+.
+
+## Examples
+
+For complete examples of using the library, see the examples folder:
+
+- [Synchronous example](examples/sync_example.py) - Shows how to use the synchronous MediaWikiAPI
+- [Asynchronous example](examples/async_example.py) - Shows how to use the asynchronous AsyncMediaWikiAPI
+
 ## Synchronous Usage
 
 ```python
@@ -56,19 +65,19 @@ async def main():
         # Basic search
         results = await api.search("Python programming")
         print(f"Search results: {results[:5]}")
-        
+
         # Get page and properties
         page = await api.page("Python (programming language)")
         print(f"Page URL: {page.url}")
-        
+
         # Get summary
         summary = await page.summary
         print(f"Summary: {summary[:200]}...")
-        
+
         # Get page links
         links = await page.links
         print(f"First 5 links: {links[:5]}")
-        
+
         # Get images
         images = await page.images
         print(f"First image: {images[0] if images else 'No images'}")
@@ -84,8 +93,6 @@ To install MediaWikiAPI, simply run:
 ```bash
 pip install mediawikiapi
 ```
-
-MediaWikiAPI is compatible with Python 3.
 
 ## Changelog
 
