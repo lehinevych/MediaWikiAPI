@@ -1,5 +1,6 @@
 from datetime import timedelta
-from typing import Optional, Union
+from enum import Enum, auto
+from typing import List, Optional, Set, Union
 
 from .language import Language
 
@@ -16,6 +17,18 @@ class Config(object):
     )
     API_URL = "https://{}.wikipedia.org/w/api.php"
 
+    # Default retry settings
+    DEFAULT_MAX_RETRIES = 3
+    DEFAULT_RETRY_BACKOFF_FACTOR = 0.5  # seconds
+    DEFAULT_RETRY_BACKOFF_MAX = 60  # seconds
+    DEFAULT_RETRY_STATUS_CODES = {429, 500, 502, 503, 504}
+    
+    class RetryStrategy(Enum):
+        """Enum defining retry strategies"""
+        NONE = auto()           # No retries
+        DEFAULT = auto()        # Default strategy using configured values
+        AGGRESSIVE = auto()     # More aggressive strategy for important requests
+        
     def __init__(
         self,
         language: Optional[str] = None,
@@ -25,6 +38,11 @@ class Config(object):
         mediawiki_url: Optional[str] = None,
         cache_ttl: Optional[float] = None,
         cache_max_size: Optional[int] = None,
+        max_retries: Optional[int] = None,
+        retry_backoff_factor: Optional[float] = None,
+        retry_backoff_max: Optional[float] = None,
+        retry_status_codes: Optional[Set[int]] = None,
+        retry_strategy: RetryStrategy = RetryStrategy.DEFAULT,
     ):
         if language is not None:
             self.__lang = Language(language)
@@ -38,6 +56,26 @@ class Config(object):
         self.mediawiki_url: str = mediawiki_url or self.API_URL
         self.cache_ttl: Optional[float] = cache_ttl
         self.cache_max_size: Optional[int] = cache_max_size
+        
+        # Initialize retry settings
+        self.retry_strategy = retry_strategy
+        
+        # Use provided values or defaults based on strategy
+        if self.retry_strategy == self.RetryStrategy.NONE:
+            self.max_retries = 0
+            self.retry_backoff_factor = 0
+            self.retry_backoff_max = 0
+            self.retry_status_codes = set()
+        elif self.retry_strategy == self.RetryStrategy.AGGRESSIVE:
+            self.max_retries = max_retries or 5  # More retries
+            self.retry_backoff_factor = retry_backoff_factor or 0.3  # Shorter initial backoff
+            self.retry_backoff_max = retry_backoff_max or 120  # Longer max backoff
+            self.retry_status_codes = retry_status_codes or {408, 429, 500, 502, 503, 504, 520, 521, 522, 524}
+        else:  # DEFAULT strategy
+            self.max_retries = max_retries or self.DEFAULT_MAX_RETRIES
+            self.retry_backoff_factor = retry_backoff_factor or self.DEFAULT_RETRY_BACKOFF_FACTOR
+            self.retry_backoff_max = retry_backoff_max or self.DEFAULT_RETRY_BACKOFF_MAX
+            self.retry_status_codes = retry_status_codes or self.DEFAULT_RETRY_STATUS_CODES
 
     @classmethod
     def donate_url(cls) -> str:
@@ -101,3 +139,42 @@ class Config(object):
             self.__rate_limit = rate_limit
         else:
             self.__rate_limit = timedelta(milliseconds=rate_limit)
+            
+    def should_retry(self, attempt: int, status_code: Optional[int] = None) -> bool:
+        """
+        Determine if a request should be retried based on the current retry settings.
+        
+        Args:
+            attempt: Current attempt number (0-based)
+            status_code: HTTP status code of the failed request, if applicable
+            
+        Returns:
+            True if request should be retried, False otherwise
+        """
+        # Check if we've reached max retries
+        if attempt >= self.max_retries:
+            return False
+            
+        # If no status code provided, retry based on attempt count only
+        if status_code is None:
+            return True
+            
+        # Otherwise, check if status code is in retry_status_codes
+        return status_code in self.retry_status_codes
+        
+    def get_retry_backoff(self, attempt: int) -> float:
+        """
+        Calculate backoff time for a retry attempt using exponential backoff.
+        
+        Args:
+            attempt: Current attempt number (0-based)
+            
+        Returns:
+            Backoff time in seconds
+        """
+        # Calculate exponential backoff with jitter
+        backoff = min(
+            self.retry_backoff_max,
+            self.retry_backoff_factor * (2 ** attempt)
+        )
+        return backoff

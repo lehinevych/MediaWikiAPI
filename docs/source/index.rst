@@ -126,6 +126,15 @@ Understand the design and organization of the MediaWikiAPI library.
 
    architecture
 
+Error Handling
+=============
+
+Learn about MediaWikiAPI's error handling and retry mechanisms.
+
+.. toctree::
+
+   error_handling
+
 API
 ====
 

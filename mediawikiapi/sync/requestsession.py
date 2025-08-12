@@ -1,11 +1,15 @@
+import random
 import time
+import socket
 from datetime import datetime
-from typing import Any, Dict, Optional, Union
+from typing import Any, Dict, Optional, Tuple, Union
 
 import requests
+from requests.exceptions import RequestException, Timeout, ConnectionError, HTTPError
 
 from ..base.base_requestsession import BaseRequestSession
 from ..config import Config
+from ..exceptions import NetworkError, HTTPTimeoutError
 from ..language import Language
 
 
@@ -77,15 +81,127 @@ class RequestSession(BaseRequestSession):
         # Get the API URL using the configured language or the override
         api_url = config.get_api_url(language)
         
-        # Make the request
-        r = self.session.get(
-            api_url,
-            params=params,
-            headers=headers,
-            timeout=config.timeout,
-        )
+        # Implement retry logic for the request
+        attempt = 0
+        max_attempts = config.max_retries + 1  # +1 for the initial attempt
+        last_exception = None
         
-        data: Dict[str, Any] = r.json()
+        while attempt < max_attempts:
+            try:
+                # If this is a retry, apply backoff
+                if attempt > 0:
+                    backoff_time = config.get_retry_backoff(attempt - 1)
+                    # Add small random jitter to prevent thundering herd
+                    jitter = random.uniform(0, 0.1 * backoff_time)
+                    time.sleep(backoff_time + jitter)
+                
+                # Make the request with improved error handling
+                r = self.session.get(
+                    api_url,
+                    params=params,
+                    headers=headers,
+                    timeout=config.timeout,
+                )
+                
+                # Get status code for retry decision
+                status_code = r.status_code
+                
+                # Raise HTTP errors explicitly
+                r.raise_for_status()
+                
+                # Parse JSON response
+                try:
+                    data: Dict[str, Any] = r.json()
+                    # Success! Break out of retry loop
+                    break
+                    
+                except ValueError as e:
+                    # Handle invalid JSON response
+                    if not config.should_retry(attempt, None):
+                        error_context = {
+                            "url": api_url,
+                            "status_code": r.status_code,
+                            "content_sample": r.text[:500] if r.text else None,
+                            "attempts": attempt + 1
+                        }
+                        raise NetworkError(
+                            f"Invalid JSON response from API after {attempt + 1} attempts: {str(e)}",
+                            original_exception=e
+                        )
+                    last_exception = e
+                    
+            except Timeout as e:
+                # Always retry timeouts if we haven't exceeded max_retries
+                if not config.should_retry(attempt, None):
+                    error_context = {
+                        "timeout": config.timeout, 
+                        "url": api_url,
+                        "attempts": attempt + 1
+                    }
+                    raise HTTPTimeoutError(
+                        str(params.get("titles", params.get("search", query_identifier))), 
+                        timeout=config.timeout
+                    )
+                last_exception = e
+                
+            except HTTPError as e:
+                # Get status code for retry decision
+                status_code = e.response.status_code if hasattr(e, "response") else None
+                
+                if not config.should_retry(attempt, status_code):
+                    error_context = {
+                        "url": api_url,
+                        "status_code": status_code,
+                        "attempts": attempt + 1
+                    }
+                    raise NetworkError(
+                        f"HTTP error {status_code} after {attempt + 1} attempts",
+                        original_exception=e
+                    )
+                last_exception = e
+                
+            except ConnectionError as e:
+                # Always retry connection errors if we haven't exceeded max_retries
+                if not config.should_retry(attempt, None):
+                    error_context = {
+                        "url": api_url,
+                        "attempts": attempt + 1
+                    }
+                    raise NetworkError(
+                        f"Connection error while accessing the MediaWiki API after {attempt + 1} attempts: {str(e)}", 
+                        original_exception=e
+                    )
+                last_exception = e
+                
+            except RequestException as e:
+                # Get status code for retry decision if available
+                status_code = getattr(e.response, "status_code", None) if hasattr(e, "response") else None
+                
+                if not config.should_retry(attempt, status_code):
+                    error_context = {
+                        "url": api_url,
+                        "status_code": status_code,
+                        "attempts": attempt + 1
+                    }
+                    raise NetworkError(
+                        f"Error during API request after {attempt + 1} attempts: {str(e)}", 
+                        original_exception=e
+                    )
+                last_exception = e
+                
+            # Increment attempt counter for next iteration
+            attempt += 1
+        
+        # If we've exhausted all retries and still have an exception, raise it
+        if attempt >= max_attempts and last_exception is not None:
+            error_context = {
+                "url": api_url,
+                "attempts": attempt
+            }
+            raise NetworkError(
+                f"Maximum retry attempts ({max_attempts}) exceeded",
+                original_exception=last_exception
+            )
         
         # If there's no continue token, return the data as is
         if "continue" not in data:
@@ -112,17 +228,134 @@ class RequestSession(BaseRequestSession):
                 if wait_time.total_seconds() > 0:
                     time.sleep(int(wait_time.total_seconds()))
             
-            # Make the continuation request
-            r = self.session.get(
-                api_url,
-                params=continue_params,
-                headers=headers,
-                timeout=config.timeout,
-            )
-            self.__rate_limit_last_call = datetime.now()
+            # Make the continuation request with retry logic
+            attempt = 0
+            max_attempts = config.max_retries + 1  # +1 for the initial attempt
+            last_exception = None
             
-            # Get the continued data
-            continued_data = r.json()
+            while attempt < max_attempts:
+                try:
+                    # If this is a retry, apply backoff
+                    if attempt > 0:
+                        backoff_time = config.get_retry_backoff(attempt - 1)
+                        # Add small random jitter to prevent thundering herd
+                        jitter = random.uniform(0, 0.1 * backoff_time)
+                        time.sleep(backoff_time + jitter)
+                    
+                    # Make the request
+                    r = self.session.get(
+                        api_url,
+                        params=continue_params,
+                        headers=headers,
+                        timeout=config.timeout,
+                    )
+                    self.__rate_limit_last_call = datetime.now()
+                    
+                    # Get status code for retry decision
+                    status_code = r.status_code
+                    
+                    # Raise HTTP errors explicitly
+                    r.raise_for_status()
+                    
+                    # Parse JSON response
+                    try:
+                        continued_data = r.json()
+                        # Success! Break out of retry loop
+                        break
+                        
+                    except ValueError as e:
+                        # Handle invalid JSON response
+                        if not config.should_retry(attempt, None):
+                            error_context = {
+                                "url": api_url,
+                                "status_code": r.status_code,
+                                "content_sample": r.text[:500] if r.text else None,
+                                "continuation": True,
+                                "attempts": attempt + 1
+                            }
+                            raise NetworkError(
+                                f"Invalid JSON response from API during continuation after {attempt + 1} attempts: {str(e)}",
+                                original_exception=e
+                            )
+                        last_exception = e
+                        
+                except Timeout as e:
+                    # Always retry timeouts if we haven't exceeded max_retries
+                    if not config.should_retry(attempt, None):
+                        error_context = {
+                            "timeout": config.timeout, 
+                            "url": api_url, 
+                            "continuation": True,
+                            "attempts": attempt + 1
+                        }
+                        raise HTTPTimeoutError(
+                            str(params.get("titles", params.get("search", query_identifier))), 
+                            timeout=config.timeout
+                        )
+                    last_exception = e
+                    
+                except HTTPError as e:
+                    # Get status code for retry decision
+                    status_code = e.response.status_code if hasattr(e, "response") else None
+                    
+                    if not config.should_retry(attempt, status_code):
+                        error_context = {
+                            "url": api_url,
+                            "status_code": status_code,
+                            "continuation": True,
+                            "attempts": attempt + 1
+                        }
+                        raise NetworkError(
+                            f"HTTP error {status_code} during continuation after {attempt + 1} attempts",
+                            original_exception=e
+                        )
+                    last_exception = e
+                    
+                except ConnectionError as e:
+                    # Always retry connection errors if we haven't exceeded max_retries
+                    if not config.should_retry(attempt, None):
+                        error_context = {
+                            "url": api_url, 
+                            "continuation": True,
+                            "attempts": attempt + 1
+                        }
+                        raise NetworkError(
+                            f"Connection error during continuation after {attempt + 1} attempts: {str(e)}", 
+                            original_exception=e
+                        )
+                    last_exception = e
+                    
+                except RequestException as e:
+                    # Get status code for retry decision if available
+                    status_code = getattr(e.response, "status_code", None) if hasattr(e, "response") else None
+                    
+                    if not config.should_retry(attempt, status_code):
+                        error_context = {
+                            "url": api_url,
+                            "status_code": status_code,
+                            "continuation": True,
+                            "attempts": attempt + 1
+                        }
+                        raise NetworkError(
+                            f"Error during continuation request after {attempt + 1} attempts: {str(e)}", 
+                            original_exception=e
+                        )
+                    last_exception = e
+                    
+                # Increment attempt counter for next iteration
+                attempt += 1
+            
+            # If we've exhausted all retries and still have an exception, raise it
+            if attempt >= max_attempts and last_exception is not None:
+                error_context = {
+                    "url": api_url,
+                    "continuation": True,
+                    "attempts": attempt
+                }
+                raise NetworkError(
+                    f"Maximum retry attempts ({max_attempts}) exceeded during continuation",
+                    original_exception=last_exception
+                )
             
             # Merge the data from the continued request with the initial result
             if "query" in continued_data:

@@ -1,12 +1,22 @@
 import asyncio
+import random
+import socket
 import time
 from datetime import datetime
 from typing import Any, Dict, Optional, Union, Coroutine
 
 import aiohttp
+from aiohttp.client_exceptions import (
+    ClientError, 
+    ClientResponseError, 
+    ClientConnectorError, 
+    ServerTimeoutError,
+    ContentTypeError
+)
 
 from ..base.base_requestsession import BaseRequestSession
 from ..config import Config
+from ..exceptions import NetworkError, HTTPTimeoutError
 from ..language import Language
 
 
@@ -74,14 +84,152 @@ class AsyncRequestSession(BaseRequestSession):
             await asyncio.sleep(wait_time.total_seconds())
             self.__rate_limit_last_call = datetime.now()
 
-        session = await self.session
-        async with session.get(
-            config.get_api_url(language),
-            params=params,
-            headers=headers,
-            timeout=aiohttp.ClientTimeout(total=config.timeout),
-        ) as response:
-            data: Dict[str, Any] = await response.json()
+        api_url = config.get_api_url(language)
+        query_identifier = str(params.get("titles", params.get("search", "unknown")))
+        
+        # Implement retry logic
+        attempt = 0
+        max_attempts = config.max_retries + 1  # +1 for the initial attempt
+        last_exception = None
+        
+        while attempt < max_attempts:
+            try:
+                # If this is a retry, apply backoff
+                if attempt > 0:
+                    backoff_time = config.get_retry_backoff(attempt - 1)
+                    # Add small random jitter to prevent thundering herd
+                    jitter = random.uniform(0, 0.1 * backoff_time)
+                    await asyncio.sleep(backoff_time + jitter)
+                    
+                session = await self.session
+                async with session.get(
+                    api_url,
+                    params=params,
+                    headers=headers,
+                    timeout=aiohttp.ClientTimeout(total=config.timeout),
+                ) as response:
+                    # Get status code for retry decision
+                    status_code = response.status
+                    
+                    # Check for HTTP errors
+                    response.raise_for_status()
+                    
+                    try:
+                        data: Dict[str, Any] = await response.json()
+                        # Success! Break out of retry loop
+                        break
+                        
+                    except ContentTypeError as e:
+                        # Handle invalid JSON response
+                        if not config.should_retry(attempt, None):
+                            error_context = {
+                                "url": api_url,
+                                "status_code": response.status,
+                                "content_type": response.content_type,
+                                "attempts": attempt + 1
+                            }
+                            text_sample = await response.text()
+                            error_context["content_sample"] = text_sample[:500] if text_sample else None
+                            
+                            raise NetworkError(
+                                f"Invalid JSON response from API after {attempt + 1} attempts: {str(e)}",
+                                original_exception=e
+                            )
+                        last_exception = e
+                        
+            except ServerTimeoutError as e:
+                # Always retry timeouts if we haven't exceeded max_retries
+                if not config.should_retry(attempt, None):
+                    error_context = {
+                        "timeout": config.timeout, 
+                        "url": api_url,
+                        "attempts": attempt + 1
+                    }
+                    raise HTTPTimeoutError(query_identifier, timeout=config.timeout)
+                last_exception = e
+                
+            except asyncio.TimeoutError as e:
+                # Always retry asyncio timeouts if we haven't exceeded max_retries
+                if not config.should_retry(attempt, None):
+                    error_context = {
+                        "timeout": config.timeout, 
+                        "url": api_url,
+                        "attempts": attempt + 1
+                    }
+                    raise HTTPTimeoutError(query_identifier, timeout=config.timeout)
+                last_exception = e
+                
+            except ClientConnectorError as e:
+                # Always retry connection errors if we haven't exceeded max_retries
+                if not config.should_retry(attempt, None):
+                    error_context = {
+                        "url": api_url, 
+                        "host": e.host, 
+                        "port": e.port,
+                        "attempts": attempt + 1
+                    }
+                    raise NetworkError(
+                        f"Connection error while accessing the MediaWiki API after {attempt + 1} attempts: {str(e)}",
+                        original_exception=e
+                    )
+                last_exception = e
+                
+            except ClientResponseError as e:
+                # Get status code for retry decision
+                status_code = e.status
+                
+                if not config.should_retry(attempt, status_code):
+                    error_context = {
+                        "url": api_url,
+                        "status_code": e.status,
+                        "message": e.message,
+                        "attempts": attempt + 1
+                    }
+                    raise NetworkError(
+                        f"HTTP error {e.status} after {attempt + 1} attempts: {e.message}",
+                        original_exception=e
+                    )
+                last_exception = e
+                
+            except ClientError as e:
+                # Handle other aiohttp client errors
+                if not config.should_retry(attempt, None):
+                    error_context = {
+                        "url": api_url,
+                        "attempts": attempt + 1
+                    }
+                    raise NetworkError(
+                        f"Error during API request after {attempt + 1} attempts: {str(e)}",
+                        original_exception=e
+                    )
+                last_exception = e
+                
+            except Exception as e:
+                # Handle any other unexpected errors
+                if not config.should_retry(attempt, None):
+                    error_context = {
+                        "url": api_url,
+                        "attempts": attempt + 1
+                    }
+                    raise NetworkError(
+                        f"Unexpected error during API request after {attempt + 1} attempts: {str(e)}",
+                        original_exception=e
+                    )
+                last_exception = e
+                
+            # Increment attempt counter for next iteration
+            attempt += 1
+        
+        # If we've exhausted all retries and still have an exception, raise it
+        if attempt >= max_attempts and last_exception is not None:
+            error_context = {
+                "url": api_url,
+                "attempts": attempt
+            }
+            raise NetworkError(
+                f"Maximum retry attempts ({max_attempts}) exceeded",
+                original_exception=last_exception
+            )
 
         # If there's no continue token, return the data as is
         if "continue" not in data:
@@ -108,16 +256,162 @@ class AsyncRequestSession(BaseRequestSession):
                 if wait_time.total_seconds() > 0:
                     await asyncio.sleep(wait_time.total_seconds())
 
-            # Make the continuation request
-            session = await self.session
-            async with session.get(
-                config.get_api_url(language),
-                params=continue_params,
-                headers=headers,
-                timeout=aiohttp.ClientTimeout(total=config.timeout),
-            ) as response:
-                self.__rate_limit_last_call = datetime.now()
-                continued_data = await response.json()
+            # Make the continuation request with retry logic
+            api_url = config.get_api_url(language)
+            
+            # Implement retry logic for continuation requests
+            attempt = 0
+            max_attempts = config.max_retries + 1  # +1 for the initial attempt
+            last_exception = None
+            
+            while attempt < max_attempts:
+                try:
+                    # If this is a retry, apply backoff
+                    if attempt > 0:
+                        backoff_time = config.get_retry_backoff(attempt - 1)
+                        # Add small random jitter to prevent thundering herd
+                        jitter = random.uniform(0, 0.1 * backoff_time)
+                        await asyncio.sleep(backoff_time + jitter)
+                        
+                    session = await self.session
+                    async with session.get(
+                        api_url,
+                        params=continue_params,
+                        headers=headers,
+                        timeout=aiohttp.ClientTimeout(total=config.timeout),
+                    ) as response:
+                        self.__rate_limit_last_call = datetime.now()
+                        
+                        # Get status code for retry decision
+                        status_code = response.status
+                        
+                        # Check for HTTP errors
+                        response.raise_for_status()
+                        
+                        try:
+                            continued_data = await response.json()
+                            # Success! Break out of retry loop
+                            break
+                            
+                        except ContentTypeError as e:
+                            # Handle invalid JSON response
+                            if not config.should_retry(attempt, None):
+                                error_context = {
+                                    "url": api_url,
+                                    "status_code": response.status,
+                                    "content_type": response.content_type,
+                                    "continuation": True,
+                                    "attempts": attempt + 1
+                                }
+                                text_sample = await response.text()
+                                error_context["content_sample"] = text_sample[:500] if text_sample else None
+                                
+                                raise NetworkError(
+                                    f"Invalid JSON response from API during continuation after {attempt + 1} attempts: {str(e)}",
+                                    original_exception=e
+                                )
+                            last_exception = e
+                            
+                except ServerTimeoutError as e:
+                    # Always retry timeouts if we haven't exceeded max_retries
+                    if not config.should_retry(attempt, None):
+                        error_context = {
+                            "timeout": config.timeout, 
+                            "url": api_url,
+                            "continuation": True,
+                            "attempts": attempt + 1
+                        }
+                        raise HTTPTimeoutError(query_identifier, timeout=config.timeout)
+                    last_exception = e
+                    
+                except asyncio.TimeoutError as e:
+                    # Always retry asyncio timeouts if we haven't exceeded max_retries
+                    if not config.should_retry(attempt, None):
+                        error_context = {
+                            "timeout": config.timeout, 
+                            "url": api_url,
+                            "continuation": True,
+                            "attempts": attempt + 1
+                        }
+                        raise HTTPTimeoutError(query_identifier, timeout=config.timeout)
+                    last_exception = e
+                    
+                except ClientConnectorError as e:
+                    # Always retry connection errors if we haven't exceeded max_retries
+                    if not config.should_retry(attempt, None):
+                        error_context = {
+                            "url": api_url, 
+                            "host": e.host, 
+                            "port": e.port,
+                            "continuation": True,
+                            "attempts": attempt + 1
+                        }
+                        raise NetworkError(
+                            f"Connection error during continuation after {attempt + 1} attempts: {str(e)}",
+                            original_exception=e
+                        )
+                    last_exception = e
+                    
+                except ClientResponseError as e:
+                    # Get status code for retry decision
+                    status_code = e.status
+                    
+                    if not config.should_retry(attempt, status_code):
+                        error_context = {
+                            "url": api_url,
+                            "status_code": e.status,
+                            "message": e.message,
+                            "continuation": True,
+                            "attempts": attempt + 1
+                        }
+                        raise NetworkError(
+                            f"HTTP error {e.status} during continuation after {attempt + 1} attempts: {e.message}",
+                            original_exception=e
+                        )
+                    last_exception = e
+                    
+                except ClientError as e:
+                    # Handle other aiohttp client errors
+                    if not config.should_retry(attempt, None):
+                        error_context = {
+                            "url": api_url,
+                            "continuation": True,
+                            "attempts": attempt + 1
+                        }
+                        raise NetworkError(
+                            f"Error during continuation request after {attempt + 1} attempts: {str(e)}",
+                            original_exception=e
+                        )
+                    last_exception = e
+                    
+                except Exception as e:
+                    # Handle any other unexpected errors
+                    if not config.should_retry(attempt, None):
+                        error_context = {
+                            "url": api_url,
+                            "continuation": True,
+                            "attempts": attempt + 1
+                        }
+                        raise NetworkError(
+                            f"Unexpected error during continuation request after {attempt + 1} attempts: {str(e)}",
+                            original_exception=e
+                        )
+                    last_exception = e
+                    
+                # Increment attempt counter for next iteration
+                attempt += 1
+            
+            # If we've exhausted all retries and still have an exception, raise it
+            if attempt >= max_attempts and last_exception is not None:
+                error_context = {
+                    "url": api_url,
+                    "continuation": True,
+                    "attempts": attempt
+                }
+                raise NetworkError(
+                    f"Maximum retry attempts ({max_attempts}) exceeded during continuation",
+                    original_exception=last_exception
+                )
 
             # Merge the data from the continued request with the initial result
             if "query" in continued_data:
