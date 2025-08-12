@@ -260,7 +260,8 @@ class MediaWikiAPI(BaseMediaWikiAPI[WikipediaPage, Dict[str, Any]]):
             # Always try exact title match first
             try:
                 return WikipediaPage(
-                    request=request_f, title=title, redirect=redirect, preload=preload
+                    request=request_f, title=title, redirect=redirect, preload=preload,
+                    mediawiki_api=self
                 )
             except PageError:
                 if not auto_suggest:
@@ -275,6 +276,7 @@ class MediaWikiAPI(BaseMediaWikiAPI[WikipediaPage, Dict[str, Any]]):
                     pageid=pageid,
                     redirect=redirect,
                     preload=preload,
+                    mediawiki_api=self
                 )
             try:
                 title = results[0]
@@ -282,10 +284,11 @@ class MediaWikiAPI(BaseMediaWikiAPI[WikipediaPage, Dict[str, Any]]):
                 # if there are no suggestion or search results, the page doesn't exist
                 raise PageError(title=title)
             return WikipediaPage(
-                request=request_f, title=title, redirect=redirect, preload=preload
+                request=request_f, title=title, redirect=redirect, preload=preload,
+                mediawiki_api=self
             )
         elif pageid is not None:
-            return WikipediaPage(request=request_f, pageid=pageid, preload=preload)
+            return WikipediaPage(request=request_f, pageid=pageid, preload=preload, mediawiki_api=self)
         else:
             raise ValueError("Either a title or a pageid must be specified")
     

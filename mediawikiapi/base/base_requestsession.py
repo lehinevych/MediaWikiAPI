@@ -8,6 +8,7 @@ asynchronous request session implementations extend.
 from abc import ABC, abstractmethod
 from typing import Any, Dict, Optional, Union
 
+from ..common.api_version import MediaWikiVersion
 from ..config import Config
 
 
@@ -150,5 +151,20 @@ class BaseRequestSession(ABC):
         
         Args:
             count: Maximum reuse count
+        """
+        pass
+        
+    @abstractmethod
+    def detect_api_version(self, api_url: str, config: Config) -> Any:
+        """
+        Detect the MediaWiki API version for a specific API URL.
+        
+        Args:
+            api_url: The API URL to check
+            config: Configuration object
+            
+        Returns:
+            MediaWikiVersion if detected, None otherwise (for sync)
+            Awaitable[Optional[MediaWikiVersion]] for async
         """
         pass

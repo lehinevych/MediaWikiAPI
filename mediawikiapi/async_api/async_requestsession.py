@@ -15,6 +15,7 @@ from aiohttp.client_exceptions import (
 )
 
 from ..base.base_requestsession import BaseRequestSession
+from ..common.api_version import MediaWikiVersion
 from ..config import Config
 from ..exceptions import NetworkError, HTTPTimeoutError
 from ..language import Language
@@ -77,6 +78,49 @@ class AsyncRequestSession(BaseRequestSession):
             raise ValueError("Maximum reuse count must be at least 1")
         self.__max_reuse_count = count
 
+    async def detect_api_version(self, api_url: str, config: Config) -> Optional[MediaWikiVersion]:
+        """
+        Detect the MediaWiki API version for a specific API URL.
+        
+        Args:
+            api_url: The API URL to check
+            config: Configuration object
+            
+        Returns:
+            MediaWikiVersion if detected, None otherwise
+        """
+        # Create a siteinfo query to get the generator string
+        params = {
+            "action": "query",
+            "meta": "siteinfo",
+            "format": "json"
+        }
+        
+        # Build the user agent
+        headers = {"User-Agent": self._build_user_agent(config)}
+        
+        try:
+            session = await self.session
+            async with session.get(
+                api_url,
+                params=params,
+                headers=headers,
+                timeout=aiohttp.ClientTimeout(total=config.timeout),
+            ) as response:
+                response.raise_for_status()
+                data = await response.json()
+                
+                # Extract generator string
+                if "query" in data and "general" in data["query"] and "generator" in data["query"]["general"]:
+                    generator = data["query"]["general"]["generator"]
+                    # Parse the generator string to get the version
+                    return MediaWikiVersion.from_generator_string(generator)
+        except Exception as e:
+            # If there's an error, return None
+            return None
+            
+        return None
+        
     async def request(
         self,
         params: Dict[str, Any],
@@ -120,6 +164,12 @@ class AsyncRequestSession(BaseRequestSession):
         # Check if we need to refresh the session
         if self.increment_reuse_counter() > self.__max_reuse_count:
             await self.new_session()
+        
+        # Check if we need to detect the API version
+        if api_url not in config.detected_api_versions:
+            version = await self.detect_api_version(api_url, config)
+            if version:
+                config.set_api_version(api_url, version)
             
         # Implement retry logic
         attempt = 0

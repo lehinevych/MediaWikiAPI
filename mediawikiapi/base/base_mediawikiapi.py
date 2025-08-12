@@ -8,6 +8,7 @@ asynchronous MediaWiki API implementations extend.
 from abc import ABC, abstractmethod
 from typing import Any, Dict, List, Optional, Tuple, Union, TypeVar, Generic
 
+from ..common.api_version import MediaWikiVersion, cache_version
 from ..config import Config
 from ..exceptions import HTTPTimeoutError, MediaWikiAPIException, PageError
 
@@ -37,6 +38,7 @@ class BaseMediaWikiAPI(ABC, Generic[P, T]):
             config: Optional configuration object. If not provided, default config is used.
         """
         self.config = Config() if config is None else config
+        self._api_versions_detected: Dict[str, bool] = {}
     
     # Cache invalidation methods (identical in both implementations)
     def invalidate_cache(self, method_name: str, *args: Any, **kwargs: Any) -> bool:
@@ -236,6 +238,34 @@ class BaseMediaWikiAPI(ABC, Generic[P, T]):
         import webbrowser
         
         webbrowser.open(self.config.donate_url(), new=2)
+        
+    def is_feature_available(self, feature: str, language: Optional[Union[str, Language]] = None) -> bool:
+        """
+        Check if a specific feature is available in the detected MediaWiki API version.
+        
+        Args:
+            feature: Feature name (see common.api_version.FEATURE_AVAILABILITY)
+            language: Optional language override
+            
+        Returns:
+            True if the feature is available or compatibility mode is enabled,
+            False otherwise
+        """
+        api_url = self.config.get_api_url(language)
+        return self.config.is_feature_available(feature, api_url)
+        
+    def get_api_version(self, language: Optional[Union[str, Language]] = None) -> Optional[MediaWikiVersion]:
+        """
+        Get the detected MediaWiki API version for the given language.
+        
+        Args:
+            language: Optional language override
+            
+        Returns:
+            MediaWikiVersion if detected, None otherwise
+        """
+        api_url = self.config.get_api_url(language)
+        return self.config.get_api_version(api_url)
     
     @abstractmethod
     def custom_query(self, query_params: Dict[str, Any]) -> T:

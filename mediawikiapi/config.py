@@ -1,7 +1,8 @@
 from datetime import timedelta
 from enum import Enum, auto
-from typing import List, Optional, Set, Union
+from typing import Dict, List, Optional, Set, Union
 
+from .common.api_version import MediaWikiVersion, MEDIAWIKI_1_34
 from .language import Language
 
 
@@ -43,6 +44,8 @@ class Config(object):
         retry_backoff_max: Optional[float] = None,
         retry_status_codes: Optional[Set[int]] = None,
         retry_strategy: RetryStrategy = RetryStrategy.DEFAULT,
+        min_api_version: Optional[MediaWikiVersion] = None,
+        feature_compatibility_mode: bool = True,
     ):
         if language is not None:
             self.__lang = Language(language)
@@ -56,6 +59,11 @@ class Config(object):
         self.mediawiki_url: str = mediawiki_url or self.API_URL
         self.cache_ttl: Optional[float] = cache_ttl
         self.cache_max_size: Optional[int] = cache_max_size
+        
+        # API version handling
+        self.min_api_version: MediaWikiVersion = min_api_version or MEDIAWIKI_1_34
+        self.feature_compatibility_mode: bool = feature_compatibility_mode
+        self.detected_api_versions: Dict[str, MediaWikiVersion] = {}
         
         # Initialize retry settings
         self.retry_strategy = retry_strategy
@@ -178,3 +186,51 @@ class Config(object):
             self.retry_backoff_factor * (2 ** attempt)
         )
         return backoff
+        
+    def set_api_version(self, api_url: str, version: MediaWikiVersion) -> None:
+        """
+        Set the detected MediaWiki API version for a specific API URL.
+        
+        Args:
+            api_url: The API URL
+            version: The detected MediaWiki version
+        """
+        self.detected_api_versions[api_url] = version
+        
+    def get_api_version(self, api_url: str) -> Optional[MediaWikiVersion]:
+        """
+        Get the detected MediaWiki API version for a specific API URL.
+        
+        Args:
+            api_url: The API URL
+            
+        Returns:
+            MediaWikiVersion if detected, None otherwise
+        """
+        return self.detected_api_versions.get(api_url)
+        
+    def is_feature_available(self, feature: str, api_url: str) -> bool:
+        """
+        Check if a feature is available for the given API URL.
+        
+        Args:
+            feature: Feature name
+            api_url: The API URL
+            
+        Returns:
+            True if the feature is available or compatibility mode is enabled,
+            False otherwise
+        """
+        from .common.api_version import is_feature_available
+        
+        # If feature compatibility mode is enabled, assume all features are available
+        if self.feature_compatibility_mode:
+            return True
+            
+        # If we have detected the API version for this URL, check if the feature is available
+        version = self.get_api_version(api_url)
+        if version:
+            return is_feature_available(feature, version)
+            
+        # If we haven't detected the API version yet, use the minimum required version
+        return is_feature_available(feature, self.min_api_version)

@@ -144,13 +144,22 @@ Understand MediaWikiAPI's session management and resource handling.
 
    session_management
 
+API Version Handling
+=================
+
+Learn about how MediaWikiAPI handles different MediaWiki API versions.
+
+.. toctree::
+
+   api_version_handling
+
 API
 ====
 
 Here you can find the full developer API for the MediaWikiAPI project.
 
-Please note that some functionality available only for MediaWiki version 1.34 or higher 
-For instance: `content`, `infobox`, `parent_id`, `revision_id`, and `summary` 
+Please note that some functionality requires specific MediaWiki API versions.
+See the :doc:`API Version Handling <api_version_handling>` section for details on version-specific features.
 
 
 .. toctree::
