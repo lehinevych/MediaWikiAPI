@@ -28,7 +28,10 @@ Version 2.0
 * Make continuation tokens automatic and remove follow_continue parameter from API methods
 * Make auto_suggest default to False for page() and summary() methods
 * Fix deprecated BeautifulSoup findAll method
-* Add cache expiration mechanism (TTL) to memoization decorator
+* Enhance memoization with cache control features:
+  * Add cache expiration mechanism (TTL) for time-based invalidation
+  * Add maximum size limits with LRU (least recently used) eviction strategy
+  * Add cache configuration options in the Config class (cache_ttl and cache_max_size)
 
 Version 1.3
 =============
