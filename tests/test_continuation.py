@@ -31,26 +31,28 @@ class TestContinuation(unittest.TestCase):
 
         # Get full result set (continuation is now the default)
         result_with_continue = self.api.custom_query(query_params)
-        
+
         # For testing without continuation, we need to directly use the session's request method
         # and modify the request session to not follow continuations
         original_request = self.api.session.request
-        
+
         # Create a non-continuing wrapper
         def no_continue_request(params, config, language=None):
             data = original_request(params, config, language)
             # Stop after first batch by removing continuation data
-            if 'continue' in data:
-                data_without_continue = {k: v for k, v in data.items() if k != 'continue'}
+            if "continue" in data:
+                data_without_continue = {
+                    k: v for k, v in data.items() if k != "continue"
+                }
                 return data_without_continue
             return data
-            
+
         # Replace session's request method temporarily
         self.api.session.request = no_continue_request
-        
+
         # Test with our modified request function
         result_without_continue = self.api.custom_query(query_params)
-        
+
         # Restore original request method
         self.api.session.request = original_request
 

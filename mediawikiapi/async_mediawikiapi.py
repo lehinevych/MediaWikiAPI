@@ -1,23 +1,38 @@
 from decimal import Decimal
 from functools import partial
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Optional, Tuple, Union, cast
 
+from .async_requestsession import AsyncRequestSession
+from .async_util import async_memorized
+from .async_wikipediapage import AsyncWikipediaPage
 from .config import Config
 from .exceptions import HTTPTimeoutError, MediaWikiAPIException, PageError
-from .requestsession import RequestSession
-from .util import memorized
-from .wikipediapage import WikipediaPage
 
 
-class MediaWikiAPI(object):
+class AsyncMediaWikiAPI:
+    """Asynchronous interface for the MediaWiki API"""
+
     def __init__(self, config: Optional[Config] = None) -> None:
+        """Initialize with optional configuration"""
         self.config = Config()
         if config is not None:
             self.config = config
-        self.session = RequestSession()
+        self.session = AsyncRequestSession()
 
-    @memorized
-    def search(
+    async def close(self) -> None:
+        """Close the session"""
+        await self.session.close()
+
+    async def __aenter__(self) -> "AsyncMediaWikiAPI":
+        """Support for async context manager"""
+        return self
+
+    async def __aexit__(self, exc_type: Any, exc_val: Any, exc_tb: Any) -> None:
+        """Close the session when exiting context"""
+        await self.close()
+
+    @async_memorized
+    async def search(
         self,
         query: str,
         results: int = 10,
@@ -41,7 +56,7 @@ class MediaWikiAPI(object):
         if suggestion:
             search_params["srinfo"] = "suggestion"
 
-        raw_results = self.session.request(search_params, self.config)
+        raw_results = await self.session.request(search_params, self.config)
 
         if "error" in raw_results:
             if raw_results["error"]["info"] in (
@@ -65,8 +80,8 @@ class MediaWikiAPI(object):
 
         return list(search_results)
 
-    @memorized
-    def geosearch(
+    @async_memorized
+    async def geosearch(
         self,
         latitude: Decimal,
         longitude: Decimal,
@@ -98,7 +113,7 @@ class MediaWikiAPI(object):
         if title:
             search_params["titles"] = title
 
-        raw_results = self.session.request(search_params, self.config)
+        raw_results = await self.session.request(search_params, self.config)
 
         if "error" in raw_results:
             if raw_results["error"]["info"] in (
@@ -117,8 +132,8 @@ class MediaWikiAPI(object):
 
         return list(search_results)
 
-    @memorized
-    def suggest(self, query: str) -> Any:
+    @async_memorized
+    async def suggest(self, query: str) -> Any:
         """
         Get a Wikipedia search suggestion for `query`.
         Returns a string or None if no suggestion was found.
@@ -129,12 +144,12 @@ class MediaWikiAPI(object):
             "srprop": "",
         }
         search_params["srsearch"] = query
-        raw_result = self.session.request(search_params, self.config)
+        raw_result = await self.session.request(search_params, self.config)
         if raw_result["query"].get("searchinfo"):
             return raw_result["query"]["searchinfo"]["suggestion"]
         return None
 
-    def random(self, pages: int = 1) -> Any:
+    async def random(self, pages: int = 1) -> Any:
         """
         Get a list of random Wikipedia article titles.
 
@@ -144,20 +159,19 @@ class MediaWikiAPI(object):
 
         * pages - the number of random pages returned (max of 10)
         """
-        # http://en.wikipedia.org/w/api.php?action=query&list=random&rnlimit=5000&format=jsonfm
         query_params = {
             "list": "random",
             "rnnamespace": 0,
             "rnlimit": pages,
         }
-        request = self.session.request(query_params, self.config)
+        request = await self.session.request(query_params, self.config)
         titles = [page["title"] for page in request["query"]["random"]]
         if len(titles) == 1:
             return titles[0]
         return titles
 
-    @memorized
-    def summary(
+    @async_memorized
+    async def summary(
         self,
         title: str,
         sentences: Optional[int] = 0,
@@ -175,7 +189,7 @@ class MediaWikiAPI(object):
         * redirect - allow redirection without raising RedirectError
         """
         # use auto_suggest and redirect to get the correct article
-        page_info = self.page(title, auto_suggest=auto_suggest, redirect=redirect)
+        page_info = await self.page(title, auto_suggest=auto_suggest, redirect=redirect)
         title = page_info.title
         pageid = page_info.pageid
         query_params: Dict[str, Union[str, int]] = {
@@ -190,20 +204,20 @@ class MediaWikiAPI(object):
         else:
             query_params["exintro"] = ""
 
-        request = self.session.request(query_params, self.config)
+        request = await self.session.request(query_params, self.config)
         summary = request["query"]["pages"][pageid]["extract"]
         return summary
 
-    def page(
+    async def page(
         self,
         title: Optional[str] = None,
         pageid: Optional[int] = None,
         auto_suggest: bool = False,
         redirect: bool = True,
         preload: bool = False,
-    ) -> WikipediaPage:
+    ) -> AsyncWikipediaPage:
         """
-        Get a WikipediaPage object for the page with title `title` or the pageid
+        Get an AsyncWikipediaPage object for the page with title `title` or the pageid
         `pageid` (mutually exclusive).
 
         Keyword arguments:
@@ -217,46 +231,54 @@ class MediaWikiAPI(object):
         The method first tries to load the page using the exact title provided.
         If that fails and auto_suggest is True, it will attempt to find a matching page
         using the search API.
-
-        For example:
-        >>> page = wiki.page("Python_(programming_language)")  # Tries exact match first
-        >>> page = wiki.page("Python programming")  # Tries exact match, then falls back to search
         """
-        request_f = partial(self.session.request, config=self.config)
+        # Create a partial function for the request
+        request_f = cast(Any, partial(self.session.request, config=self.config))
+
         if title is not None:
             # Always try exact title match first
             try:
-                return WikipediaPage(
-                    request=request_f, title=title, redirect=redirect, preload=preload
+                page = AsyncWikipediaPage(
+                    request=request_f, title=title, redirect=False, preload=False
                 )
+                await page.load(redirect=redirect, preload=preload)
+                return page
             except PageError:
                 if not auto_suggest:
                     raise
 
             # If exact match fails and auto_suggest is True, try search
-            results, suggestion = self.search(title, results=1, suggestion=True)
+            results, suggestion = await self.search(title, results=1, suggestion=True)
             if suggestion:
-                return WikipediaPage(
+                page = AsyncWikipediaPage(
                     request=request_f,
-                    title=suggestion,
+                    title=cast(str, suggestion),
                     pageid=pageid,
-                    redirect=redirect,
-                    preload=preload,
+                    redirect=False,
+                    preload=False,
                 )
+                await page.load(redirect=redirect, preload=preload)
+                return page
             try:
                 title = results[0]
             except IndexError:
                 # if there are no suggestion or search results, the page doesn't exist
                 raise PageError(title=title)
-            return WikipediaPage(
-                request=request_f, title=title, redirect=redirect, preload=preload
+            page = AsyncWikipediaPage(
+                request=request_f, title=title, redirect=False, preload=False
             )
+            await page.load(redirect=redirect, preload=preload)
+            return page
         elif pageid is not None:
-            return WikipediaPage(request=request_f, pageid=pageid, preload=preload)
+            page = AsyncWikipediaPage(
+                request=request_f, pageid=pageid, redirect=False, preload=False
+            )
+            await page.load(redirect=True, preload=preload)
+            return page
         else:
             raise ValueError("Either a title or a pageid must be specified")
 
-    def languages(self) -> Dict[str, str]:
+    async def languages(self) -> Dict[str, str]:
         """
         List all the currently supported language prefixes (usually ISO language code).
 
@@ -266,13 +288,13 @@ class MediaWikiAPI(object):
         Returns: dict of <prefix>: <local_lang_name> pairs. To get just a list of prefixes,
         use `wikipedia.languages().keys()`.
         """
-        response = self.session.request(
+        response = await self.session.request(
             {"meta": "siteinfo", "siprop": "languages"}, self.config
         )
         languages = response["query"]["languages"]
         return {lang["code"]: lang["*"] for lang in languages}
 
-    def category_members(
+    async def category_members(
         self,
         title: Optional[str] = None,
         pageid: Optional[int] = None,
@@ -309,7 +331,7 @@ class MediaWikiAPI(object):
         else:
             raise ValueError("Either a category or a pageid must be specified")
 
-        response = self.session.request(query_params, self.config)
+        response = await self.session.request(query_params, self.config)
         if "error" in response:
             raise ValueError(response["error"].get("info"))
         return [member["title"] for member in response["query"]["categorymembers"]]
@@ -322,7 +344,7 @@ class MediaWikiAPI(object):
 
         webbrowser.open(Config().donate_url(), new=2)
 
-    def custom_query(self, query_params: Dict[str, Any]) -> Dict[str, Any]:
+    async def custom_query(self, query_params: Dict[str, Any]) -> Dict[str, Any]:
         """
         Make a custom query to the Wikipedia API with the given parameters.
 
@@ -346,7 +368,7 @@ class MediaWikiAPI(object):
             "ggslimit": 50,
             "prop": "pageviews",
         }
-        result = mediawikiapi.custom_query(params)
+        result = await mediawikiapi.custom_query(params)
         ```
         """
-        return self.session.request(query_params, self.config)
+        return await self.session.request(query_params, self.config)

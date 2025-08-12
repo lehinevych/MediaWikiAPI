@@ -12,6 +12,11 @@ from .mediawikiapi import MediaWikiAPI
 from .util import memorized
 from .wikipediapage import WikipediaPage
 
+# Async classes
+from .async_mediawikiapi import AsyncMediaWikiAPI
+from .async_wikipediapage import AsyncWikipediaPage
+from .async_util import async_memorized
+
 __all__ = [
     "ODD_ERROR_MESSAGE",
     "Config",
@@ -24,4 +29,8 @@ __all__ = [
     "RedirectError",
     "WikipediaPage",
     "memorized",
+    # Async classes
+    "AsyncMediaWikiAPI",
+    "AsyncWikipediaPage",
+    "async_memorized",
 ]

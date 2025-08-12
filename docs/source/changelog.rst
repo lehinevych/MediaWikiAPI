@@ -7,6 +7,13 @@ Here you can find the full developer API for the MediaWikiAPI project.
 
 Version 2.0
 =============
+* Add asynchronous API with AsyncMediaWikiAPI and AsyncWikipediaPage classes
+* Add aiohttp support for non-blocking HTTP requests
+* Implement async version of core functionality including search, page retrieval, and data extraction
+* Add async memoization decorator for caching API responses
+* Add async context manager support for proper resource management
+* Add async examples to documentation
+* Add comprehensive test suite for async functionality
 * Migrate from Poetry to uv for dependency management
 * Add scripts.py helper for common development tasks
 * Update build system to hatchling

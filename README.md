@@ -1,5 +1,4 @@
-MediaWikiAPI
-===================
+# MediaWikiAPI
 
 [![PyPI version](https://img.shields.io/pypi/v/mediawikiapi.svg)](https://pypi.python.org/pypi/mediawikiapi)
 [![Version](https://img.shields.io/pypi/pyversions/mediawikiapi.svg)](https://pypi.python.org/pypi/mediawikiapi)
@@ -8,7 +7,6 @@ MediaWikiAPI
 [![License](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)](https://opensource.org/licenses/MIT)
 [![Docs](https://readthedocs.org/projects/mediawikiapi/badge/?version=latest)](https://mediawikiapi.readthedocs.io/en/latest/)
 
-
 **MediaWikiAPI** is a Python library that makes it easy to access and parse
 data from Wikipedia.
 
@@ -16,7 +14,11 @@ Search Wikipedia, get article summaries, get data like links and images
 from a page, and more. Wikipedia wraps the [MediaWiki API](https://www.mediawiki.org/wiki/API) so you can focus on using
 Wikipedia data, not getting it.
 
-``` python
+Supports both synchronous and asynchronous usage patterns.
+
+## Synchronous Usage
+
+```python
 >>> from mediawikiapi import MediaWikiAPI
 >>> mediawikiapi = MediaWikiAPI()
 >>> print(mediawikiapi.summary("Wikipedia"))
@@ -40,26 +42,58 @@ Wikipedia data, not getting it.
 # Facebook est un service de réseautage social en ligne sur Internet permettant d'y publier des informations (photographies, liens, textes, etc.) en contrôlant leur visibilité par différentes catégories de personnes.
 ```
 
-Installation
-------------
+## Asynchronous Usage
+
+The library also provides async versions of all functionality:
+
+```python
+import asyncio
+from mediawikiapi import AsyncMediaWikiAPI
+
+async def main():
+    # Use as a context manager to automatically close session
+    async with AsyncMediaWikiAPI() as api:
+        # Basic search
+        results = await api.search("Python programming")
+        print(f"Search results: {results[:5]}")
+        
+        # Get page and properties
+        page = await api.page("Python (programming language)")
+        print(f"Page URL: {page.url}")
+        
+        # Get summary
+        summary = await page.summary
+        print(f"Summary: {summary[:200]}...")
+        
+        # Get page links
+        links = await page.links
+        print(f"First 5 links: {links[:5]}")
+        
+        # Get images
+        images = await page.images
+        print(f"First image: {images[0] if images else 'No images'}")
+
+# Run the async function
+asyncio.run(main())
+```
+
+## Installation
 
 To install MediaWikiAPI, simply run:
 
-``` bash
+```bash
 pip install mediawikiapi
 ```
+
 MediaWikiAPI is compatible with Python 3.
 
+## Changelog
 
-Changelog
--------------
 [Changelog](http://mediawikiapi.readthedocs.io/en/latest/changelog.html) could be find in the documentation.
 
+## Documentation
 
-Documentation
--------------
 The documentation is available [here](http://mediawikiapi.readthedocs.io/en/latest/)
-
 
 To run tests, clone the [repository on GitHub](https://github.com/lehinevych/MediaWikiAPI), then run:
 
@@ -75,6 +109,7 @@ source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 ./scripts.py install-dev
 ./scripts.py test
 ```
+
 in the root project directory.
 
 To build the documentation yourself, run:
@@ -113,12 +148,11 @@ To set up pre-commit hooks for automatic linting and formatting:
 ./setup-hooks.py
 ```
 
-License
--------
+## License
 
 MIT licensed. See the [LICENSE file](https://github.com/lehinevych/MediaWikiAPI/blob/master/LICENSE) for
 full details.
 
-Credits
--------
--  @goldsmith for making such a fantastic library to fork
+## Credits
+
+- @goldsmith for making such a fantastic library to for
