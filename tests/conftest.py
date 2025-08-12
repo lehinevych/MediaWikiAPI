@@ -7,6 +7,7 @@ import vcr
 # Configure VCR for test recordings
 os.environ["VCR_RECORD_MODE"] = "new_episodes"
 
+
 # Setup VCR for both sync and async tests
 @pytest.fixture(scope="module")
 def vcr_config():
@@ -16,6 +17,7 @@ def vcr_config():
         "serializer": "yaml",
         "cassette_library_dir": "tests/cassettes",
     }
+
 
 # Setup async VCR
 @pytest_asyncio.fixture(scope="module")

@@ -31,7 +31,7 @@ async def test_api_as_context_manager():
     async with AsyncMediaWikiAPI() as api:
         assert api is not None
         assert isinstance(api, AsyncMediaWikiAPI)
-        
+
     # No need to call close() explicitly when using context manager
 
 

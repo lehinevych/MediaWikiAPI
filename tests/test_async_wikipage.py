@@ -87,7 +87,11 @@ async def test_links(python_page):
     assert isinstance(links, list)
     assert len(links) > 0
     # Common related terms that should be linked
-    common_links = ["Programming language", "Open-source software", "Computer programming"]
+    common_links = [
+        "Programming language",
+        "Open-source software",
+        "Computer programming",
+    ]
     found_links = [link for link in common_links if link in links]
     assert len(found_links) > 0  # At least one common link should be found
 
@@ -101,7 +105,9 @@ async def test_categories(python_page):
     assert len(categories) > 0
     # Common categories that Python should be in
     common_categories = ["programming language", "cross-platform", "object-oriented"]
-    assert any(any(cat.lower() in c.lower() for cat in common_categories) for c in categories)
+    assert any(
+        any(cat.lower() in c.lower() for cat in common_categories) for c in categories
+    )
 
 
 @pytest.mark.vcr
@@ -113,7 +119,9 @@ async def test_sections(python_page):
     assert len(sections) > 0
     # Common sections in the Python article
     common_sections = ["History", "Features", "Syntax", "Libraries"]
-    found_sections = [section for section in common_sections if any(section in s for s in sections)]
+    found_sections = [
+        section for section in common_sections if any(section in s for s in sections)
+    ]
     assert len(found_sections) > 0  # At least one common section should be found
 
 
@@ -123,7 +131,7 @@ async def test_section_content(python_page):
     """Test retrieving specific section content."""
     sections = await python_page.sections
     history_section = next((s for s in sections if "History" in s), None)
-    
+
     if history_section:
         content = await python_page.section(history_section)
         assert isinstance(content, str)
@@ -141,7 +149,7 @@ async def test_coordinates(api):
     # Use Eiffel Tower which definitely has coordinates
     page = await api.page("Eiffel Tower")
     coordinates = await page.coordinates
-    
+
     assert coordinates is not None
     assert isinstance(coordinates, tuple)
     assert len(coordinates) == 2
@@ -149,7 +157,7 @@ async def test_coordinates(api):
     assert isinstance(coordinates[1], Decimal)  # Longitude
     # Check coordinates are roughly correct for Paris
     assert 48 < float(coordinates[0]) < 49  # Paris latitude ~48.8°
-    assert 2 < float(coordinates[1]) < 3    # Paris longitude ~2.3°
+    assert 2 < float(coordinates[1]) < 3  # Paris longitude ~2.3°
 
 
 @pytest.mark.vcr
@@ -167,7 +175,7 @@ async def test_redirect(api):
     # "Python language" should redirect to "Python (programming language)"
     page = await api.page("Python language")
     assert page.title == "Python (programming language)"
-    
+
     # With redirect=False, should raise RedirectError
     with pytest.raises(RedirectError):
         await api.page("Python language", redirect=False)
@@ -181,5 +189,5 @@ async def test_lang_title(python_page):
     es_title = await python_page.lang_title("es")
     assert es_title is not None
     assert isinstance(es_title, str)
-    # Spanish title should be "Python" or may include terms like "lenguaje" 
+    # Spanish title should be "Python" or may include terms like "lenguaje"
     assert "Python" in es_title

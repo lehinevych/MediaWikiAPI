@@ -10,6 +10,7 @@ from mediawikiapi.async_wikipediapage import AsyncWikipediaPage
 # Force VCR to use existing cassettes
 os.environ["VCR_RECORD_MODE"] = "once"
 
+
 @pytest_asyncio.fixture(scope="function")
 async def api():
     """Create an instance of AsyncMediaWikiAPI for testing."""

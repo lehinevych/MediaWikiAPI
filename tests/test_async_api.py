@@ -52,7 +52,7 @@ async def test_random(api):
     random_page = await api.random()
     assert isinstance(random_page, str)
     assert len(random_page) > 0
-    
+
     # Get multiple random pages
     random_pages = await api.random(pages=3)
     assert isinstance(random_pages, list)
@@ -66,14 +66,14 @@ async def test_language_setting(api):
     # Get results in English
     api.config.language = "en"
     en_results = await api.search("Computer")
-    
+
     # Get results in Spanish
     api.config.language = "es"
     es_results = await api.search("Computer")
-    
+
     # Results should differ between languages
     assert en_results != es_results
-    
+
     # Reset to English for other tests
     api.config.language = "en"
 
