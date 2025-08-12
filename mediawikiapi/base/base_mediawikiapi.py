@@ -9,13 +9,14 @@ from abc import ABC, abstractmethod
 from decimal import Decimal
 from typing import Any, Dict, List, Optional, Tuple, Union, TypeVar, Generic, Awaitable
 
-from ..common.api_version import MediaWikiVersion
+from ..common.api_version import MediaWikiVersion, cache_version
+from ..common.response_parsing import (
+    extract_category_members, process_random_results, process_search_results
+)
 from ..common.type_definitions import (
     APIMethodReturn, CoordinateValue, JSONDict, RequestCallable,
     SearchResult, SearchResults, SearchResultsWithSuggestion, WikiQuery, WikiResponse
 )
-
-from ..common.api_version import MediaWikiVersion, cache_version
 from ..config import Config
 from ..exceptions import HTTPTimeoutError, MediaWikiAPIException, PageError
 
@@ -470,18 +471,8 @@ class BaseMediaWikiAPI(ABC, Generic[P, T]):
         Returns:
             List of search results, or tuple of (results, suggestion) if suggestion=True
         """
-        search_results = (d["title"] for d in response["query"]["search"])
-        
-        if suggestion:
-            if response["query"].get("searchinfo"):
-                return (
-                    list(search_results),
-                    response["query"]["searchinfo"]["suggestion"],
-                )
-            else:
-                return list(search_results), None
-        
-        return list(search_results)
+        # Use the standardized response parsing utility
+        return process_search_results(response, suggestion)
     
     def _process_geosearch_results(self, response: WikiResponse) -> SearchResults:
         """
@@ -493,13 +484,16 @@ class BaseMediaWikiAPI(ABC, Generic[P, T]):
         Returns:
             List of page titles from the geosearch
         """
+        # Use the standardized response parsing utility
+        from ..common.response_parsing import extract_geosearch_results
+        
+        # Special case handling for generator=geosearch which uses the pages property
         search_pages = response["query"].get("pages", None)
         if search_pages:
-            search_results = (v["title"] for k, v in search_pages.items() if k != "-1")
-        else:
-            search_results = (d["title"] for d in response["query"]["geosearch"])
+            return [v["title"] for k, v in search_pages.items() if k != "-1"]
         
-        return list(search_results)
+        # Standard geosearch response
+        return extract_geosearch_results(response)
     
     def _process_random_results(self, response: WikiResponse, pages: int) -> Union[str, SearchResults]:
         """
@@ -512,10 +506,8 @@ class BaseMediaWikiAPI(ABC, Generic[P, T]):
         Returns:
             Single title as string if pages=1, otherwise list of titles
         """
-        titles = [page["title"] for page in response["query"]["random"]]
-        if len(titles) == 1:
-            return titles[0]
-        return titles
+        # Use the standardized response parsing utility
+        return process_random_results(response, pages)
     
     def _process_category_members_results(
         self, response: WikiResponse
@@ -531,4 +523,5 @@ class BaseMediaWikiAPI(ABC, Generic[P, T]):
         """
         if "error" in response:
             raise ValueError(response["error"].get("info"))
-        return [member["title"] for member in response["query"]["categorymembers"]]
+        # Use the standardized response parsing utility
+        return extract_category_members(response)

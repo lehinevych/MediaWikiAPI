@@ -9,6 +9,9 @@ from requests.exceptions import RequestException, Timeout, ConnectionError, HTTP
 
 from ..base.base_requestsession import BaseRequestSession
 from ..common.api_version import MediaWikiVersion
+from ..common.continuation_util import (
+    should_continue, get_continue_params, merge_continue_results
+)
 from ..config import Config
 from ..exceptions import NetworkError, HTTPTimeoutError
 from ..language import Language
@@ -130,8 +133,8 @@ class RequestSession(BaseRequestSession):
             "format": "json"
         }
         
-        # Build the user agent
-        headers = {"User-Agent": self._build_user_agent(config)}
+        # Prepare request headers
+        headers = prepare_request_headers(config)
         
         try:
             r = self.session.get(
@@ -175,7 +178,7 @@ class RequestSession(BaseRequestSession):
         params = self._prepare_params(params)
         
         # Build the user agent
-        headers = {"User-Agent": self._build_user_agent(config)}
+        headers = prepare_request_headers(config)
         
         # Handle rate limiting
         if (
@@ -327,17 +330,16 @@ class RequestSession(BaseRequestSession):
             )
         
         # If there's no continue token, return the data as is
-        if "continue" not in data:
+        if not should_continue(data):
             return data
         
         # Handle continuation
         result = data  # Start with the initial result
         
         # Continue requesting while there's a continue token
-        while "continue" in result:
-            # Copy the original parameters and update with continue tokens
-            continue_params = params.copy()
-            continue_params.update(result["continue"])
+        while should_continue(result):
+            # Get parameters for continuation request
+            continue_params = get_continue_params(result, params)
             
             # Respect rate limits
             if (
@@ -481,51 +483,10 @@ class RequestSession(BaseRequestSession):
                 )
             
             # Merge the data from the continued request with the initial result
-            if "query" in continued_data:
-                # Handle pages
-                if "pages" in continued_data.get("query", {}) and "pages" in result.get(
-                    "query", {}
-                ):
-                    for pageid, page_data in continued_data["query"]["pages"].items():
-                        if pageid in result["query"]["pages"]:
-                            # Page exists in the result, merge properties
-                            for prop, value in page_data.items():
-                                if prop in result["query"]["pages"][pageid]:
-                                    # If the property is a list, extend it
-                                    if isinstance(value, list) and isinstance(
-                                        result["query"]["pages"][pageid][prop], list
-                                    ):
-                                        result["query"]["pages"][pageid][prop].extend(
-                                            value
-                                        )
-                                    else:
-                                        # Otherwise, replace it
-                                        result["query"]["pages"][pageid][prop] = value
-                                else:
-                                    # Property doesn't exist in the result, add it
-                                    result["query"]["pages"][pageid][prop] = value
-                        else:
-                            # Page doesn't exist in the result, add it
-                            result["query"]["pages"][pageid] = page_data
-                
-                # Handle lists in the query (like search results, backlinks, etc.)
-                for prop, value in continued_data["query"].items():
-                    if prop != "pages":
-                        if prop not in result["query"]:
-                            result["query"][prop] = value
-                        elif isinstance(value, list) and isinstance(
-                            result["query"][prop], list
-                        ):
-                            # If the property is a list, extend it
-                            result["query"][prop].extend(value)
+            merge_continue_results(result, continued_data)
             
-            # Update the continue token
-            if "continue" in continued_data:
-                result["continue"] = continued_data["continue"]
-            else:
-                # No more continue tokens, we're done
-                if "continue" in result:
-                    del result["continue"]
+            # If there are no more continue tokens, we're done
+            if not should_continue(result):
                 break
         
         return result

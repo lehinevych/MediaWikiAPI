@@ -16,6 +16,13 @@ from aiohttp.client_exceptions import (
 
 from ..base.base_requestsession import BaseRequestSession
 from ..common.api_version import MediaWikiVersion
+from ..common.continuation_util import (
+    should_continue, get_continue_params, merge_continue_results
+)
+from ..common.http_util import (
+    calculate_backoff_with_jitter, prepare_api_url, prepare_error_context,
+    prepare_request_headers, should_rate_limit, should_retry_status_code
+)
 from ..config import Config
 from ..exceptions import NetworkError, HTTPTimeoutError
 from ..language import Language
@@ -96,8 +103,8 @@ class AsyncRequestSession(BaseRequestSession):
             "format": "json"
         }
         
-        # Build the user agent
-        headers = {"User-Agent": self._build_user_agent(config)}
+        # Prepare request headers
+        headers = prepare_request_headers(config)
         
         try:
             session = await self.session
@@ -143,22 +150,15 @@ class AsyncRequestSession(BaseRequestSession):
         # Use base class method to prepare parameters
         params = self._prepare_params(params)
 
-        headers = {"User-Agent": self._build_user_agent(config)}
+        headers = prepare_request_headers(config)
 
-        if (
-            self.__rate_limit_last_call
-            and config.rate_limit
-            and (self.__rate_limit_last_call + config.rate_limit) > datetime.now()
-        ):
-            # it hasn't been long enough since the last API call
-            # so wait until we're in the clear to make the request
-            wait_time = (
-                self.__rate_limit_last_call + config.rate_limit
-            ) - datetime.now()
-            await asyncio.sleep(wait_time.total_seconds())
+        # Respect rate limits
+        should_limit, wait_seconds = should_rate_limit(self.__rate_limit_last_call, config)
+        if should_limit and wait_seconds:
+            await asyncio.sleep(wait_seconds)
             self.__rate_limit_last_call = datetime.now()
 
-        api_url = config.get_api_url(language)
+        api_url = prepare_api_url(config, language)
         query_identifier = str(params.get("titles", params.get("search", "unknown")))
         
         # Check if we need to refresh the session
@@ -180,10 +180,9 @@ class AsyncRequestSession(BaseRequestSession):
             try:
                 # If this is a retry, apply backoff
                 if attempt > 0:
-                    backoff_time = config.get_retry_backoff(attempt - 1)
-                    # Add small random jitter to prevent thundering herd
-                    jitter = random.uniform(0, 0.1 * backoff_time)
-                    await asyncio.sleep(backoff_time + jitter)
+                    # Calculate backoff with jitter
+                    backoff_with_jitter = calculate_backoff_with_jitter(config, attempt - 1)
+                    await asyncio.sleep(backoff_with_jitter)
                     
                 session = await self.session
                 async with session.get(
@@ -316,17 +315,16 @@ class AsyncRequestSession(BaseRequestSession):
             )
 
         # If there's no continue token, return the data as is
-        if "continue" not in data:
+        if not should_continue(data):
             return data
 
         # Handle continuation
         result = data  # Start with the initial result
 
         # Continue requesting while there's a continue token
-        while "continue" in result:
-            # Copy the original parameters and update with continue tokens
-            continue_params = params.copy()
-            continue_params.update(result["continue"])
+        while should_continue(result):
+            # Get parameters for continuation request
+            continue_params = get_continue_params(result, params)
 
             # Respect rate limits
             if (
@@ -498,51 +496,10 @@ class AsyncRequestSession(BaseRequestSession):
                 )
 
             # Merge the data from the continued request with the initial result
-            if "query" in continued_data:
-                # Handle pages
-                if "pages" in continued_data.get("query", {}) and "pages" in result.get(
-                    "query", {}
-                ):
-                    for pageid, page_data in continued_data["query"]["pages"].items():
-                        if pageid in result["query"]["pages"]:
-                            # Page exists in the result, merge properties
-                            for prop, value in page_data.items():
-                                if prop in result["query"]["pages"][pageid]:
-                                    # If the property is a list, extend it
-                                    if isinstance(value, list) and isinstance(
-                                        result["query"]["pages"][pageid][prop], list
-                                    ):
-                                        result["query"]["pages"][pageid][prop].extend(
-                                            value
-                                        )
-                                    else:
-                                        # Otherwise, replace it
-                                        result["query"]["pages"][pageid][prop] = value
-                                else:
-                                    # Property doesn't exist in the result, add it
-                                    result["query"]["pages"][pageid][prop] = value
-                        else:
-                            # Page doesn't exist in the result, add it
-                            result["query"]["pages"][pageid] = page_data
-
-                # Handle lists in the query (like search results, backlinks, etc.)
-                for prop, value in continued_data["query"].items():
-                    if prop != "pages":
-                        if prop not in result["query"]:
-                            result["query"][prop] = value
-                        elif isinstance(value, list) and isinstance(
-                            result["query"][prop], list
-                        ):
-                            # If the property is a list, extend it
-                            result["query"][prop].extend(value)
-
-            # Update the continue token
-            if "continue" in continued_data:
-                result["continue"] = continued_data["continue"]
-            else:
-                # No more continue tokens, we're done
-                if "continue" in result:
-                    del result["continue"]
+            merge_continue_results(result, continued_data)
+            
+            # If there are no more continue tokens, we're done
+            if not should_continue(result):
                 break
 
         return result
