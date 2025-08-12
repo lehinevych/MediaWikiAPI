@@ -4,7 +4,7 @@ import unittest
 import pytest
 
 from mediawikiapi import Config
-from mediawikiapi.util import memorized
+from mediawikiapi.sync.util import memorized
 
 
 class TestConfigCacheSettings(unittest.TestCase):

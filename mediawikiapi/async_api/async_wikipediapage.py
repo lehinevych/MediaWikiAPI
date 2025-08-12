@@ -2,26 +2,30 @@ from __future__ import annotations
 
 import re
 from decimal import Decimal
-from typing import Any, Callable, Dict, Generator, List, Optional, Tuple
+from functools import partial
+from typing import Any, Callable, Coroutine, Dict, List, Optional, Tuple, Union, cast
 
 from bs4 import BeautifulSoup
 
-from .exceptions import ODD_ERROR_MESSAGE, PageError, RedirectError
-from .language import Language
-from .util import clean_infobox
+from .async_util import async_memorized
+from ..base.base_wikipediapage import BaseWikipediaPage
+from ..exceptions import ODD_ERROR_MESSAGE, PageError, RedirectError
+from ..language import Language
+from ..sync.util import clean_infobox
 
 
-class WikipediaPage(object):
+class AsyncWikipediaPage(BaseWikipediaPage):
     """
     Contains data from a Wikipedia page.
+    Async version of WikipediaPage that uses async/await for API requests.
     Uses property methods to filter data from the raw HTML.
     """
 
     def __init__(
         self,
         request: Callable[
-            [Dict[str, Any]],
-            Dict[str, Any],
+            [Dict[str, Any], Any, Optional[Union[str, Language]]],
+            Coroutine[Any, Any, Dict[str, Any]],
         ],
         title: Optional[str] = None,
         pageid: Optional[int] = None,
@@ -29,33 +33,18 @@ class WikipediaPage(object):
         preload: bool = False,
         original_title: str = "",
     ) -> None:
-        if title is not None:
-            self.title: str = title
-            self.original_title: str = original_title or title
-        elif pageid is not None:
-            self.pageid: int = pageid
-        else:
-            raise ValueError("Either a title or a pageid must be specified")
-
-        self.request = request
-        self.__load(redirect=redirect, preload=preload)
-        if preload:
-            for prop in (
-                "content",
-                "summary",
-                "images",
-                "references",
-                "links",
-                "sections",
-                "infobox",
-            ):
-                getattr(self, prop)
+        # Call the parent class initializer
+        super().__init__(request, title=title, pageid=pageid, original_title=original_title)
+        
+        self._load_task = None  # Will hold the loading task
+        # Load is done during __init__ - need to be awaited during instantiation
+        # This is handled in AsyncMediaWikiAPI.page method
 
     def __repr__(self) -> str:
-        return "<WikipediaPage {}>".format(self.title)
+        return f"<AsyncWikipediaPage {self.title}>"
 
     def __eq__(self, other: object) -> bool:
-        if not isinstance(other, WikipediaPage):
+        if not isinstance(other, AsyncWikipediaPage):
             return NotImplemented
         try:
             return (
@@ -66,7 +55,7 @@ class WikipediaPage(object):
         except Exception:
             return False
 
-    def __load(self, redirect: bool = True, preload: bool = False) -> None:
+    async def load(self, redirect: bool = True, preload: bool = False) -> None:
         """
         Load basic information from Wikipedia.
         Confirm that page exists and is not a disambiguation/redirect.
@@ -74,7 +63,7 @@ class WikipediaPage(object):
         Does not need to be called manually, should be called automatically during
         __init__.
         """
-        query_params: Dict[str, str | int] = {
+        query_params: Dict[str, Union[str, int]] = {
             "prop": "info|pageprops",
             "inprop": "url",
             "redirects": "",
@@ -84,7 +73,7 @@ class WikipediaPage(object):
         else:
             query_params["pageids"] = self.pageid
 
-        request = self.request(query_params)
+        request = await self.request(query_params)
 
         query = request["query"]
         pageid = next(iter(query["pages"].keys()))
@@ -115,8 +104,7 @@ class WikipediaPage(object):
                 assert redirects["from"] == from_title, ODD_ERROR_MESSAGE
 
                 # change the title and reload the whole object
-                # TODO this should be refactored
-                new_page = WikipediaPage(
+                new_page = await AsyncWikipediaPage(
                     request=self.request,
                     title=redirects["to"],
                     redirect=redirect,
@@ -137,9 +125,7 @@ class WikipediaPage(object):
         self.pageprops: Dict[str, Any] = page.get("pageprops", {})
         self.disambiguate_pages: List[Any] = []
 
-        # since we only asked for disambiguation in ppprop,
-        # if a pageprop is returned,
-        # then the page must be a disambiguation page
+        # Check if it's a disambiguation page
         if "pageprops" in page and "disambiguation" in page["pageprops"]:
             query_params = {
                 "prop": "revisions",
@@ -151,7 +137,7 @@ class WikipediaPage(object):
                 query_params["pageids"] = self.pageid
             else:
                 query_params["titles"] = self.title
-            request = self.request(query_params)
+            request = await self.request(query_params)
             html = request["query"]["pages"][pageid]["revisions"][0]["*"]
             lis = BeautifulSoup(html, "html.parser").find_all("li")
             filtered_lis = [
@@ -162,9 +148,26 @@ class WikipediaPage(object):
                 if items:
                     self.disambiguate_pages.append(items[0]["title"])
 
-    def __continued_query(
+        if preload:
+            for prop in (
+                "content",
+                "summary",
+                "images",
+                "references",
+                "links",
+                "sections",
+                "infobox",
+            ):
+                await getattr(self, prop)()
+
+    @property
+    def __title_query_param(self) -> Dict[str, Union[str, int]]:
+        # Use the base class helper method
+        return self._title_query_param
+
+    async def __continued_query(
         self, query_params: Dict[str, Any]
-    ) -> Generator[Any, None, None]:
+    ) -> List[Dict[str, Any]]:
         """
         Based on https://www.mediawiki.org/wiki/API:Query#Continuing_queries
         """
@@ -173,10 +176,12 @@ class WikipediaPage(object):
         last_continue: Dict[str, Any] = {}
         last_len_pages: int = 0
         prop = query_params.get("prop")
+        results = []
+
         while True:
             params = query_params.copy()
             params.update(last_continue)
-            request = self.request(params)
+            request = await self.request(params)
             if "query" not in request:
                 break
 
@@ -186,13 +191,15 @@ class WikipediaPage(object):
                 and last_len_pages == len(request["query"]["pages"])
             ):
                 break
+
             pages = request["query"]["pages"]
             if "generator" in query_params:
-                yield from pages.values()
+                for item in pages.values():
+                    results.append(item)
             else:
                 if prop in pages[self.pageid]:
                     for datum in pages[self.pageid][prop]:
-                        yield datum
+                        results.append(datum)
 
             if "continue" not in request:
                 break
@@ -200,14 +207,9 @@ class WikipediaPage(object):
             last_continue = request["continue"]
             last_len_pages = len(request["query"]["pages"])
 
-    @property
-    def __title_query_param(self) -> Dict[str, str | int]:
-        if getattr(self, "title", None) is not None:
-            return {"titles": self.title}
-        else:
-            return {"pageids": self.pageid}
+        return results
 
-    def html(self) -> Any:
+    async def html(self) -> Any:
         """
         Get full page HTML.
 
@@ -222,13 +224,86 @@ class WikipediaPage(object):
                 "titles": self.title,
             }
 
-            request = self.request(query_params)
+            request = await self.request(query_params)
             self._html = request["query"]["pages"][self.pageid]["revisions"][0]["*"]
 
         return self._html
 
     @property
-    def infobox(self) -> Dict[str, Any]:
+    async def content(self) -> str:
+        """
+        Plain text content of the page, excluding images, tables, and other data.
+
+        Supported only for MediaWiki version 1.34 or higher
+        """
+        if not getattr(self, "_content", False):
+            query_params: Dict[str, Union[str, int]] = {
+                "prop": "extracts|revisions",
+                "explaintext": "",
+                "rvprop": "ids",
+            }
+            query_params.update(self.__title_query_param)
+            request = await self.request(query_params)
+            self._content: str = request["query"]["pages"][self.pageid]["extract"]
+            self._revision_id: int = request["query"]["pages"][self.pageid][
+                "revisions"
+            ][0]["revid"]
+            self._parent_id: int = request["query"]["pages"][self.pageid]["revisions"][
+                0
+            ]["parentid"]
+
+        return self._content
+
+    @property
+    async def revision_id(self) -> int:
+        """
+        Revision ID of the page.
+
+        The revision ID is a number that uniquely identifies the current
+        version of the page. It can be used to create the permalink or for
+        other direct API calls. See `Help:Page history
+        <http://en.wikipedia.org/wiki/Wikipedia:Revision>`_ for more
+        information.
+
+        Supported only for MediaWiki version 1.34 or higher
+        """
+        if not getattr(self, "_revid", False):
+            # fetch the content (side effect is loading the revid)
+            _ = await self.content
+
+        return self._revision_id
+
+    @property
+    async def parent_id(self) -> int:
+        """
+        Revision ID of the parent version of the current revision of this
+        page. See ``revision_id`` for more information.
+
+        Supported only for MediaWiki version 1.34 or higher
+        """
+        if not getattr(self, "_parentid", False):
+            # fetch the content (side effect is loading the revid)
+            _ = await self.content
+        return self._parent_id
+
+    @property
+    async def summary(self) -> str:
+        """
+        Plain text summary of the page.
+
+        Supported only for MediaWiki version 1.34 or higher
+        """
+        if not getattr(self, "_summary", False):
+            # Use the base class helper method with no sentences or chars limit
+            query_params = self._build_extracts_params(sentences=None, chars=None)
+            
+            request = await self.request(query_params)
+            self._summary: str = request["query"]["pages"][self.pageid]["extract"]
+
+        return self._summary
+
+    @property
+    async def infobox(self) -> Dict[str, Any]:
         """
         Info bot section of the page
 
@@ -237,7 +312,7 @@ class WikipediaPage(object):
         if getattr(self, "_infobox", False):
             return self._infobox
         if not getattr(self, "_html", False):
-            self.html()
+            self._html = await self.html()
 
         soup = BeautifulSoup(self._html, "html.parser")
         infobox = soup.find("table", {"class": "infobox"})
@@ -254,116 +329,32 @@ class WikipediaPage(object):
         return self._infobox
 
     @property
-    def content(self) -> str:
-        """
-        Plain text content of the page, excluding images, tables, and other data.
-
-        Supported only for MediaWiki version 1.34 or higher
-        """
-        if not getattr(self, "_content", False):
-            query_params: Dict[str, str | int] = {
-                "prop": "extracts|revisions",
-                "explaintext": "",
-                "rvprop": "ids",
-            }
-            query_params.update(self.__title_query_param)
-            request = self.request(query_params)
-            self._content: str = request["query"]["pages"][self.pageid]["extract"]
-            self._revision_id: int = request["query"]["pages"][self.pageid][
-                "revisions"
-            ][0]["revid"]
-            self._parent_id: int = request["query"]["pages"][self.pageid]["revisions"][
-                0
-            ]["parentid"]
-
-        return self._content
-
-    @property
-    def revision_id(self) -> int:
-        """
-        Revision ID of the page.
-
-        The revision ID is a number that uniquely identifies the current
-        version of the page. It can be used to create the permalink or for
-        other direct API calls. See `Help:Page history
-        <http://en.wikipedia.org/wiki/Wikipedia:Revision>`_ for more
-        information.
-
-        Supported only for MediaWiki version 1.34 or higher
-        """
-        if not getattr(self, "_revid", False):
-            # fetch the content (side effect is loading the revid)
-            _ = self.content
-
-        return self._revision_id
-
-    @property
-    def parent_id(self) -> int:
-        """
-        Revision ID of the parent version of the current revision of this
-        page. See ``revision_id`` for more information.
-
-        Supported only for MediaWiki version 1.34 or higher
-        """
-        if not getattr(self, "_parentid", False):
-            # fetch the content (side effect is loading the revid)
-            _ = self.content
-        return self._parent_id
-
-    @property
-    def summary(self) -> str:
-        """
-        Plain text summary of the page.
-
-        Supported only for MediaWiki version 1.34 or higher
-        """
-        if not getattr(self, "_summary", False):
-            query_params: Dict[str, str | int] = {
-                "prop": "extracts",
-                "explaintext": "",
-                "exintro": "",
-            }
-            query_params.update(self.__title_query_param)
-
-            request = self.request(query_params)
-            self._summary: str = request["query"]["pages"][self.pageid]["extract"]
-
-        return self._summary
-
-    @property
-    def images(self) -> List[str]:
+    async def images(self) -> List[str]:
         """
         List of URLs of images on the page.
         """
         if not getattr(self, "_images", False):
+            # Use the base class helper method
+            image_data = await self.__continued_query(self._build_images_params(limit="max"))
+
             self._images = [
                 page["imageinfo"][0]["url"]
-                for page in self.__continued_query(
-                    {
-                        "generator": "images",
-                        "gimlimit": "max",
-                        "prop": "imageinfo",
-                        "iiprop": "url",
-                    }
-                )
+                for page in image_data
                 if "imageinfo" in page and "url" in page["imageinfo"][0]
             ]
 
         return self._images
 
     @property
-    def coordinates(self) -> Optional[Tuple[Decimal, Decimal]]:
+    async def coordinates(self) -> Optional[Tuple[Decimal, Decimal]]:
         """
         Tuple of Decimals in the form of (lat, lon) or None
         """
         if not getattr(self, "_coordinates", False):
-            query_params = {
-                "prop": "coordinates",
-                "colimit": "max",
-                "titles": self.title,
-            }
+            # Use the base class helper method
+            query_params = self._build_coordinates_params(limit="max")
 
-            request = self.request(query_params)
+            request = await self.request(query_params)
 
             self._coordinates: Optional[Tuple[Decimal, Decimal]] = None
             try:
@@ -378,7 +369,7 @@ class WikipediaPage(object):
         return self._coordinates
 
     @property
-    def references(self) -> List[str]:
+    async def references(self) -> List[str]:
         """
         List of URLs of external links on a page.
         May include external links within page that aren't technically cited anywhere.
@@ -388,17 +379,15 @@ class WikipediaPage(object):
             def add_protocol(url: str) -> str:
                 return url if url.startswith("http") else "http:" + url
 
-            self._references = [
-                add_protocol(link["*"])
-                for link in self.__continued_query(
-                    {"prop": "extlinks", "ellimit": "max"}
-                )
-            ]
+            # Use the base class helper method
+            links_data = await self.__continued_query(self._build_references_params(limit="max"))
+
+            self._references = [add_protocol(link["*"]) for link in links_data]
 
         return self._references
 
     @property
-    def links(self) -> List[str]:
+    async def links(self) -> List[str]:
         """
         List of titles of Wikipedia page links on a page.
 
@@ -406,37 +395,35 @@ class WikipediaPage(object):
           User talk, or other meta-Wikipedia pages.
         """
         if not getattr(self, "_links", False):
-            self._links = [
-                link["title"]
-                for link in self.__continued_query(
-                    {"prop": "links", "plnamespace": 0, "pllimit": "max"}
-                )
-            ]
+            links_data = await self.__continued_query(
+                {"prop": "links", "plnamespace": 0, "pllimit": "max"}
+            )
+
+            self._links = [link["title"] for link in links_data]
 
         return self._links
 
     @property
-    def backlinks(self) -> List[str]:
+    async def backlinks(self) -> List[str]:
         """
         List of pages that link to a given page
         """
         if not getattr(self, "_backlinks", False):
-            links = list(
-                self.__continued_query(
-                    {
-                        "list": "backlinks",
-                        "generator": "links",
-                        "bltitle": self.__title_query_param,
-                        "blfilterredir": "redirects",
-                    }
-                )
+            links = await self.__continued_query(
+                {
+                    "list": "backlinks",
+                    "generator": "links",
+                    "bltitle": self.__title_query_param,
+                    "blfilterredir": "redirects",
+                }
             )
+
             self._backlinks = [link["title"] for link in links]
             self._backlinks_ids = [link["pageid"] for link in links if "pageid" in link]
         return self._backlinks
 
     @property
-    def backlinks_ids(self) -> List[int]:
+    async def backlinks_ids(self) -> List[int]:
         """
         List of pages ids that link to a given page
 
@@ -445,34 +432,32 @@ class WikipediaPage(object):
             len(backlinks_ids) <= len(backlinks).
         """
         if not getattr(self, "_backlinks_ids", False):
-            _ = self.backlinks
+            _ = await self.backlinks
         return self._backlinks_ids
 
     @property
-    def categories(self) -> List[str]:
+    async def categories(self) -> List[str]:
         """
         List of categories of a page.
         """
         if not getattr(self, "_categories", False):
+            categories_data = await self.__continued_query(
+                {"prop": "categories", "cllimit": "max"}
+            )
+
             self._categories = [
-                re.sub(r"^Category:", "", x)
-                for x in [
-                    link["title"]
-                    for link in self.__continued_query(
-                        {"prop": "categories", "cllimit": "max"}
-                    )
-                ]
+                re.sub(r"^Category:", "", link["title"]) for link in categories_data
             ]
 
         return self._categories
 
     @property
-    def sections(self) -> List[str]:
+    async def sections(self) -> List[str]:
         """
         List of section titles from the table of contents on the page.
         """
         if not getattr(self, "_sections", False):
-            query_params: Dict[str, str | int] = {
+            query_params: Dict[str, Union[str, int]] = {
                 "action": "parse",
                 "prop": "sections",
             }
@@ -481,14 +466,14 @@ class WikipediaPage(object):
             else:
                 query_params.update({"pageid": self.pageid})
 
-            request = self.request(query_params)
+            request = await self.request(query_params)
             self._sections = [
                 section["line"] for section in request["parse"]["sections"]
             ]
 
         return self._sections
 
-    def section(self, section_title: str) -> Optional[str]:
+    async def section(self, section_title: str) -> Optional[str]:
         """
         Get the plain text content of a section from `self.sections`.
         Returns None if `section_title` isn't found, otherwise returns a whitespace
@@ -500,21 +485,21 @@ class WikipediaPage(object):
                the full text of all of the subsections. It only gets the text between
                `section_title` and the next subheading, which is often empty.
         """
-
-        section = "== {} ==".format(section_title)
+        content = await self.content
+        section = f"== {section_title} =="
         try:
-            index = self.content.index(section) + len(section)
+            index = content.index(section) + len(section)
         except ValueError:
             return None
 
         try:
-            next_index = self.content.index("==", index)
+            next_index = content.index("==", index)
         except ValueError:
-            next_index = len(self.content)
+            next_index = len(content)
 
-        return self.content[index:next_index].lstrip("=").strip()
+        return content[index:next_index].lstrip("=").strip()
 
-    def lang_title(self, lang_code: str) -> Optional[str]:
+    async def lang_title(self, lang_code: str) -> Optional[str]:
         """
         Get the title in specified language code
         Returns None if lang code or title isn't found, otherwise returns a string
@@ -527,7 +512,7 @@ class WikipediaPage(object):
         }
         query_params.update({"lllang": Language(lang_code).language})
         query_params.update(self.__title_query_param)
-        request = self.request(query_params)
+        request = await self.request(query_params)
         pageid = next(iter(request["query"]["pages"]))
         title: Optional[str] = None
         import contextlib

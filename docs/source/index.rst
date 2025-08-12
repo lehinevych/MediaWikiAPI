@@ -117,6 +117,15 @@ Changelog
 
    changelog
 
+Architecture
+===========
+
+Understand the design and organization of the MediaWikiAPI library.
+
+.. toctree::
+
+   architecture
+
 API
 ====
 

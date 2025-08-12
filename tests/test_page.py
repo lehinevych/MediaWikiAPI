@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 import mediawikiapi
 from mediawikiapi import MediaWikiAPI
 from mediawikiapi.config import Config
-from mediawikiapi.wikipediapage import WikipediaPage
+from mediawikiapi.sync.wikipediapage import WikipediaPage
 from tests.request_mock_data import (
     mock_backlinks,
     mock_backlinks_ids,

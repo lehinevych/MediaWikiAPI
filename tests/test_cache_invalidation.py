@@ -5,7 +5,7 @@ from unittest.mock import Mock, patch
 import pytest
 
 from mediawikiapi import MediaWikiAPI
-from mediawikiapi.util import memorized
+from mediawikiapi.sync.util import memorized
 
 
 class TestCacheInvalidation(unittest.TestCase):

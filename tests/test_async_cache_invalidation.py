@@ -5,7 +5,7 @@ from unittest.mock import Mock, patch
 import pytest
 
 from mediawikiapi import AsyncMediaWikiAPI
-from mediawikiapi.async_util import async_memorized
+from mediawikiapi.async_api.async_util import async_memorized
 
 
 class TestAsyncCacheInvalidation(unittest.TestCase):

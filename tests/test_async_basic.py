@@ -4,7 +4,7 @@ import pytest_asyncio
 import vcr
 
 from mediawikiapi import AsyncMediaWikiAPI
-from mediawikiapi.async_wikipediapage import AsyncWikipediaPage
+from mediawikiapi.async_api.async_wikipediapage import AsyncWikipediaPage
 from mediawikiapi.config import Config
 
 

@@ -1,22 +1,21 @@
 from decimal import Decimal
 from functools import partial
-from typing import Any, Dict, List, Optional, Tuple, Union, cast
+from typing import Any, Dict, List, Optional, Tuple, Union, cast, Coroutine
 
 from .async_requestsession import AsyncRequestSession
 from .async_util import async_memorized
 from .async_wikipediapage import AsyncWikipediaPage
-from .config import Config
-from .exceptions import HTTPTimeoutError, MediaWikiAPIException, PageError
+from ..base.base_mediawikiapi import BaseMediaWikiAPI
+from ..config import Config
+from ..exceptions import HTTPTimeoutError, MediaWikiAPIException, PageError
 
 
-class AsyncMediaWikiAPI:
+class AsyncMediaWikiAPI(BaseMediaWikiAPI[AsyncWikipediaPage, Coroutine[Any, Any, Dict[str, Any]]]):
     """Asynchronous interface for the MediaWiki API"""
 
     def __init__(self, config: Optional[Config] = None) -> None:
         """Initialize with optional configuration"""
-        self.config = Config()
-        if config is not None:
-            self.config = config
+        super().__init__(config)
         self.session = AsyncRequestSession()
 
     async def close(self) -> None:
@@ -109,39 +108,14 @@ class AsyncMediaWikiAPI:
         * results - the maxmimum number of results returned
         * suggestion - if True, return results and suggestion (if any) in a tuple
         """
-        search_params = {
-            "list": "search",
-            "srprop": "",
-            "srlimit": results,
-            "limit": results,
-            "srsearch": query,
-        }
-        if suggestion:
-            search_params["srinfo"] = "suggestion"
-
+        search_params = self._prepare_search_params(query, results, suggestion)
         raw_results = await self.session.request(search_params, self.config)
 
-        if "error" in raw_results:
-            if raw_results["error"]["info"] in (
-                "HTTP request timed out.",
-                "Pool queue is full",
-            ):
-                raise HTTPTimeoutError(query)
-            else:
-                raise MediaWikiAPIException(raw_results["error"]["info"])
+        # Handle errors using the base class helper method
+        self._handle_error_response(raw_results, query)
 
-        search_results = (d["title"] for d in raw_results["query"]["search"])
-
-        if suggestion:
-            if raw_results["query"].get("searchinfo"):
-                return (
-                    list(search_results),
-                    raw_results["query"]["searchinfo"]["suggestion"],
-                )
-            else:
-                return list(search_results), None
-
-        return list(search_results)
+        # Process results using the base class helper method
+        return self._process_search_results(raw_results, suggestion)
 
     @async_memorized
     async def geosearch(
@@ -167,33 +141,15 @@ class AsyncMediaWikiAPI:
         * results - the maximum number of results returned
         * radius - Search radius in meters. The value must be between 10 and 10000
         """
-        search_params = {
-            "list": "geosearch",
-            "gsradius": radius,
-            "gscoord": "{0}|{1}".format(latitude, longitude),
-            "gslimit": results,
-        }
-        if title:
-            search_params["titles"] = title
-
+        search_params = self._prepare_geosearch_params(latitude, longitude, title, results, radius)
         raw_results = await self.session.request(search_params, self.config)
 
-        if "error" in raw_results:
-            if raw_results["error"]["info"] in (
-                "HTTP request timed out.",
-                "Pool queue is full",
-            ):
-                raise HTTPTimeoutError("{0}|{1}".format(latitude, longitude))
-            else:
-                raise MediaWikiAPIException(raw_results["error"]["info"])
+        # Handle errors using the base class helper method
+        query_identifier = f"{latitude}|{longitude}"
+        self._handle_error_response(raw_results, query_identifier)
 
-        search_pages = raw_results["query"].get("pages", None)
-        if search_pages:
-            search_results = (v["title"] for k, v in search_pages.items() if k != "-1")
-        else:
-            search_results = (d["title"] for d in raw_results["query"]["geosearch"])
-
-        return list(search_results)
+        # Process results using the base class helper method
+        return self._process_geosearch_results(raw_results)
 
     @async_memorized
     async def suggest(self, query: str) -> Any:
@@ -201,12 +157,7 @@ class AsyncMediaWikiAPI:
         Get a Wikipedia search suggestion for `query`.
         Returns a string or None if no suggestion was found.
         """
-        search_params = {
-            "list": "search",
-            "srinfo": "suggestion",
-            "srprop": "",
-        }
-        search_params["srsearch"] = query
+        search_params = self._prepare_suggest_params(query)
         raw_result = await self.session.request(search_params, self.config)
         if raw_result["query"].get("searchinfo"):
             return raw_result["query"]["searchinfo"]["suggestion"]
@@ -222,16 +173,9 @@ class AsyncMediaWikiAPI:
 
         * pages - the number of random pages returned (max of 10)
         """
-        query_params = {
-            "list": "random",
-            "rnnamespace": 0,
-            "rnlimit": pages,
-        }
+        query_params = self._prepare_random_params(pages)
         request = await self.session.request(query_params, self.config)
-        titles = [page["title"] for page in request["query"]["random"]]
-        if len(titles) == 1:
-            return titles[0]
-        return titles
+        return self._process_random_results(request, pages)
 
     @async_memorized
     async def summary(
@@ -255,17 +199,9 @@ class AsyncMediaWikiAPI:
         page_info = await self.page(title, auto_suggest=auto_suggest, redirect=redirect)
         title = page_info.title
         pageid = page_info.pageid
-        query_params: Dict[str, Union[str, int]] = {
-            "prop": "extracts",
-            "explaintext": "",
-            "titles": title,
-        }
-        if sentences:
-            query_params["exsentences"] = sentences
-        elif chars:
-            query_params["exchars"] = chars
-        else:
-            query_params["exintro"] = ""
+        
+        # Use the helper method from the base class
+        query_params = self._prepare_summary_params(title, sentences, chars)
 
         request = await self.session.request(query_params, self.config)
         summary = request["query"]["pages"][pageid]["extract"]
@@ -373,31 +309,12 @@ class AsyncMediaWikiAPI:
         * cmlimit - the maximum number of titles to return
         * cmtype - which type of page to include. ("page", "subcat", or "file")
         """
-        if title is not None and pageid is not None:
-            raise ValueError(
-                "Please specify only a category or only a pageid, only one param can be specified"
-            )
-        elif title is not None:
-            query_params = {
-                "list": "categorymembers",
-                "cmtitle": "Category:{}".format(title),
-                "cmlimit": str(cmlimit),
-                "cmtype": cmtype,
-            }
-        elif pageid is not None:
-            query_params = {
-                "list": "categorymembers",
-                "cmpageid": str(pageid),
-                "cmlimit": str(cmlimit),
-                "cmtype": cmtype,
-            }
-        else:
-            raise ValueError("Either a category or a pageid must be specified")
-
+        # Use the helper method from the base class
+        query_params = self._prepare_category_members_params(title, pageid, cmlimit, cmtype)
         response = await self.session.request(query_params, self.config)
-        if "error" in response:
-            raise ValueError(response["error"].get("info"))
-        return [member["title"] for member in response["query"]["categorymembers"]]
+        
+        # Process results using the base class helper method
+        return self._process_category_members_results(response)
 
     def donate(self) -> None:
         """

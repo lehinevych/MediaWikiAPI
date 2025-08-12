@@ -1,40 +1,50 @@
+import asyncio
 import time
 from datetime import datetime
-from typing import Any, Dict, Optional, Union
+from typing import Any, Dict, Optional, Union, Coroutine
 
-import requests
+import aiohttp
 
-from .config import Config
-from .language import Language
+from ..base.base_requestsession import BaseRequestSession
+from ..config import Config
+from ..language import Language
 
 
-class RequestSession(object):
-    """Request wrapper class for request"""
+class AsyncRequestSession(BaseRequestSession):
+    """Asynchronous request wrapper class for aiohttp"""
 
     def __init__(self) -> None:
-        """Require configuration instance as argument"""
-        self.__session: requests.Session = requests.Session()
+        """Initialize the async session"""
+        super().__init__()
+        self.__session: Optional[aiohttp.ClientSession] = None
         self.__rate_limit_last_call: Optional[datetime] = None
 
-    def __del__(self) -> None:
-        if self.session is not None:
-            self.session.close()
-
     @property
-    def session(self) -> requests.Session:
+    async def session(self) -> aiohttp.ClientSession:
+        """Get or create an aiohttp client session"""
+        if self.__session is None or self.__session.closed:
+            self.__session = aiohttp.ClientSession()
         return self.__session
 
-    def new_session(self) -> None:
-        self.__session = requests.Session()
+    async def close(self) -> None:
+        """Close the session if it exists"""
+        if self.__session and not self.__session.closed:
+            await self.__session.close()
+            self.__session = None
 
-    def request(
+    async def new_session(self) -> None:
+        """Create a new session, closing the old one if it exists"""
+        await self.close()
+        self.__session = aiohttp.ClientSession()
+
+    async def request(
         self,
         params: Dict[str, Any],
         config: Config,
         language: Optional[Union[str, Language]] = None,
     ) -> Dict[str, Any]:
         """
-        Make a request to the Wikipedia API using the given search parameters,
+        Make an asynchronous request to the Wikipedia API using the given search parameters,
         language and configuration
 
         Arguments:
@@ -45,13 +55,11 @@ class RequestSession(object):
         Keyword arguments:
 
         * language - the wiki language
-
         """
-        params["format"] = "json"
-        if "action" not in params:
-            params["action"] = "query"
+        # Use base class method to prepare parameters
+        params = self._prepare_params(params)
 
-        headers = {"User-Agent": config.user_agent}
+        headers = {"User-Agent": self._build_user_agent(config)}
 
         if (
             self.__rate_limit_last_call
@@ -63,17 +71,17 @@ class RequestSession(object):
             wait_time = (
                 self.__rate_limit_last_call + config.rate_limit
             ) - datetime.now()
-            time.sleep(int(wait_time.total_seconds()))
+            await asyncio.sleep(wait_time.total_seconds())
             self.__rate_limit_last_call = datetime.now()
 
-        r = self.session.get(
+        session = await self.session
+        async with session.get(
             config.get_api_url(language),
             params=params,
             headers=headers,
-            timeout=config.timeout,
-        )
-
-        data: Dict[str, Any] = r.json()
+            timeout=aiohttp.ClientTimeout(total=config.timeout),
+        ) as response:
+            data: Dict[str, Any] = await response.json()
 
         # If there's no continue token, return the data as is
         if "continue" not in data:
@@ -98,19 +106,18 @@ class RequestSession(object):
                     self.__rate_limit_last_call + config.rate_limit
                 ) - datetime.now()
                 if wait_time.total_seconds() > 0:
-                    time.sleep(int(wait_time.total_seconds()))
+                    await asyncio.sleep(wait_time.total_seconds())
 
             # Make the continuation request
-            r = self.session.get(
+            session = await self.session
+            async with session.get(
                 config.get_api_url(language),
                 params=continue_params,
                 headers=headers,
-                timeout=config.timeout,
-            )
-            self.__rate_limit_last_call = datetime.now()
-
-            # Get the continued data
-            continued_data = r.json()
+                timeout=aiohttp.ClientTimeout(total=config.timeout),
+            ) as response:
+                self.__rate_limit_last_call = datetime.now()
+                continued_data = await response.json()
 
             # Merge the data from the continued request with the initial result
             if "query" in continued_data:

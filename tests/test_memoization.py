@@ -3,7 +3,7 @@ import unittest
 import pytest
 
 from mediawikiapi import MediaWikiAPI
-from mediawikiapi.util import memorized
+from mediawikiapi.sync.util import memorized
 
 
 class MockConfig:

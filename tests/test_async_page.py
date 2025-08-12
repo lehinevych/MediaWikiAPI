@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 import mediawikiapi
 from mediawikiapi import AsyncMediaWikiAPI
 from mediawikiapi.config import Config
-from mediawikiapi.async_wikipediapage import AsyncWikipediaPage
+from mediawikiapi.async_api.async_wikipediapage import AsyncWikipediaPage
 
 
 @pytest_asyncio.fixture(scope="module")

@@ -5,7 +5,7 @@ import os
 
 from mediawikiapi import AsyncMediaWikiAPI
 from mediawikiapi.config import Config
-from mediawikiapi.async_wikipediapage import AsyncWikipediaPage
+from mediawikiapi.async_api.async_wikipediapage import AsyncWikipediaPage
 
 # Force VCR to use existing cassettes
 os.environ["VCR_RECORD_MODE"] = "once"

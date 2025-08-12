@@ -237,4 +237,4 @@ def async_memorized(
 
 
 # Reuse the clean_infobox function from the original util module
-from .util import clean_infobox
+from ..sync.util import clean_infobox

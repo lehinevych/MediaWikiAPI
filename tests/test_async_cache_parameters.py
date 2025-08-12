@@ -6,7 +6,7 @@ from typing import Any, Dict, Optional
 import pytest
 
 from mediawikiapi import AsyncMediaWikiAPI, Config
-from mediawikiapi.async_util import async_memorized
+from mediawikiapi.async_api.async_util import async_memorized
 
 
 class TestAsyncCacheParameters(unittest.TestCase):
