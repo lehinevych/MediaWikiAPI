@@ -21,16 +21,16 @@ async def main():
         # Get a page
         print("Getting the Python page...")
         python_page = await api.page("Python (programming language)")
-        
+
         # Get basic page properties
         print(f"Page title: {python_page.title}")
         print(f"Page URL: {python_page.url}")
-        
+
         # Get page summary
         print("\nGetting page summary...")
         summary = await python_page.summary
         print(f"Summary excerpt: {summary[:100]}...\n")
-        
+
         print("Async API test completed successfully!")
 
 
