@@ -99,7 +99,7 @@ class AsyncMediaWikiAPI(BaseMediaWikiAPI[AsyncWikipediaPage, Coroutine[Any, Any,
         query: str,
         results: int = 10,
         suggestion: bool = False,
-    ) -> Union[List[str], Tuple[List[Any], Optional[List[str]]]]:
+    ) -> Union[List[str], Tuple[List[str], Optional[str]]]:
         """
         Do a Wikipedia search for `query`.
 
@@ -115,7 +115,7 @@ class AsyncMediaWikiAPI(BaseMediaWikiAPI[AsyncWikipediaPage, Coroutine[Any, Any,
         self._handle_error_response(raw_results, query)
 
         # Process results using the base class helper method
-        return self._process_search_results(raw_results, suggestion)
+        return self._process_search_results(raw_results, suggestion)  # type: ignore
 
     @async_memorized
     async def geosearch(
@@ -324,7 +324,7 @@ class AsyncMediaWikiAPI(BaseMediaWikiAPI[AsyncWikipediaPage, Coroutine[Any, Any,
 
         webbrowser.open(Config().donate_url(), new=2)
 
-    async def custom_query(self, query_params: Dict[str, Any]) -> Dict[str, Any]:
+    async def custom_query(self, query_params: Dict[str, Union[str, int, bool, List[str]]]) -> Dict[str, Any]:
         """
         Make a custom query to the Wikipedia API with the given parameters.
 

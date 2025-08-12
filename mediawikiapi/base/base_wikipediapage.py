@@ -6,7 +6,7 @@ asynchronous Wikipedia page implementations extend.
 """
 
 from abc import ABC, abstractmethod
-from typing import Any, Callable, Dict, List, Optional, Tuple, Union, TypeVar
+from typing import Any, Callable, Dict, List, Optional, Tuple, Union, TypeVar, Protocol, Awaitable
 
 from ..exceptions import PageError, RedirectError, ODD_ERROR_MESSAGE
 
@@ -25,7 +25,8 @@ class BaseWikipediaPage(ABC):
     
     def __init__(
         self,
-        request: Any,
+        request: Union[Callable[[Dict[str, Any]], Dict[str, Any]], 
+                      Callable[[Dict[str, Any]], Awaitable[Dict[str, Any]]]],
         title: Optional[str] = None,
         pageid: Optional[int] = None,
         original_title: str = "",

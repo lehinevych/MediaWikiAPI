@@ -102,7 +102,7 @@ class MediaWikiAPI(BaseMediaWikiAPI[WikipediaPage, Dict[str, Any]]):
         query: str,
         results: int = 10,
         suggestion: bool = False,
-    ) -> Union[List[str], Tuple[List[Any], Optional[List[str]]]]:
+    ) -> Union[List[str], Tuple[List[str], Optional[str]]]:
         """
         Do a Wikipedia search for `query`.
         
@@ -121,7 +121,7 @@ class MediaWikiAPI(BaseMediaWikiAPI[WikipediaPage, Dict[str, Any]]):
         self._handle_error_response(raw_results, query)
         
         # Process results
-        return self._process_search_results(raw_results, suggestion)
+        return self._process_search_results(raw_results, suggestion)  # type: ignore
     
     @memorized
     def geosearch(
@@ -334,7 +334,7 @@ class MediaWikiAPI(BaseMediaWikiAPI[WikipediaPage, Dict[str, Any]]):
         # Process results
         return self._process_category_members_results(response)
     
-    def custom_query(self, query_params: Dict[str, Any]) -> Dict[str, Any]:
+    def custom_query(self, query_params: Dict[str, Union[str, int, bool, List[str]]]) -> Dict[str, Any]:
         """
         Make a custom query to the Wikipedia API with the given parameters.
         

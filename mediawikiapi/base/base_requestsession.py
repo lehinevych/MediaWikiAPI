@@ -6,7 +6,19 @@ asynchronous request session implementations extend.
 """
 
 from abc import ABC, abstractmethod
-from typing import Any, Dict, Optional, Union
+from typing import Any, Dict, Optional, Union, TypeVar, Protocol, runtime_checkable, overload, Awaitable
+
+T = TypeVar('T')  # For return type from request methods
+
+@runtime_checkable
+class SyncRequestCallable(Protocol):
+    """Protocol for synchronous request functions."""
+    def __call__(self, params: Dict[str, Any], config: "Config") -> Dict[str, Any]: ...
+
+@runtime_checkable
+class AsyncRequestCallable(Protocol):
+    """Protocol for asynchronous request functions."""
+    def __call__(self, params: Dict[str, Any], config: "Config") -> Awaitable[Dict[str, Any]]: ...
 
 from ..common.api_version import MediaWikiVersion
 from ..config import Config
@@ -31,7 +43,7 @@ class BaseRequestSession(ABC):
     @abstractmethod
     def request(
         self, params: Dict[str, Any], config: Config
-    ) -> Any:
+    ) -> Union[Dict[str, Any], Awaitable[Dict[str, Any]]]:
         """
         Make a request to the MediaWiki API.
         
@@ -45,7 +57,7 @@ class BaseRequestSession(ABC):
         pass
     
     @abstractmethod
-    def close(self) -> Any:
+    def close(self) -> Union[None, Awaitable[None]]:
         """
         Close the session and release resources.
         
@@ -60,7 +72,7 @@ class BaseRequestSession(ABC):
         pass
     
     @abstractmethod
-    def new_session(self) -> Any:
+    def new_session(self) -> Union[None, Awaitable[None]]:
         """
         Create a new session, closing the existing one if necessary.
         
@@ -155,7 +167,7 @@ class BaseRequestSession(ABC):
         pass
         
     @abstractmethod
-    def detect_api_version(self, api_url: str, config: Config) -> Any:
+    def detect_api_version(self, api_url: str, config: Config) -> Union[Optional[MediaWikiVersion], Awaitable[Optional[MediaWikiVersion]]]:
         """
         Detect the MediaWiki API version for a specific API URL.
         

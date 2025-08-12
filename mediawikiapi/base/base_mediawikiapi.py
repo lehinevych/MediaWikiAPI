@@ -6,7 +6,14 @@ asynchronous MediaWiki API implementations extend.
 """
 
 from abc import ABC, abstractmethod
-from typing import Any, Dict, List, Optional, Tuple, Union, TypeVar, Generic
+from decimal import Decimal
+from typing import Any, Dict, List, Optional, Tuple, Union, TypeVar, Generic, Awaitable
+
+from ..common.api_version import MediaWikiVersion
+from ..common.type_definitions import (
+    APIMethodReturn, CoordinateValue, JSONDict, RequestCallable,
+    SearchResult, SearchResults, SearchResultsWithSuggestion, WikiQuery, WikiResponse
+)
 
 from ..common.api_version import MediaWikiVersion, cache_version
 from ..config import Config
@@ -108,7 +115,7 @@ class BaseMediaWikiAPI(ABC, Generic[P, T]):
         query: str,
         results: int = 10,
         suggestion: bool = False,
-    ) -> Union[List[str], Tuple[List[Any], Optional[List[str]]]]:
+    ) -> SearchResult:
         """
         Do a Wikipedia search for `query`.
         
@@ -121,12 +128,12 @@ class BaseMediaWikiAPI(ABC, Generic[P, T]):
     @abstractmethod
     def geosearch(
         self,
-        latitude: Any,  # Use Decimal in implementations
-        longitude: Any, # Use Decimal in implementations
+        latitude: CoordinateValue,
+        longitude: CoordinateValue,
         title: Optional[str] = None,
         results: int = 10,
         radius: int = 1000,
-    ) -> List[str]:
+    ) -> SearchResults:
         """
         Do a wikipedia geo search for `latitude` and `longitude`
         using HTTP API described in http://www.mediawiki.org/wiki/Extension:GeoData
@@ -143,7 +150,7 @@ class BaseMediaWikiAPI(ABC, Generic[P, T]):
         pass
     
     @abstractmethod
-    def suggest(self, query: str) -> Any:
+    def suggest(self, query: str) -> Union[Optional[str], Awaitable[Optional[str]]]:
         """
         Get a Wikipedia search suggestion for `query`.
         Returns a string or None if no suggestion was found.
@@ -151,7 +158,7 @@ class BaseMediaWikiAPI(ABC, Generic[P, T]):
         pass
     
     @abstractmethod
-    def random(self, pages: int = 1) -> Any:
+    def random(self, pages: int = 1) -> Union[Union[str, List[str]], Awaitable[Union[str, List[str]]]]:
         """
         Get a list of random Wikipedia article titles.
         
@@ -168,7 +175,7 @@ class BaseMediaWikiAPI(ABC, Generic[P, T]):
         chars: Optional[int] = 0,
         auto_suggest: bool = False,
         redirect: bool = True,
-    ) -> Any:
+    ) -> Union[str, Awaitable[str]]:
         """
         Plain text summary of the page.
         
@@ -281,7 +288,7 @@ class BaseMediaWikiAPI(ABC, Generic[P, T]):
         pass
     
     # Helper methods for parameter preparation
-    def _prepare_search_params(self, query: str, results: int, suggestion: bool) -> Dict[str, Any]:
+    def _prepare_search_params(self, query: str, results: int, suggestion: bool) -> WikiQuery:
         """
         Helper method to prepare search parameters.
         
@@ -305,8 +312,8 @@ class BaseMediaWikiAPI(ABC, Generic[P, T]):
         return search_params
     
     def _prepare_geosearch_params(
-        self, latitude: Any, longitude: Any, title: Optional[str], results: int, radius: int
-    ) -> Dict[str, Any]:
+        self, latitude: CoordinateValue, longitude: CoordinateValue, title: Optional[str], results: int, radius: int
+    ) -> WikiQuery:
         """
         Helper method to prepare geosearch parameters.
         
@@ -330,7 +337,7 @@ class BaseMediaWikiAPI(ABC, Generic[P, T]):
             search_params["titles"] = title
         return search_params
     
-    def _prepare_suggest_params(self, query: str) -> Dict[str, Any]:
+    def _prepare_suggest_params(self, query: str) -> WikiQuery:
         """
         Helper method to prepare suggest parameters.
         
@@ -347,7 +354,7 @@ class BaseMediaWikiAPI(ABC, Generic[P, T]):
             "srsearch": query,
         }
     
-    def _prepare_random_params(self, pages: int) -> Dict[str, Any]:
+    def _prepare_random_params(self, pages: int) -> WikiQuery:
         """
         Helper method to prepare random article parameters.
         
@@ -365,7 +372,7 @@ class BaseMediaWikiAPI(ABC, Generic[P, T]):
     
     def _prepare_summary_params(
         self, title: str, sentences: Optional[int], chars: Optional[int]
-    ) -> Dict[str, Union[str, int]]:
+    ) -> WikiQuery:
         """
         Helper method to prepare summary parameters.
         
@@ -392,7 +399,7 @@ class BaseMediaWikiAPI(ABC, Generic[P, T]):
         
     def _prepare_category_members_params(
         self, title: Optional[str], pageid: Optional[int], cmlimit: int, cmtype: str
-    ) -> Dict[str, Any]:
+    ) -> WikiQuery:
         """
         Helper method to prepare category members parameters.
         
@@ -428,7 +435,7 @@ class BaseMediaWikiAPI(ABC, Generic[P, T]):
             raise ValueError("Either a category or a pageid must be specified")
             
     # Helper methods for error handling
-    def _handle_error_response(self, response: Dict[str, Any], query_identifier: str) -> None:
+    def _handle_error_response(self, response: WikiResponse, query_identifier: str) -> None:
         """
         Helper method to handle error responses from the MediaWiki API.
         
@@ -451,8 +458,8 @@ class BaseMediaWikiAPI(ABC, Generic[P, T]):
     
     # Helper methods for result processing
     def _process_search_results(
-        self, response: Dict[str, Any], suggestion: bool
-    ) -> Union[List[str], Tuple[List[Any], Optional[List[str]]]]:
+        self, response: WikiResponse, suggestion: bool
+    ) -> SearchResult:
         """
         Helper method to process search results from the API.
         
@@ -476,7 +483,7 @@ class BaseMediaWikiAPI(ABC, Generic[P, T]):
         
         return list(search_results)
     
-    def _process_geosearch_results(self, response: Dict[str, Any]) -> List[str]:
+    def _process_geosearch_results(self, response: WikiResponse) -> SearchResults:
         """
         Helper method to process geosearch results from the API.
         
@@ -494,7 +501,7 @@ class BaseMediaWikiAPI(ABC, Generic[P, T]):
         
         return list(search_results)
     
-    def _process_random_results(self, response: Dict[str, Any], pages: int) -> Union[str, List[str]]:
+    def _process_random_results(self, response: WikiResponse, pages: int) -> Union[str, SearchResults]:
         """
         Helper method to process random page results from the API.
         
@@ -511,8 +518,8 @@ class BaseMediaWikiAPI(ABC, Generic[P, T]):
         return titles
     
     def _process_category_members_results(
-        self, response: Dict[str, Any]
-    ) -> List[str]:
+        self, response: WikiResponse
+    ) -> SearchResults:
         """
         Helper method to process category members results from the API.
         
