@@ -31,6 +31,69 @@ class AsyncMediaWikiAPI:
         """Close the session when exiting context"""
         await self.close()
 
+    def invalidate_cache(self, method_name: str, *args: Any, **kwargs: Any) -> bool:
+        """
+        Invalidate cache for a specific method with specific arguments.
+
+        Args:
+            method_name: Name of the method whose cache to invalidate
+            *args, **kwargs: Arguments for which to invalidate the cache
+
+        Returns:
+            bool: True if an entry was invalidated, False otherwise
+
+        Raises:
+            AttributeError: If the method doesn't exist or isn't cached
+        """
+        method = getattr(self, method_name)
+        if hasattr(method, "invalidate_cache"):
+            return method.invalidate_cache(self, *args, **kwargs)
+        raise AttributeError(
+            f"Method {method_name} doesn't have a cache or doesn't exist"
+        )
+
+    def invalidate_all_method_cache(self, method_name: str) -> int:
+        """
+        Invalidate all cache entries for a specific method.
+
+        Args:
+            method_name: Name of the method whose cache to invalidate
+
+        Returns:
+            int: Number of cache entries invalidated
+
+        Raises:
+            AttributeError: If the method doesn't exist or isn't cached
+        """
+        method = getattr(self, method_name)
+        if hasattr(method, "invalidate_all_cache"):
+            return method.invalidate_all_cache()
+        raise AttributeError(
+            f"Method {method_name} doesn't have a cache or doesn't exist"
+        )
+
+    def invalidate_all_caches(self) -> Dict[str, int]:
+        """
+        Invalidate all caches for all methods.
+
+        Returns:
+            Dictionary mapping method names to number of cache entries invalidated
+        """
+        from .async_cache_util import invalidate_all_caches
+
+        return invalidate_all_caches(self)
+
+    def get_cache_statistics(self) -> Dict[str, int]:
+        """
+        Get cache statistics for all cached methods.
+
+        Returns:
+            Dictionary mapping method names to number of cache entries
+        """
+        from .async_cache_util import get_cache_statistics
+
+        return get_cache_statistics(self)
+
     @async_memorized
     async def search(
         self,

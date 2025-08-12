@@ -155,6 +155,59 @@ To set up pre-commit hooks for automatic linting and formatting:
 ./setup-hooks.py
 ```
 
+## Caching Features
+
+Both the synchronous and asynchronous APIs support advanced caching features to optimize performance and resource usage.
+
+### Cache Configuration
+
+Cache settings can be configured at the API level using the Config object:
+
+```python
+from mediawikiapi import MediaWikiAPI, Config
+
+# Configure caching parameters
+config = Config(
+    cache_ttl=300,       # Cache entries expire after 300 seconds
+    cache_max_size=1000, # Maximum 1000 entries in cache with LRU eviction
+)
+
+api = MediaWikiAPI(config)
+```
+
+### Cache Parameters for Decorators
+
+You can also configure caching for individual functions using the `memorized` or `async_memorized` decorators:
+
+```python
+from mediawikiapi import memorized
+
+@memorized(ttl=60, max_size=100)
+def cached_function():
+    # This function's results will be cached
+    # with a 60 second TTL and a max of 100 entries
+    pass
+```
+
+### Cache Invalidation
+
+The library provides methods to manually invalidate caches when needed:
+
+```python
+# Invalidate cache for a specific method and arguments
+api.invalidate_cache("search", "Python")
+
+# Invalidate all cache entries for a specific method
+api.invalidate_all_method_cache("search")
+
+# Invalidate all caches for all methods
+api.invalidate_all_caches()
+
+# Get cache statistics
+stats = api.get_cache_statistics()
+print(stats)  # {'search': 10, 'page': 5} - number of cached entries
+```
+
 ## License
 
 MIT licensed. See the [LICENSE file](https://github.com/lehinevych/MediaWikiAPI/blob/master/LICENSE) for

@@ -30,6 +30,10 @@ class memoized_class(object):
     - ttl: Time to live in seconds. If specified, cached values will expire after this duration.
     - max_size: Maximum number of entries to store in the cache. If specified, uses a
       least-recently-used (LRU) strategy to evict old entries when the cache is full.
+
+    Cache invalidation methods:
+    - invalidate_cache(*args, **kwargs): Invalidate cache for specific arguments
+    - invalidate_all_cache(): Invalidate all cached values for this function
     """
 
     def __init__(
@@ -67,17 +71,8 @@ class memoized_class(object):
             # better to not cache than blow up.
             return self.func(*args, **kwargs)
 
-        # Get the language from the instance's config if available
-        language = None
-        if args and args[0] is not None:
-            instance = args[0]
-            if hasattr(instance, "config"):
-                config = instance.config
-                if hasattr(config, "language"):
-                    language = config.language
-
-        # Include language in the cache key if available
-        key = f"{language}:{args!s}{kwargs!s}" if language else str(args) + str(kwargs)
+            # Generate cache key
+        key = self._get_cache_key(*args, **kwargs)
 
         # Check if key exists in cache and if the cached value is not expired
         current_time = time.time()
@@ -158,6 +153,42 @@ class memoized_class(object):
         """Support instance methods."""
         return functools.partial(self.__call__, obj)
 
+    def _get_cache_key(self, *args: Any, **kwargs: Any) -> str:
+        """Generate a cache key for the given arguments."""
+        # Get the language from the instance's config if available
+        language = None
+        if args and args[0] is not None:
+            instance = args[0]
+            if hasattr(instance, "config"):
+                config = instance.config
+                if hasattr(config, "language"):
+                    language = config.language
+
+        # Include language in the cache key if available
+        return f"{language}:{args!s}{kwargs!s}" if language else str(args) + str(kwargs)
+
+    def invalidate_cache(self, *args: Any, **kwargs: Any) -> bool:
+        """Invalidate cache entry for specific arguments.
+
+        Returns:
+            bool: True if an entry was invalidated, False if no matching entry was found.
+        """
+        key = self._get_cache_key(*args, **kwargs)
+        if key in self.cache:
+            del self.cache[key]
+            return True
+        return False
+
+    def invalidate_all_cache(self) -> int:
+        """Invalidate all cached values for this function.
+
+        Returns:
+            int: Number of entries invalidated.
+        """
+        count = len(self.cache)
+        self.cache.clear()
+        return count
+
 
 # This decorator wrapper was added over class one for auto api document generation
 def memorized(
@@ -175,6 +206,10 @@ def memorized(
         max_size: Maximum number of entries to store in the cache. If specified, uses a
              least-recently-used (LRU) strategy to evict old entries when the cache is full.
              Default is None (unlimited cache size).
+
+    The decorated function will have the following methods added:
+        invalidate_cache(*args, **kwargs): Invalidate cache for specific arguments
+        invalidate_all_cache(): Invalidate all cached values for this function
     """
     if func is None:
         # Called as @memorized(ttl=300, max_size=1000)
@@ -186,6 +221,10 @@ def memorized(
     @functools.wraps(func)
     def helper(*args: Any, **kwargs: Any) -> Any:
         return memoize(*args, **kwargs)
+
+    # Add cache invalidation methods to the decorated function
+    helper.invalidate_cache = memoize.invalidate_cache
+    helper.invalidate_all_cache = memoize.invalidate_all_cache
 
     return helper
 

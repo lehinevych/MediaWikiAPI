@@ -11,6 +11,7 @@ from .language import Language
 from .mediawikiapi import MediaWikiAPI
 from .util import memorized
 from .wikipediapage import WikipediaPage
+from .cache_util import get_cache_statistics, invalidate_all_caches
 
 # Async classes
 from .async_mediawikiapi import AsyncMediaWikiAPI
@@ -29,6 +30,8 @@ __all__ = [
     "RedirectError",
     "WikipediaPage",
     "memorized",
+    "get_cache_statistics",
+    "invalidate_all_caches",
     # Async classes
     "AsyncMediaWikiAPI",
     "AsyncWikipediaPage",

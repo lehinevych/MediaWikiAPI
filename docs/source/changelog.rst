@@ -32,6 +32,9 @@ Version 2.0
   * Add cache expiration mechanism (TTL) for time-based invalidation
   * Add maximum size limits with LRU (least recently used) eviction strategy
   * Add cache configuration options in the Config class (cache_ttl and cache_max_size)
+  * Add manual cache invalidation methods for fine-grained cache control
+  * Add cache statistics utility functions
+  * Implement all cache control features for both synchronous and asynchronous APIs
 
 Version 1.3
 =============
