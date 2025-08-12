@@ -18,6 +18,9 @@ Version 2.0
 * Add test fixtures update script for maintaining tests with changing Wikipedia API responses
 * Update GitHub Actions workflows to use uv and ruff
 * Make tests more resilient to Wikipedia content changes
+* Make continuation tokens automatic and remove follow_continue parameter from API methods
+* Make auto_suggest default to False for page() and summary() methods
+* Fix deprecated BeautifulSoup findAll method
 
 Version 1.3
 =============

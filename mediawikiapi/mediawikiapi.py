@@ -22,7 +22,6 @@ class MediaWikiAPI(object):
         query: str,
         results: int = 10,
         suggestion: bool = False,
-        follow_continue: bool = False,
     ) -> Union[List[str], Tuple[List[Any], Optional[List[str]]]]:
         """
         Do a Wikipedia search for `query`.
@@ -31,7 +30,6 @@ class MediaWikiAPI(object):
 
         * results - the maxmimum number of results returned
         * suggestion - if True, return results and suggestion (if any) in a tuple
-        * follow_continue - if True, automatically follow continuation tokens to get all results
         """
         search_params = {
             "list": "search",
@@ -44,7 +42,7 @@ class MediaWikiAPI(object):
             search_params["srinfo"] = "suggestion"
 
         raw_results = self.session.request(
-            search_params, self.config, follow_continue=follow_continue
+            search_params, self.config
         )
 
         if "error" in raw_results:
@@ -77,7 +75,6 @@ class MediaWikiAPI(object):
         title: Optional[str] = None,
         results: int = 10,
         radius: int = 1000,
-        follow_continue: bool = False,
     ) -> List[str]:
         """
         Do a wikipedia geo search for `latitude` and `longitude`
@@ -93,7 +90,6 @@ class MediaWikiAPI(object):
         * title - The title of an article to search for
         * results - the maximum number of results returned
         * radius - Search radius in meters. The value must be between 10 and 10000
-        * follow_continue - if True, automatically follow continuation tokens to get all results
         """
         search_params = {
             "list": "geosearch",
@@ -105,7 +101,7 @@ class MediaWikiAPI(object):
             search_params["titles"] = title
 
         raw_results = self.session.request(
-            search_params, self.config, follow_continue=follow_continue
+            search_params, self.config
         )
 
         if "error" in raw_results:
@@ -170,7 +166,7 @@ class MediaWikiAPI(object):
         title: str,
         sentences: Optional[int] = 0,
         chars: Optional[int] = 0,
-        auto_suggest: bool = True,
+        auto_suggest: bool = False,
         redirect: bool = True,
     ) -> Any:
         """
@@ -206,7 +202,7 @@ class MediaWikiAPI(object):
         self,
         title: Optional[str] = None,
         pageid: Optional[int] = None,
-        auto_suggest: bool = True,
+        auto_suggest: bool = False,
         redirect: bool = True,
         preload: bool = False,
     ) -> WikipediaPage:
@@ -286,7 +282,6 @@ class MediaWikiAPI(object):
         pageid: Optional[int] = None,
         cmlimit: int = 10,
         cmtype: str = "page",
-        follow_continue: bool = False,
     ) -> List[str]:
         """
         Get list of page titles belonging to a category.
@@ -296,7 +291,6 @@ class MediaWikiAPI(object):
         * pageid - page id of category page. Cannot be used together with "title"
         * cmlimit - the maximum number of titles to return
         * cmtype - which type of page to include. ("page", "subcat", or "file")
-        * follow_continue - if True, automatically follow continuation tokens to get all results
         """
         if title is not None and pageid is not None:
             raise ValueError(
@@ -320,7 +314,7 @@ class MediaWikiAPI(object):
             raise ValueError("Either a category or a pageid must be specified")
 
         response = self.session.request(
-            query_params, self.config, follow_continue=follow_continue
+            query_params, self.config
         )
         if "error" in response:
             raise ValueError(response["error"].get("info"))
@@ -335,7 +329,7 @@ class MediaWikiAPI(object):
         webbrowser.open(Config().donate_url(), new=2)
 
     def custom_query(
-        self, query_params: Dict[str, Any], follow_continue: bool = True
+        self, query_params: Dict[str, Any]
     ) -> Dict[str, Any]:
         """
         Make a custom query to the Wikipedia API with the given parameters.
@@ -345,7 +339,6 @@ class MediaWikiAPI(object):
 
         Arguments:
         * query_params - A dictionary of query parameters to pass to the API
-        * follow_continue - If True, automatically follow continuation tokens to get all results
 
         Returns:
         * The raw API response as a dictionary
@@ -365,5 +358,5 @@ class MediaWikiAPI(object):
         ```
         """
         return self.session.request(
-            query_params, self.config, follow_continue=follow_continue
+            query_params, self.config
         )

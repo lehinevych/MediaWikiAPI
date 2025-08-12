@@ -32,7 +32,6 @@ class RequestSession(object):
         params: Dict[str, Any],
         config: Config,
         language: Optional[Union[str, Language]] = None,
-        follow_continue: bool = False,
     ) -> Dict[str, Any]:
         """
         Make a request to the Wikipedia API using the given search parameters,
@@ -46,7 +45,6 @@ class RequestSession(object):
         Keyword arguments:
 
         * language - the wiki language
-        * follow_continue - if True, automatically follow 'continue' tokens to get all results
 
         """
         params["format"] = "json"
@@ -77,11 +75,11 @@ class RequestSession(object):
 
         data: Dict[str, Any] = r.json()
 
-        # If follow_continue is False or there's no continue token, return the data as is
-        if not follow_continue or "continue" not in data:
+        # If there's no continue token, return the data as is
+        if "continue" not in data:
             return data
 
-        # If follow_continue is True, handle continuation
+        # Handle continuation
         result = data  # Start with the initial result
 
         # Continue requesting while there's a continue token

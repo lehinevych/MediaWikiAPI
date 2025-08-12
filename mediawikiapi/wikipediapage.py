@@ -244,7 +244,7 @@ class WikipediaPage(object):
         results: Dict[str, Any] = {}
 
         if infobox:
-            for row in infobox.findAll("tr"):  # type: ignore
+            for row in infobox.find_all("tr"):
                 title = row.find("th")
                 text = row.find("td")
                 if title and text:
