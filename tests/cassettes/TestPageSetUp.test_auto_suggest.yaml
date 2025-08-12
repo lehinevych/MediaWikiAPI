@@ -1,0 +1,417 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=info%7Cpageprops&inprop=url&redirects=&titles=butteryfly
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA5WPwU7DMAyG38UHTqWBa6UJiddAHLLUbS0cJ6SOtlHt3XG2wzSEhMglye/v/21v
+        sPcalpBiZlSEAaCDz4rlBMMGkkr0TF84wvC2wVRSNGJfVQ2Y+GSsJlNeb8r5vYPsZ1yb//H5kmLv
+        JyNJGe/hDiKtK8l87RuSKIrGNCKbcqAPUjwqXBPZy1zttgrKD23RyMFsv9VGKiazFtOnylxLC19U
+        8zo4h9K3Ptkw36cyu/ZzdzNaSf8yOZIRj31e8stlz90t4cEHpSS7FtOW9JKEgv/vHGc730Yd2S6u
+        AQAA
+    headers:
+      accept-ranges:
+      - bytes
+      age:
+      - '0'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-encoding:
+      - gzip
+      content-length:
+      - '231'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 12 Aug 2025 18:49:28 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw-api-ext.codfw.main-74d9c66849-qw4gc
+      server-timing:
+      - cache;desc="pass", host;desc="cp4043"
+      set-cookie:
+      - WMF-Last-Access=12-Aug-2025;Path=/;HttpOnly;secure;Expires=Sat, 13 Sep 2025
+        12:00:00 GMT
+      - WMF-Last-Access-Global=12-Aug-2025;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Sat,
+        13 Sep 2025 12:00:00 GMT
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; Path=/; secure; Domain=.wikipedia.org
+      - NetworkProbeLimit=0.001;Path=/;Secure;SameSite=None;Max-Age=3600
+      - WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAAAAFvdbXKSjk6SO35xXOR0lNRJ2oPtSD6c-_Lg;Domain=.wikipedia.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Wed,
+        12 Aug 2026 00:00:00 GMT
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      vary:
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      x-cache:
+      - cp4043 miss, cp4043 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 205.251.233.110
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
+        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAAAAFvdbXKSjk6SO35xXOR0lNRJ2oPtSD6c-_Lg;
+        NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?format=json&action=query&list=search&srprop=&srlimit=1&limit=1&srsearch=butteryfly&srinfo=suggestion
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA02PsW4CMQyGX+XkEV0rYKBVnqErE2IwwRcs3TkhcdTCkXevjw5lsqzP/2d7hm/M
+        whIKuBkmZFnqChzsJZOPQfhO5y5hxomUsutGnljfobUeTqj+4uOURkMWgR58FGWptFhKjsNQSMFt
+        XgG8PR5g6WulfHvOEWZ/YRnis6shUFGOdgmcqtrSYbyZ+h8U4ZQW7ws34Z8H3GEGsXfWPSjruGz8
+        wjvmWjrFH9P2kDAQn8F9bj/Wm107tvYL/U4rkwgBAAA=
+    headers:
+      accept-ranges:
+      - bytes
+      age:
+      - '0'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-encoding:
+      - gzip
+      content-length:
+      - '203'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 12 Aug 2025 18:49:28 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw-api-ext.codfw.main-74d9c66849-wf244
+      server-timing:
+      - cache;desc="pass", host;desc="cp4043"
+      set-cookie:
+      - WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;Domain=.wikipedia.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Wed,
+        12 Aug 2026 00:00:00 GMT
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      vary:
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      x-cache:
+      - cp4043 miss, cp4043 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 205.251.233.110
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+      x-search-id:
+      - 6e23mwdyxibwa51tko4a48gbv
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
+        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?format=json&action=query&list=search&srprop=&srlimit=1&limit=1&srsearch=butteryfly&srinfo=suggestion&sroffset=1&continue=-%7C%7C
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA02OQQ6CMBREr0JmadAYxJB06R1cGOOilm/5Cf3FUmIUeneLK1ezmDcvM+Olg7DY
+        EWqG0yxrbqBwlkDGW+EPtcWgg3YUKaiiZ8dxh5RK3HU0nfFu6HOVJyhhvESWiVbLGPzjMVKEqv4L
+        bJcFef2cKLx/HOlgOqjrDMk39iUix34lT16Eqbj4SWyWD9oSt1BN1RzrujqkW0pfwx9Ji8EAAAA=
+    headers:
+      accept-ranges:
+      - bytes
+      age:
+      - '0'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-encoding:
+      - gzip
+      content-length:
+      - '170'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 12 Aug 2025 18:49:28 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw-api-ext.codfw.main-74d9c66849-4j69h
+      server-timing:
+      - cache;desc="pass", host;desc="cp4043"
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      vary:
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      x-cache:
+      - cp4043 miss, cp4043 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 205.251.233.110
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+      x-search-id:
+      - aqk0s7gvajy2t4y3dfuaxnczf
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
+        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?format=json&action=query&list=search&srprop=&srlimit=1&limit=1&srsearch=butteryfly&srinfo=suggestion&sroffset=2&continue=-%7C%7C
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA02OsQ7CMBBDfyW6ERUElIKUb2BlQgxpemlPSpOSXISgzb+TMjF5sJ/tGV4qOHJ9
+        BDnDqMitugEJNxdQ+97RBzsxqaBGZAxSWBqJd5BzBa1iPWg/TrZYBYEKtHdMLuHaEoM3JiKDrP8N
+        2C4LFPqZMLx/OVRBDyDvM7hyY18BE9s1eaXIwhvRJi7bxr7F4FPEWIYm1SN1IE+XQ3M+1k1+5PwF
+        2f1e7c0AAAA=
+    headers:
+      accept-ranges:
+      - bytes
+      age:
+      - '0'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-encoding:
+      - gzip
+      content-length:
+      - '179'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 12 Aug 2025 18:49:28 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw-api-ext.codfw.main-74d9c66849-kcwb8
+      server-timing:
+      - cache;desc="pass", host;desc="cp4043"
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      vary:
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      x-cache:
+      - cp4043 miss, cp4043 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 205.251.233.110
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+      x-search-id:
+      - 3cfs7pf1rbe9x1u5mr7tjq3p9
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
+        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?format=json&action=query&list=search&srprop=&srlimit=1&limit=1&srsearch=butteryfly&srinfo=suggestion&sroffset=3&continue=-%7C%7C
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAAxWMywrCMBBFfyXMUoL4QLRZC3UtuBIXYzq0A3nU6Yhoyb+brs6Fe++Z4YOSOPUT
+        uBkiclq4Age3JORzn/hHnRlRMJKSOBM4sq6hFAtPVD/4HMdQq3oBC683yXdRTITiB3D3GVJ1bywo
+        a1hWrRCquWbszIUnzcLenGuo1GoYsSfuwG2Pu31zaE7lUcofqo7gKaYAAAA=
+    headers:
+      accept-ranges:
+      - bytes
+      age:
+      - '0'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-encoding:
+      - gzip
+      content-length:
+      - '158'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 12 Aug 2025 18:49:28 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw-api-ext.codfw.main-74d9c66849-t2fkq
+      server-timing:
+      - cache;desc="pass", host;desc="cp4043"
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      vary:
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      x-cache:
+      - cp4043 miss, cp4043 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 205.251.233.110
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+      x-search-id:
+      - eom2oechbk91okap1vxmr9p7e
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
+        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=info%7Cpageprops&inprop=url&redirects=&titles=butterfly
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA5VSwW7UMBD9lcgHBFKySTbeZjdShcQBLhyoxAlURY4ziV0c29gT6LLqvzPeilVB
+        SFVziJ335r08z/jEBoFSSbd4AwisYyxn31cIR9admHVhEUb/gpF1X09sCm6himFFhDCZI5WiI+Dd
+        BXi4zZkXM8Sk5vum2adNQjRZnIGcWWIrkmo08Jc6Z9JZBIuLG8EQ9VN/0wj3yB5djbDzSisxYP/B
+        FC5Gkux/3KgDwQbDOfAqVToP21bbXVHti7r+vG06fug4/0IFRkQM8CPlrZuK85bvDjXBYGdUhFXN
+        VbvL2bQas4YUUiH62JUl2E3K6+l3YuPCXKav8unpiMHnNKW2I9xvvPJvzw26vhi8EhK1s9fJJbVK
+        WGe1FC9OkTrjg/Pxz2h6vaT3FCB17z1Ed9cX/SfhtdGuX4RUwtn+9XB8s7nzMzkky0FEKAYxzlDc
+        1C1v2vawf7w9FzYqF3CEKAn/ENzqMzdl2kaQGGnNUEHmwggh+whej85TRPHEoKfZp/t2U9cHfkXj
+        Yg/p+Q2qyYzWswIAAA==
+    headers:
+      accept-ranges:
+      - bytes
+      age:
+      - '0'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-encoding:
+      - gzip
+      content-length:
+      - '412'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 12 Aug 2025 18:49:28 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw-api-ext.codfw.main-74d9c66849-sn8tf
+      server-timing:
+      - cache;desc="pass", host;desc="cp4043"
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      vary:
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      x-cache:
+      - cp4043 miss, cp4043 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 205.251.233.110
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+version: 1

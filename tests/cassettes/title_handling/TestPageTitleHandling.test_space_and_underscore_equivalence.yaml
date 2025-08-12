@@ -1,0 +1,146 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=info%7Cpageprops&inprop=url&redirects=&titles=Honey+badger
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA51Sy07DMBD8lcoHTm3jxC0NkSokTlwRnLhErrNNTP3C2UCrin9nnUJVISQkcnDi
+        mdnxeDdHtpGoOuVtMIDAKsam7HWAeGDVkQXZQp8+xHWec/EN6YZVJ2TKHPF8ylCjSdX33sFhspFN
+        C5GclHcIDq1vwBD7rncaYY/EJB8jXTvQmxhwP7AOrVFU9hvX6EiwwXQC+kF1QIFYwYvljJezPH8q
+        RLUUleDPJDCyxwhvKXMuOOcrzsuCYHAtdqxaLBainLLtYMwQU8YOMfRVloGbp7iBTpNzH9ss7bLx
+        fvX5fkTiX2WZdg3s56ELt2OX1pceV1Kh9m6djFK/pPNOK/mfLKlDIfowDmwnI/o2ytBBrLdR2jRH
+        ln/Jam3Tuo1wnll9N/rMX0JLouS/kT3MRvfZQ75aiNXqpjz9H2e273zEBnpF+GMApaGf+O3ESmul
+        uRDWNHVLGvIReVGyj/R8Au8qwOB7AgAA
+    headers:
+      accept-ranges:
+      - bytes
+      age:
+      - '0'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-encoding:
+      - gzip
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 12 Aug 2025 18:50:13 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw-api-ext.codfw.main-74d9c66849-f5vr2
+      server-timing:
+      - cache;desc="pass", host;desc="cp4043"
+      set-cookie:
+      - WMF-Last-Access=12-Aug-2025;Path=/;HttpOnly;secure;Expires=Sat, 13 Sep 2025
+        12:00:00 GMT
+      - WMF-Last-Access-Global=12-Aug-2025;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Sat,
+        13 Sep 2025 12:00:00 GMT
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; Path=/; secure; Domain=.wikipedia.org
+      - NetworkProbeLimit=0.001;Path=/;Secure;SameSite=None;Max-Age=3600
+      - WMF-Uniq=xE7zZbVV2BS_3uCNuItRkwJNAAAAAFvdmdyKH_XMI28x7G4L42Np_UusyhSqjpIx;Domain=.wikipedia.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Wed,
+        12 Aug 2026 00:00:00 GMT
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      x-cache:
+      - cp4043 miss, cp4043 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 205.251.233.110
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
+        WMF-Uniq=xE7zZbVV2BS_3uCNuItRkwJNAAAAAFvdmdyKH_XMI28x7G4L42Np_UusyhSqjpIx;
+        NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=info%7Cpageprops&inprop=url&redirects=&titles=Honey_badger
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA51STW+bQBD9K9YcesJmYZ2aIkWRcsq1ak+NIrReBthkv7oMbVIr/z2zdhpFVqRK
+        5QDLe28ej5k5wF6RnnRw0SIhtAAF/FwwPUF7AB+SU9b8wR7a2wMMKThW3ASPT91e9SMmVlP4i61e
+        see7AqIacc4e8nNVCZlPGTLsdEIK8MwLrjdk8dyiAB08oScXerTM/jYPhvCR4GRtlR8XfjKD/gyb
+        yFnNZR9xvUkMWzoFX/SUfw1qUV+sRbOuqu+1bC9kK8UPFlg1U8JfOXMlhRA7IZqaYfQjTdBut1vZ
+        FDAs1i4pZ5yI4tyWJfpNjhv5a2oT0ljmt/KsbUzSv8pK43t83MQpXh27dPne45PSZIK/zEa5X8oH
+        b7T6nyy5QzGFeBzYg0oUxqTihKkbknJ5jlC9yjrj8n1I+Daz7vros7mPI4uy/17NuD66r79Wu63c
+        7b40p9V6Y+cpJOpx1ox/i6gNzqswrJxyvHHvhB1PPS8d+8iqbuA5Xy8NOZ4NtgIAAA==
+    headers:
+      age:
+      - '0'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-encoding:
+      - gzip
+      content-length:
+      - '391'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 12 Aug 2025 18:50:13 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw-api-ext.codfw.main-74d9c66849-f5vr2
+      server-timing:
+      - cache;desc="pass", host;desc="cp4043"
+      set-cookie:
+      - WMF-Uniq=xE7zZbVV2BS_3uCNuItRkwJNAAEBAFvd1IxQGrfViDn8Fvx1hfbwJY9O_Trm3nVO;Domain=.wikipedia.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Wed,
+        12 Aug 2026 00:00:00 GMT
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      vary:
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      x-cache:
+      - cp4043 miss, cp4043 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 205.251.233.110
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -135,6 +135,15 @@ Learn about MediaWikiAPI's error handling and retry mechanisms.
 
    error_handling
 
+Session Management
+================
+
+Understand MediaWikiAPI's session management and resource handling.
+
+.. toctree::
+
+   session_management
+
 API
 ====
 

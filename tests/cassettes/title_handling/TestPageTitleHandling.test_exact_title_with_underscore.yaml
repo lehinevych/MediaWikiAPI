@@ -1,0 +1,149 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=info%7Cpageprops&inprop=url&redirects=&titles=Honey_badger
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA51STW+bQBD9K9YcesJmYZ2aIkWRcsq1ak+NIrReBthkv7oMbVIr/z2zdhpFVqRK
+        5QDLe28ej5k5wF6RnnRw0SIhtAAF/FwwPUF7AB+SU9b8wR7a2wMMKThW3ASPT91e9SMmVlP4i61e
+        see7AqIacc4e8nNVCZlPGTLsdEIK8MwLrjdk8dyiAB08oScXerTM/jYPhvCR4GRtlR8XfjKD/gyb
+        yFnNZR9xvUkMWzoFX/SUfw1qUV+sRbOuqu+1bC9kK8UPFlg1U8JfOXMlhRA7IZqaYfQjTdBut1vZ
+        FDAs1i4pZ5yI4tyWJfpNjhv5a2oT0ljmt/KsbUzSv8pK43t83MQpXh27dPne45PSZIK/zEa5X8oH
+        b7T6nyy5QzGFeBzYg0oUxqTihKkbknJ5jlC9yjrj8n1I+Daz7vros7mPI4uy/17NuD66r79Wu63c
+        7b40p9V6Y+cpJOpx1ox/i6gNzqswrJxyvHHvhB1PPS8d+8iqbuA5Xy8NOZ4NtgIAAA==
+    headers:
+      accept-ranges:
+      - bytes
+      age:
+      - '2'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-encoding:
+      - gzip
+      content-length:
+      - '391'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 12 Aug 2025 18:50:12 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw-api-ext.codfw.main-74d9c66849-7q6gs
+      server-timing:
+      - cache;desc="pass", host;desc="cp4043"
+      set-cookie:
+      - WMF-Last-Access=12-Aug-2025;Path=/;HttpOnly;secure;Expires=Sat, 13 Sep 2025
+        12:00:00 GMT
+      - WMF-Last-Access-Global=12-Aug-2025;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Sat,
+        13 Sep 2025 12:00:00 GMT
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; Path=/; secure; Domain=.wikipedia.org
+      - NetworkProbeLimit=0.001;Path=/;Secure;SameSite=None;Max-Age=3600
+      - WMF-Uniq=3fbDiRtkkOYTw7dwL1FQoQJNAAAAAFvdaG32U5svaq9xyZmNUSg_F_cBQsUblnbm;Domain=.wikipedia.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Wed,
+        12 Aug 2026 00:00:00 GMT
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      vary:
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      x-cache:
+      - cp4043 miss, cp4043 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 205.251.233.110
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
+        WMF-Uniq=3fbDiRtkkOYTw7dwL1FQoQJNAAAAAFvdaG32U5svaq9xyZmNUSg_F_cBQsUblnbm;
+        NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=info%7Cpageprops&inprop=url&redirects=&titles=Ada_Lovelace
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA51STYvbMBD9K0GHsgUntpxo7TUsZSm99VLoqR8IRZpYorKkyuPtpmH/e0fZtiyh
+        UFgfJGbevDdP4zmxvUJtdZySBwQ2MFax7wvkIxtOLMQ8Ke9+gmHD5xM75DhRxZ1R8n28B680UDXG
+        p9zqb+7xa8WSGmEuGjfdrlwldiRDYcUCIQ0xHXq4JFdMx4AQcIoGPKE/3DeH8IDsSdSrMC50EwLh
+        Imdx8ppo/8KMy5T2mM+WF23Lo1jbtGLd9GvefuT9wK+HXfOJCryaMcN9Mcy3jRC7rr/uKA1hREuP
+        EKITFTss3i+5eLSIaR7qGsKm2E3UTW1iHusS1RcDIxD/R6tdMPCwSTa9OU/p9rnGK6XRxXBbhMq8
+        VIjBafUSL2VCKcd0/lUGDmrxOMeMpPOnqloR53epdFM5DxngYhGkUSOtTYaIxwRyf5R3AaMLIN96
+        tRhAyfvdVq6lpm7kaZPCSKLF017NsJ4tdTUwa9J9F0bvZruaFFqgw2mnwuqK91x8WdqGb3kv2tfP
+        2JIWpGzmh64VN+yxfL8AKPmBAdkCAAA=
+    headers:
+      accept-ranges:
+      - bytes
+      age:
+      - '0'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-encoding:
+      - gzip
+      content-length:
+      - '422'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 12 Aug 2025 18:50:13 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw-api-ext.codfw.main-74d9c66849-wf5rs
+      server-timing:
+      - cache;desc="pass", host;desc="cp4043"
+      set-cookie:
+      - WMF-Uniq=3fbDiRtkkOYTw7dwL1FQoQJNAAEBAFvdA9Gm_QcnKB9NfMqkP9cf_dshPHeOBE3S;Domain=.wikipedia.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Wed,
+        12 Aug 2026 00:00:00 GMT
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      vary:
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      x-cache:
+      - cp4043 miss, cp4043 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 205.251.233.110
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+version: 1

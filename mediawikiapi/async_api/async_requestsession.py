@@ -28,6 +28,8 @@ class AsyncRequestSession(BaseRequestSession):
         super().__init__()
         self.__session: Optional[aiohttp.ClientSession] = None
         self.__rate_limit_last_call: Optional[datetime] = None
+        self.__reuse_count: int = 0
+        self.__max_reuse_count: int = 1000  # Limit to prevent memory leaks
 
     @property
     async def session(self) -> aiohttp.ClientSession:
@@ -46,6 +48,34 @@ class AsyncRequestSession(BaseRequestSession):
         """Create a new session, closing the old one if it exists"""
         await self.close()
         self.__session = aiohttp.ClientSession()
+        self.__reuse_count = 0
+        
+    def increment_reuse_counter(self) -> int:
+        """Increment the session reuse counter and check if we need a new session.
+        
+        Returns:
+            Current reuse count after increment
+        """
+        self.__reuse_count += 1
+        return self.__reuse_count
+        
+    def should_refresh_session(self) -> bool:
+        """Check if the session should be refreshed based on usage.
+        
+        Returns:
+            True if the session should be refreshed, False otherwise
+        """
+        return self.__reuse_count >= self.__max_reuse_count
+        
+    def set_max_reuse_count(self, count: int) -> None:
+        """Set the maximum number of times a session can be reused.
+        
+        Args:
+            count: Maximum reuse count
+        """
+        if count < 1:
+            raise ValueError("Maximum reuse count must be at least 1")
+        self.__max_reuse_count = count
 
     async def request(
         self,
@@ -87,6 +117,10 @@ class AsyncRequestSession(BaseRequestSession):
         api_url = config.get_api_url(language)
         query_identifier = str(params.get("titles", params.get("search", "unknown")))
         
+        # Check if we need to refresh the session
+        if self.increment_reuse_counter() > self.__max_reuse_count:
+            await self.new_session()
+            
         # Implement retry logic
         attempt = 0
         max_attempts = config.max_retries + 1  # +1 for the initial attempt

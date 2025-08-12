@@ -1,0 +1,69 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
+        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=info%7Cpageprops&inprop=url&redirects=&titles=communist+Party
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA51Sy27CMBD8lciHngJ5AQmRUA/8AJV6alUhkyzYqmO79oZCEf/eNai0QkhI9SXO
+        7M549nFgK46NaExnFSCwmrGYffTg9qw+MG1cx5X8gpbVrwe2dqajDEruei09RgvucE8ENATPr+Dj
+        W8wctNJBg/4vf36Pby98yzfgg5OiTNMqXAIiyc4JiJmmaEoCEhXc0IjJrEbQ2JkWFCV8yneJsEN2
+        1lZcb3r6UgT0FSawUw3RbsWoKoIVupP5vhGhQyxP8/EgrQZZ9pwX9WhaF9ULJSju0cE2uM7ycpJP
+        y3E1IRj0BgVhoyorY7bulepd8CgQra+TBPQw2LX0Gh8at0nCX3IpcflTIsXxHjORuoXd0Ar7eOrV
+        7ErmgTcojZ4FrdA1ro2WDf+no9Aq64w9jS7krLiHgRfGYQu+IcWFURLDA+dBRSg4zYz2wyD46HfD
+        rJDKeGPFPuK6jbbkiBYivoguaZphp57yohhPM3YM5xt6yaJb1QIAAA==
+    headers:
+      age:
+      - '0'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-encoding:
+      - gzip
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 12 Aug 2025 18:49:50 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw-api-ext.codfw.main-74d9c66849-l6k2c
+      server-timing:
+      - cache;desc="pass", host;desc="cp4043"
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      x-cache:
+      - cp4043 miss, cp4043 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 205.251.233.110
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+version: 1

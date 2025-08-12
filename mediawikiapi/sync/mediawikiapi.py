@@ -16,6 +16,16 @@ class MediaWikiAPI(BaseMediaWikiAPI[WikipediaPage, Dict[str, Any]]):
     
     This class extends BaseMediaWikiAPI with synchronous HTTP requests and 
     provides access to Wikipedia content using standard Python data structures.
+    
+    The MediaWikiAPI class can be used as a context manager to ensure
+    proper resource cleanup:
+    
+    Example:
+        ```python
+        with MediaWikiAPI() as api:
+            page = api.page("Python (programming language)")
+        # Session is automatically closed after the with block
+        ```
     """
     
     def __init__(self, config: Optional[Config] = None) -> None:
@@ -27,6 +37,35 @@ class MediaWikiAPI(BaseMediaWikiAPI[WikipediaPage, Dict[str, Any]]):
         """
         super().__init__(config)
         self.session = RequestSession()
+        
+    def __enter__(self) -> 'MediaWikiAPI':
+        """
+        Enter the context manager.
+        
+        Returns:
+            The MediaWikiAPI instance
+        """
+        return self
+        
+    def __exit__(self, exc_type, exc_val, exc_tb) -> None:
+        """
+        Exit the context manager and clean up resources.
+        
+        Args:
+            exc_type: The exception type, if an exception was raised
+            exc_val: The exception value, if an exception was raised
+            exc_tb: The exception traceback, if an exception was raised
+        """
+        self.close()
+        
+    def close(self) -> None:
+        """
+        Close the session and release resources.
+        
+        This method should be called when you're done using the MediaWikiAPI
+        instance to ensure proper resource cleanup.
+        """
+        self.session.close()
     
     def get_cache_statistics(self) -> Dict[str, int]:
         """
@@ -47,6 +86,15 @@ class MediaWikiAPI(BaseMediaWikiAPI[WikipediaPage, Dict[str, Any]]):
         """
         from .cache_util import invalidate_all_caches
         return invalidate_all_caches(self)
+        
+    def new_session(self) -> None:
+        """
+        Create a new request session, closing the existing one if necessary.
+        
+        This method can be used to refresh the connection or recover from connection issues.
+        """
+        self.session.close()
+        self.session = RequestSession()
     
     @memorized
     def search(

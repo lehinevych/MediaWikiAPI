@@ -17,6 +17,9 @@ class BaseRequestSession(ABC):
     
     This class defines the interface for making requests to the MediaWiki API,
     with different implementations for synchronous and asynchronous operations.
+    
+    Both synchronous and asynchronous implementations should support proper
+    resource management through context managers or explicit close methods.
     """
     
     def __init__(self) -> None:
@@ -37,6 +40,36 @@ class BaseRequestSession(ABC):
             
         Returns:
             API response (Dict for sync, Awaitable[Dict] for async)
+        """
+        pass
+    
+    @abstractmethod
+    def close(self) -> Any:
+        """
+        Close the session and release resources.
+        
+        This method should be implemented by both synchronous and asynchronous
+        implementations to ensure proper resource cleanup. The synchronous
+        implementation returns None, while the asynchronous implementation
+        returns a coroutine.
+        
+        Returns:
+            None for sync, Awaitable[None] for async
+        """
+        pass
+    
+    @abstractmethod
+    def new_session(self) -> Any:
+        """
+        Create a new session, closing the existing one if necessary.
+        
+        This method should be implemented by both synchronous and asynchronous
+        implementations to ensure proper resource management when a new session
+        is needed. The synchronous implementation returns None, while the
+        asynchronous implementation returns a coroutine.
+        
+        Returns:
+            None for sync, Awaitable[None] for async
         """
         pass
     
@@ -85,3 +118,37 @@ class BaseRequestSession(ABC):
             User-Agent string for HTTP requests
         """
         return config.user_agent
+    
+    @abstractmethod
+    def increment_reuse_counter(self) -> int:
+        """
+        Increment the session reuse counter and return the new value.
+        
+        This method is used to track how many times a session has been used,
+        which can help determine when to refresh the session to prevent
+        memory leaks or connection issues.
+        
+        Returns:
+            Current reuse count after increment
+        """
+        pass
+    
+    @abstractmethod
+    def should_refresh_session(self) -> bool:
+        """
+        Check if the session should be refreshed based on usage.
+        
+        Returns:
+            True if the session should be refreshed, False otherwise
+        """
+        pass
+    
+    @abstractmethod
+    def set_max_reuse_count(self, count: int) -> None:
+        """
+        Set the maximum number of times a session can be reused.
+        
+        Args:
+            count: Maximum reuse count
+        """
+        pass

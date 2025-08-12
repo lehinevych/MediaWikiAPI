@@ -19,16 +19,56 @@ class RequestSession(BaseRequestSession):
     
     This class extends BaseRequestSession with synchronous HTTP requests
     using the requests library.
+    
+    The RequestSession class can be used as a context manager to ensure
+    proper resource cleanup:
+    
+    Example:
+        ```python
+        with RequestSession() as session:
+            data = session.request(params, config)
+        # Session is automatically closed after the with block
+        ```
     """
 
-    def __init__(self) -> None:
-        """Initialize the request session with a new requests Session."""
+    def __init__(self, session: Optional[requests.Session] = None) -> None:
+        """Initialize the request session with a new requests Session.
+        
+        Args:
+            session: Optional existing requests.Session to use. If not provided,
+                     a new session will be created.
+        """
         super().__init__()
-        self.__session: requests.Session = requests.Session()
+        self.__session: requests.Session = session or requests.Session()
         self.__rate_limit_last_call: Optional[datetime] = None
+        self.__reuse_count: int = 0
+        self.__max_reuse_count: int = 1000  # Limit to prevent memory leaks
 
     def __del__(self) -> None:
         """Clean up the session when the object is deleted."""
+        if self.session is not None:
+            self.session.close()
+            
+    def __enter__(self) -> 'RequestSession':
+        """Enter the context manager.
+        
+        Returns:
+            The RequestSession instance
+        """
+        return self
+    
+    def __exit__(self, exc_type, exc_val, exc_tb) -> None:
+        """Exit the context manager and clean up resources.
+        
+        Args:
+            exc_type: The exception type, if an exception was raised
+            exc_val: The exception value, if an exception was raised
+            exc_tb: The exception traceback, if an exception was raised
+        """
+        self.close()
+        
+    def close(self) -> None:
+        """Close the session and clean up resources."""
         if self.session is not None:
             self.session.close()
 
@@ -39,7 +79,37 @@ class RequestSession(BaseRequestSession):
 
     def new_session(self) -> None:
         """Create a new requests Session."""
+        if self.session is not None:
+            self.session.close()
         self.__session = requests.Session()
+        self.__reuse_count = 0
+        
+    def increment_reuse_counter(self) -> int:
+        """Increment the session reuse counter and check if we need a new session.
+        
+        Returns:
+            Current reuse count after increment
+        """
+        self.__reuse_count += 1
+        return self.__reuse_count
+        
+    def should_refresh_session(self) -> bool:
+        """Check if the session should be refreshed based on usage.
+        
+        Returns:
+            True if the session should be refreshed, False otherwise
+        """
+        return self.__reuse_count >= self.__max_reuse_count
+        
+    def set_max_reuse_count(self, count: int) -> None:
+        """Set the maximum number of times a session can be reused.
+        
+        Args:
+            count: Maximum reuse count
+        """
+        if count < 1:
+            raise ValueError("Maximum reuse count must be at least 1")
+        self.__max_reuse_count = count
 
     def request(
         self,
@@ -81,6 +151,10 @@ class RequestSession(BaseRequestSession):
         # Get the API URL using the configured language or the override
         api_url = config.get_api_url(language)
         
+        # Check if we need to refresh the session
+        if self.increment_reuse_counter() > self.__max_reuse_count:
+            self.new_session()
+            
         # Implement retry logic for the request
         attempt = 0
         max_attempts = config.max_retries + 1  # +1 for the initial attempt

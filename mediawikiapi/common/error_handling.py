@@ -51,7 +51,7 @@ def handle_api_error(response: Dict[str, Any], query_identifier: str) -> None:
         
         # Handle specific error types
         if error_message in ("HTTP request timed out.", "Pool queue is full"):
-            raise HTTPTimeoutError(query_identifier, context=context)
+            raise HTTPTimeoutError(query_identifier)
             
         elif error_code == "ratelimited" or "rate limit" in error_message.lower():
             retry_after = None

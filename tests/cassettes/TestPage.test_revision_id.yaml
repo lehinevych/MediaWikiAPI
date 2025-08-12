@@ -1,0 +1,350 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
+        WMF-Uniq=RLpD34-4V5GH1uU2m-zMvgJNAAEBAFvd-KfT-qkeujOClGbwfalfmapyCCtf17AT;
+        NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=info%7Cpageprops&inprop=url&redirects=&titles=Celtuce
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA5VRS08DIRD+K4aDp333sVuSxoNXLyaevDSUnS4oCwiztabxvzs0bWyMiXEPLHyP
+        4WPmyLYCpZJu9AYQGGcsY28ThA/Gj8yLAWLa1N2yq6vugume8TOUMUuKKmOo0ST/PRicJFAZ6SyC
+        xdH1YIh4168a4YDEpBpG2GGiPzFgf2AKRyPJ9hvX60CwwUA4ukkqoDCsqZpFXnV53TxVNZ83vJ4/
+        k8CIiAH2p7zNqu1m7axdEgx2QMX4YtatMrabjJlCiqgQfeRlCbZIaT1dJgoXhjKdyu+XEY5/OUpt
+        ezgUXvm7U2vWZ/utkKidXacaqUnCOqul+GeC1BEfnI+XkWz0mNZdgKshFC9+IHHybkWEPCoXsIco
+        SfIAmCQ3cjKo9yJc6TY0p5Ekj4t2XrcN+0zfFzCm3W8qAgAA
+    headers:
+      age:
+      - '0'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-encoding:
+      - gzip
+      content-length:
+      - '321'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 12 Aug 2025 18:50:09 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw-api-ext.codfw.main-74d9c66849-62nc5
+      server-timing:
+      - cache;desc="pass", host;desc="cp4043"
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      vary:
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      x-cache:
+      - cp4043 miss, cp4043 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 205.251.233.110
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
+        WMF-Uniq=RLpD34-4V5GH1uU2m-zMvgJNAAEBAFvd-KfT-qkeujOClGbwfalfmapyCCtf17AT;
+        NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=info%7Cpageprops&inprop=url&redirects=&titles=2007+Atlantic+hurricane+season
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA61STU/DMAz9K1MOnLY17bp1qzQhblwnOHGpstRrI9IkJC5smvjvOINVfHOhhzZ9
+        tl/es31kW4GylbZzGhBYydiYPfTgD6w8MicaCPGQzbMlX6zOmKpZ+QaNmaEMPmaoUMf6jPNidIVa
+        GFRy1PbeKykMjAKIYA2xS2sQDHa2Bk35T+peIeyRIpGa6pqevhQB8wlrsdOSyr6L1coTrNETjraX
+        LdQnMdl8wpeTNLvlvEzTMud3lKBFQA+P0UY64/kynRUpOdFgGmxZucryPB+zXa9176PGFtGFMknA
+        TKNcR7eJqfVNEv+S6Lg6O64Gx9XgmNLxL6JEmRr2U9e6y1Mn17+zXgiJypp1pI49FcYaiv+P3thX
+        5607jb6Gneg1Buvxy3Svh+nevK+tVBffOw/nhfj5uir0XSf8oeqEmzrTEEUUuRUBJltRNzDZpEU+
+        K4rV4nU5h2hoSVINQX7EK9qmjqBNMV8Uqxl7js8L0B/rHucCAAA=
+    headers:
+      age:
+      - '0'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-encoding:
+      - gzip
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 12 Aug 2025 18:50:09 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw-api-ext.codfw.main-74d9c66849-wf5rs
+      server-timing:
+      - cache;desc="pass", host;desc="cp4043"
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      x-cache:
+      - cp4043 miss, cp4043 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 205.251.233.110
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
+        WMF-Uniq=RLpD34-4V5GH1uU2m-zMvgJNAAEBAFvd-KfT-qkeujOClGbwfalfmapyCCtf17AT;
+        NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=info%7Cpageprops&inprop=url&redirects=&titles=Great+Wall+of+China
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA6VSTW/bMAz9K4YOOyXxR+ItMRDssMOAXophAQrsYig2bamVKU2i2wxF//vIYFmx
+        IUAP1UGyH8mn90g9q6OmznR+Cg4IVKPUQv2cIf5SzbMKeoQkH3Wx29Sfigtme9X8gRYKOYMPsuSk
+        /msETdmddi7zQ/bFWNRM2XkkQJp8D46TnuyDJTgRR4TPaRxnPjkC+B9maHIdl12L9TYy7CgyTn7u
+        DLAwVRVVvSy2y7I6lJumLpt6/YMTnE4U4VG0l+ui2BUft5uSYcCRDPvZbqrtQg2zc3MUjYYopCbP
+        AVciN/BteuXjmMtffrbZis3WD+3FJufQW9W5xR5Oq2DC53PP9leoPuiOrMe98En3NHq0nX6HMmlb
+        iD6cx9nDoGdHyUf6d2K3rxOTgtZOsg8RpP0HA+0V8paBG4vJaHQWx6VoXt2HkTlEz1EnWCbDV/WQ
+        Oqb5DtFCkscxMGgH9iVeU2YxQ0YMRPyr4sLQ8nOZuPhbWdVFqV5k/QY21jV7vAIAAA==
+    headers:
+      age:
+      - '0'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-encoding:
+      - gzip
+      content-length:
+      - '391'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 12 Aug 2025 18:50:09 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw-api-ext.codfw.main-74d9c66849-hfrbl
+      server-timing:
+      - cache;desc="pass", host;desc="cp4043"
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      vary:
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      x-cache:
+      - cp4043 miss, cp4043 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 205.251.233.110
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
+        WMF-Uniq=RLpD34-4V5GH1uU2m-zMvgJNAAEBAFvd-KfT-qkeujOClGbwfalfmapyCCtf17AT;
+        NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=info%7Cpageprops&inprop=url&redirects=&titles=Avatar+%282009+film%29
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA51Sy07DMBD8lcgHBFLbJE5KSsRDCIkDt0qcuERusk0Mjm3sTWlV8e+sW4pQQUIi
+        hziZnR3PerxlC4F1V5veKkBgJWMj9jqA27Byy6xowYePnBdZmicHTDas/IRGTBODFpSoQv/tSqBw
+        0SlPkotoKVV/Roq10Qgae9OAIs6bfJEIa6RKkFNCtwOtVAF9hHXYq5rafqs10hGs0BGOZqg7IF+M
+        J3w6TmbjNH3kWTnl5TR7IoISHh2sgvU0S6ZZds5nOcGgW+xYybOCp+cjthyUGlww2SFaX8Yx6Enw
+        a2k7MTGujcNfvB+z2o1ZHcYkCv7VHEvdwHpiO3uzO7Krn0onokZp9FWQC4cntNGyFv/3FQ7NOmN3
+        WTawFINCbxx+xUWcRnqrxOYQ46W83pcuY3l9lGaQq2S/T+znhpU1HsFNnm27C6be36pgbyE8jBei
+        aWE8T4s8K4qL2VHVd2SsAR+67kkuWmyiB9GDj+7o7Yz+Rq7oFvXEm/N8VqTsPTwf4bV0AdICAAA=
+    headers:
+      age:
+      - '2'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-encoding:
+      - gzip
+      content-length:
+      - '398'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 12 Aug 2025 18:50:09 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw-api-ext.codfw.main-74d9c66849-9jlzg
+      server-timing:
+      - cache;desc="pass", host;desc="cp4043"
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      vary:
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      x-cache:
+      - cp4043 miss, cp4043 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 205.251.233.110
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
+        WMF-Uniq=RLpD34-4V5GH1uU2m-zMvgJNAAEBAFvd-KfT-qkeujOClGbwfalfmapyCCtf17AT;
+        NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts%7Crevisions&explaintext=&rvprop=ids&titles=Celtuce
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA4VWXU/jRhT9K1d5AimLAgkkUPGAqKpttVtVhX1q+nBt38SzODNmPpJaaP97zx3b
+        JBJSSyRi35n7dc6ZO3mbFBzLunS7tpEok7vJZDp5TeK7yd3bpOWtBH24XN2sLmer0Waqyd1gmk4s
+        dsymk2hio/6P0sRUCsLIP9FzGY82Ojunsy8wpZIpcDR7pj37C+K0TSGy5SmxzY8Rj84Th5Y9b43l
+        cyw1wVHJTSMVhSg7QsUadkqlNKj4+D64pXA0IdhjbawEOdpMIKYyNVqIJ7cZV2jr3cFS682OvWk6
+        2sDbxECxNuVLn3uwNMJ7CVM6YKUm9kIvVn050MOnsnbdBf0aNVEKqJo14V62ErloBEs2F4VeYy20
+        4Z0mw2ZjkXGHTrux34P7nugMeFYmGme5Gbu5o3VaLebX+H8l858oGDBpNgY+pzvmxWLc0RrbGXtH
+        h3WaXS6q7/iabW7Pxx4UFAVaK7K8E8XliNLYjoRWSpMrbF2bGuBnLBUu1n1H4LGiZzYHthpYAIwG
+        zNDlBqP4sgbZAiROugzJ/k+by2JR/Xeby2JWfGgz6Fe1sOfK3KuxW2Q6W6fb5fXVGPP4pv6v6nBV
+        YOPoebG2+rm/p88mRAfB3d+v7R9D+8ElXwpaq8RGswGPUfl23qh8IzIqQgrCV0F34j1bYUtetug0
+        44VFYCi6tfAubetI0Q14VsmrXf2fARtVneUQO2i9cCnSw8XPF3Qzm63T1exyfjubHYt97KlTPHPB
+        ILBkzTPIfOPdjoKoPFEDyAnv1gccgQY5czH0lbuxhd+dx5e39Fl2JrTK7wU9K8GIE8b4bcPguVIn
+        nHeJsFX5VBNk0DrPgNAmH/TsFkP+jAEEYMPoHXstarGKQAB2OVdHoXapqTRTaL1wRfMZlTtiHP5I
+        whDzgbu+rs4l+J4BeRy88+HY5vOqjt2A4qKH75oOIi9Y3oCmvgvNPJRHfZCs5dMQB628j9PXESHq
+        oVLdlULK56Vmj9zaWSERiSz9lmDW6E/SImghHuxp1Tl1RjOkzQa1ZFa4rQ3AipHLl3Dk+VtAR0pw
+        /56Jh3KyTO+HeNwokJrz4+CKYivx01wIrHHscCBTGBvI84HOwGfghquQD1Pp3ItUeTCMvGNK4jhP
+        kco0+cE71o7zGA7R+E8bbwYfCA5jD2AAN5uiSvpgMEagmMboEQg799L1XESNMnrVWFVp7U3E4LRh
+        wGwcMR/hZhxI9G23iK5DDapGq5fXPelXvXZgwWEzGHzK/XHbvN+1wKaxgNJD+lPaOUyDHjZtRK+L
+        hvfOa7tZMh3w6CelF0hTie+0ufJEVDbDAn47NWYAdggBq3d2exITHYPAymDIaMd9JXlg855No/eK
+        jp2Bgp7C40WT9Xu6pt5uo8z2/OYbKmCGAYNQa4L+wH97yrdsvh3h0g+p4522bRK8waqoyHB/Q7AF
+        OoowHxX6hNVcqurxC1BTfN+vw7C29ItzFS4UEN28e/0pUL7YMqsbPyu87E3AMMPPjr/e8pv+Grm6
+        Xa7my/nyZjpRjHFis3V1uZwvblfXP/7+gb9/Ab7+doPuCAAA
+    headers:
+      age:
+      - '0'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-encoding:
+      - gzip
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 12 Aug 2025 18:50:10 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw-api-ext.codfw.main-74d9c66849-mt4cv
+      server-timing:
+      - cache;desc="pass", host;desc="cp4043"
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      x-cache:
+      - cp4043 miss, cp4043 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 205.251.233.110
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+version: 1
