@@ -85,11 +85,11 @@ class TestAsyncCacheParameters(unittest.TestCase):
             assert counter == 4
 
             # B was evicted after adding A again (now the oldest), so B gets recomputed
-            await cached_func("B") 
+            await cached_func("B")
             assert counter == 5  # B is recomputed
-            
+
             # Current cache should have A and B only, C was evicted
-            await cached_func("C") 
+            await cached_func("C")
             assert counter == 6  # C is recomputed
 
             return "OK"

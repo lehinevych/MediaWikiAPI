@@ -8,9 +8,100 @@ interactions:
       - gzip, deflate
       Connection:
       - keep-alive
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?action=query&meta=siteinfo&format=json
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA31WCW/bNhT+K53QbWkb2pJ8xPHQrUdabEADFEWLAo3TjpIoiQtFKiIVxw2y377v
+        UbKtZNkMyNC77/d0EyTcpWVqqloJJ4JlEBwGl61oNsHyJiiEFg1X9FpxqWteEMcpXh+9p/dDSFtC
+        lc7VdjkeCz1aywtZi0zykWmKMUFjEvjWC1jphOYVCX3ecgKtTGGAekCDddzJdCwryNtx3Zi/ROoY
+        8VswE++o1gVUdM4605CLJE76H0Wj6WwUsnWVj6IJuOqyvhKNlUaDbTGKRpMea3ktgcrriuVpIYHM
+        ErepydFqYy+VR+xFo3A0H8UhO+WN5CevyCEKg+siNXrPRjipL+7jnHRKPMRYNyKX12nJGyvcffQe
+        dg2XivL19eCMs+/nz54cjJ4+eTy2J8QgCq46C6QHbI9+/GEVPP7p54MnTw9XKzZarcYhO17+8vy3
+        Fy/ZlxV+X7/9CT1/r1bXi5Dh/+3bZ9Ak9RVXMmutaKhmW3Uvlr8+BxUe8YYnMm21TE3WNw+wFVd8
+        g6e6QyikYyW3JaD4OJtNQzGL0nB6HHGep2GSz5J4mkyzo/xolkbHySzLF71U0nCdkhyqOL5f0LTr
+        wFw2Fm0hnBNNXwhghSaPuFIJTy+C5dn5Hlok0r3RcE96zrXUmVlbFsWzGDLrBn3adQSgiiNSdKES
+        Vn6HtTg8PopmMdWxEt+NJgc+fXwddAiT57544WHQS9XckfvdNDyOaAzSRtZuh99hPDSGL+J6hKYE
+        /ooaTLs7mhCDFRARDRrowbEJttR+1h6gEywzT6PX3nmqThjPWLhAKj7G8TI+WkbRF0qChMZqV862
+        VoZnFsOcKJHt8tSjfZpmk/niKDyO4pCkdUdKy1ZfdPQojKeoMAqCfWNqh0mwtGu6WX8vmg9m7dPo
+        EZ9lRrF7bR7xu5BF6XpMyr38O6ELn1NKQGnWrzZO2N65znWMTiaJlaue5wRha9sZD4Jb5KFsq0TJ
+        Sjpgzkh9NMOzCA/jEA/gGPAE79MwPO+92fHfILPe0wn5VfZOxtPw9nBHmk8HpOliSFqEA9I8HJK6
+        fG1pR/PFkBYvBnLEOSDGs/nQlXC6uPWTcIXx1P+3vvvl23OO90SANHtCI53YEMqYi7bGcr6Sme/I
+        1x3lZQvzGAOl/oOVEnaPWZkUpaG0aswymUR6ZbrtMLzSBrTdNKfcicI0m9QoxV23StuUs0zkvFWO
+        teyCVoA2ORjMupcMBihtxXUqts1HOreUzNDRu0MNKoreH539ECWIyA5gzzPCSb0D7+larIfs92fy
+        sjVODGBr2iYdIvzRcJs9xndzsxmymA1acoDIuBvayFud+ph6nDNG2RF2quLJEJfjdatGuFI0Nc/u
+        sCFdABmaI5cFzS6gU25RuBNYpKL7dhCXkmeB533j0uwdOE6xeXMpsj9o11Gnx8ezaI7pS7F5G2Fr
+        eEehihyPTndTzK8ZfYcwWl2L8CieT2YTfxS9pZugRJNTpTKBY0C7iW3/KYgMS0hS00DeAi5dpWYM
+        q00L66T/jgCQMiezDWtErRADtoNj0tpWkESFtpIwJxjJ9sqlZkpatyXjW4ohw8pYkTHksOKOlJMP
+        pKJeN7xmSVuwtWkueGNanfmFrZDJTqjz1nuRG5gH8xZel0iQreFYj91Z8p1jyZlScH/XUB7qvrai
+        jCSmaEGlZcW22xZbwFC1RNZFTmnYmfexoLbKaCYsNqzo24fGiMyIa0evZEbRqj4LRFW7zc68V2kp
+        cqF3Su9iht5i9GhDMdrUyB9f8wYx4lYXPkXeEzruJrGGvlZ7jdbhcta91+e3tOkTiVO9vY6D7Vb9
+        6wpSL11JTCS4JVJqsZtMQzmoBPSm/iDtmO4B/lrQF+3DRCoNxllsOSukmoh0Lu/rAbnp0kCNZAcT
+        hY5/Ryjcw0+WAoroQgD7BltT+jtJdJzbkAi+70X2AX+aanzCN7AwCW/x+wcJOIRn7gsAAA==
+    headers:
+      age:
+      - '0'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-encoding:
+      - gzip
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 12 Aug 2025 22:27:11 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw-api-ext.codfw.main-85d497b887-tcbtx
+      server-timing:
+      - cache;desc="pass", host;desc="cp4043"
+      set-cookie:
+      - WMF-Last-Access=12-Aug-2025;Path=/;HttpOnly;secure;Expires=Sat, 13 Sep 2025
+        12:00:00 GMT
+      - WMF-Last-Access-Global=12-Aug-2025;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Sat,
+        13 Sep 2025 12:00:00 GMT
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; Path=/; secure; Domain=.wikipedia.org
+      - NetworkProbeLimit=0.001;Path=/;Secure;SameSite=None;Max-Age=3600
+      - WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAAAAFvdlMEyCWa9Yldy_D00MsDmylB0TopFsZKJ;Domain=.wikipedia.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Wed,
+        12 Aug 2026 00:00:00 GMT
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      x-cache:
+      - cp4043 miss, cp4043 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 205.251.233.110
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAAAAFvdlMEyCWa9Yldy_D00MsDmylB0TopFsZKJ;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=info%7Cpageprops&inprop=url&redirects=&titles=Template
@@ -39,7 +130,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:29 GMT
+      - Tue, 12 Aug 2025 22:27:11 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -47,9 +138,12 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-f5vr2
+      - mw-api-ext.codfw.main-85d497b887-v4nkd
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
+      set-cookie:
+      - WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;Domain=.wikipedia.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Wed,
+        12 Aug 2026 00:00:00 GMT
       strict-transport-security:
       - max-age=106384710; includeSubDomains; preload
       vary:
@@ -78,7 +172,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717
@@ -165,7 +259,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:29 GMT
+      - Tue, 12 Aug 2025 22:27:12 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -173,7 +267,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-sp7rv
+      - mw-api-ext.codfw.main-85d497b887-b5q9s
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -206,7 +300,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20250629021051%7C1297873957&continue=%7C%7C
@@ -301,7 +395,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:29 GMT
+      - Tue, 12 Aug 2025 22:27:12 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -309,7 +403,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-prg5t
+      - mw-api-ext.codfw.main-85d497b887-xd7jw
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -342,7 +436,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20250619115830%7C1296344143&continue=%7C%7C
@@ -419,7 +513,7 @@ interactions:
       accept-ranges:
       - bytes
       age:
-      - '1'
+      - '0'
       cache-control:
       - private, must-revalidate, max-age=0
       content-disposition:
@@ -429,7 +523,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:30 GMT
+      - Tue, 12 Aug 2025 22:27:12 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -437,7 +531,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-87lx6
+      - mw-api-ext.codfw.main-85d497b887-8jspr
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -470,7 +564,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20250619115804%7C1296344109&continue=%7C%7C
@@ -562,7 +656,7 @@ interactions:
       accept-ranges:
       - bytes
       age:
-      - '0'
+      - '2'
       cache-control:
       - private, must-revalidate, max-age=0
       content-disposition:
@@ -572,7 +666,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:30 GMT
+      - Tue, 12 Aug 2025 22:27:12 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -580,7 +674,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-6tpr5
+      - mw-api-ext.codfw.main-85d497b887-zwkk2
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -613,7 +707,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20250619115050%7C1296343487&continue=%7C%7C
@@ -700,7 +794,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:30 GMT
+      - Tue, 12 Aug 2025 22:27:13 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -708,7 +802,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-5rshk
+      - mw-api-ext.codfw.main-85d497b887-dw76m
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -741,7 +835,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20250619115018%7C1296343408&continue=%7C%7C
@@ -832,7 +926,7 @@ interactions:
       accept-ranges:
       - bytes
       age:
-      - '2'
+      - '0'
       cache-control:
       - private, must-revalidate, max-age=0
       content-disposition:
@@ -842,7 +936,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:30 GMT
+      - Tue, 12 Aug 2025 22:27:13 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -850,7 +944,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-bhd7j
+      - mw-api-ext.codfw.main-85d497b887-jlsgf
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -883,7 +977,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20250527073546%7C1292497145&continue=%7C%7C
@@ -960,7 +1054,7 @@ interactions:
       accept-ranges:
       - bytes
       age:
-      - '0'
+      - '2'
       cache-control:
       - private, must-revalidate, max-age=0
       content-disposition:
@@ -970,7 +1064,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:31 GMT
+      - Tue, 12 Aug 2025 22:27:13 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -978,7 +1072,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-crdr6
+      - mw-api-ext.codfw.main-85d497b887-7xtcx
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -1011,7 +1105,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20250527073154%7C1292496846&continue=%7C%7C
@@ -1098,7 +1192,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:31 GMT
+      - Tue, 12 Aug 2025 22:27:14 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -1106,7 +1200,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-fc7fb
+      - mw-api-ext.codfw.main-85d497b887-m7tfv
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -1139,7 +1233,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20250527071418%7C1292495473&continue=%7C%7C
@@ -1216,7 +1310,7 @@ interactions:
       accept-ranges:
       - bytes
       age:
-      - '2'
+      - '0'
       cache-control:
       - private, must-revalidate, max-age=0
       content-disposition:
@@ -1226,7 +1320,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:31 GMT
+      - Tue, 12 Aug 2025 22:27:14 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -1234,7 +1328,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-sn8tf
+      - mw-api-ext.codfw.main-85d497b887-b5q9s
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -1267,7 +1361,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20250525132312%7C1292152481&continue=%7C%7C
@@ -1344,7 +1438,7 @@ interactions:
       accept-ranges:
       - bytes
       age:
-      - '0'
+      - '2'
       cache-control:
       - private, must-revalidate, max-age=0
       content-disposition:
@@ -1354,7 +1448,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:32 GMT
+      - Tue, 12 Aug 2025 22:27:14 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -1362,7 +1456,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-62nc5
+      - mw-api-ext.codfw.main-85d497b887-frfpx
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -1395,7 +1489,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20250525132238%7C1292152398&continue=%7C%7C
@@ -1482,7 +1576,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:32 GMT
+      - Tue, 12 Aug 2025 22:27:15 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -1490,7 +1584,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-94dfr
+      - mw-api-ext.codfw.main-85d497b887-lq856
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -1523,7 +1617,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20250525125915%7C1292149446&continue=%7C%7C
@@ -1610,7 +1704,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:32 GMT
+      - Tue, 12 Aug 2025 22:27:15 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -1618,7 +1712,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-62nc5
+      - mw-api-ext.codfw.main-85d497b887-mhwsz
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -1651,7 +1745,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20250525125856%7C1292149412&continue=%7C%7C
@@ -1739,7 +1833,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:33 GMT
+      - Tue, 12 Aug 2025 22:27:15 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -1747,7 +1841,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-t2fkq
+      - mw-api-ext.codfw.main-85d497b887-976kh
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -1780,7 +1874,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20250303122906%7C1278599862&continue=%7C%7C
@@ -1857,7 +1951,7 @@ interactions:
       accept-ranges:
       - bytes
       age:
-      - '0'
+      - '1'
       cache-control:
       - private, must-revalidate, max-age=0
       content-disposition:
@@ -1867,7 +1961,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:33 GMT
+      - Tue, 12 Aug 2025 22:27:16 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -1875,7 +1969,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-5rshk
+      - mw-api-ext.codfw.main-85d497b887-qjb6j
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -1908,7 +2002,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20250303051125%7C1278559916&continue=%7C%7C
@@ -1995,7 +2089,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:33 GMT
+      - Tue, 12 Aug 2025 22:27:16 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -2003,7 +2097,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-kcwb8
+      - mw-api-ext.codfw.main-85d497b887-zjdtg
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -2036,7 +2130,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20250225111444%7C1277562318&continue=%7C%7C
@@ -2113,7 +2207,7 @@ interactions:
       accept-ranges:
       - bytes
       age:
-      - '1'
+      - '0'
       cache-control:
       - private, must-revalidate, max-age=0
       content-disposition:
@@ -2123,7 +2217,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:34 GMT
+      - Tue, 12 Aug 2025 22:27:16 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -2131,7 +2225,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-rj4z9
+      - mw-api-ext.codfw.main-85d497b887-m9mlf
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -2164,7 +2258,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20250225020907%7C1277512441&continue=%7C%7C
@@ -2254,7 +2348,7 @@ interactions:
       accept-ranges:
       - bytes
       age:
-      - '0'
+      - '2'
       cache-control:
       - private, must-revalidate, max-age=0
       content-disposition:
@@ -2264,7 +2358,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:34 GMT
+      - Tue, 12 Aug 2025 22:27:16 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -2272,7 +2366,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-7bfgz
+      - mw-api-ext.codfw.main-85d497b887-knzbk
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -2305,7 +2399,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20240516021655%7C1224072653&continue=%7C%7C
@@ -2392,7 +2486,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:34 GMT
+      - Tue, 12 Aug 2025 22:27:17 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -2400,7 +2494,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-qw4gc
+      - mw-api-ext.codfw.main-85d497b887-knzbk
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -2433,7 +2527,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20240516005205%7C1224062352&continue=%7C%7C
@@ -2463,7 +2557,7 @@ interactions:
       accept-ranges:
       - bytes
       age:
-      - '2'
+      - '0'
       cache-control:
       - private, must-revalidate, max-age=0
       content-disposition:
@@ -2473,7 +2567,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:34 GMT
+      - Tue, 12 Aug 2025 22:27:17 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -2481,7 +2575,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-qw4gc
+      - mw-api-ext.codfw.main-85d497b887-29vt8
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -2514,7 +2608,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20240420120622%7C1219880681&continue=%7C%7C
@@ -2601,7 +2695,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:35 GMT
+      - Tue, 12 Aug 2025 22:27:17 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -2609,7 +2703,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-brg64
+      - mw-api-ext.codfw.main-85d497b887-n4kjb
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -2642,7 +2736,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20240420115531%7C1219879735&continue=%7C%7C
@@ -2717,7 +2811,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:35 GMT
+      - Tue, 12 Aug 2025 22:27:18 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -2725,7 +2819,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-x79dt
+      - mw-api-ext.codfw.main-85d497b887-2dtxk
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -2758,7 +2852,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20240420115427%7C1219879620&continue=%7C%7C
@@ -2832,7 +2926,7 @@ interactions:
       accept-ranges:
       - bytes
       age:
-      - '2'
+      - '0'
       cache-control:
       - private, must-revalidate, max-age=0
       content-disposition:
@@ -2842,7 +2936,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:35 GMT
+      - Tue, 12 Aug 2025 22:27:18 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -2850,7 +2944,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-frhv4
+      - mw-api-ext.codfw.main-85d497b887-pb4tt
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -2883,7 +2977,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20240105214538%7C1193829536&continue=%7C%7C
@@ -2970,7 +3064,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:36 GMT
+      - Tue, 12 Aug 2025 22:27:18 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -2978,7 +3072,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-dcfg7
+      - mw-api-ext.codfw.main-85d497b887-b2wlg
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -3011,7 +3105,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20231004204834%7C1178621382&continue=%7C%7C
@@ -3088,7 +3182,7 @@ interactions:
       accept-ranges:
       - bytes
       age:
-      - '0'
+      - '2'
       cache-control:
       - private, must-revalidate, max-age=0
       content-disposition:
@@ -3098,7 +3192,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:36 GMT
+      - Tue, 12 Aug 2025 22:27:18 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -3106,7 +3200,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-929jq
+      - mw-api-ext.codfw.main-85d497b887-m9gdq
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -3139,7 +3233,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20230927112401%7C1177384451&continue=%7C%7C
@@ -3216,7 +3310,7 @@ interactions:
       accept-ranges:
       - bytes
       age:
-      - '2'
+      - '0'
       cache-control:
       - private, must-revalidate, max-age=0
       content-disposition:
@@ -3226,7 +3320,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:36 GMT
+      - Tue, 12 Aug 2025 22:27:19 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -3234,7 +3328,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-5rcqj
+      - mw-api-ext.codfw.main-85d497b887-sdgz2
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -3267,7 +3361,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20230927110348%7C1177381149&continue=%7C%7C
@@ -3355,7 +3449,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:37 GMT
+      - Tue, 12 Aug 2025 22:27:19 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -3363,7 +3457,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-cm7tn
+      - mw-api-ext.codfw.main-85d497b887-mhwsz
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -3396,7 +3490,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20230927110308%7C1177381026&continue=%7C%7C
@@ -3473,7 +3567,7 @@ interactions:
       accept-ranges:
       - bytes
       age:
-      - '0'
+      - '2'
       cache-control:
       - private, must-revalidate, max-age=0
       content-disposition:
@@ -3483,7 +3577,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:37 GMT
+      - Tue, 12 Aug 2025 22:27:19 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -3491,7 +3585,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-87lx6
+      - mw-api-ext.codfw.main-85d497b887-nl9wm
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -3524,7 +3618,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20230815151425%7C1170522726&continue=%7C%7C
@@ -3611,7 +3705,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:37 GMT
+      - Tue, 12 Aug 2025 22:27:20 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -3619,7 +3713,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-xrjc5
+      - mw-api-ext.codfw.main-85d497b887-fc6bw
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -3652,7 +3746,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20230815115408%7C1170498570&continue=%7C%7C
@@ -3737,7 +3831,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:38 GMT
+      - Tue, 12 Aug 2025 22:27:20 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -3745,7 +3839,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-hm48d
+      - mw-api-ext.codfw.main-85d497b887-8g8q6
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -3778,7 +3872,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20230213005624%7C1139034560&continue=%7C%7C
@@ -3855,7 +3949,7 @@ interactions:
       accept-ranges:
       - bytes
       age:
-      - '0'
+      - '2'
       cache-control:
       - private, must-revalidate, max-age=0
       content-disposition:
@@ -3865,7 +3959,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:38 GMT
+      - Tue, 12 Aug 2025 22:27:20 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -3873,7 +3967,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-t2fkq
+      - mw-api-ext.codfw.main-85d497b887-9lxjp
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -3906,7 +4000,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20230213003438%7C1139030723&continue=%7C%7C
@@ -3994,7 +4088,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:38 GMT
+      - Tue, 12 Aug 2025 22:27:21 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -4002,7 +4096,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-87lx6
+      - mw-api-ext.codfw.main-85d497b887-4bkgs
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -4035,7 +4129,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20230201160612%7C1136871804&continue=%7C%7C
@@ -4112,7 +4206,7 @@ interactions:
       accept-ranges:
       - bytes
       age:
-      - '2'
+      - '0'
       cache-control:
       - private, must-revalidate, max-age=0
       content-disposition:
@@ -4122,7 +4216,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:38 GMT
+      - Tue, 12 Aug 2025 22:27:21 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -4130,7 +4224,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-t2fkq
+      - mw-api-ext.codfw.main-85d497b887-sl5q5
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -4163,7 +4257,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20230201160557%7C1136871768&continue=%7C%7C
@@ -4250,7 +4344,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:39 GMT
+      - Tue, 12 Aug 2025 22:27:21 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -4258,7 +4352,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-cm7tn
+      - mw-api-ext.codfw.main-85d497b887-8g8q6
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -4291,7 +4385,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20230201160533%7C1136871703&continue=%7C%7C
@@ -4378,7 +4472,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:39 GMT
+      - Tue, 12 Aug 2025 22:27:22 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -4386,7 +4480,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-frhv4
+      - mw-api-ext.codfw.main-85d497b887-fc6bw
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -4419,7 +4513,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20230201160524%7C1136871679&continue=%7C%7C
@@ -4496,7 +4590,7 @@ interactions:
       accept-ranges:
       - bytes
       age:
-      - '2'
+      - '0'
       cache-control:
       - private, must-revalidate, max-age=0
       content-disposition:
@@ -4506,7 +4600,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:39 GMT
+      - Tue, 12 Aug 2025 22:27:22 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -4514,7 +4608,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-t2fkq
+      - mw-api-ext.codfw.main-85d497b887-pb4tt
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -4547,7 +4641,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20221021083651%7C1117358968&continue=%7C%7C
@@ -4634,7 +4728,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:40 GMT
+      - Tue, 12 Aug 2025 22:27:22 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -4642,7 +4736,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-7q6gs
+      - mw-api-ext.codfw.main-85d497b887-wpwbk
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -4675,7 +4769,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20220920041202%7C1111271774&continue=%7C%7C
@@ -4752,7 +4846,7 @@ interactions:
       accept-ranges:
       - bytes
       age:
-      - '0'
+      - '2'
       cache-control:
       - private, must-revalidate, max-age=0
       content-disposition:
@@ -4762,7 +4856,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:40 GMT
+      - Tue, 12 Aug 2025 22:27:22 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -4770,7 +4864,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-bhd7j
+      - mw-api-ext.codfw.main-85d497b887-qfcsd
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -4803,7 +4897,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20220919225547%7C1111221943&continue=%7C%7C
@@ -4879,7 +4973,7 @@ interactions:
       accept-ranges:
       - bytes
       age:
-      - '2'
+      - '0'
       cache-control:
       - private, must-revalidate, max-age=0
       content-disposition:
@@ -4889,7 +4983,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:40 GMT
+      - Tue, 12 Aug 2025 22:27:23 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -4897,7 +4991,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-xrjc5
+      - mw-api-ext.codfw.main-85d497b887-qgljt
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -4930,7 +5024,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20220825050201%7C1106547953&continue=%7C%7C
@@ -5017,7 +5111,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:41 GMT
+      - Tue, 12 Aug 2025 22:27:23 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -5025,7 +5119,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-k7hbp
+      - mw-api-ext.codfw.main-85d497b887-9lxjp
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -5058,7 +5152,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20220825050143%7C1106547905&continue=%7C%7C
@@ -5148,7 +5242,7 @@ interactions:
       accept-ranges:
       - bytes
       age:
-      - '0'
+      - '2'
       cache-control:
       - private, must-revalidate, max-age=0
       content-disposition:
@@ -5158,7 +5252,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:41 GMT
+      - Tue, 12 Aug 2025 22:27:23 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -5166,7 +5260,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-d8xjk
+      - mw-api-ext.codfw.main-85d497b887-sl5q5
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -5199,7 +5293,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20220630213836%7C1095865582&continue=%7C%7C
@@ -5286,7 +5380,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:41 GMT
+      - Tue, 12 Aug 2025 22:27:24 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -5294,7 +5388,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-w94n5
+      - mw-api-ext.codfw.main-85d497b887-wpwbk
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -5327,7 +5421,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20210731120504%7C1036419821&continue=%7C%7C
@@ -5404,7 +5498,7 @@ interactions:
       accept-ranges:
       - bytes
       age:
-      - '2'
+      - '0'
       cache-control:
       - private, must-revalidate, max-age=0
       content-disposition:
@@ -5414,7 +5508,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:41 GMT
+      - Tue, 12 Aug 2025 22:27:24 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -5422,7 +5516,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-prg5t
+      - mw-api-ext.codfw.main-85d497b887-9lxjp
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -5455,7 +5549,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20210731120110%7C1036419360&continue=%7C%7C
@@ -5533,7 +5627,7 @@ interactions:
       accept-ranges:
       - bytes
       age:
-      - '0'
+      - '2'
       cache-control:
       - private, must-revalidate, max-age=0
       content-disposition:
@@ -5543,7 +5637,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:42 GMT
+      - Tue, 12 Aug 2025 22:27:24 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -5551,7 +5645,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-kcwb8
+      - mw-api-ext.codfw.main-85d497b887-nl9wm
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -5584,7 +5678,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20210720171204%7C1034572748&continue=%7C%7C
@@ -5671,7 +5765,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:42 GMT
+      - Tue, 12 Aug 2025 22:27:25 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -5679,7 +5773,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-r8xs8
+      - mw-api-ext.codfw.main-85d497b887-t525p
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -5712,7 +5806,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20210720171153%7C1034572714&continue=%7C%7C
@@ -5793,7 +5887,7 @@ interactions:
       accept-ranges:
       - bytes
       age:
-      - '1'
+      - '0'
       cache-control:
       - private, must-revalidate, max-age=0
       content-disposition:
@@ -5803,7 +5897,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:43 GMT
+      - Tue, 12 Aug 2025 22:27:25 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -5811,7 +5905,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-5fz27
+      - mw-api-ext.codfw.main-85d497b887-tcbtx
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -5844,7 +5938,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20210526014808%7C1025156941&continue=%7C%7C
@@ -5921,7 +6015,7 @@ interactions:
       accept-ranges:
       - bytes
       age:
-      - '0'
+      - '2'
       cache-control:
       - private, must-revalidate, max-age=0
       content-disposition:
@@ -5931,7 +6025,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:43 GMT
+      - Tue, 12 Aug 2025 22:27:25 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -5939,7 +6033,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-xrjc5
+      - mw-api-ext.codfw.main-85d497b887-b5q9s
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -5972,7 +6066,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20210526014752%7C1025156908&continue=%7C%7C
@@ -6088,7 +6182,7 @@ interactions:
       accept-ranges:
       - bytes
       age:
-      - '2'
+      - '0'
       cache-control:
       - private, must-revalidate, max-age=0
       content-disposition:
@@ -6098,7 +6192,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:43 GMT
+      - Tue, 12 Aug 2025 22:27:26 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -6106,7 +6200,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-c5xbn
+      - mw-api-ext.codfw.main-85d497b887-b5q9s
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -6139,7 +6233,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20210526014544%7C1025156608&continue=%7C%7C
@@ -6254,7 +6348,7 @@ interactions:
       accept-ranges:
       - bytes
       age:
-      - '0'
+      - '2'
       cache-control:
       - private, must-revalidate, max-age=0
       content-disposition:
@@ -6264,7 +6358,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:44 GMT
+      - Tue, 12 Aug 2025 22:27:26 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -6272,7 +6366,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-k7hbp
+      - mw-api-ext.codfw.main-85d497b887-9lxjp
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -6305,7 +6399,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20210526014419%7C1025156421&continue=%7C%7C
@@ -6392,7 +6486,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:44 GMT
+      - Tue, 12 Aug 2025 22:27:27 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -6400,7 +6494,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-q726q
+      - mw-api-ext.codfw.main-85d497b887-bdzqc
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -6433,7 +6527,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20210526014405%7C1025156398&continue=%7C%7C
@@ -6537,7 +6631,7 @@ interactions:
       accept-ranges:
       - bytes
       age:
-      - '2'
+      - '0'
       cache-control:
       - private, must-revalidate, max-age=0
       content-disposition:
@@ -6547,7 +6641,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:44 GMT
+      - Tue, 12 Aug 2025 22:27:27 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -6555,7 +6649,7 @@ interactions:
       - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
         }] }'
       server:
-      - mw-api-ext.codfw.main-74d9c66849-mxkhs
+      - mw-api-ext.codfw.main-85d497b887-7xtcx
       server-timing:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
@@ -6588,7 +6682,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20210426115449%7C1019963174&continue=%7C%7C
@@ -6618,17 +6712,17 @@ interactions:
         for a less disruptive approach</p>\n</div>\n</div>\n<div class=\"footer\"><p>If
         you report this error to the Wikimedia System Administrators, please include
         the details below.</p><p class=\"text-muted\"><code>Request served via cp4043
-        cp4043, Varnish XID 996703384<br>Upstream caches: cp4043 int<br>Error: 429,
+        cp4043, Varnish XID 1054648117<br>Upstream caches: cp4043 int<br>Error: 429,
         Too many requests - contact noc@wikimedia.org for a less disruptive approach
-        at Tue, 12 Aug 2025 18:49:45 GMT<br><details><summary>Sensitive client information</summary>IP
+        at Tue, 12 Aug 2025 22:27:27 GMT<br><details><summary>Sensitive client information</summary>IP
         address: 205.251.233.110</details></code></p>\n</div>\n</html>\n"
     headers:
       content-length:
-      - '2161'
+      - '2162'
       content-type:
       - text/html; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:45 GMT
+      - Tue, 12 Aug 2025 22:27:27 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -6666,7 +6760,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20210426115449%7C1019963174&continue=%7C%7C
@@ -6696,17 +6790,17 @@ interactions:
         for a less disruptive approach</p>\n</div>\n</div>\n<div class=\"footer\"><p>If
         you report this error to the Wikimedia System Administrators, please include
         the details below.</p><p class=\"text-muted\"><code>Request served via cp4043
-        cp4043, Varnish XID 998975461<br>Upstream caches: cp4043 int<br>Error: 429,
+        cp4043, Varnish XID 1051420552<br>Upstream caches: cp4043 int<br>Error: 429,
         Too many requests - contact noc@wikimedia.org for a less disruptive approach
-        at Tue, 12 Aug 2025 18:49:45 GMT<br><details><summary>Sensitive client information</summary>IP
+        at Tue, 12 Aug 2025 22:27:28 GMT<br><details><summary>Sensitive client information</summary>IP
         address: 205.251.233.110</details></code></p>\n</div>\n</html>\n"
     headers:
       content-length:
-      - '2161'
+      - '2162'
       content-type:
       - text/html; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:45 GMT
+      - Tue, 12 Aug 2025 22:27:28 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -6744,7 +6838,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20210426115449%7C1019963174&continue=%7C%7C
@@ -6774,17 +6868,17 @@ interactions:
         for a less disruptive approach</p>\n</div>\n</div>\n<div class=\"footer\"><p>If
         you report this error to the Wikimedia System Administrators, please include
         the details below.</p><p class=\"text-muted\"><code>Request served via cp4043
-        cp4043, Varnish XID 998555521<br>Upstream caches: cp4043 int<br>Error: 429,
+        cp4043, Varnish XID 1036072658<br>Upstream caches: cp4043 int<br>Error: 429,
         Too many requests - contact noc@wikimedia.org for a less disruptive approach
-        at Tue, 12 Aug 2025 18:49:46 GMT<br><details><summary>Sensitive client information</summary>IP
+        at Tue, 12 Aug 2025 22:27:29 GMT<br><details><summary>Sensitive client information</summary>IP
         address: 205.251.233.110</details></code></p>\n</div>\n</html>\n"
     headers:
       content-length:
-      - '2161'
+      - '2162'
       content-type:
       - text/html; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:46 GMT
+      - Tue, 12 Aug 2025 22:27:29 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'
@@ -6822,7 +6916,7 @@ interactions:
       - keep-alive
       Cookie:
       - GeoIP=US:OR:Boardman:45.84:-119.70:v4; WMF-Last-Access-Global=12-Aug-2025;
-        WMF-Uniq=OUUOLkYIeSozC5R1mH2FvgJNAAEBAFvdseZPWfzSsKseiV1WD3mFvqANMd14dFHn;
+        WMF-Uniq=OJQaZoVDUEFBOHrlBsfhlQJNAAEBAFvddMsZusDb0wPsGmg5elIutSiK4K8opgTh;
         NetworkProbeLimit=0.001; WMF-Last-Access=12-Aug-2025
     method: GET
     uri: https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&rvparse=&rvlimit=1&pageids=20627717&rvcontinue=20210426115449%7C1019963174&continue=%7C%7C
@@ -6852,17 +6946,17 @@ interactions:
         for a less disruptive approach</p>\n</div>\n</div>\n<div class=\"footer\"><p>If
         you report this error to the Wikimedia System Administrators, please include
         the details below.</p><p class=\"text-muted\"><code>Request served via cp4043
-        cp4043, Varnish XID 991006359<br>Upstream caches: cp4043 int<br>Error: 429,
+        cp4043, Varnish XID 1035324511<br>Upstream caches: cp4043 int<br>Error: 429,
         Too many requests - contact noc@wikimedia.org for a less disruptive approach
-        at Tue, 12 Aug 2025 18:49:49 GMT<br><details><summary>Sensitive client information</summary>IP
+        at Tue, 12 Aug 2025 22:27:31 GMT<br><details><summary>Sensitive client information</summary>IP
         address: 205.251.233.110</details></code></p>\n</div>\n</html>\n"
     headers:
       content-length:
-      - '2161'
+      - '2162'
       content-type:
       - text/html; charset=utf-8
       date:
-      - Tue, 12 Aug 2025 18:49:49 GMT
+      - Tue, 12 Aug 2025 22:27:31 GMT
       nel:
       - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
         0.0}'

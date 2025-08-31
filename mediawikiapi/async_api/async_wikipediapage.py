@@ -34,8 +34,10 @@ class AsyncWikipediaPage(BaseWikipediaPage):
         original_title: str = "",
     ) -> None:
         # Call the parent class initializer
-        super().__init__(request, title=title, pageid=pageid, original_title=original_title)
-        
+        super().__init__(
+            request, title=title, pageid=pageid, original_title=original_title
+        )
+
         self._load_task = None  # Will hold the loading task
         # Load is done during __init__ - need to be awaited during instantiation
         # This is handled in AsyncMediaWikiAPI.page method
@@ -296,7 +298,7 @@ class AsyncWikipediaPage(BaseWikipediaPage):
         if not getattr(self, "_summary", False):
             # Use the base class helper method with no sentences or chars limit
             query_params = self._build_extracts_params(sentences=None, chars=None)
-            
+
             request = await self.request(query_params)
             self._summary: str = request["query"]["pages"][self.pageid]["extract"]
 
@@ -335,7 +337,9 @@ class AsyncWikipediaPage(BaseWikipediaPage):
         """
         if not getattr(self, "_images", False):
             # Use the base class helper method
-            image_data = await self.__continued_query(self._build_images_params(limit="max"))
+            image_data = await self.__continued_query(
+                self._build_images_params(limit="max")
+            )
 
             self._images = [
                 page["imageinfo"][0]["url"]
@@ -380,7 +384,9 @@ class AsyncWikipediaPage(BaseWikipediaPage):
                 return url if url.startswith("http") else "http:" + url
 
             # Use the base class helper method
-            links_data = await self.__continued_query(self._build_references_params(limit="max"))
+            links_data = await self.__continued_query(
+                self._build_references_params(limit="max")
+            )
 
             self._references = [add_protocol(link["*"]) for link in links_data]
 

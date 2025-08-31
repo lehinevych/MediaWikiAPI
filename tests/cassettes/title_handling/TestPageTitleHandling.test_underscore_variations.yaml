@@ -192,8 +192,6 @@ interactions:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
       - max-age=106384710; includeSubDomains; preload
-      transfer-encoding:
-      - chunked
       vary:
       - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
       x-cache:
@@ -261,6 +259,97 @@ interactions:
       - cache;desc="pass", host;desc="cp4043"
       strict-transport-security:
       - max-age=106384710; includeSubDomains; preload
+      vary:
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      x-cache:
+      - cp4043 miss, cp4043 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 205.251.233.110
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?action=query&meta=siteinfo&format=json
+  response:
+    body:
+      string: !!binary |
+        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
+    headers:
+      age:
+      - '0'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-encoding:
+      - gzip
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 12 Aug 2025 22:18:23 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw-api-ext.codfw.main-85d497b887-brhqk
+      server-timing:
+      - cache;desc="pass", host;desc="cp4043"
+      set-cookie:
+      - WMF-Last-Access=12-Aug-2025;Path=/;HttpOnly;secure;Expires=Sat, 13 Sep 2025
+        12:00:00 GMT
+      - WMF-Last-Access-Global=12-Aug-2025;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Sat,
+        13 Sep 2025 12:00:00 GMT
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; Path=/; secure; Domain=.wikipedia.org
+      - NetworkProbeLimit=0.001;Path=/;Secure;SameSite=None;Max-Age=3600
+      - WMF-Uniq=FEl90zB4MUjGug-GLLyY2QJNAAAAAFvdZ7uP2gqJhdGlRBQNSFittA-fzubqQ_Oc;Domain=.wikipedia.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Wed,
+        12 Aug 2026 00:00:00 GMT
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
       vary:
       - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
       x-cache:

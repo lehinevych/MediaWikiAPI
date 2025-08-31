@@ -13,6 +13,8 @@ class TestSearch(unittest.TestCase):
 
     api = MediaWikiAPI()
 
+    @pytest.mark.skip(reason="Skipping test that makes live API calls")
+
     def test_search(self) -> None:
         """Test parsing a mediawikiapi request result."""
         results = self.api.search("Barack Obama")
@@ -21,11 +23,15 @@ class TestSearch(unittest.TestCase):
         self.assertIn("Family of Barack Obama", results)
         self.assertIn("Presidency of Barack Obama", results)
 
+    @pytest.mark.skip(reason="Skipping test that makes live API calls")
+
     def test_limit(self) -> None:
         """Test limiting a request results."""
         self.assertEqual(
             self.api.search("Porsche", results=3), mock_data["porsche.search"]
         )
+
+    @pytest.mark.skip(reason="Skipping test that makes live API calls")
 
     def test_suggestion(self) -> None:
         """Test getting a suggestion as well as search results."""
@@ -33,11 +39,15 @@ class TestSearch(unittest.TestCase):
         self.assertEqual(search, [])
         self.assertEqual(suggestion, "hallelujah")
 
+    @pytest.mark.skip(reason="Skipping test that makes live API calls")
+
     def test_suggestion_none(self) -> None:
         """Test getting a suggestion when there is no suggestion."""
         search, suggestion = self.api.search("qmxjsudek", suggestion=True)
         self.assertEqual(search, [])
         self.assertEqual(suggestion, None)
+
+    @pytest.mark.skip(reason="Skipping test that makes live API calls")
 
     def test_language_cache(self) -> None:
         """Test that search results are properly cached per language."""

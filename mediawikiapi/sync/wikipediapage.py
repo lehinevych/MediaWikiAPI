@@ -8,7 +8,12 @@ from bs4 import BeautifulSoup
 
 from ..base.base_wikipediapage import BaseWikipediaPage
 from ..common.api_version import MEDIAWIKI_1_34
-from ..exceptions import ODD_ERROR_MESSAGE, PageError, RedirectError, MediaWikiAPIException
+from ..exceptions import (
+    ODD_ERROR_MESSAGE,
+    PageError,
+    RedirectError,
+    MediaWikiAPIException,
+)
 from ..language import Language
 from .util import clean_infobox
 
@@ -16,7 +21,7 @@ from .util import clean_infobox
 class WikipediaPage(BaseWikipediaPage):
     """
     Contains data from a Wikipedia page.
-    
+
     This class extends BaseWikipediaPage with synchronous HTTP requests and
     provides access to Wikipedia page content using standard Python data structures.
     Uses property methods to filter data from the raw HTML.
@@ -37,7 +42,7 @@ class WikipediaPage(BaseWikipediaPage):
     ) -> None:
         """
         Initialize a Wikipedia page.
-        
+
         Args:
             request: Function to make API requests
             title: Title of the page (mutually exclusive with pageid)
@@ -49,13 +54,13 @@ class WikipediaPage(BaseWikipediaPage):
         """
         # Call the parent's init to set up basic properties
         super().__init__(request, title, pageid, original_title)
-        
+
         # Store reference to the MediaWikiAPI instance for version checking
         self._mediawiki_api = mediawiki_api
-        
+
         # Load page data
         self.__load(redirect=redirect, preload=preload)
-        
+
         # Preload properties if requested
         if preload:
             for prop in (
@@ -174,10 +179,10 @@ class WikipediaPage(BaseWikipediaPage):
         """
         Execute a continued query for paging through results.
         Based on https://www.mediawiki.org/wiki/API:Query#Continuing_queries
-        
+
         Args:
             query_params: Parameters for the API request
-            
+
         Yields:
             Data from each page of results
         """
@@ -243,10 +248,10 @@ class WikipediaPage(BaseWikipediaPage):
 
         Args:
             section_title: Title of the section to retrieve
-        
+
         Returns:
             Content of the section or None if not found
-        
+
         .. warning:: Calling `section` on a section that has subheadings will NOT return
                the full text of all of the subsections. It only gets the text between
                `section_title` and the next subheading, which is often empty.
@@ -257,51 +262,58 @@ class WikipediaPage(BaseWikipediaPage):
     def lang_title(self, lang_code: str) -> Optional[str]:
         """
         Get the title of this page in a different language.
-        
+
         Args:
             lang_code: Language code to get title for
-            
+
         Returns:
             Title in the requested language or None if not available
-            
+
         Raises:
             LanguageException: If language code is invalid
         """
         # Use the helper method from the base class to build parameters
         query_params = self._build_langlinks_params(Language(lang_code).language)
-        
+
         request = self.request(query_params)
         pageid = next(iter(request["query"]["pages"]))
         title: Optional[str] = None
-        
+
         import contextlib
+
         with contextlib.suppress(Exception):
             title = request["query"]["pages"][pageid]["langlinks"][0]["*"]
-            
+
         return title
-        
+
     @property
     def infobox(self) -> Dict[str, Any]:
         """
         Info box section of the page
-        
+
         Supported only for MediaWiki version 1.34 or higher
-        
+
         Raises:
             MediaWikiAPIException: If the server doesn't support infobox extraction
         """
         # Check if server supports infobox extraction
-        if hasattr(self, "_mediawiki_api") and hasattr(self._mediawiki_api, "is_feature_available"):
+        if hasattr(self, "_mediawiki_api") and hasattr(
+            self._mediawiki_api, "is_feature_available"
+        ):
             api_url = self._mediawiki_api.config.get_api_url()
             version = self._mediawiki_api.config.get_api_version(api_url)
-            
-            if version and version < MEDIAWIKI_1_34 and not self._mediawiki_api.config.feature_compatibility_mode:
+
+            if (
+                version
+                and version < MEDIAWIKI_1_34
+                and not self._mediawiki_api.config.feature_compatibility_mode
+            ):
                 raise MediaWikiAPIException(
                     f"Infobox extraction requires MediaWiki 1.34+. "
                     f"The server you're using has version {version}. "
                     f"Enable feature_compatibility_mode to try anyway."
                 )
-        
+
         if getattr(self, "_infobox", False):
             return self._infobox
         if not getattr(self, "_html", False):
@@ -325,24 +337,30 @@ class WikipediaPage(BaseWikipediaPage):
     def content(self) -> str:
         """
         Plain text content of the page, excluding images, tables, and other data.
-        
+
         Supported only for MediaWiki version 1.34 or higher
-        
+
         Raises:
             MediaWikiAPIException: If the server doesn't support content extraction
         """
         # Check if server supports content extraction
-        if hasattr(self, "_mediawiki_api") and hasattr(self._mediawiki_api, "is_feature_available"):
+        if hasattr(self, "_mediawiki_api") and hasattr(
+            self._mediawiki_api, "is_feature_available"
+        ):
             api_url = self._mediawiki_api.config.get_api_url()
             version = self._mediawiki_api.config.get_api_version(api_url)
-            
-            if version and version < MEDIAWIKI_1_34 and not self._mediawiki_api.config.feature_compatibility_mode:
+
+            if (
+                version
+                and version < MEDIAWIKI_1_34
+                and not self._mediawiki_api.config.feature_compatibility_mode
+            ):
                 raise MediaWikiAPIException(
                     f"Content extraction requires MediaWiki 1.34+. "
                     f"The server you're using has version {version}. "
                     f"Enable feature_compatibility_mode to try anyway."
                 )
-                
+
         if not getattr(self, "_content", False):
             query_params: Dict[str, Union[str, int]] = {
                 "prop": "extracts|revisions",
@@ -351,38 +369,39 @@ class WikipediaPage(BaseWikipediaPage):
             }
             query_params.update(self._title_query_param)
             request = self.request(query_params)
-            
+
             try:
                 self._content: str = request["query"]["pages"][self.pageid]["extract"]
                 self._revision_id: int = request["query"]["pages"][self.pageid][
                     "revisions"
                 ][0]["revid"]
-                self._parent_id: int = request["query"]["pages"][self.pageid]["revisions"][
-                    0
-                ]["parentid"]
+                self._parent_id: int = request["query"]["pages"][self.pageid][
+                    "revisions"
+                ][0]["parentid"]
             except KeyError:
                 # If extracts extension is not available, fall back to HTML parsing
                 if not getattr(self, "_html", False):
                     self.html()
-                
+
                 soup = BeautifulSoup(self._html, "html.parser")
                 # Remove tables, images, etc.
-                for element in soup.find_all(['table', 'img', 'script', 'style']):
+                for element in soup.find_all(["table", "img", "script", "style"]):
                     element.decompose()
-                
+
                 # Get plain text
                 self._content = soup.get_text()
-                
+
                 # Try to get revision and parent IDs separately
                 try:
-                    revision_params = {
-                        "prop": "revisions",
-                        "rvprop": "ids"
-                    }
+                    revision_params = {"prop": "revisions", "rvprop": "ids"}
                     revision_params.update(self._title_query_param)
                     revision_request = self.request(revision_params)
-                    self._revision_id = revision_request["query"]["pages"][self.pageid]["revisions"][0]["revid"]
-                    self._parent_id = revision_request["query"]["pages"][self.pageid]["revisions"][0]["parentid"]
+                    self._revision_id = revision_request["query"]["pages"][self.pageid][
+                        "revisions"
+                    ][0]["revid"]
+                    self._parent_id = revision_request["query"]["pages"][self.pageid][
+                        "revisions"
+                    ][0]["parentid"]
                 except (KeyError, IndexError):
                     # If we can't get revision IDs, set them to 0
                     self._revision_id = 0
@@ -394,30 +413,36 @@ class WikipediaPage(BaseWikipediaPage):
     def revision_id(self) -> int:
         """
         Revision ID of the page.
-        
+
         The revision ID is a number that uniquely identifies the current
         version of the page. It can be used to create the permalink or for
         other direct API calls. See `Help:Page history
         <http://en.wikipedia.org/wiki/Wikipedia:Revision>`_ for more
         information.
-        
+
         Supported only for MediaWiki version 1.34 or higher
-        
+
         Raises:
             MediaWikiAPIException: If the server doesn't support revision IDs
         """
         # Check if server supports revision IDs
-        if hasattr(self, "_mediawiki_api") and hasattr(self._mediawiki_api, "is_feature_available"):
+        if hasattr(self, "_mediawiki_api") and hasattr(
+            self._mediawiki_api, "is_feature_available"
+        ):
             api_url = self._mediawiki_api.config.get_api_url()
             version = self._mediawiki_api.config.get_api_version(api_url)
-            
-            if version and version < MEDIAWIKI_1_34 and not self._mediawiki_api.config.feature_compatibility_mode:
+
+            if (
+                version
+                and version < MEDIAWIKI_1_34
+                and not self._mediawiki_api.config.feature_compatibility_mode
+            ):
                 raise MediaWikiAPIException(
                     f"Revision ID extraction requires MediaWiki 1.34+. "
                     f"The server you're using has version {version}. "
                     f"Enable feature_compatibility_mode to try anyway."
                 )
-                
+
         if not getattr(self, "_revision_id", False):
             # fetch the content (side effect is loading the revid)
             _ = self.content
@@ -429,24 +454,30 @@ class WikipediaPage(BaseWikipediaPage):
         """
         Revision ID of the parent version of the current revision of this
         page. See ``revision_id`` for more information.
-        
+
         Supported only for MediaWiki version 1.34 or higher
-        
+
         Raises:
             MediaWikiAPIException: If the server doesn't support parent IDs
         """
         # Check if server supports parent IDs
-        if hasattr(self, "_mediawiki_api") and hasattr(self._mediawiki_api, "is_feature_available"):
+        if hasattr(self, "_mediawiki_api") and hasattr(
+            self._mediawiki_api, "is_feature_available"
+        ):
             api_url = self._mediawiki_api.config.get_api_url()
             version = self._mediawiki_api.config.get_api_version(api_url)
-            
-            if version and version < MEDIAWIKI_1_34 and not self._mediawiki_api.config.feature_compatibility_mode:
+
+            if (
+                version
+                and version < MEDIAWIKI_1_34
+                and not self._mediawiki_api.config.feature_compatibility_mode
+            ):
                 raise MediaWikiAPIException(
                     f"Parent ID extraction requires MediaWiki 1.34+. "
                     f"The server you're using has version {version}. "
                     f"Enable feature_compatibility_mode to try anyway."
                 )
-                
+
         if not getattr(self, "_parent_id", False):
             # fetch the content (side effect is loading the revid)
             _ = self.content
@@ -456,24 +487,30 @@ class WikipediaPage(BaseWikipediaPage):
     def summary(self) -> str:
         """
         Plain text summary of the page.
-        
+
         Supported only for MediaWiki version 1.34 or higher
-        
+
         Raises:
             MediaWikiAPIException: If the server doesn't support summaries
         """
         # Check if server supports summaries
-        if hasattr(self, "_mediawiki_api") and hasattr(self._mediawiki_api, "is_feature_available"):
+        if hasattr(self, "_mediawiki_api") and hasattr(
+            self._mediawiki_api, "is_feature_available"
+        ):
             api_url = self._mediawiki_api.config.get_api_url()
             version = self._mediawiki_api.config.get_api_version(api_url)
-            
-            if version and version < MEDIAWIKI_1_34 and not self._mediawiki_api.config.feature_compatibility_mode:
+
+            if (
+                version
+                and version < MEDIAWIKI_1_34
+                and not self._mediawiki_api.config.feature_compatibility_mode
+            ):
                 raise MediaWikiAPIException(
                     f"Summary extraction requires MediaWiki 1.34+. "
                     f"The server you're using has version {version}. "
                     f"Enable feature_compatibility_mode to try anyway."
                 )
-                
+
         if not getattr(self, "_summary", False):
             query_params: Dict[str, Union[str, int]] = {
                 "prop": "extracts",
@@ -489,9 +526,9 @@ class WikipediaPage(BaseWikipediaPage):
                 # If extracts extension is not available, fall back to first paragraph of content
                 if not getattr(self, "_content", False):
                     _ = self.content
-                
+
                 # Get the first paragraph (or first 500 chars if no paragraphs)
-                paragraphs = self._content.split('\n\n')
+                paragraphs = self._content.split("\n\n")
                 self._summary = paragraphs[0] if paragraphs else self._content[:500]
 
         return self._summary
@@ -552,9 +589,7 @@ class WikipediaPage(BaseWikipediaPage):
 
             self._references = [
                 add_protocol(link["*"])
-                for link in self.__continued_query(
-                    self._build_references_params("max")
-                )
+                for link in self.__continued_query(self._build_references_params("max"))
             ]
 
         return self._references
@@ -563,16 +598,14 @@ class WikipediaPage(BaseWikipediaPage):
     def links(self) -> List[str]:
         """
         List of titles of Wikipedia page links on a page.
-        
+
         .. note:: Only includes articles from namespace 0, meaning no Category,
           User talk, or other meta-Wikipedia pages.
         """
         if not getattr(self, "_links", False):
             self._links = [
                 link["title"]
-                for link in self.__continued_query(
-                    self._build_links_params(0, "max")
-                )
+                for link in self.__continued_query(self._build_links_params(0, "max"))
             ]
 
         return self._links
@@ -601,7 +634,7 @@ class WikipediaPage(BaseWikipediaPage):
     def backlinks_ids(self) -> List[int]:
         """
         List of pages ids that link to a given page
-        
+
         .. note:: It is not guaranteed that backlinks_ids list contains all backlinks.
             Sometimes the pageid is missing and only title is available, as a result
             len(backlinks_ids) <= len(backlinks).

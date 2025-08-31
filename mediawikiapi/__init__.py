@@ -18,11 +18,7 @@ from .exceptions import (
 from .language import Language
 
 # Base classes
-from .base import (
-    BaseMediaWikiAPI,
-    BaseWikipediaPage,
-    BaseRequestSession
-)
+from .base import BaseMediaWikiAPI, BaseWikipediaPage, BaseRequestSession
 
 # Synchronous implementations
 from .sync import (
@@ -31,7 +27,7 @@ from .sync import (
     RequestSession,
     memorized,
     get_cache_statistics as sync_get_cache_statistics,
-    invalidate_all_caches as sync_invalidate_all_caches
+    invalidate_all_caches as sync_invalidate_all_caches,
 )
 
 # Asynchronous implementations
@@ -41,7 +37,7 @@ from .async_api import (
     AsyncRequestSession,
     async_memorized,
     get_cache_statistics as async_get_cache_statistics,
-    invalidate_all_caches as async_invalidate_all_caches
+    invalidate_all_caches as async_invalidate_all_caches,
 )
 
 # Common utilities
@@ -53,7 +49,6 @@ from .common import (
     validate_limit,
     validate_category_params,
     validate_sentences_and_chars,
-    
     # Error handling functions
     handle_api_error,
     handle_page_error,
@@ -62,7 +57,7 @@ from .common import (
     process_search_results,
     process_geosearch_results,
     process_random_results,
-    process_category_members_results
+    process_category_members_results,
 )
 
 # For backward compatibility
@@ -79,12 +74,10 @@ __all__ = [
     "MediaWikiAPIException",
     "PageError",
     "RedirectError",
-    
     # Base classes
     "BaseMediaWikiAPI",
     "BaseWikipediaPage",
     "BaseRequestSession",
-    
     # Synchronous implementations
     "MediaWikiAPI",
     "WikipediaPage",
@@ -92,7 +85,6 @@ __all__ = [
     "memorized",
     "get_cache_statistics",
     "invalidate_all_caches",
-    
     # Asynchronous implementations
     "AsyncMediaWikiAPI",
     "AsyncWikipediaPage",
@@ -100,7 +92,6 @@ __all__ = [
     "async_memorized",
     "async_get_cache_statistics",
     "async_invalidate_all_caches",
-    
     # Common utilities
     "validate_title_or_pageid",
     "validate_geosearch_params",
@@ -115,5 +106,5 @@ __all__ = [
     "process_search_results",
     "process_geosearch_results",
     "process_random_results",
-    "process_category_members_results"
+    "process_category_members_results",
 ]

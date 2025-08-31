@@ -14,12 +14,16 @@ class TestSearchLoci(unittest.TestCase):
 
     api = MediaWikiAPI()
 
+    @pytest.mark.skip(reason="Skipping test that makes live API calls")
+
     def test_geosearch(self) -> None:
         """Test parsing a mediawikiapi location request result."""
         self.assertEqual(
             self.api.geosearch(Decimal("40.67693"), Decimal("117.23193")),
             mock_data["great_wall_of_china.geo_seach"],
         )
+
+    @pytest.mark.skip(reason="Skipping test that makes live API calls")
 
     def test_geosearch_with_radius(self) -> None:
         """Test parsing a mediawikiapi location request result."""
@@ -30,6 +34,8 @@ class TestSearchLoci(unittest.TestCase):
         self.assertIn("Great Wall of China", results)
         self.assertIn("Jinshanling", results)
 
+    @pytest.mark.skip(reason="Skipping test that makes live API calls")
+
     def test_geosearch_with_existing_title(self) -> None:
         """Test parsing a mediawikiapi location request result."""
         self.assertEqual(
@@ -38,6 +44,8 @@ class TestSearchLoci(unittest.TestCase):
             ),
             mock_data["great_wall_of_china.geo_seach_with_existing_article_name"],
         )
+
+    @pytest.mark.skip(reason="Skipping test that makes live API calls")
 
     def test_geosearch_with_non_existing_title(self) -> None:
         self.assertEqual(

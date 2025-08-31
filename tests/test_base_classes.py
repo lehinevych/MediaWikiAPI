@@ -1,6 +1,7 @@
 """
 Tests for abstract base classes.
 """
+
 import unittest
 from unittest.mock import MagicMock, patch
 
@@ -15,41 +16,42 @@ class TestBaseMediaWikiAPI(unittest.TestCase):
 
     def setUp(self):
         """Set up a concrete implementation of BaseMediaWikiAPI."""
+
         # Create a mock implementation of BaseMediaWikiAPI
         class ConcreteMediaWikiAPI(BaseMediaWikiAPI):
             def get_cache_statistics(self):
                 return {}
-                
+
             def invalidate_all_caches(self):
                 return {}
-                
+
             def search(self, *args, **kwargs):
                 pass
-                
+
             def geosearch(self, *args, **kwargs):
                 pass
-                
+
             def suggest(self, *args, **kwargs):
                 pass
-                
+
             def random(self, *args, **kwargs):
                 pass
-                
+
             def summary(self, *args, **kwargs):
                 pass
-                
+
             def page(self, *args, **kwargs):
                 pass
-                
+
             def languages(self):
                 pass
-                
+
             def category_members(self, *args, **kwargs):
                 pass
-                
+
             def custom_query(self, *args, **kwargs):
                 pass
-        
+
         self.api = ConcreteMediaWikiAPI()
 
     def test_init(self):
@@ -57,7 +59,7 @@ class TestBaseMediaWikiAPI(unittest.TestCase):
         # Default config
         api = self.api
         self.assertIsInstance(api.config, Config)
-        
+
         # Custom config
         config = Config()
         config.language = "fr"
@@ -71,19 +73,21 @@ class TestBaseMediaWikiAPI(unittest.TestCase):
         self.assertEqual(params["srlimit"], 20)
         self.assertEqual(params["srsearch"], "test query")
         self.assertEqual(params["srinfo"], "suggestion")
-        
+
         params = self.api._prepare_search_params("test query", 10, False)
         self.assertNotIn("srinfo", params)
 
     def test_prepare_geosearch_params(self):
         """Test geosearch parameter preparation."""
-        params = self.api._prepare_geosearch_params(40.748, -73.985, "Empire State", 15, 500)
+        params = self.api._prepare_geosearch_params(
+            40.748, -73.985, "Empire State", 15, 500
+        )
         self.assertEqual(params["list"], "geosearch")
         self.assertEqual(params["gsradius"], 500)
         self.assertEqual(params["gscoord"], "40.748|-73.985")
         self.assertEqual(params["gslimit"], 15)
         self.assertEqual(params["titles"], "Empire State")
-        
+
         params = self.api._prepare_geosearch_params(40.748, -73.985, None, 10, 1000)
         self.assertNotIn("titles", params)
 
@@ -110,13 +114,13 @@ class TestBaseMediaWikiAPI(unittest.TestCase):
         self.assertEqual(params["exsentences"], 3)
         self.assertNotIn("exchars", params)
         self.assertNotIn("exintro", params)
-        
+
         # With chars
         params = self.api._prepare_summary_params("Test Page", None, 200)
         self.assertEqual(params["exchars"], 200)
         self.assertNotIn("exsentences", params)
         self.assertNotIn("exintro", params)
-        
+
         # With neither (uses intro)
         params = self.api._prepare_summary_params("Test Page", None, None)
         self.assertIn("exintro", params)
@@ -131,17 +135,17 @@ class TestBaseMediaWikiAPI(unittest.TestCase):
         self.assertEqual(params["cmtitle"], "Category:Science")
         self.assertEqual(params["cmlimit"], "25")
         self.assertEqual(params["cmtype"], "page")
-        
+
         # With pageid
         params = self.api._prepare_category_members_params(None, 12345, 50, "subcat")
         self.assertEqual(params["cmpageid"], "12345")
         self.assertEqual(params["cmlimit"], "50")
         self.assertEqual(params["cmtype"], "subcat")
-        
+
         # Neither title nor pageid
         with self.assertRaises(ValueError):
             self.api._prepare_category_members_params(None, None, 10, "page")
-            
+
         # Both title and pageid
         with self.assertRaises(ValueError):
             self.api._prepare_category_members_params("Science", 12345, 10, "page")
@@ -150,7 +154,7 @@ class TestBaseMediaWikiAPI(unittest.TestCase):
         """Test error response handling."""
         # No error
         self.api._handle_error_response({"query": {}}, "test")
-        
+
         # HTTP timeout
         with self.assertRaises(Exception):
             self.api._handle_error_response(
@@ -164,10 +168,11 @@ class TestBaseRequestSession(unittest.TestCase):
 
     def setUp(self):
         """Set up a concrete implementation of BaseRequestSession."""
+
         class ConcreteRequestSession(BaseRequestSession):
             def request(self, params, config):
                 pass
-        
+
         self.session = ConcreteRequestSession()
 
     def test_build_api_url(self):
@@ -176,7 +181,7 @@ class TestBaseRequestSession(unittest.TestCase):
         config.language = "en"
         url = self.session._build_api_url(config)
         self.assertEqual(url, "https://en.wikipedia.org/w/api.php")
-        
+
         config.language = "fr"
         url = self.session._build_api_url(config)
         self.assertEqual(url, "https://fr.wikipedia.org/w/api.php")
@@ -188,9 +193,11 @@ class TestBaseRequestSession(unittest.TestCase):
         self.assertEqual(params["format"], "json")
         self.assertEqual(params["action"], "query")
         self.assertEqual(params["titles"], "Test")
-        
+
         # With custom action
-        params = self.session._prepare_params({"action": "opensearch", "search": "Test"})
+        params = self.session._prepare_params(
+            {"action": "opensearch", "search": "Test"}
+        )
         self.assertEqual(params["action"], "opensearch")
         self.assertNotEqual(params["action"], "query")  # Action is preserved
 
@@ -207,6 +214,7 @@ class TestBaseWikipediaPage(unittest.TestCase):
 
     def setUp(self):
         """Set up a concrete implementation of BaseWikipediaPage."""
+
         class ConcreteWikipediaPage(BaseWikipediaPage):
             def __init__(self, request, title=None, pageid=None, original_title=""):
                 # Custom implementation to handle property conflict
@@ -218,40 +226,38 @@ class TestBaseWikipediaPage(unittest.TestCase):
                     self._pageid = pageid  # Store in _pageid instead of pageid
                 else:
                     raise ValueError("Either a title or a pageid must be specified")
-            
+
             def __repr__(self):
-                if hasattr(self, 'title'):
+                if hasattr(self, "title"):
                     return f"<ConcreteWikipediaPage {self.title}>"
                 else:
                     return f"<ConcreteWikipediaPage {self.pageid}>"
-                
+
             @property
             def pageid(self):
-                return getattr(self, '_pageid', 12345)
-                
+                return getattr(self, "_pageid", 12345)
+
             @property
             def url(self):
-                if hasattr(self, 'title'):
+                if hasattr(self, "title"):
                     return f"https://en.wikipedia.org/wiki/{self.title}"
                 else:
                     return f"https://en.wikipedia.org/wiki/?curid={self.pageid}"
-                
+
             def html(self):
                 pass
-                
+
             def section(self, section_title):
                 pass
-                
+
             def lang_title(self, lang_code):
                 pass
-        
+
         self.request_mock = MagicMock()
         self.page_with_title = ConcreteWikipediaPage(
             self.request_mock, title="Test Page"
         )
-        self.page_with_pageid = ConcreteWikipediaPage(
-            self.request_mock, pageid=12345
-        )
+        self.page_with_pageid = ConcreteWikipediaPage(self.request_mock, pageid=12345)
 
     def test_init(self):
         """Test initialization with title and pageid."""
@@ -260,12 +266,12 @@ class TestBaseWikipediaPage(unittest.TestCase):
         self.assertEqual(page.title, "Test Page")
         self.assertEqual(page.original_title, "Test Page")
         self.assertEqual(page.request, self.request_mock)
-        
+
         # With pageid
         page = self.page_with_pageid
         self.assertEqual(page.pageid, 12345)
         self.assertEqual(page.request, self.request_mock)
-        
+
         # With neither (should raise ValueError)
         with self.assertRaises(ValueError):
             BaseWikipediaPage.__init__(
@@ -277,7 +283,7 @@ class TestBaseWikipediaPage(unittest.TestCase):
         # With title
         params = self.page_with_title._title_query_param
         self.assertEqual(params, {"titles": "Test Page"})
-        
+
         # With pageid
         params = self.page_with_pageid._title_query_param
         self.assertEqual(params, {"pageids": 12345})
@@ -288,11 +294,11 @@ class TestBaseWikipediaPage(unittest.TestCase):
         page1 = self.page_with_title.__class__(self.request_mock, title="Test Page")
         page2 = self.page_with_title.__class__(self.request_mock, title="Test Page")
         self.assertEqual(page1, page2)
-        
+
         # Different title
         page3 = self.page_with_title.__class__(self.request_mock, title="Other Page")
         self.assertNotEqual(page1, page3)
-        
+
         # Different types
         self.assertNotEqual(page1, "Not a WikipediaPage")
 
@@ -304,11 +310,11 @@ class TestBaseWikipediaPage(unittest.TestCase):
         self.assertEqual(params["explaintext"], "")
         self.assertEqual(params["titles"], "Test Page")
         self.assertEqual(params["exsentences"], 5)
-        
+
         # With chars
         params = self.page_with_title._build_extracts_params(None, 200)
         self.assertEqual(params["exchars"], 200)
-        
+
         # With neither
         params = self.page_with_title._build_extracts_params(None, None)
         self.assertIn("exintro", params)
@@ -328,11 +334,11 @@ class TestBaseWikipediaPage(unittest.TestCase):
         == Section 2 ==
         This is section 2.
         """
-        
+
         # Extract existing section
         section = self.page_with_title._extract_section_text(content, "Section 1")
         self.assertIn("This is section 1", section)
-        
+
         # Extract non-existent section
         section = self.page_with_title._extract_section_text(content, "Nonexistent")
         self.assertIsNone(section)

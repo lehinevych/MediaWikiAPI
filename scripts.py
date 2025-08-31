@@ -37,17 +37,9 @@ def setup_hooks() -> int:
 
 
 def test(args: List[str]) -> int:
-    """Run tests with pytest."""
-    cmd = ["pytest"]
-    if not args:
-        cmd.extend(
-            [
-                "--junitxml=pytest.xml",
-                "--cov-report=term-missing:skip-covered",
-                "--cov=mediawikiapi",
-            ]
-        )
-    else:
+    """Run tests with the run_tests.py script to avoid rate limiting."""
+    cmd = ["./run_tests.py"]
+    if args:
         cmd.extend(args)
     return run_command(cmd)
 

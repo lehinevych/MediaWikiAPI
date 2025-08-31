@@ -9,10 +9,7 @@ from .mediawikiapi import MediaWikiAPI
 from .wikipediapage import WikipediaPage
 from .requestsession import RequestSession
 from .util import memorized
-from .cache_util import (
-    get_cache_statistics, 
-    invalidate_all_caches
-)
+from .cache_util import get_cache_statistics, invalidate_all_caches
 
 __all__ = [
     "MediaWikiAPI",
@@ -20,5 +17,5 @@ __all__ = [
     "RequestSession",
     "memorized",
     "get_cache_statistics",
-    "invalidate_all_caches"
+    "invalidate_all_caches",
 ]

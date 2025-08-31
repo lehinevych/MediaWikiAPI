@@ -11,7 +11,7 @@ from .validation import (
     validate_search_params,
     validate_limit,
     validate_category_params,
-    validate_sentences_and_chars
+    validate_sentences_and_chars,
 )
 from .error_handling import (
     handle_api_error,
@@ -21,7 +21,7 @@ from .error_handling import (
     process_search_results,
     process_geosearch_results,
     process_random_results,
-    process_category_members_results
+    process_category_members_results,
 )
 
 __all__ = [
@@ -32,7 +32,6 @@ __all__ = [
     "validate_limit",
     "validate_category_params",
     "validate_sentences_and_chars",
-    
     # Error handling functions
     "handle_api_error",
     "handle_page_error",
@@ -41,5 +40,5 @@ __all__ = [
     "process_search_results",
     "process_geosearch_results",
     "process_random_results",
-    "process_category_members_results"
+    "process_category_members_results",
 ]

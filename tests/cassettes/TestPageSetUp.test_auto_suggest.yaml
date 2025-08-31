@@ -414,4 +414,95 @@ interactions:
     status:
       code: 200
       message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?action=query&meta=siteinfo&format=json
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA31WCW/bNhT+K53QbT1CWVLs2PHQrUdabEADFEWLAo3bjpIoiQtFKiIVxw2y377v
+        UbKtZNkMyNC77/d0HaTcZVVm6kYJJ4JlEBwEF51oN8HyOiiFFi1X9FpzqRteEscpXh+8o/cDSFtC
+        Vc41djmZCB2u5blsRC55aNpyQtCEBL4NAlY6oXlNQp+2nEArUxqg7tFgHXcym8ga8nbStOYvkTlG
+        /BbMxBs2uoSK3llnWnKRxEn/gziczsKIresijA/B1VTNpWitNBpsizAODwes5Y0EqmhqVmSlBDJP
+        3aYhR+uNvVAesReNo/AoTCJ2ylvJT16SQxQG12Vm9J6NcFKf38U56ZS4j7FpRSGvsoq3Vri76D3s
+        Wi4V5evrozPOvn95+vhR+OTxw4k9IQZRctVbID1ge/DjD6vg4U8/P3r85GC1YuFqNYnY8fKXZ789
+        f8E+r/D7+u1P6Pl7tbpaRAz/b948hSapL7mSeWdFSzXbqnu+/PUZqPCItzyVWadlZvKheYCtueIb
+        PPUtQikdq7itACXH+WwaiVmcRdPjmPMii9JilibTdJrPi/ksi4/TWV4sBqm05TojOVRxcregWd+B
+        hWwt2kI4J9qhEMAKTR5xpVKenQfLsy97aJFK91rDPek511LnZm1ZnMwSyKxb9GnfEYBqjkjRhUpY
+        +R3Wkuh4Hs8SqmMtvhtNDnz88CroEaYofPGig2CQargj9/tpeBjTGGStbNwOv8N4aAJfxFWIpgT+
+        khpMu1uaEIMVEBEtGujesQm21GHW7qETLHNPo9fBeapOlMxYtEAqPiTx8nC6jGafKQkSGutdObtG
+        GZ5bDHOqRL7L04D2aZodHi3m0XGcRCSte1JWdfq8p8dRMkWFURDsG9M4TIKlXdPP+jvRvjdrn0aP
+        +CRzit1r84jfhSwrN2Ay7uXfCl36nFICKrN+uXHCDs71rmN0ckmsXA08Jwhb2954ENwgD1VXp0rW
+        0gFzRurjGZ5FdJBEeAAngA/xPo2iL4M3O/5rZNZ7ekh+VYOTyTS6OdiRjqYj0nQxJi2iEekoGpP6
+        fG1p86PFmJYsRnLEOSIms6OxK9F0ceMn4RLjqf9vfQ/Ld+Cc7IkAafaERjqxIZQx512D5Xwpc9+R
+        r3rKiw7mMQZK/QcrJewOszIZSkNp1ZhlMon0ymzbYXilDWj7ac64E6VpN5lRirt+lXYZZ7koeKcc
+        69g5rQBtCjCY9SAZjFDaiqtMbJuPdG4puaGjd4sa1BS9Pzr7IUoRkR3BnifESb0F7+larMfsd2fy
+        ojNOjGBrujYbI/zRcJs9xndzuxmzmA1acoTIuRvbKDqd+ZgGnDNG2RA7VfF0jCvwulUjXCXahue3
+        2JAugAzNUciSZhfQKbco3AksUtF9O4gLyfPA8752Wf4WHKfYvIUU+R+066jTk+PpPMH0Zdi8rbAN
+        vKNQRYFHZ7sp5leMvkMYra5FNE+O4njuj6K3dB1UaHKqVC5wDGg3se0/BZFjCUlqGshbwJWr1Yxh
+        tWlhnfTfEQAy5mS+Ya1oFGLAdnBMWtsJkqjRVhLmBCPZQbnUTEnrtmR8SzFkWBkrcoYc1tyRcvKB
+        VDTrljcs7Uq2Nu05b02nc7+wFTLZC/Xeei8KA/Ng3sLrCgmyDRwbsDtLvnMsOVMJ7u8aykPd19WU
+        kdSUHai0rNh222ILGKqWyPvIKQ078z4W1FYZzYTFhhVD+9AYkRlx5eiVzCha1WeBqBu32Zn3Ki1F
+        LvRO6W3M2FuMHm0oRpsa+eNr3iJG3OrSp8h7QsfdpNbQ1+qg0Tpczmbw+ssNbfpU4lRvr+Nou9X/
+        uoLUS5cSEwluiZRa7CbTUg5qAb2ZP0g7pjuAvxb0RXs/kUqDcRZbzhqpJiKdy7t6QG77NFAj2dFE
+        oePfEgr38KOlgGK6EMC+xtaU/k4SHec2IoLve5G/x5+mGp/wDSwcRjf4/QNDX5/T7gsAAA==
+    headers:
+      age:
+      - '2'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-encoding:
+      - gzip
+      content-length:
+      - '1477'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 12 Aug 2025 21:34:04 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw-api-ext.codfw.main-7dff4466db-r8r98
+      server-timing:
+      - cache;desc="pass", host;desc="cp4043"
+      set-cookie:
+      - WMF-Last-Access=12-Aug-2025;Path=/;HttpOnly;secure;Expires=Sat, 13 Sep 2025
+        12:00:00 GMT
+      - WMF-Last-Access-Global=12-Aug-2025;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Sat,
+        13 Sep 2025 12:00:00 GMT
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; Path=/; secure; Domain=.wikipedia.org
+      - NetworkProbeLimit=0.001;Path=/;Secure;SameSite=None;Max-Age=3600
+      - WMF-Uniq=QYn5X9NiJn1iQWHj3QaKxQJNAAAAAFvd9VcVVbJlDGV45g0vIIV-7DiRCGMHkqRS;Domain=.wikipedia.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Wed,
+        12 Aug 2026 00:00:00 GMT
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      vary:
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      x-cache:
+      - cp4043 miss, cp4043 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 205.251.233.110
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+    status:
+      code: 200
+      message: OK
 version: 1

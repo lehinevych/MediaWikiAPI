@@ -17,24 +17,26 @@ from .type_definitions import WikiQuery, WikiResponse
 def prepare_request_headers(config: Config) -> Dict[str, str]:
     """
     Prepare headers for an HTTP request.
-    
+
     Args:
         config: Configuration object
-        
+
     Returns:
         Dictionary of HTTP headers
     """
     return {"User-Agent": config.user_agent}
 
 
-def prepare_api_url(config: Config, language: Optional[Union[str, Language]] = None) -> str:
+def prepare_api_url(
+    config: Config, language: Optional[Union[str, Language]] = None
+) -> str:
     """
     Prepare the API URL for a request.
-    
+
     Args:
         config: Configuration object
         language: Optional language override
-        
+
     Returns:
         API URL for the request
     """
@@ -42,22 +44,21 @@ def prepare_api_url(config: Config, language: Optional[Union[str, Language]] = N
 
 
 def should_rate_limit(
-    last_call: Optional[datetime], 
-    config: Config
+    last_call: Optional[datetime], config: Config
 ) -> Tuple[bool, Optional[float]]:
     """
     Check if a request should be rate limited.
-    
+
     Args:
         last_call: Timestamp of the last API call
         config: Configuration object
-        
+
     Returns:
         Tuple of (should_limit, wait_seconds)
     """
     if (
-        last_call 
-        and config.rate_limit 
+        last_call
+        and config.rate_limit
         and (last_call + config.rate_limit) > datetime.now()
     ):
         wait_time = (last_call + config.rate_limit) - datetime.now()
@@ -68,11 +69,11 @@ def should_rate_limit(
 def calculate_backoff_with_jitter(config: Config, attempt: int) -> float:
     """
     Calculate backoff time with jitter for retries.
-    
+
     Args:
         config: Configuration object
         attempt: Attempt number (0-based)
-        
+
     Returns:
         Backoff time in seconds
     """
@@ -81,15 +82,17 @@ def calculate_backoff_with_jitter(config: Config, attempt: int) -> float:
     return backoff_time + jitter
 
 
-def should_retry_status_code(config: Config, attempt: int, status_code: Optional[int]) -> bool:
+def should_retry_status_code(
+    config: Config, attempt: int, status_code: Optional[int]
+) -> bool:
     """
     Check if a request should be retried based on HTTP status code.
-    
+
     Args:
         config: Configuration object
         attempt: Current attempt number (0-based)
         status_code: HTTP status code
-        
+
     Returns:
         True if the request should be retried, False otherwise
     """
@@ -102,11 +105,11 @@ def prepare_error_context(
     message: Optional[str] = None,
     attempts: Optional[int] = None,
     continuation: bool = False,
-    **kwargs: Any
+    **kwargs: Any,
 ) -> Dict[str, Any]:
     """
     Prepare error context for network errors.
-    
+
     Args:
         api_url: API URL that was accessed
         status_code: Optional HTTP status code
@@ -114,12 +117,12 @@ def prepare_error_context(
         attempts: Optional number of attempts made
         continuation: Whether this was a continuation request
         **kwargs: Additional context values
-        
+
     Returns:
         Dictionary of error context
     """
     context = {"url": api_url}
-    
+
     if status_code is not None:
         context["status_code"] = status_code
     if message is not None:
@@ -128,8 +131,8 @@ def prepare_error_context(
         context["attempts"] = attempts
     if continuation:
         context["continuation"] = True
-        
+
     # Add any additional context
     context.update(kwargs)
-    
+
     return context

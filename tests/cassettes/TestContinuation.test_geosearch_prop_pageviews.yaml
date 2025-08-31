@@ -8,8 +8,6 @@ interactions:
       - gzip, deflate
       Connection:
       - keep-alive
-      User-Agent:
-      - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
     method: GET
     uri: https://en.wikipedia.org/w/api.php?meta=siteinfo&siprop=languages&format=json&action=query
   response:
@@ -240,8 +238,6 @@ interactions:
       - gzip, deflate
       Connection:
       - keep-alive
-      User-Agent:
-      - mediawikiapi (https://github.com/lehinevych/MediaWikiAPI/)
     method: GET
     uri: https://en.wikipedia.org/w/api.php?action=query&generator=geosearch&ggsradius=10000&ggscoord=40.7128%7C-74.0060&ggssort=relevance&prop=pageviews&ggslimit=50&format=json
   response:
@@ -509,8 +505,6 @@ interactions:
         12 Aug 2026 00:00:00 GMT
       strict-transport-security:
       - max-age=106384710; includeSubDomains; preload
-      transfer-encoding:
-      - chunked
       vary:
       - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
       x-cache:
@@ -525,6 +519,97 @@ interactions:
       - DENY
       x-search-id:
       - 7hjqgmurjiryz8kgkqiqfnk2s
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+    method: GET
+    uri: https://en.wikipedia.org/w/api.php?action=query&meta=siteinfo&format=json
+  response:
+    body:
+      string: !!binary |
+        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
+    headers:
+      age:
+      - '0'
+      cache-control:
+      - private, must-revalidate, max-age=0
+      content-disposition:
+      - inline; filename=api-result.json
+      content-encoding:
+      - gzip
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 12 Aug 2025 21:45:50 GMT
+      nel:
+      - '{ "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      report-to:
+      - '{ "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      server:
+      - mw-api-ext.codfw.main-85d497b887-52lbr
+      server-timing:
+      - cache;desc="pass", host;desc="cp4043"
+      set-cookie:
+      - WMF-Last-Access=12-Aug-2025;Path=/;HttpOnly;secure;Expires=Sat, 13 Sep 2025
+        12:00:00 GMT
+      - WMF-Last-Access-Global=12-Aug-2025;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Sat,
+        13 Sep 2025 12:00:00 GMT
+      - GeoIP=US:OR:Boardman:45.84:-119.70:v4; Path=/; secure; Domain=.wikipedia.org
+      - NetworkProbeLimit=0.001;Path=/;Secure;SameSite=None;Max-Age=3600
+      - WMF-Uniq=vRntlv2h0C8664cTU_R-WQJNAAAAAFvdhGZvnGwNNaY4jqztL56OrC5UpY6Vd8ti;Domain=.wikipedia.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Wed,
+        12 Aug 2026 00:00:00 GMT
+      strict-transport-security:
+      - max-age=106384710; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      x-cache:
+      - cp4043 miss, cp4043 pass
+      x-cache-status:
+      - pass
+      x-client-ip:
+      - 205.251.233.110
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
     status:
       code: 200
       message: OK

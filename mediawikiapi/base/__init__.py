@@ -9,8 +9,4 @@ from .base_mediawikiapi import BaseMediaWikiAPI
 from .base_wikipediapage import BaseWikipediaPage
 from .base_requestsession import BaseRequestSession
 
-__all__ = [
-    "BaseMediaWikiAPI",
-    "BaseWikipediaPage", 
-    "BaseRequestSession"
-]
+__all__ = ["BaseMediaWikiAPI", "BaseWikipediaPage", "BaseRequestSession"]

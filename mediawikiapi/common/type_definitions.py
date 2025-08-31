@@ -6,7 +6,18 @@ implementations to ensure consistent typing.
 """
 
 from decimal import Decimal
-from typing import Any, Awaitable, Callable, Dict, List, Optional, Protocol, Tuple, TypeVar, Union
+from typing import (
+    Any,
+    Awaitable,
+    Callable,
+    Dict,
+    List,
+    Optional,
+    Protocol,
+    Tuple,
+    TypeVar,
+    Union,
+)
 
 from ..config import Config
 
@@ -24,21 +35,23 @@ WikiResponse = Dict[str, Any]
 
 
 # Type variables for generic specialization
-T = TypeVar('T')  # Generic type
-P = TypeVar('P')  # For page type
+T = TypeVar("T")  # Generic type
+P = TypeVar("P")  # For page type
 
 
 # Protocol for request functions
 class SyncRequestCallable(Protocol):
     """Protocol for synchronous request functions."""
-    def __call__(self, params: WikiQuery, config: Config) -> WikiResponse:
-        ...
+
+    def __call__(self, params: WikiQuery, config: Config) -> WikiResponse: ...
 
 
 class AsyncRequestCallable(Protocol):
     """Protocol for asynchronous request functions."""
-    def __call__(self, params: WikiQuery, config: Config) -> Awaitable[WikiResponse]:
-        ...
+
+    def __call__(
+        self, params: WikiQuery, config: Config
+    ) -> Awaitable[WikiResponse]: ...
 
 
 # Generic request callable

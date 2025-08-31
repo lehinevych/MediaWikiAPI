@@ -10,7 +10,9 @@ from ..config import Config
 from ..exceptions import HTTPTimeoutError, MediaWikiAPIException, PageError
 
 
-class AsyncMediaWikiAPI(BaseMediaWikiAPI[AsyncWikipediaPage, Coroutine[Any, Any, Dict[str, Any]]]):
+class AsyncMediaWikiAPI(
+    BaseMediaWikiAPI[AsyncWikipediaPage, Coroutine[Any, Any, Dict[str, Any]]]
+):
     """Asynchronous interface for the MediaWiki API"""
 
     def __init__(self, config: Optional[Config] = None) -> None:
@@ -19,7 +21,7 @@ class AsyncMediaWikiAPI(BaseMediaWikiAPI[AsyncWikipediaPage, Coroutine[Any, Any,
         # Initialize the session with connection pooling settings from config
         self.session = AsyncRequestSession(
             pool_size=self.config.connection_pool_size,
-            pool_connections_per_host=self.config.connections_per_host
+            pool_connections_per_host=self.config.connections_per_host,
         )
         # Configure concurrent requests limit
         self.session.set_max_concurrent_requests(self.config.max_concurrent_requests)
@@ -35,28 +37,28 @@ class AsyncMediaWikiAPI(BaseMediaWikiAPI[AsyncWikipediaPage, Coroutine[Any, Any,
     async def __aexit__(self, exc_type: Any, exc_val: Any, exc_tb: Any) -> None:
         """Close the session when exiting context"""
         await self.close()
-        
+
     def set_connection_pool_size(self, size: int) -> None:
         """Set the maximum number of connections in the connection pool.
-        
+
         Args:
             size: Maximum number of connections
         """
         self.config.connection_pool_size = size
         self.session.set_pool_size(size)
-        
+
     def set_connections_per_host(self, limit: int) -> None:
         """Set the maximum number of connections per host.
-        
+
         Args:
             limit: Maximum number of connections per host
         """
         self.config.connections_per_host = limit
         self.session.set_max_connections_per_host(limit)
-        
+
     def set_concurrent_request_limit(self, limit: int) -> None:
         """Set the maximum number of concurrent requests.
-        
+
         Args:
             limit: Maximum number of concurrent requests
         """
@@ -174,7 +176,9 @@ class AsyncMediaWikiAPI(BaseMediaWikiAPI[AsyncWikipediaPage, Coroutine[Any, Any,
         * results - the maximum number of results returned
         * radius - Search radius in meters. The value must be between 10 and 10000
         """
-        search_params = self._prepare_geosearch_params(latitude, longitude, title, results, radius)
+        search_params = self._prepare_geosearch_params(
+            latitude, longitude, title, results, radius
+        )
         raw_results = await self.session.request(search_params, self.config)
 
         # Handle errors using the base class helper method
@@ -232,7 +236,7 @@ class AsyncMediaWikiAPI(BaseMediaWikiAPI[AsyncWikipediaPage, Coroutine[Any, Any,
         page_info = await self.page(title, auto_suggest=auto_suggest, redirect=redirect)
         title = page_info.title
         pageid = page_info.pageid
-        
+
         # Use the helper method from the base class
         query_params = self._prepare_summary_params(title, sentences, chars)
 
@@ -343,9 +347,11 @@ class AsyncMediaWikiAPI(BaseMediaWikiAPI[AsyncWikipediaPage, Coroutine[Any, Any,
         * cmtype - which type of page to include. ("page", "subcat", or "file")
         """
         # Use the helper method from the base class
-        query_params = self._prepare_category_members_params(title, pageid, cmlimit, cmtype)
+        query_params = self._prepare_category_members_params(
+            title, pageid, cmlimit, cmtype
+        )
         response = await self.session.request(query_params, self.config)
-        
+
         # Process results using the base class helper method
         return self._process_category_members_results(response)
 
@@ -357,7 +363,9 @@ class AsyncMediaWikiAPI(BaseMediaWikiAPI[AsyncWikipediaPage, Coroutine[Any, Any,
 
         webbrowser.open(Config().donate_url(), new=2)
 
-    async def custom_query(self, query_params: Dict[str, Union[str, int, bool, List[str]]]) -> Dict[str, Any]:
+    async def custom_query(
+        self, query_params: Dict[str, Union[str, int, bool, List[str]]]
+    ) -> Dict[str, Any]:
         """
         Make a custom query to the Wikipedia API with the given parameters.
 

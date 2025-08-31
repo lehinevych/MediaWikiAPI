@@ -23,18 +23,19 @@ class Config(object):
     DEFAULT_RETRY_BACKOFF_FACTOR = 0.5  # seconds
     DEFAULT_RETRY_BACKOFF_MAX = 60  # seconds
     DEFAULT_RETRY_STATUS_CODES = {429, 500, 502, 503, 504}
-    
+
     # Default concurrency settings
     DEFAULT_CONNECTION_POOL_SIZE = 100
     DEFAULT_CONNECTIONS_PER_HOST = 10
     DEFAULT_MAX_CONCURRENT_REQUESTS = 10
-    
+
     class RetryStrategy(Enum):
         """Enum defining retry strategies"""
-        NONE = auto()           # No retries
-        DEFAULT = auto()        # Default strategy using configured values
-        AGGRESSIVE = auto()     # More aggressive strategy for important requests
-        
+
+        NONE = auto()  # No retries
+        DEFAULT = auto()  # Default strategy using configured values
+        AGGRESSIVE = auto()  # More aggressive strategy for important requests
+
     def __init__(
         self,
         language: Optional[str] = None,
@@ -67,17 +68,23 @@ class Config(object):
         self.mediawiki_url: str = mediawiki_url or self.API_URL
         self.cache_ttl: Optional[float] = cache_ttl
         self.cache_max_size: Optional[int] = cache_max_size
-        
+
         # API version handling
         self.min_api_version: MediaWikiVersion = min_api_version or MEDIAWIKI_1_34
         self.feature_compatibility_mode: bool = feature_compatibility_mode
         self.detected_api_versions: Dict[str, MediaWikiVersion] = {}
-        
+
         # Initialize concurrency control settings
-        self.connection_pool_size: int = connection_pool_size or self.DEFAULT_CONNECTION_POOL_SIZE
-        self.connections_per_host: int = connections_per_host or self.DEFAULT_CONNECTIONS_PER_HOST
-        self.max_concurrent_requests: int = max_concurrent_requests or self.DEFAULT_MAX_CONCURRENT_REQUESTS
-        
+        self.connection_pool_size: int = (
+            connection_pool_size or self.DEFAULT_CONNECTION_POOL_SIZE
+        )
+        self.connections_per_host: int = (
+            connections_per_host or self.DEFAULT_CONNECTIONS_PER_HOST
+        )
+        self.max_concurrent_requests: int = (
+            max_concurrent_requests or self.DEFAULT_MAX_CONCURRENT_REQUESTS
+        )
+
         # Validate concurrency settings
         if self.connection_pool_size < 1:
             raise ValueError("Connection pool size must be at least 1")
@@ -85,10 +92,10 @@ class Config(object):
             raise ValueError("Connections per host must be at least 1")
         if self.max_concurrent_requests < 1:
             raise ValueError("Maximum concurrent requests must be at least 1")
-        
+
         # Initialize retry settings
         self.retry_strategy = retry_strategy
-        
+
         # Use provided values or defaults based on strategy
         if self.retry_strategy == self.RetryStrategy.NONE:
             self.max_retries = 0
@@ -97,14 +104,31 @@ class Config(object):
             self.retry_status_codes = set()
         elif self.retry_strategy == self.RetryStrategy.AGGRESSIVE:
             self.max_retries = max_retries or 5  # More retries
-            self.retry_backoff_factor = retry_backoff_factor or 0.3  # Shorter initial backoff
+            self.retry_backoff_factor = (
+                retry_backoff_factor or 0.3
+            )  # Shorter initial backoff
             self.retry_backoff_max = retry_backoff_max or 120  # Longer max backoff
-            self.retry_status_codes = retry_status_codes or {408, 429, 500, 502, 503, 504, 520, 521, 522, 524}
+            self.retry_status_codes = retry_status_codes or {
+                408,
+                429,
+                500,
+                502,
+                503,
+                504,
+                520,
+                521,
+                522,
+                524,
+            }
         else:  # DEFAULT strategy
             self.max_retries = max_retries or self.DEFAULT_MAX_RETRIES
-            self.retry_backoff_factor = retry_backoff_factor or self.DEFAULT_RETRY_BACKOFF_FACTOR
+            self.retry_backoff_factor = (
+                retry_backoff_factor or self.DEFAULT_RETRY_BACKOFF_FACTOR
+            )
             self.retry_backoff_max = retry_backoff_max or self.DEFAULT_RETRY_BACKOFF_MAX
-            self.retry_status_codes = retry_status_codes or self.DEFAULT_RETRY_STATUS_CODES
+            self.retry_status_codes = (
+                retry_status_codes or self.DEFAULT_RETRY_STATUS_CODES
+            )
 
     @classmethod
     def donate_url(cls) -> str:
@@ -168,90 +192,88 @@ class Config(object):
             self.__rate_limit = rate_limit
         else:
             self.__rate_limit = timedelta(milliseconds=rate_limit)
-            
+
     def should_retry(self, attempt: int, status_code: Optional[int] = None) -> bool:
         """
         Determine if a request should be retried based on the current retry settings.
-        
+
         Args:
             attempt: Current attempt number (0-based)
             status_code: HTTP status code of the failed request, if applicable
-            
+
         Returns:
             True if request should be retried, False otherwise
         """
         # Check if we've reached max retries
         if attempt >= self.max_retries:
             return False
-            
+
         # If no status code provided, retry based on attempt count only
         if status_code is None:
             return True
-            
+
         # Otherwise, check if status code is in retry_status_codes
         return status_code in self.retry_status_codes
-        
+
     def get_retry_backoff(self, attempt: int) -> float:
         """
         Calculate backoff time for a retry attempt using exponential backoff.
-        
+
         Args:
             attempt: Current attempt number (0-based)
-            
+
         Returns:
             Backoff time in seconds
         """
         # Calculate exponential backoff with jitter
-        backoff = min(
-            self.retry_backoff_max,
-            self.retry_backoff_factor * (2 ** attempt)
-        )
+        backoff = min(self.retry_backoff_max, self.retry_backoff_factor * (2**attempt))
         return backoff
-        
+
     def set_api_version(self, api_url: str, version: MediaWikiVersion) -> None:
         """
         Set the detected MediaWiki API version for a specific API URL.
-        
+
         Args:
             api_url: The API URL
             version: The detected MediaWiki version
         """
         self.detected_api_versions[api_url] = version
-        
+
     def get_api_version(self, api_url: str) -> Optional[MediaWikiVersion]:
         """
         Get the detected MediaWiki API version for a specific API URL.
-        
+
         Args:
             api_url: The API URL
-            
+
         Returns:
             MediaWikiVersion if detected, None otherwise
         """
         return self.detected_api_versions.get(api_url)
-        
+
     def is_feature_available(self, feature: str, api_url: str) -> bool:
         """
         Check if a feature is available for the given API URL.
-        
+
         Args:
             feature: Feature name
             api_url: The API URL
-            
+
         Returns:
             True if the feature is available or compatibility mode is enabled,
             False otherwise
         """
         from .common.api_version import is_feature_available
-        
+
         # If feature compatibility mode is enabled, assume all features are available
         if self.feature_compatibility_mode:
             return True
-            
+
         # If we have detected the API version for this URL, check if the feature is available
         version = self.get_api_version(api_url)
         if version:
             return is_feature_available(feature, version)
-            
-        # If we haven't detected the API version yet, use the minimum required version
-        return is_feature_available(feature, self.min_api_version)
+
+        # If we haven't detected the API version yet and the URL is unknown,
+        # we can't determine feature availability so return False
+        return False

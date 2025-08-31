@@ -5,7 +5,7 @@ import pytest_asyncio
 import vcr
 
 # Configure VCR for test recordings
-os.environ["VCR_RECORD_MODE"] = "new_episodes"
+os.environ["VCR_RECORD_MODE"] = "once"
 
 
 # Setup VCR for both sync and async tests
@@ -13,7 +13,7 @@ os.environ["VCR_RECORD_MODE"] = "new_episodes"
 def vcr_config():
     return {
         "filter_headers": ["User-Agent"],
-        "record_mode": "new_episodes",
+        "record_mode": "once",
         "serializer": "yaml",
         "cassette_library_dir": "tests/cassettes",
     }
