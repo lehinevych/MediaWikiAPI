@@ -51,7 +51,7 @@ class RequestSession(object):
         if "action" not in params:
             params["action"] = "query"
 
-        headers = {"User-Agent": config.user_agent}
+        headers = config.get_headers()
 
         if (
             self.__rate_limit_last_call

@@ -79,3 +79,48 @@ class TestConfig(unittest.TestCase):
         self.assertEqual(config.language, fr_lang)
         config.language = Language(uk_lang)  # type:ignore
         self.assertEqual(config.language, uk_lang)
+
+    def test_default_headers(self) -> None:
+        """Test that default headers include User-Agent"""
+        config = Config()
+        headers = config.get_headers()
+        self.assertIn("User-Agent", headers)
+        self.assertEqual(headers["User-Agent"], Config.DEFAULT_USER_AGENT)
+
+    def test_access_token_in_headers(self) -> None:
+        """Test that access_token is included in Authorization header"""
+        access_token = "test_token_12345"
+        config = Config(access_token=access_token)
+        headers = config.get_headers()
+        self.assertIn("Authorization", headers)
+        self.assertEqual(headers["Authorization"], f"Bearer {access_token}")
+
+    def test_custom_headers(self) -> None:
+        """Test that custom headers are included"""
+        custom_headers = {"X-Custom-Header": "custom_value", "X-Another": "another"}
+        config = Config(custom_headers=custom_headers)
+        headers = config.get_headers()
+        self.assertIn("X-Custom-Header", headers)
+        self.assertEqual(headers["X-Custom-Header"], "custom_value")
+        self.assertIn("X-Another", headers)
+        self.assertEqual(headers["X-Another"], "another")
+
+    def test_custom_headers_override_defaults(self) -> None:
+        """Test that custom headers can override default User-Agent"""
+        custom_user_agent = "MyCustomBot/1.0"
+        custom_headers = {"User-Agent": custom_user_agent}
+        config = Config(custom_headers=custom_headers)
+        headers = config.get_headers()
+        self.assertEqual(headers["User-Agent"], custom_user_agent)
+
+    def test_access_token_and_custom_headers(self) -> None:
+        """Test that access_token and custom headers work together"""
+        access_token = "test_token_12345"
+        custom_headers = {"X-Custom": "value"}
+        config = Config(access_token=access_token, custom_headers=custom_headers)
+        headers = config.get_headers()
+        self.assertIn("Authorization", headers)
+        self.assertEqual(headers["Authorization"], f"Bearer {access_token}")
+        self.assertIn("X-Custom", headers)
+        self.assertEqual(headers["X-Custom"], "value")
+        self.assertIn("User-Agent", headers)
