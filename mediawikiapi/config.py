@@ -1,11 +1,11 @@
 from datetime import timedelta
-from typing import Union, Optional
+from typing import Union, Optional, Dict
 from .language import Language
 
 
 class Config(object):
     """
-    Contains global configuration
+    Contains global configuration for MediaWiki API requests.
     """
 
     DEFAULT_TIMEOUT = 3.0
@@ -22,7 +22,23 @@ class Config(object):
         timeout: Optional[float] = None,
         rate_limit: Optional[Union[int, timedelta]] = None,
         mediawiki_url: Optional[str] = None,
+        access_token: Optional[str] = None,
+        custom_headers: Optional[Dict[str, str]] = None,
     ):
+        """
+        Initialize MediaWiki API configuration.
+
+        Args:
+            language: Language code for Wikipedia (e.g., 'en', 'fr'). Defaults to 'en'.
+            user_agent: Custom User-Agent string for requests. Defaults to library identifier.
+            timeout: Request timeout in seconds. Defaults to 3.0.
+            rate_limit: Minimum time between requests (int as milliseconds or timedelta).
+            mediawiki_url: Custom MediaWiki API URL. Defaults to Wikipedia URL pattern.
+            access_token: Personal Access Token for Wikimedia API authentication.
+                         See https://api.wikimedia.org/wiki/Authentication
+            custom_headers: Additional HTTP headers to include in all requests.
+                           Can override default headers including User-Agent.
+        """
         if language is not None:
             self.__lang = Language(language)
         else:
@@ -33,6 +49,8 @@ class Config(object):
         self.timeout: float = timeout or self.DEFAULT_TIMEOUT
         self.user_agent: str = user_agent or self.DEFAULT_USER_AGENT
         self.mediawiki_url: str = mediawiki_url or self.API_URL
+        self.access_token: Optional[str] = access_token
+        self.custom_headers: Dict[str, str] = custom_headers or {}
 
     @classmethod
     def donate_url(cls) -> str:
@@ -95,3 +113,23 @@ class Config(object):
             self.__rate_limit = rate_limit
         else:
             self.__rate_limit = timedelta(milliseconds=rate_limit)
+
+    def get_headers(self) -> Dict[str, str]:
+        """
+        Get HTTP headers for API requests including authentication.
+
+        Returns:
+            Dictionary of HTTP headers including User-Agent, Authorization (if access_token is set),
+            and any custom headers.
+        """
+        headers = {"User-Agent": self.user_agent}
+
+        # Add Personal Access Token authentication if provided
+        # https://api.wikimedia.org/wiki/Authentication
+        if self.access_token:
+            headers["Authorization"] = f"Bearer {self.access_token}"
+
+        # Merge custom headers (custom headers can override defaults)
+        headers.update(self.custom_headers)
+
+        return headers

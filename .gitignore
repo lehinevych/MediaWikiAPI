@@ -42,3 +42,9 @@ nosetests.xml
 #PyPi
 setup.cfg
 .pypirc
+
+# macOS
+.DS_Store
+
+# Test artifacts
+pytest.xml
